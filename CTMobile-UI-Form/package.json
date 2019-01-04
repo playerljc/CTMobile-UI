@@ -1,0 +1,51 @@
+{
+  "name": "@ctmobile/ui-form",
+  "version": "1.0.0",
+  "description": "支持移动端的UI组件-表单",
+  "main": "lib/form.js",
+  "scripts": {
+    "build": "rimraf lib && babel src -d lib/src --ignore __tests__ && gulp",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "jsdoc src README.md -d doc -u doc/tutorials"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/playerljc/CTMobile-UI.git"
+  },
+  "keywords": [
+    "form",
+    "CtMobile",
+    "CTMibole-UI",
+    "mobile",
+    "webapp",
+    "SPA",
+    "Hybrid",
+    "Cordova",
+    "Android",
+    "iOS",
+    "Material",
+    "playerljc",
+    "WebFramework"
+  ],
+  "author": "playerljc <playerljc@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/playerljc/CTMobile-UI/issues"
+  },
+  "homepage": "https://github.com/playerljc/CTMobile-UI#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/runtime": "^7.1.5",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-replace": "^0.6.1",
+    "gulp-uglify": "^3.0.1",
+    "jquery": "^3.3.1",
+    "rimraf": "^2.6.2"
+  }
+}

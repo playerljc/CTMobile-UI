@@ -1,0 +1,2924 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-stickuplayout-demo</title>
+</head>
+
+<body>
+
+<div class="ctmobile-ui-doc">
+
+  <!-- StickupLayout -->
+
+  <!--菜单-->
+  <h1>StickupLayout</h1>
+  <ul>
+    <li><a href="#stickuplayout-layout">基本布局</a></li>
+    <li><a href="#stickuplayout-initial">初始化</a></li>
+    <li><a href="#stickuplayout-demo">例子</a></li>
+    <li><a href="#stickuplayout-methods">方法</a></li>
+    <li>
+      <a href="#stickuplayout-events">事件</a>
+      <ul>
+        <li><a href="#stickuplayout-events-beforeshow">change</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--基本布局-->
+  <h2 id="stickuplayout-layout">基本布局</h2>
+  <p>常见的布局如下：</p>
+  <pre>
+  <code class="html">
+    <div class="ct-stickuplayout">
+      <div class="ct-stickuplayout-fixed"></div>
+      <ul class="ct-stickuplayout-inner">
+        <li class="ct-stickuplayout-item">
+          <div class="ct-stickuplayout-item-header">header1</div>
+          <div class="ct-stickuplayout-item-content"></div>
+        </li>
+      </ul>
+    </div>
+  </code>
+  </pre>
+  <ul>
+    <li>
+      ct-stickuplayout - 代表是一个stickuplayout组件
+      <ul>
+        <li>ct-stickuplayout-fixed - 代表固定的头</li>
+        <li>
+          ct-stickuplayout-inner - 代表滚动的列表部分
+          <ul>
+            <li>
+              ct-stickuplayout-item - 代表滚动列表的一行
+              <ul>
+                <li>ct-stickuplayout-item-header - 列表一行的头部分</li>
+                <li>ct-stickuplayout-item-content - 列表一行的内容部分</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--初始化-->
+  <h2 id="stickuplayout-initial">初始化</h2>
+  <pre>
+  <code class="javascript">
+  import StickupLayout from '@ctmobile/ui-stickuplayout';
+  const stickuplayout = StickupLayout(el);
+  </code>
+  </pre>
+
+  <!--例子-->
+  <h2 id="stickuplayout-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+        <pre>
+      <code class="html">
+      <!--基本的-->
+      <dl>
+          <dt>
+            <h3 class="title">基本的</h3>
+          </dt>
+          <dd>
+            <div class="ct-stickuplayout" id="stickuplayout-demo-base">
+              <div class="ct-stickuplayout-fixed"></div>
+              <ul class="ct-stickuplayout-inner">
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">基本参数</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>厂商指导价(元)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>本地参考底价(元)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>厂商</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>级别</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>能源类型</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>上市时间</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大功率(KW)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>发动机</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">车身</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">发动机</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">变速箱</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">车轮制动</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">主/被动安全装备</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </dd>
+      </dl>
+
+      <!--动态插入和删除-->
+      <dl>
+          <dt>
+            <h3 class="title">动态插入和删除</h3>
+            <div class="toolbar">
+              <button id="stickuplayout-demo-dynamic-append">插入</button>
+            </div>
+          </dt>
+          <dd>
+            <div class="ct-stickuplayout" id="stickuplayout-demo-dynamic">
+              <div class="ct-stickuplayout-fixed"></div>
+              <ul class="ct-stickuplayout-inner">
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">基本参数</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>厂商指导价(元)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>本地参考底价(元)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>厂商</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>级别</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>能源类型</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>上市时间</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大功率(KW)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>发动机</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">车身</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">发动机</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">变速箱</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">车轮制动</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">主/被动安全装备</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </dd>
+        </dl>
+
+      <!--滚动到指定位置(通过索引)-->
+      <dl>
+          <dt>
+            <h3 class="title">滚动到指定位置(通过索引)</h3>
+            <div class="toolbar">
+              <button id="stickuplayout-demo-scrollbyindex-noanimation-btn">滚动到最后一行(无动画)</button>
+              <button id="stickuplayout-demo-scrollbyindex-animation-btn">滚动到最后一行(有动画)</button>
+              <button id="stickuplayout-demo-scrollbyindex-top-btn">回到顶部</button>
+            </div>
+          </dt>
+          <dd>
+            <div class="ct-stickuplayout" id="stickuplayout-demo-scrollbyindex">
+              <div class="ct-stickuplayout-fixed"></div>
+              <ul class="ct-stickuplayout-inner">
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">基本参数</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>厂商指导价(元)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>本地参考底价(元)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>厂商</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>级别</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>能源类型</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>上市时间</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大功率(KW)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>发动机</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">车身</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">发动机</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">变速箱</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">车轮制动</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">主/被动安全装备</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </dd>
+        </dl>
+
+      <!--滚动到指定位置(通过dom)-->
+      <dl>
+          <dt>
+            <h3 class="title">滚动到指定位置(通过Dom)</h3>
+            <div class="toolbar">
+              <button id="stickuplayout-demo-scrollbyel-noanimation-btn">滚动到最后一行(无动画)</button>
+              <button id="stickuplayout-demo-scrollbyel-animation-btn">滚动到最后一行(有动画)</button>
+              <button id="stickuplayout-demo-scrollbyel-top-btn">回到顶部</button>
+            </div>
+          </dt>
+          <dd>
+            <div class="ct-stickuplayout" id="stickuplayout-demo-scrollbyel">
+              <div class="ct-stickuplayout-fixed"></div>
+              <ul class="ct-stickuplayout-inner">
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">基本参数</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>厂商指导价(元)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>本地参考底价(元)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>厂商</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>级别</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>能源类型</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>上市时间</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大功率(KW)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>发动机</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">车身</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">发动机</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">变速箱</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">车轮制动</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li class="ct-stickuplayout-item">
+                  <div class="ct-stickuplayout-item-header"><span class="title">主/被动安全装备</span></div>
+                  <div class="ct-stickuplayout-item-content">
+                    <table>
+                      <tr>
+                        <td>长度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>宽度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>高度(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>轴距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>前轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>后轮距(mm)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>车身结构</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>最大扭矩(NH)</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </dd>
+        </dl>
+      </code>
+        </pre>
+        </dd>
+      </dl>
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+        <pre>
+        <code class="javascript">
+        <!--例子的js-->
+        import $ from 'jquery';
+        import StickupLayout from '@ctmobile/ui-stickuplayout/stickuplayout';
+        import '@ctmobile/ui-stickuplayout/stickuplayout.less';
+
+        let dynamicIndex = 0;
+
+        function getDynamicTemplate() {
+          return (
+            <pre>
+            <code class="html">
+            `<li class="ct-stickuplayout-item">
+              <div class="ct-stickuplayout-item-header"><span class="title">动态增加${++dynamicIndex}</span></div>
+              <div class="ct-stickuplayout-item-content">
+                <table>
+                  <tr>
+                  <td>长度(mm)</td>
+                  <td></td>
+                  <td></td>
+                  </tr>
+                  <tr>
+                  <td>宽度(mm)</td>
+                  <td></td>
+                  <td></td>
+                  </tr>
+                  <tr>
+                  <td>高度(mm)</td>
+                  <td></td>
+                  <td></td>
+                  </tr>
+                  <tr>
+                  <td>轴距(mm)</td>
+                  <td></td>
+                  <td></td>
+                  </tr>
+                  <tr>
+                  <td>前轮距(mm)</td>
+                  <td></td>
+                  <td></td>
+                  </tr>
+                  <tr>
+                  <td>后轮距(mm)</td>
+                  <td></td>
+                  <td></td>
+                  </tr>
+                  <tr>
+                  <td>车身结构</td>
+                  <td></td>
+                  <td></td>
+                  </tr>
+                  <tr>
+                  <td>最大扭矩(NH)</td>
+                  <td></td>
+                  <td></td>
+                  </tr>
+                  <tr>
+                  <td>最大扭矩(NH)</td>
+                  <td></td>
+                  <td></td>
+                  </tr>
+                </table>
+              </div>
+            </li>`
+            </code>
+            </pre>
+          );
+        }
+
+        // 基本的
+        StickupLayout($('#stickuplayout-demo-base')[0]);
+
+        // 动态的插入
+        const stickuplayoutDynamic = StickupLayout($('#stickuplayout-demo-dynamic')[0]);
+        $('#stickuplayout-demo-dynamic-append').on('click', () => {
+          const $dynamicItemJO = $(getDynamicTemplate());
+          $('#stickuplayout-demo-dynamic .ct-stickuplayout-inner').append($dynamicItemJO);
+          stickuplayoutDynamic.refresh();
+          stickuplayoutDynamic.scrollToByHeaderEl($dynamicItemJO.find('.ct-stickuplayout-item-header')[0]);
+        });
+
+        // 通过索引滚动到指定位置
+        const stickuplayoutScrollByIndex = StickupLayout($('#stickuplayout-demo-scrollbyindex')[0]);
+        const $stickuplayoutScrollbyindexItemJO = $('#stickuplayout-demo-scrollbyindex .ct-stickuplayout-inner .ct-stickuplayout-item');
+        $('#stickuplayout-demo-scrollbyindex-noanimation-btn').on('click', () => {
+          stickuplayoutScrollByIndex.scrollToByIndex($stickuplayoutScrollbyindexItemJO.length - 1, 0);
+        });
+        $('#stickuplayout-demo-scrollbyindex-animation-btn').on('click', () => {
+          stickuplayoutScrollByIndex.scrollToByIndex($stickuplayoutScrollbyindexItemJO.length - 1, 600);
+        });
+        $('#stickuplayout-demo-scrollbyindex-top-btn').on('click', () => {
+          stickuplayoutScrollByIndex.scrollToByIndex(0);
+        });
+
+
+        // 通过dom滚动到指定位置
+        const stickuplayoutScrollByDom = StickupLayout($('#stickuplayout-demo-scrollbyel')[0]);
+        const $stickuplayoutScrollbyelItemJO = $('#stickuplayout-demo-scrollbyel .ct-stickuplayout-inner .ct-stickuplayout-item');
+        $('#stickuplayout-demo-scrollbyel-noanimation-btn').on('click', () => {
+          stickuplayoutScrollByDom.scrollToByHeaderEl($stickuplayoutScrollbyelItemJO[$stickuplayoutScrollbyelItemJO.length - 1].querySelector('.ct-stickuplayout-item-header'), 0);
+        });
+        $('#stickuplayout-demo-scrollbyel-animation-btn').on('click', () => {
+          stickuplayoutScrollByDom.scrollToByHeaderEl($stickuplayoutScrollbyelItemJO[$stickuplayoutScrollbyelItemJO.length - 1].querySelector('.ct-stickuplayout-item-header'), 600);
+        });
+        $('#stickuplayout-demo-scrollbyel-top-btn').on('click', () => {
+          stickuplayoutScrollByDom.scrollToByHeaderEl($stickuplayoutScrollbyelItemJO[0].querySelector('.ct-stickuplayout-item-header'));
+        });
+        </code>
+        </pre>
+        </dd>
+      </dl>
+    </div>
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner">
+          <!--例子-->
+          <!--基本的-->
+          <dl>
+            <dt>
+              <h3 class="title">基本的</h3>
+            </dt>
+            <dd>
+              <div class="ct-stickuplayout" id="stickuplayout-demo-base">
+                <div class="ct-stickuplayout-fixed"></div>
+                <ul class="ct-stickuplayout-inner">
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">基本参数</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>厂商指导价(元)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>本地参考底价(元)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>厂商</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>级别</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>能源类型</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>上市时间</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大功率(KW)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>发动机</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">车身</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">发动机</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">变速箱</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">车轮制动</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">主/被动安全装备</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </dd>
+          </dl>
+
+          <!--动态插入和删除-->
+          <dl>
+            <dt>
+              <h3 class="title">动态插入和删除</h3>
+              <div class="toolbar">
+                <button id="stickuplayout-demo-dynamic-append">插入</button>
+              </div>
+            </dt>
+            <dd>
+              <div class="ct-stickuplayout" id="stickuplayout-demo-dynamic">
+                <div class="ct-stickuplayout-fixed"></div>
+                <ul class="ct-stickuplayout-inner">
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">基本参数</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>厂商指导价(元)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>本地参考底价(元)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>厂商</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>级别</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>能源类型</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>上市时间</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大功率(KW)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>发动机</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">车身</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">发动机</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">变速箱</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">车轮制动</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">主/被动安全装备</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </dd>
+          </dl>
+
+          <!--滚动到指定位置(通过索引)-->
+          <dl>
+            <dt>
+              <h3 class="title">滚动到指定位置(通过索引)</h3>
+              <div class="toolbar">
+                <button id="stickuplayout-demo-scrollbyindex-noanimation-btn">滚动到最后一行(无动画)</button>
+                <button id="stickuplayout-demo-scrollbyindex-animation-btn">滚动到最后一行(有动画)</button>
+                <button id="stickuplayout-demo-scrollbyindex-top-btn">回到顶部</button>
+              </div>
+            </dt>
+            <dd>
+              <div class="ct-stickuplayout" id="stickuplayout-demo-scrollbyindex">
+                <div class="ct-stickuplayout-fixed"></div>
+                <ul class="ct-stickuplayout-inner">
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">基本参数</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>厂商指导价(元)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>本地参考底价(元)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>厂商</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>级别</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>能源类型</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>上市时间</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大功率(KW)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>发动机</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">车身</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">发动机</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">变速箱</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">车轮制动</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">主/被动安全装备</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </dd>
+          </dl>
+
+          <!--滚动到指定位置(通过dom)-->
+          <dl>
+            <dt>
+              <h3 class="title">滚动到指定位置(通过Dom)</h3>
+              <div class="toolbar">
+                <button id="stickuplayout-demo-scrollbyel-noanimation-btn">滚动到最后一行(无动画)</button>
+                <button id="stickuplayout-demo-scrollbyel-animation-btn">滚动到最后一行(有动画)</button>
+                <button id="stickuplayout-demo-scrollbyel-top-btn">回到顶部</button>
+              </div>
+            </dt>
+            <dd>
+              <div class="ct-stickuplayout" id="stickuplayout-demo-scrollbyel">
+                <div class="ct-stickuplayout-fixed"></div>
+                <ul class="ct-stickuplayout-inner">
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">基本参数</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>厂商指导价(元)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>本地参考底价(元)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>厂商</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>级别</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>能源类型</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>上市时间</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大功率(KW)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>发动机</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">车身</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">发动机</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">变速箱</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">车轮制动</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                  <li class="ct-stickuplayout-item">
+                    <div class="ct-stickuplayout-item-header"><span class="title">主/被动安全装备</span></div>
+                    <div class="ct-stickuplayout-item-content">
+                      <table>
+                        <tr>
+                          <td>长度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>宽度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>高度(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>轴距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>前轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>后轮距(mm)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>车身结构</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>最大扭矩(NH)</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--方法-->
+  <h2 id="stickuplayout-methods">方法</h2>
+  <div class="method-wrap">
+    <p>scrollToByIndex(<span class="parameter">index</span>,<span class="parameter">duration</span>) - 通过索引滚动到某一项</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">index</span>-<span class="parameterType">number</span> 要滚动到目标的索引
+      </li>
+      <li>
+        <span class="parameter">duration</span>-<span class="parameterType">number</span> 滚动持续的时间(默认是300毫秒)
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>scrollToByHeaderEl(<span class="parameter">headerEl</span>,<span class="parameter">duration</span>) - 通过dom滚动到某一项</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">headerEl</span>-<span class="parameterType">HtmlElement</span> 要滚动到的dom(带有ct-stickuplayout-item-header样式的元素)
+      </li>
+      <li>
+        <span class="parameter">duration</span>-<span class="parameterType">number</span> 滚动持续的时间(默认是300毫秒)
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>refresh() - 刷新整个StickupLayout</p>
+  </div>
+  <div class="method-wrap">
+    <p>on(<span class="parameter">type</span>, <span class="parameter">handler</span>) - 注册事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span>
+        注册事件的类型,包括[change]
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span> 注册事件的回调函数
+      </li>
+    </ul>
+  </div>
+
+  <!--事件-->
+  <h2 id="stickuplayout-events">事件</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="stickuplayout-events-beforeshow">
+      <td>change</td>
+      <td>滚动切换时触发</td>
+    </tr>
+    </tbody>
+  </table>
+  <pre>
+  <code class="javascript">
+  <!--事件例子代码-->
+  import $ from 'jquery';
+  import StickupLayout from '@ctmobile/ui-stickuplayout/stickuplayout';
+  import '@ctmobile/ui-stickuplayout/stickuplayout.less';
+
+  // 基本的
+  const stickUpLayout = StickupLayout($('#stickuplayout-demo-base')[0]);
+  stickUpLayout.on('change', (dom, index) => {
+      console.log(dom);
+      console.log(index);
+  });
+  </code>
+  </pre>
+</div>
+
+
+</body>
+</html>

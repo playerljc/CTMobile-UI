@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-cascadecompared-demo</title>
+</head>
+
+<body>
+
+<div class="ctmobile-ui-doc">
+
+  <!-- CascadeCompared -->
+
+  <!--菜单-->
+  <h1>CascadeCompared</h1>
+  <ul>
+    <li><a href="#cascadecompared-layout">基本布局</a></li>
+    <li><a href="#cascadecompared-initial">初始化</a></li>
+    <li><a href="#cascadecompared-config">配置项</a></li>
+    <li><a href="#cascadecompared-demo">例子</a></li>
+    <li><a href="#cascadecompared-methods">方法</a></li>
+    <li>
+      <a href="#cascadecompared-events">事件</a>
+      <ul>
+        <li><a href="#cascadecompared-events-change">change</a></li>
+        <li><a href="#cascadecompared-events-scrollend">scrollend</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--基本布局-->
+  <h2 id="cascadecompared-layout">基本布局</h2>
+  <p>常见的布局如下：</p>
+  <pre>
+  <code class="html">
+    <div class="ct-stickuplayout ct-cascadecompared">
+      <div class="ct-cascadecompared-indicator">
+        <div class="ct-cascadecompared-fixedWrap">
+          <!--一个-->
+          <div class="ct-cascadecompared-item">
+            <span class="ct-cascadecompared-cell"></span>
+          </div>
+        </div>
+        <div class="ct-cascadecompared-autoWrap">
+          <!--个数等于列数-->
+          <span class="ct-cascadecompared-cell"></span>
+        </div>
+      </div>
+      <div class="ct-cascadecompared-master">
+        <div class="ct-cascadecompared-master-inner">
+          <div class="ct-stickuplayout-fixed"></div>
+          <ul class="ct-stickuplayout-inner">
+          <li class="ct-stickuplayout-item">
+            <div class="ct-stickuplayout-item-header"></div>
+            <div class="ct-stickuplayout-item-content">
+              <div class="ct-cascadecompared-fixedWrap">
+                <!--个数等于行数-->
+                <div class="ct-cascadecompared-item">
+                  <span class="ct-cascadecompared-cell"></span>
+                </div>
+              </div>
+              <div class="ct-cascadecompared-autoWrap">
+                <div class="ct-cascadecompared-autoInner">
+                  <!--个数等于函数-->
+                  <div class="ct-cascadecompared-item">
+                    <!--个数等于列数-->
+                    <span class="ct-cascadecompared-cell"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </div>
+  </code>
+  </pre>
+  <ul>
+    <li>
+      ct-cascadecompared和ct-stickuplayout - 代表是一个cascadecompared组件
+      <ul>
+        <li>
+          ct-cascadecompared-indicator - 代表指示器
+          <ul>
+            <li>
+              ct-cascadecompared-fixedWrap - 代表固定的部分
+              <ul>
+                <li>
+                  ct-cascadecompared-item - 代表固定部分的外层
+                  这个元素始终只有一个
+                  <ul>
+                    <li>ct-cascadecompared-cell - 代表固定部分的里层</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              ct-cascadecompared-autoWrap - 代表可以滚动的部分
+              <ul>
+                <li>
+                  ct-cascadecompared-cell - 代表可滚动的单元格
+                  元素个数同列数相同
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          ct-cascadecompared-master - 代表主体部分
+          <ul>
+            <li>
+              ct-cascadecompared-master-inner - 代表主体内的部分
+              <ul>
+                <li>ct-stickuplayout-fixed - 固定的列头</li>
+                <li>
+                  ct-stickuplayout-inner - 主体部分
+                  <ul>
+                    <li>
+                      ct-stickuplayout-item - 一行
+                      <ul>
+                        <li>ct-stickuplayout-item-header - 一行的头</li>
+                        <li>
+                          ct-stickuplayout-item-content - 一行的内容部分
+                          <ul>
+                            <li>
+                              ct-cascadecompared-fixedWrap - 代表固定的部分
+                              <ul>
+                                <li>
+                                  ct-cascadecompared-item - 代表固定部分的外层
+                                  个数等于行数
+                                  <ul>
+                                    <li>ct-cascadecompared-cell - 代表固定部分的里层</li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              ct-cascadecompared-autoWrap - 代表可以滚动的部分外层
+                              <ul>
+                                <li>
+                                  ct-cascadecompared-autoInner - 代表可滚动的部分内层
+                                  <ul>
+                                    <li>
+                                      ct-cascadecompared-item - 代表固定部分的外层
+                                      个数等于行数
+                                      <ul>
+                                        <li>
+                                          ct-cascadecompared-cell - 代表固定部分的里层
+                                          个数等于列数
+                                        </li>
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--初始化-->
+  <h2 id="cascadecompared-initial">初始化</h2>
+  <pre>
+  <code class="javascript">
+  import CascadeCompared from '@ctmobile/ui-cascadecompared';
+  import '@ctmobile/ui-cascadecompared/cascadecompared.less';
+  const cascadecompared = CascadeCompared(el,config = {columnsWidth = [], rowsHeight = []});
+  </code>
+  </pre>
+
+  <!--配置项-->
+  <h2 id="cascadecompared-config">配置项</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>参数</th>
+      <th>类型</th>
+      <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>columnsWidth</td>
+      <td>array</td>
+      <td>
+        列的宽度，例如[50,80,90,....],如果想跳过，可以写成null,undefined,''，跳过的宽度默认为6rem
+      </td>
+    </tr>
+    <tr>
+      <td>rowsHeight</td>
+      <td>array</td>
+      <td>
+        行的高度，例如[50,80,90,....],如果想跳过，可以写成null,undefined,''，跳过的宽度默认为3rem
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--例子-->
+  <h2 id="cascadecompared-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+        <pre>
+      <code class="html">
+        <!--基本的-->
+        <dl>
+            <dt>
+              <h3 class="title">基本的</h3>
+            </dt>
+            <dd>
+              <div class="ct-stickuplayout ct-cascadecompared" id="cascadecompared-demo-base">
+                <div class="ct-cascadecompared-indicator">
+                  <div class="ct-cascadecompared-fixedWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell"></span>
+                    </div>
+                  </div>
+                  <div class="ct-cascadecompared-autoWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell">指标</span>
+                      <span class="ct-cascadecompared-cell">比较1</span>
+                      <span class="ct-cascadecompared-cell">比较2</span>
+                      <span class="ct-cascadecompared-cell">比较3</span>
+                      <span class="ct-cascadecompared-cell">比较4</span>
+                      <span class="ct-cascadecompared-cell">比较5</span>
+                      <span class="ct-cascadecompared-cell">比较6</span>
+                      <span class="ct-cascadecompared-cell">比较7</span>
+                      <span class="ct-cascadecompared-cell">比较8</span>
+                      <span class="ct-cascadecompared-cell">比较9</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ct-cascadecompared-master">
+                  <div class="ct-cascadecompared-master-inner">
+                    <div class="ct-stickuplayout-fixed"></div>
+                    <ul class="ct-stickuplayout-inner"></ul>
+                  </div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+        <!--动态插入和删除-->
+        <dl>
+            <dt>
+              <h3 class="title">动态插入和删除</h3>
+              <div class="toolbar">
+                <button id="cascadecompared-demo-dynamic-append">插入</button>
+              </div>
+            </dt>
+            <dd>
+              <div class="ct-stickuplayout ct-cascadecompared" id="cascadecompared-demo-dynamic">
+                <div class="ct-cascadecompared-indicator">
+                  <div class="ct-cascadecompared-fixedWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell"></span>
+                    </div>
+                  </div>
+                  <div class="ct-cascadecompared-autoWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell">指标</span>
+                      <span class="ct-cascadecompared-cell">比较1</span>
+                      <span class="ct-cascadecompared-cell">比较2</span>
+                      <span class="ct-cascadecompared-cell">比较3</span>
+                      <span class="ct-cascadecompared-cell">比较4</span>
+                      <span class="ct-cascadecompared-cell">比较5</span>
+                      <span class="ct-cascadecompared-cell">比较6</span>
+                      <span class="ct-cascadecompared-cell">比较7</span>
+                      <span class="ct-cascadecompared-cell">比较8</span>
+                      <span class="ct-cascadecompared-cell">比较9</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ct-cascadecompared-master">
+                  <div class="ct-cascadecompared-master-inner">
+                    <div class="ct-stickuplayout-fixed"></div>
+                    <ul class="ct-stickuplayout-inner"></ul>
+                  </div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+        <!--滚动到指定位置(通过索引)-->
+        <dl>
+            <dt>
+              <h3 class="title">滚动到指定位置(通过索引)</h3>
+              <div class="toolbar">
+                <div class="toolbar">
+                  <button id="cascadecompared-demo-scrollbyindex-noanimation-btn">滚动到最后一行(无动画)</button>
+                  <button id="cascadecompared-demo-scrollbyindex-animation-btn">滚动到最后一行(有动画)</button>
+                  <button id="cascadecompared-demo-scrollbyindex-top-btn">回到顶部</button>
+                </div>
+              </div>
+            </dt>
+            <dd>
+              <div class="ct-stickuplayout ct-cascadecompared" id="cascadecompared-demo-scrollbyindex">
+                <div class="ct-cascadecompared-indicator">
+                  <div class="ct-cascadecompared-fixedWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell"></span>
+                    </div>
+                  </div>
+                  <div class="ct-cascadecompared-autoWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell">指标</span>
+                      <span class="ct-cascadecompared-cell">比较1</span>
+                      <span class="ct-cascadecompared-cell">比较2</span>
+                      <span class="ct-cascadecompared-cell">比较3</span>
+                      <span class="ct-cascadecompared-cell">比较4</span>
+                      <span class="ct-cascadecompared-cell">比较5</span>
+                      <span class="ct-cascadecompared-cell">比较6</span>
+                      <span class="ct-cascadecompared-cell">比较7</span>
+                      <span class="ct-cascadecompared-cell">比较8</span>
+                      <span class="ct-cascadecompared-cell">比较9</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ct-cascadecompared-master">
+                  <div class="ct-cascadecompared-master-inner">
+                    <div class="ct-stickuplayout-fixed"></div>
+                    <ul class="ct-stickuplayout-inner"></ul>
+                  </div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+        <!--滚动到指定位置(通过dom)-->
+        <dl>
+            <dt>
+              <h3 class="title">滚动到指定位置(通过Dom)</h3>
+              <div class="toolbar">
+                <div class="toolbar">
+                  <button id="cascadecompared-demo-scrollbyel-noanimation-btn">滚动到最后一行(无动画)</button>
+                  <button id="cascadecompared-demo-scrollbyel-animation-btn">滚动到最后一行(有动画)</button>
+                  <button id="cascadecompared-demo-scrollbyel-top-btn">回到顶部</button>
+                </div>
+              </div>
+            </dt>
+            <dd>
+              <div class="ct-stickuplayout ct-cascadecompared" id="cascadecompared-demo-scrollbyel">
+                <div class="ct-cascadecompared-indicator">
+                  <div class="ct-cascadecompared-fixedWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell"></span>
+                    </div>
+                  </div>
+                  <div class="ct-cascadecompared-autoWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell">指标</span>
+                      <span class="ct-cascadecompared-cell">比较1</span>
+                      <span class="ct-cascadecompared-cell">比较2</span>
+                      <span class="ct-cascadecompared-cell">比较3</span>
+                      <span class="ct-cascadecompared-cell">比较4</span>
+                      <span class="ct-cascadecompared-cell">比较5</span>
+                      <span class="ct-cascadecompared-cell">比较6</span>
+                      <span class="ct-cascadecompared-cell">比较7</span>
+                      <span class="ct-cascadecompared-cell">比较8</span>
+                      <span class="ct-cascadecompared-cell">比较9</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ct-cascadecompared-master">
+                  <div class="ct-cascadecompared-master-inner">
+                    <div class="ct-stickuplayout-fixed"></div>
+                    <ul class="ct-stickuplayout-inner"></ul>
+                  </div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+      </code>
+        </pre>
+        </dd>
+      </dl>
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+        <pre>
+        <code class="javascript">
+        <!--例子的js-->
+        import $ from 'jquery';
+        import CascadeCompared from '@ctmobile/ui-cascadecompared';
+        import '@ctmobile/ui-cascadecompared/cascadecompared.less';
+
+        let dynamicIndex = 0;
+
+        function getDynamicTemplate(title) {
+          return (
+            <pre>
+            <code class="html">
+            `<li class="ct-stickuplayout-item">
+              <div class="ct-stickuplayout-item-header"><span class="title">${title}</span></div>
+              <div class="ct-stickuplayout-item-content">
+              <div class="ct-cascadecompared-fixedWrap">
+                <div class="ct-cascadecompared-item">
+                  <span class="ct-cascadecompared-cell">厂家指导价</span>
+                </div>
+                <div class="ct-cascadecompared-item">
+                  <span class="ct-cascadecompared-cell">厂家指导价</span>
+                </div>
+                <div class="ct-cascadecompared-item">
+                  <span class="ct-cascadecompared-cell">厂家指导价</span>
+                </div>
+              </div>
+              <div class="ct-cascadecompared-autoWrap">
+                <div class="ct-cascadecompared-autoInner">
+                  <div class="ct-cascadecompared-item">
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                  </div>
+                  <div class="ct-cascadecompared-item">
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                  </div>
+                  <div class="ct-cascadecompared-item">
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                    <span class="ct-cascadecompared-cell">厂家指导价</span>
+                  </div>
+                </div>
+              </div>
+             </div>
+             </li>`
+            </code>
+            </pre>
+          );
+        }
+
+        function initListView(el) {
+          let str = '';
+          for(let i = 0; i &lt; 10; i++) {
+            str += getDynamicTemplate(`header${i + 1}`);
+          }
+
+          $(el).append(str);
+        }
+
+        // 基本的
+        initListView($('#cascadecompared-demo-base .ct-stickuplayout-inner')[0]);
+        CascadeCompared($('#cascadecompared-demo-base')[0]);
+
+        // 动态的插入
+        initListView($('#cascadecompared-demo-dynamic .ct-stickuplayout-inner')[0]);
+        const cascadeComparedDynamic = CascadeCompared($('#cascadecompared-demo-dynamic')[0]);
+        $('#cascadecompared-demo-dynamic-append').on('click', () => {
+          const $dynamicItemJO = $(getDynamicTemplate(`动态增加${++dynamicIndex}`));
+          $('#cascadecompared-demo-dynamic .ct-stickuplayout-inner').append($dynamicItemJO);
+          cascadeComparedDynamic.refresh();
+          cascadeComparedDynamic.scrollToByHeaderEl($dynamicItemJO.prev().find('.ct-stickuplayout-item-header')[0]);
+        });
+
+        // 滚动到指定位置(通过索引)
+        initListView($('#cascadecompared-demo-scrollbyindex .ct-stickuplayout-inner')[0]);
+        const cascadeComparedScrollbyindex = CascadeCompared($('#cascadecompared-demo-scrollbyindex')[0]);
+        const $cascadeComparedScrollbyIndexItemJO = $('#cascadecompared-demo-scrollbyindex .ct-stickuplayout-inner .ct-stickuplayout-item');
+        $('#cascadecompared-demo-scrollbyindex-noanimation-btn').on('click', () => {
+          cascadeComparedScrollbyindex.scrollToByIndex($cascadeComparedScrollbyIndexItemJO.length - 2, 0);
+        });
+        $('#cascadecompared-demo-scrollbyindex-animation-btn').on('click', () => {
+          cascadeComparedScrollbyindex.scrollToByIndex($cascadeComparedScrollbyIndexItemJO.length - 2, 600);
+        });
+        $('#cascadecompared-demo-scrollbyindex-top-btn').on('click', () => {
+          cascadeComparedScrollbyindex.scrollToByIndex(0);
+        });
+
+        // 滚动到指定位置(通过dom)
+        initListView($('#cascadecompared-demo-scrollbyel .ct-stickuplayout-inner')[0]);
+        const cascadeComparedScrollbyel = CascadeCompared($('#cascadecompared-demo-scrollbyel')[0]);
+        const $cascadeComparedScrollbyelItemJO = $('#cascadecompared-demo-scrollbyel .ct-stickuplayout-inner .ct-stickuplayout-item');
+        $('#cascadecompared-demo-scrollbyel-noanimation-btn').on('click', () => {
+          cascadeComparedScrollbyel.scrollToByHeaderEl($cascadeComparedScrollbyelItemJO[$cascadeComparedScrollbyelItemJO.length - 2].querySelector('.ct-stickuplayout-item-header'), 0);
+        });
+        $('#cascadecompared-demo-scrollbyel-animation-btn').on('click', () => {
+          cascadeComparedScrollbyel.scrollToByHeaderEl($cascadeComparedScrollbyelItemJO[$cascadeComparedScrollbyelItemJO.length - 2].querySelector('.ct-stickuplayout-item-header'), 600);
+        });
+        $('#cascadecompared-demo-scrollbyel-top-btn').on('click', () => {
+          cascadeComparedScrollbyel.scrollToByHeaderEl($cascadeComparedScrollbyelItemJO[0].querySelector('.ct-stickuplayout-item-header'));
+        });
+        </code>
+        </pre>
+        </dd>
+      </dl>
+    </div>
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner">
+          <!--例子-->
+          <!--基本的-->
+          <dl>
+            <dt>
+              <h3 class="title">基本的</h3>
+            </dt>
+            <dd>
+              <div class="ct-stickuplayout ct-cascadecompared" id="cascadecompared-demo-base">
+                <div class="ct-cascadecompared-indicator">
+                  <div class="ct-cascadecompared-fixedWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell"></span>
+                    </div>
+                  </div>
+                  <div class="ct-cascadecompared-autoWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell">指标</span>
+                      <span class="ct-cascadecompared-cell">比较1</span>
+                      <span class="ct-cascadecompared-cell">比较2</span>
+                      <span class="ct-cascadecompared-cell">比较3</span>
+                      <span class="ct-cascadecompared-cell">比较4</span>
+                      <span class="ct-cascadecompared-cell">比较5</span>
+                      <span class="ct-cascadecompared-cell">比较6</span>
+                      <span class="ct-cascadecompared-cell">比较7</span>
+                      <span class="ct-cascadecompared-cell">比较8</span>
+                      <span class="ct-cascadecompared-cell">比较9</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ct-cascadecompared-master">
+                  <div class="ct-cascadecompared-master-inner">
+                    <div class="ct-stickuplayout-fixed"></div>
+                    <ul class="ct-stickuplayout-inner"></ul>
+                  </div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+          <!--动态插入和删除-->
+          <dl>
+            <dt>
+              <h3 class="title">动态插入和删除</h3>
+              <div class="toolbar">
+                <button id="cascadecompared-demo-dynamic-append">插入</button>
+              </div>
+            </dt>
+            <dd>
+              <div class="ct-stickuplayout ct-cascadecompared" id="cascadecompared-demo-dynamic">
+                <div class="ct-cascadecompared-indicator">
+                  <div class="ct-cascadecompared-fixedWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell"></span>
+                    </div>
+                  </div>
+                  <div class="ct-cascadecompared-autoWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell">指标</span>
+                      <span class="ct-cascadecompared-cell">比较1</span>
+                      <span class="ct-cascadecompared-cell">比较2</span>
+                      <span class="ct-cascadecompared-cell">比较3</span>
+                      <span class="ct-cascadecompared-cell">比较4</span>
+                      <span class="ct-cascadecompared-cell">比较5</span>
+                      <span class="ct-cascadecompared-cell">比较6</span>
+                      <span class="ct-cascadecompared-cell">比较7</span>
+                      <span class="ct-cascadecompared-cell">比较8</span>
+                      <span class="ct-cascadecompared-cell">比较9</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ct-cascadecompared-master">
+                  <div class="ct-cascadecompared-master-inner">
+                    <div class="ct-stickuplayout-fixed"></div>
+                    <ul class="ct-stickuplayout-inner"></ul>
+                  </div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+          <!--滚动到指定位置(通过索引)-->
+          <dl>
+            <dt>
+              <h3 class="title">滚动到指定位置(通过索引)</h3>
+              <div class="toolbar">
+                <div class="toolbar">
+                  <button id="cascadecompared-demo-scrollbyindex-noanimation-btn">滚动到最后一行(无动画)</button>
+                  <button id="cascadecompared-demo-scrollbyindex-animation-btn">滚动到最后一行(有动画)</button>
+                  <button id="cascadecompared-demo-scrollbyindex-top-btn">回到顶部</button>
+                </div>
+              </div>
+            </dt>
+            <dd>
+              <div class="ct-stickuplayout ct-cascadecompared" id="cascadecompared-demo-scrollbyindex">
+                <div class="ct-cascadecompared-indicator">
+                  <div class="ct-cascadecompared-fixedWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell"></span>
+                    </div>
+                  </div>
+                  <div class="ct-cascadecompared-autoWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell">指标</span>
+                      <span class="ct-cascadecompared-cell">比较1</span>
+                      <span class="ct-cascadecompared-cell">比较2</span>
+                      <span class="ct-cascadecompared-cell">比较3</span>
+                      <span class="ct-cascadecompared-cell">比较4</span>
+                      <span class="ct-cascadecompared-cell">比较5</span>
+                      <span class="ct-cascadecompared-cell">比较6</span>
+                      <span class="ct-cascadecompared-cell">比较7</span>
+                      <span class="ct-cascadecompared-cell">比较8</span>
+                      <span class="ct-cascadecompared-cell">比较9</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ct-cascadecompared-master">
+                  <div class="ct-cascadecompared-master-inner">
+                    <div class="ct-stickuplayout-fixed"></div>
+                    <ul class="ct-stickuplayout-inner"></ul>
+                  </div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+          <!--滚动到指定位置(通过dom)-->
+          <dl>
+            <dt>
+              <h3 class="title">滚动到指定位置(通过Dom)</h3>
+              <div class="toolbar">
+                <div class="toolbar">
+                  <button id="cascadecompared-demo-scrollbyel-noanimation-btn">滚动到最后一行(无动画)</button>
+                  <button id="cascadecompared-demo-scrollbyel-animation-btn">滚动到最后一行(有动画)</button>
+                  <button id="cascadecompared-demo-scrollbyel-top-btn">回到顶部</button>
+                </div>
+              </div>
+            </dt>
+            <dd>
+              <div class="ct-stickuplayout ct-cascadecompared" id="cascadecompared-demo-scrollbyel">
+                <div class="ct-cascadecompared-indicator">
+                  <div class="ct-cascadecompared-fixedWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell"></span>
+                    </div>
+                  </div>
+                  <div class="ct-cascadecompared-autoWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell">指标</span>
+                      <span class="ct-cascadecompared-cell">比较1</span>
+                      <span class="ct-cascadecompared-cell">比较2</span>
+                      <span class="ct-cascadecompared-cell">比较3</span>
+                      <span class="ct-cascadecompared-cell">比较4</span>
+                      <span class="ct-cascadecompared-cell">比较5</span>
+                      <span class="ct-cascadecompared-cell">比较6</span>
+                      <span class="ct-cascadecompared-cell">比较7</span>
+                      <span class="ct-cascadecompared-cell">比较8</span>
+                      <span class="ct-cascadecompared-cell">比较9</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ct-cascadecompared-master">
+                  <div class="ct-cascadecompared-master-inner">
+                    <div class="ct-stickuplayout-fixed"></div>
+                    <ul class="ct-stickuplayout-inner"></ul>
+                  </div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+          <!--滚动到指定列-->
+          <dl>
+            <dt>
+              <h3 class="title">滚动到指定列</h3>
+              <div class="toolbar">
+                <div class="toolbar">
+                  <button id="cascadecompared-demo-scrollbycolumn-last-btn">滚动到最后一列</button>
+                  <button id="cascadecompared-demo-scrollbycolumn-first-btn">回到第一列</button>
+                </div>
+              </div>
+            </dt>
+            <dd>
+              <div class="ct-stickuplayout ct-cascadecompared" id="cascadecompared-demo-scrollbycolumn">
+                <div class="ct-cascadecompared-indicator">
+                  <div class="ct-cascadecompared-fixedWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell"></span>
+                    </div>
+                  </div>
+                  <div class="ct-cascadecompared-autoWrap">
+                    <div class="ct-cascadecompared-item">
+                      <span class="ct-cascadecompared-cell">指标</span>
+                      <span class="ct-cascadecompared-cell">比较1</span>
+                      <span class="ct-cascadecompared-cell">比较2</span>
+                      <span class="ct-cascadecompared-cell">比较3</span>
+                      <span class="ct-cascadecompared-cell">比较4</span>
+                      <span class="ct-cascadecompared-cell">比较5</span>
+                      <span class="ct-cascadecompared-cell">比较6</span>
+                      <span class="ct-cascadecompared-cell">比较7</span>
+                      <span class="ct-cascadecompared-cell">比较8</span>
+                      <span class="ct-cascadecompared-cell">比较9</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ct-cascadecompared-master">
+                  <div class="ct-cascadecompared-master-inner">
+                    <div class="ct-stickuplayout-fixed"></div>
+                    <ul class="ct-stickuplayout-inner"></ul>
+                  </div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--方法-->
+  <h2 id="cascadecompared-methods">方法</h2>
+  <div class="method-wrap">
+    <p>scrollToByIndex(<span class="parameter">index</span>,<span class="parameter">duration</span>) - 通过索引滚动到某一项</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">index</span>-<span class="parameterType">number</span> 要滚动到目标的索引
+      </li>
+      <li>
+        <span class="parameter">duration</span>-<span class="parameterType">number</span> 滚动持续的时间(默认是300毫秒)
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>scrollToByHeaderEl(<span class="parameter">headerEl</span>,<span class="parameter">duration</span>) - 通过dom滚动到某一项
+    </p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">headerEl</span>-<span class="parameterType">HtmlElement</span>
+        要滚动到的dom(带有ct-cascadecompared-item-header样式的元素)
+      </li>
+      <li>
+        <span class="parameter">duration</span>-<span class="parameterType">number</span> 滚动持续的时间(默认是300毫秒)
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>refresh() - 刷新整个StickupLayout</p>
+  </div>
+  <div class="method-wrap">
+    <p>on(<span class="parameter">type</span>, <span class="parameter">handler</span>) - 注册事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span>
+        注册事件的类型,包括[change]
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span> 注册事件的回调函数
+      </li>
+    </ul>
+  </div>
+
+  <!--事件-->
+  <h2 id="cascadecompared-events">事件</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="cascadecompared-events-change">
+      <td>change</td>
+      <td>滚动切换时触发</td>
+    </tr>
+    <tr id="cascadecompared-events-scrollend">
+      <td>scrollEnd</td>
+      <td>列滚动完成之后触发</td>
+    </tr>
+    </tbody>
+  </table>
+  <pre>
+  <code class="javascript">
+  <!--事件例子代码-->
+  import $ from 'jquery';
+  import CascadeCompared from '@ctmobile/ui-cascadecompared';
+  import '@ctmobile/ui-cascadecompared/cascadecompared.less';
+
+  // 基本的
+  const cascadeCompared = CascadeCompared($('#cascadecompared-demo-base')[0]);
+  cascadeCompared.on('change', (dom, index) => {
+    console.log(dom);
+    console.log(index);
+  });
+  cascadeCompared.on('scrollend', () => {
+    console.log('scrollend');
+  });
+  </code>
+  </pre>
+</div>
+</body>
+</html>

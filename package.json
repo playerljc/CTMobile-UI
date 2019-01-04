@@ -1,0 +1,19 @@
+{
+  "name": "@ctmobile/ui",
+  "version": "1.0.0",
+  "description": "支持移动端的组件库",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/playerljc/CTMobile-UI.git"
+  },
+  "author": "playerljc <playerljc@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/playerljc/CTMobile-UI/issues"
+  },
+  "homepage": "https://github.com/playerljc/CTMobile-UI#readme"
+}

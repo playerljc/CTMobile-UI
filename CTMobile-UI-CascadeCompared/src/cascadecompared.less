@@ -1,0 +1,105 @@
+@import "../node_modules/@ctmobile/ui-stickuplayout/lib/stickuplayout.less";
+@width: 6rem;
+@headerHeight: 6rem;
+@height: 3rem;
+@borderColor: rgba(0, 0, 0, .1);
+
+.ct-cascadecompared {
+  display: flex;
+  flex-direction: column;
+  > .ct-cascadecompared-indicator {
+    position: relative;
+    height: @headerHeight;
+    flex-shrink: 0;
+  }
+
+  > .ct-cascadecompared-master {
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-grow: 1;
+    > .ct-cascadecompared-master-inner {
+      overflow: hidden;
+    }
+  }
+
+  .ct-cascadecompared-fixedWrap {
+    width: @width;
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    > .ct-cascadecompared-item {
+      width: 100%;
+    }
+  }
+
+  .ct-cascadecompared-autoWrap {
+    margin-left: @width;
+    overflow: hidden;
+    height: 100%;
+    > div {
+      display: inline-block;
+    }
+  }
+
+  .ct-cascadecompared-item {
+    font-size: 0;
+    white-space: nowrap;
+    display: inline-block;
+    height: @height;
+  }
+
+  .ct-cascadecompared-item {
+    > .ct-cascadecompared-cell {
+      width: @width;
+      display: inline-block;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  }
+}
+
+/*值和项下的单元格*/
+.ct-cascadecompared .ct-cascadecompared-fixedWrap .ct-cascadecompared-item > .ct-cascadecompared-cell,
+.ct-cascadecompared .ct-cascadecompared-autoWrap .ct-cascadecompared-item > .ct-cascadecompared-cell {
+  width: @width;
+  height: 100%;
+  font-size: 16px;
+  word-break: break-all;
+  word-wrap: break-word;
+  text-align: center;
+  white-space: inherit;
+}
+
+.ct-cascadecompared .ct-cascadecompared-fixedWrap .ct-cascadecompared-item > .ct-cascadecompared-cell .ct-cascadecompared-cellInner,
+.ct-cascadecompared .ct-cascadecompared-autoWrap .ct-cascadecompared-item > .ct-cascadecompared-cell .ct-cascadecompared-cellInner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/*头的行和单元格*/
+.ct-cascadecompared .ct-cascadecompared-indicator .ct-cascadecompared-item,
+.ct-cascadecompared .ct-cascadecompared-indicator .ct-cascadecompared-item > .ct-cascadecompared-cell {
+  height: 100%;
+}
+
+/*项下的单元格*/
+.ct-cascadecompared .ct-cascadecompared-fixedWrap .ct-cascadecompared-item > .ct-cascadecompared-cell {
+  width: 100%;
+  border-right: 1px solid @borderColor;
+}
+
+/*不是最后一行才有*/
+.ct-cascadecompared .ct-cascadecompared-item:not(:last-child) > .ct-cascadecompared-cell {
+  border-bottom: 1px solid @borderColor;
+}
+
+.ct-cascadecompared .ct-cascadecompared-item:not(:last-child) > .ct-cascadecompared-cell,
+  /*值下不是最后一个单元格*/
+.ct-cascadecompared .ct-cascadecompared-indicator .ct-cascadecompared-item > .ct-cascadecompared-cell,
+.ct-cascadecompared .ct-cascadecompared-autoWrap .ct-cascadecompared-item > .ct-cascadecompared-cell {
+  border-right: 1px solid @borderColor;
+}

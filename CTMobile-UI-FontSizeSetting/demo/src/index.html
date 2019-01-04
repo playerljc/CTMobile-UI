@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-fontsizesetting-demo</title>
+</head>
+
+<body>
+
+<div class="ctmobile-ui-doc">
+
+  <!-- FontSizeSetting -->
+
+  <!--菜单-->
+  <h1>FontSizeSetting</h1>
+  <ul>
+    <li><a href="#fontsizesetting-layout">基本布局</a></li>
+    <li><a href="#fontsizesetting-initial">初始化</a></li>
+    <li><a href="#fontsizesetting-demo">例子</a></li>
+    <li><a href="#fontsizesetting-methods">方法</a></li>
+    <li>
+      <a href="#fontsizesetting-events">事件</a>
+      <ul>
+        <li><a href="#fontsizesetting-events-change">change</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--基本布局-->
+  <h2 id="fontsizesetting-layout">基本布局</h2>
+  <p>常见的布局如下：</p>
+  <pre>
+  <code class="html">
+  <div class="ct-fontsizesetting"></div>
+  </code>
+  </pre>
+  <ul>
+    <li>
+      ct-fontsizesetting - 代表是一个fontsizesetting组件
+    </li>
+  </ul>
+
+  <!--初始化-->
+  <h2 id="fontsizesetting-initial">初始化</h2>
+  <pre>
+  <code class="javascript">
+  import FontSizeSetting from '@ctmobile/ui-fontsizesetting';
+  const fontsizesetting = FontSizeSetting(el,{
+    min: '0',
+    max: '100',
+    setp: '1',
+    value: '33.3',
+  });
+  </code>
+  </pre>
+
+  <!--例子-->
+  <h2 id="fontsizesetting-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+        <pre>
+  <code class="html">
+  <div id="ct-fontsizesetting-demo" class="ct-fontsizesetting"></div>
+  <div style="margin-top:10px;">
+    设置值：<input type="number" maxlength="3" id="setCurValue"></br>
+    当前值：<span id="curValue"></span>
+  </div>
+  <p style="font-size: .7rem" id="font">我是一个粉刷匠</p>
+  </code>
+        </pre>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+          <pre>
+  <code class="javascript">
+  import FontSizeSetting from '@ctmobile/ui-fontsizesetting/fontsizesetting';
+  import '@ctmobile/ui-fontsizesetting/fontsizesetting.less';
+  import '@ctmobile/ui-fontsizesetting/themes/default/fontsizesetting.less';
+
+  const fontDom = $('#font')[0];
+  const curValueDom = $('#setCurValue')[0];
+  const baseRem = 0.7, baseValue = 33.3;
+
+  curValueDom.addEventListener('input', () => {
+    fontSizeSetting.setValue(curValueDom.value);
+  });
+
+  const fontSizeSetting = FontSizeSetting($('#ct-fontsizesetting-demo')[0], {
+    min: '0',
+    max: '100',
+    setp: '1',
+    value: '33.3',
+  });
+  fontSizeSetting.on('change', (value) => {
+    let val = parseInt(value);
+    if (val === 0) {
+      val = 1;
+    }
+    fontDom.style.fontSize = `${(value * baseRem / baseValue)}rem`;
+    $('#curValue')[0].innerText = fontSizeSetting.getValue();
+  });
+  </code>
+          </pre>
+        </dd>
+      </dl>
+    </div>
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner">
+          <div id="ct-fontsizesetting-demo" class="ct-fontsizesetting"></div>
+          <div style="margin-top:10px;">
+            设置值：<input type="number" maxlength="3" id="setCurValue"></br>
+            当前值：<span id="curValue"></span>
+          </div>
+          <p style="font-size: .7rem" id="font">我是一个粉刷匠</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--方法-->
+  <h2 id="fontsizesetting-methods">方法</h2>
+  <div class="method-wrap">
+    <p>setMin(<span class="parameter">min</span>) - 设置最小值</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">min</span>-<span class="parameterType">number</span> 最小值
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>setMax(<span class="parameter">max</span>) - 设置最大值</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">setMax</span>-<span class="parameterType">number</span> 最大值
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>setSetp(<span class="parameter">step</span>) - 设置步进</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">step</span>-<span class="parameterType">number</span> 最步进
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>setValue(<span class="parameter">value</span>) - 设置当前值</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">value</span>-<span class="parameterType">number</span> 当前值
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>getValue() - 获取当前值</p>
+  </div>
+  <div class="method-wrap">
+    <p>on(<span class="parameter">type</span>, <span class="parameter">handler</span>) - 注册事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span> 注册事件的类型,包括[change]
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span> 注册事件的回调函数
+      </li>
+    </ul>
+  </div>
+
+  <!--事件-->
+  <h2 id="fontsizesetting-events">事件</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="fontsizesetting-events-change">
+      <td>change</td>
+      <td>值发生改变的时候出发</td>
+    </tr>
+    </tbody>
+  </table>
+  <pre>
+  <code class="javascript">
+  import FontSizeSetting from '@ctmobile/ui-fontsizesetting/fontsizesetting';
+  import '@ctmobile/ui-fontsizesetting/fontsizesetting.less';
+  import '@ctmobile/ui-fontsizesetting/themes/default/fontsizesetting.less';
+
+  const fontDom = $('#font')[0];
+  const curValueDom = $('#setCurValue')[0];
+  const baseRem = 0.7, baseValue = 33.3;
+
+  curValueDom.addEventListener('input', () => {
+    fontSizeSetting.setValue(curValueDom.value);
+  });
+
+  const fontSizeSetting = FontSizeSetting($('#ct-fontsizesetting-demo')[0], {
+    min: '0',
+    max: '100',
+    setp: '1',
+    value: '33.3',
+  });
+  fontSizeSetting.on('change', (value) => {
+    let val = parseInt(value);
+    if (val === 0) {
+      val = 1;
+    }
+    fontDom.style.fontSize = `${(value * baseRem / baseValue)}rem`;
+    $('#curValue')[0].innerText = fontSizeSetting.getValue();
+  });
+  </code>
+  </pre>
+
+</div>
+
+</body>
+</html>

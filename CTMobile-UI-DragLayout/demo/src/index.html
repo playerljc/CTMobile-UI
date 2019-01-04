@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-draglayout-demo</title>
+</head>
+
+<body>
+
+<div class="ctmobile-ui-doc">
+
+  <!-- DragLayout -->
+
+  <!--菜单-->
+  <h1>DragLayout</h1>
+  <ul>
+    <li><a href="#draglayout-layout">基本布局</a></li>
+    <li><a href="#draglayout-initial">初始化</a></li>
+    <li><a href="#draglayout-demo">例子</a></li>
+    <li><a href="#draglayout-methods">方法</a></li>
+  </ul>
+
+  <!--基本布局-->
+  <h2 id="draglayout-layout">基本布局</h2>
+  <p>常见的布局如下：</p>
+  <pre>
+  <code class="html">
+  <div class="ct-draglayout">
+    <div class="ct-draglayout-slave" style="width: 60%;">
+      我是隐藏的面板
+    </div>
+    <div class="ct-draglayout-master">
+      我是主面板
+    </div>
+  </div>
+  </code>
+  </pre>
+  <ul>
+    <li>
+      ct-draglayout - 代表是一个draglayout组件
+      <ul>
+        <li>ct-draglayout-master - 代表主面板</li>
+        <li>ct-draglayout-slave - 代表副面板</li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--初始化-->
+  <h2 id="draglayout-initial">初始化</h2>
+  <pre>
+  <code class="javascript">
+  import DragLayout from '@ctmobile/ui-draglayout';
+  const draglayout = DragLayout(el);
+  </code>
+  </pre>
+
+  <!--例子-->
+  <h2 id="draglayout-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+          <pre>
+          <code class="html">
+          <div class="ct-draglayout" id="ct-draglayout-demo">
+            <div class="ct-draglayout-slave" style="width: 60%;">
+              我是隐藏的面板
+            </div>
+            <div class="ct-draglayout-master">
+              我是主面板
+            </div>
+          </div>
+          </code>
+          </pre>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+          <pre>
+          <code class="javascript">
+          import DragLayout from '@ctmobile/ui-draglayout';
+          DragLayout($('#ct-draglayout-demo')[0],{
+            showCallback() {
+              console.log('show');
+            },
+            hideCallback() {
+              console.log('hide');
+            }
+          });
+          </code>
+          </pre>
+        </dd>
+      </dl>
+    </div>
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner">
+          <div class="ct-draglayout" id="ct-draglayout-demo">
+            <div class="ct-draglayout-slave" style="width: 60%;">
+              我是隐藏的面板
+            </div>
+            <div class="ct-draglayout-master">
+              我是主面板
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--方法-->
+  <h2 id="draglayout-methods">方法</h2>
+  <div class="method-wrap">
+    <p>show() - 显示</p>
+  </div>
+  <div class="method-wrap">
+    <p>hide() - 隐藏</p>
+  </div>
+  <div class="method-wrap">
+    <p>isShow() - 收显示</p>
+  </div>
+</div>
+
+
+</body>
+</html>

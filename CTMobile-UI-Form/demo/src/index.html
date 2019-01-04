@@ -1,0 +1,2386 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-form-demo</title>
+</head>
+
+<body>
+
+<div class="ctmobile-ui-doc">
+  <!-- Form -->
+
+  <!--菜单-->
+  <h1>Form</h1>
+  <ul>
+    <li><a href="#form-initnormal">一般初始化</a></li>
+    <li><a href="#form-initgroup">初始化组</a></li>
+    <li><a href="#form-rendertypeandtag">渲染类型与对应的标签</a></li>
+    <li><a href="#form-config">data-ctform-config配置项</a></li>
+    <li>
+      <a href="#form-validate">表单验证</a>
+      <ul>
+        <li><a href="#form-validatePropagation">validatePropagation</a></li>
+        <li><a href="#form-validateStopPropagation">validateStopPropagation</a></li>
+      </ul>
+    </li>
+    <li><a href="#form-getentrys">获取表单数据</a></li>
+    <li><a href="#form-demo">例子</a></li>
+    <li><a href="#form-methods">方法</a></li>
+  </ul>
+
+  <!--一般初始化 -->
+  <h2 id="form-initnormal">一般初始化</h2>
+  <dl>
+    <dt>html</dt>
+    <dd>
+      <pre>
+  <code class="html">
+  <form id="container">
+    <textarea
+            placeholder="详细信息"
+            data-ctform-config-name="info"
+            data-ctform-config-type="default"
+            data-ctform-config-label="详细信息"
+            data-ctform-config-labelposition="labeltop"
+            data-ctform-config-tooltip="详细信息的说明"
+            data-ctform-config-require="require"
+            data-ctform-config-requiremessage="请输入详细信息"
+            data-ctform-config-maxlength="100"
+            data-ctform-config-minlength="1"
+    ></textarea>
+    <input type="text"
+           placeholder="姓名"
+           data-ctform-config-name="name"
+           data-ctform-config-type="default"
+           data-ctform-config-label="姓名"
+           data-ctform-config-inset="inset"
+           data-ctform-config-labelposition="labelleft"
+           data-ctform-config-labelalign="aligncenter"
+           data-ctform-config-full="full"
+           data-ctform-config-tooltip="姓名的说明信息"
+           data-ctform-config-require="require"
+           data-ctform-config-maxlength="100"
+           data-ctform-config-minlength="1"
+    />
+  ...
+  </form>
+  </code>
+      </pre>
+    </dd>
+  </dl>
+  <dl>
+    <dt>js</dt>
+    <dd>
+      <pre>
+  <code class="javascript">
+  import Form from '@ctmobile/ui-form';
+  import $ from 'jquery';
+  const form = Form($('#container')[0],["autoheighttextarea","clearinput"]);
+  </code>
+      </pre>
+    </dd>
+  </dl>
+  <ul>
+    <li>第一个参数表一个表单元素，第二个参数是渲染类型</li>
+  </ul>
+
+  <!--初始化组-->
+  <h2 id="form-initgroup">初始化组</h2>
+  <dl>
+    <dt>html</dt>
+    <dd>
+      <pre>
+  <code class="html">
+    <form id="containergroup">
+      <div class="ct-form-checkboxgroup"
+           data-ctform-config-name="group"
+           data-ctform-config-type="default"
+           data-ctform-config-label="兴趣爱好"
+           data-ctform-config-labelposition="labelleft"
+           data-ctform-config-labelalign="aligntop"
+           data-ctform-config-tooltip="始终有的提示信息"
+           data-ctform-config-require="require"
+           data-ctform-config-requiremessage="require"
+      >
+        <input type="checkbox"
+               name="sex"
+               checked
+               id="67-1"
+               data-ctform-config-labelposition="labelright"
+               data-ctform-config-type="material"
+               data-ctform-config-label="运动"/>
+        <input type="checkbox"
+               name="sex"
+               data-ctform-config-labelposition="labelright"
+               data-ctform-config-type="material"
+               data-ctform-config-label="看书"/>
+        <input type="checkbox"
+               name="sex"
+               data-ctform-config-type="material"
+               data-ctform-config-labelposition="labelright"
+               data-ctform-config-label="健身"/>
+      </div>
+    </form>
+  </code>
+      </pre>
+    </dd>
+  </dl>
+  <dl>
+    <dt>js</dt>
+    <dd>
+      <pre>
+  <code class="javascript">
+  import Form from '@ctmobile/ui-form';
+  import $ from 'jquery';
+  const form = Form($('#container')[0],["radiogroup","checkboxgroup"]);
+  </code>
+      </pre>
+    </dd>
+  </dl>
+
+  <!--渲染类型与对应的标签-->
+  <h2 id="form-rendertypeandtag">渲染类型与对应的标签</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>渲染类型</th>
+      <th>类型说明</th>
+      <th>对应的标签</th>
+      <th>备注</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>autoheighttextarea</td>
+      <td>自动高度的textarea</td>
+      <td>textarea</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>clearinput</td>
+      <td>带有清除功能的input</td>
+      <td>
+        input[type="text"]<br>
+        input[type="number"]:not(.ios)<br>
+        input[type="email"]<br>
+        input[type="url"]<br>
+        input[type="tel"]<br>
+        input[type="date"]<br>
+        input[type="week"]<br>
+        input[type="datetime"]<br>
+        input[type="datetime-local"]<br>
+        input[type="image"]<br>
+        input[type="month"]<br>
+        input[type="time"]<br>
+        input[type="search"]
+      </td>
+      <td>input[type="number"]不能带有class="ios"样式</td>
+    </tr>
+    <tr>
+      <td>pwdtoggle</td>
+      <td>带有眼睛和清除功能的password</td>
+      <td>input[type="password"]</td>
+    </tr>
+    <tr>
+      <td>select</td>
+      <td>表单的select</td>
+      <td>select</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>slider</td>
+      <td>表单的slider</td>
+      <td>input[type="range"]</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>radio</td>
+      <td>表单的radio</td>
+      <td>input[type="radio"]</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>checkbox</td>
+      <td>表单的checkbox</td>
+      <td>input[type="checkbox"]:not(.switch)</td>
+      <td>input[type="checkbox"]不能带有class="switch"样式</td>
+    </tr>
+    <tr>
+      <td>switch</td>
+      <td>开关</td>
+      <td>input[type="checkbox"].switch</td>
+      <td>input[type="checkbox"]必须带有class="switch"样式</td>
+    </tr>
+
+    <tr>
+      <td>spinner</td>
+      <td>数字微调器</td>
+      <td>input[type="number"].ios</td>
+      <td>input[type="number"]必须带有class="ios"样式<br>同时还可是class="fill round"</td>
+    </tr>
+    <tr>
+      <td>radiogroup</td>
+      <td>radio组</td>
+      <td>.ct-form-radiogroup</td>
+    </tr>
+    <tr>
+      <td>checkboxgroup</td>
+      <td>checkbox组</td>
+      <td>.ct-form-checkboxgroup</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--data-ctform-config配置项-->
+  <h2 id="form-config">data-ctform-config配置项</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>配置项</th>
+      <th>作用</th>
+      <th>备注</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td>data-ctform-config-name</td>
+      <td>控件的唯一标识</td>
+      <td>整个表单中是唯一标识这个元素</td>
+    </tr>
+
+    <tr>
+      <td>data-ctform-config-type</td>
+      <td>控件的风格</td>
+      <td>可选择的值[default | ios | material]</td>
+    </tr>
+
+    <tr>
+      <td>data-ctform-config-label</td>
+      <td>控件的文本</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td>data-ctform-config-labelposition</td>
+      <td>控件文本的位置</td>
+      <td>可选的值有[labelleft | labelright | labeltop | labelbottom]</td>
+    </tr>
+
+    <tr>
+      <td>data-ctform-config-labelalign</td>
+      <td>控件文本的对其方式</td>
+      <td>可选的值[aligncenter | aligntop]<br>只有data-ctform-config-labelposition为left或right时候才生效</td>
+    </tr>
+
+    <tr>
+      <td>data-ctform-config-full</td>
+      <td>控件是否充满整行</td>
+      <td>取值为full</td>
+    </tr>
+
+    <tr>
+      <td>data-ctform-config-inset</td>
+      <td>控件是否是inset模式</td>
+      <td>取值为inset</td>
+    </tr>
+
+    <tr>
+      <td>data-ctform-config-tooltip</td>
+      <td>控件始终显示的提示信息</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td>data-ctform-config-groupname</td>
+      <td>组中控件的name</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td>data-ctform-config-require</td>
+      <td>是否是必填项</td>
+      <td>取值为require</td>
+    </tr>
+
+    <tr>
+      <td>data-ctform-config-requiremessage</td>
+      <td>必填项的提示信息</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td>data-ctform-config-maxlength</td>
+      <td>最大输入长度</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td>data-ctform-config-minlength</td>
+      <td>最小输入长度</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td>data-ctform-config-lengthmessage</td>
+      <td>输入长度的提示信息</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td>data-ctform-config-pattern</td>
+      <td>有效性的条件</td>
+      <td>内置的正则[]，值可是其中的值，如果想自定义可以写正则表达式(注，不带//)</td>
+    </tr>
+
+    <tr>
+      <td>data-ctform-config-patternmessage</td>
+      <td>有效性的提示</td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--表单验证-->
+  <h2 id="form-validate">表单验证</h2>
+  <dl>
+    <dt>html</dt>
+    <dd>
+      <pre>
+  <code class="html">
+    <form id="containervalidate">
+      <textarea
+              placeholder="详细信息"
+              data-ctform-config-name="info"
+              data-ctform-config-type="default"
+              data-ctform-config-label="详细信息"
+              data-ctform-config-labelposition="labeltop"
+              data-ctform-config-tooltip="详细信息的说明"
+              data-ctform-config-require="require"
+              data-ctform-config-requiremessage="请输入详细信息"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      ></textarea>
+      <input type="text"
+             placeholder="姓名"
+             data-ctform-config-name="name"
+             data-ctform-config-type="default"
+             data-ctform-config-label="姓名"
+             data-ctform-config-inset="inset"
+             data-ctform-config-labelposition="labelleft"
+             data-ctform-config-labelalign="aligncenter"
+             data-ctform-config-full="full"
+             data-ctform-config-tooltip="姓名的说明信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+    </form>
+  </code>
+      </pre>
+    </dd>
+  </dl>
+  <dl id="form-validatePropagation">
+    <dt>validatePropagation(所有项都显示)</dt>
+    <dd>
+      <pre>
+  <code class="javascript">
+  import Form from '@ctmobile/ui-form';
+  import $ from 'jquery';
+  const form = Form($('#container')[0],["autoheighttextarea","clearinput"]);
+  const flag = form.validatePropagation();
+  </code>
+      </pre>
+    </dd>
+  </dl>
+  <dl id="form-validateStopPropagation">
+    <dt>validateStopPropagation(只显示第一个不符合项)</dt>
+    <dd>
+      <pre>
+  <code class="javascript">
+  import Form from '@ctmobile/ui-form';
+  import $ from 'jquery';
+  const form = Form($('#container')[0],["autoheighttextarea","clearinput"]);
+  const flag = form.validateStopPropagation();
+  </code>
+      </pre>
+    </dd>
+  </dl>
+
+  <!--获取表单数据-->
+  <h2 id="form-getentrys">获取表单数据</h2>
+  <pre>
+  <code class="javascript">
+  import Form from '@ctmobile/ui-form';
+  import $ from 'jquery';
+  const form = Form($('#container')[0],["autoheighttextarea","clearinput"]);
+  const entrys = form.getEntrys();
+  console.log('entrys',entrys);
+  </code>
+  </pre>
+
+  <!--例子-->
+  <h2 id="form-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+        <pre>
+      <code class="html">
+
+<form id="containerdemo">
+  <fieldset>
+    <legend>autoheighttextarea</legend>
+    <fieldset>
+      <legend>default</legend>
+      <textarea
+              id="1"
+              data-ctform-config-name="1"
+              data-ctform-config-type="default"
+              data-ctform-config-label="详细信息"
+              data-ctform-config-labelposition="labeltop"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-requiremessage="请输入用户名"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      ></textarea>
+      <textarea
+              data-ctform-config-name="2"
+              data-ctform-config-type="default"
+              data-ctform-config-label="详细信息"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-labelalign="aligntop"
+              data-ctform-config-full="full"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      ></textarea>
+      <textarea
+              data-ctform-config-name="3"
+              data-ctform-config-type="default"
+              data-ctform-config-label="详细信息"
+              data-ctform-config-inset="inset"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-labelalign="aligncenter"
+              data-ctform-config-full="full"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      ></textarea>
+    </fieldset>
+    <fieldset>
+      <legend>ios</legend>
+      <textarea
+              data-ctform-config-name="4"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="详细信息"
+              data-ctform-config-labelposition="labeltop"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      ></textarea>
+      <textarea
+              data-ctform-config-name="5"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="详细信息"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-labelalign="aligntop"
+              data-ctform-config-full="full"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      ></textarea>
+    </fieldset>
+    <fieldset>
+      <legend>material</legend>
+      <textarea
+              data-ctform-config-name="6"
+              data-ctform-config-type="material"
+              data-ctform-config-label="详细信息"
+              data-ctform-config-labelposition="labeltop"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      ></textarea>
+      <textarea
+              data-ctform-config-name="7"
+              data-ctform-config-type="material"
+              data-ctform-config-label="详细信息"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-labelalign="aligntop"
+              data-ctform-config-full="full"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      ></textarea>
+    </fieldset>
+  </fieldset>
+
+  <fieldset>
+    <legend>clearinput</legend>
+    <fieldset>
+      <legend>default</legend>
+      <input type="text"
+             id="8"
+             data-ctform-config-name="8"
+             data-ctform-config-type="default"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-labelposition="labeltop"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="2"
+             data-ctform-config-minlength="1"
+      />
+      <input type="text"
+             data-ctform-config-name="9"
+             data-ctform-config-type="default"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-labelposition="labelleft"
+             data-ctform-config-labelalign="aligntop"
+             data-ctform-config-full="full"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+      <input type="text"
+             data-ctform-config-name="10"
+             data-ctform-config-type="default"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-inset="inset"
+             data-ctform-config-labelposition="labelleft"
+             data-ctform-config-labelalign="aligncenter"
+             data-ctform-config-full="full"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+    </fieldset>
+    <fieldset>
+      <legend>ios</legend>
+      <input type="text"
+             data-ctform-config-name="11"
+             data-ctform-config-type="ios"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-labelposition="labeltop"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+      <input type="text"
+             data-ctform-config-name="12"
+             data-ctform-config-type="ios"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-labelposition="labelleft"
+             data-ctform-config-labelalign="aligntop"
+             data-ctform-config-full="full"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+    </fieldset>
+    <fieldset>
+      <legend>material</legend>
+      <input type="text"
+             data-ctform-config-name="13"
+             data-ctform-config-type="material"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-labelposition="labeltop"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+      <input type="text"
+             data-ctform-config-name="14"
+             data-ctform-config-type="material"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-labelposition="labelleft"
+             data-ctform-config-labelalign="aligntop"
+             data-ctform-config-full="full"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+      <input type="text"
+             data-ctform-config-name="15"
+             data-ctform-config-type="material"
+             data-ctform-config-inset="inset"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-labelposition="labelleft"
+             data-ctform-config-labelalign="aligntop"
+             data-ctform-config-full="full"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+    </fieldset>
+  </fieldset>
+
+  <fieldset>
+    <legend>pwdtoggle</legend>
+    <fieldset>
+      <legend>default</legend>
+      <input type="password"
+             id="16"
+             data-ctform-config-name="16"
+             data-ctform-config-type="default"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-labelposition="labeltop"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+      <input type="password"
+             data-ctform-config-name="17"
+             data-ctform-config-type="default"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-labelposition="labelleft"
+             data-ctform-config-labelalign="aligntop"
+             data-ctform-config-full="full"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+      <input type="password"
+             data-ctform-config-name="18"
+             data-ctform-config-type="default"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-inset="inset"
+             data-ctform-config-labelposition="labelleft"
+             data-ctform-config-labelalign="aligncenter"
+             data-ctform-config-full="full"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+    </fieldset>
+    <fieldset>
+      <legend>ios</legend>
+      <input type="password"
+             data-ctform-config-name="19"
+             data-ctform-config-type="ios"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-labelposition="labeltop"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+      <input type="password"
+             data-ctform-config-name="20"
+             data-ctform-config-type="ios"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-labelposition="labelleft"
+             data-ctform-config-labelalign="aligntop"
+             data-ctform-config-full="full"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+    </fieldset>
+    <fieldset>
+      <legend>material</legend>
+      <input type="password"
+             data-ctform-config-name="21"
+             data-ctform-config-type="material"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-labelposition="labeltop"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+      <input type="password"
+             data-ctform-config-name="22"
+             data-ctform-config-type="material"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-labelposition="labelleft"
+             data-ctform-config-labelalign="aligntop"
+             data-ctform-config-full="full"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+      <input type="password"
+             data-ctform-config-name="23"
+             data-ctform-config-type="material"
+             data-ctform-config-inset="inset"
+             data-ctform-config-label="详细信息"
+             data-ctform-config-labelposition="labelleft"
+             data-ctform-config-labelalign="aligntop"
+             data-ctform-config-full="full"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+    </fieldset>
+  </fieldset>
+
+  <fieldset>
+    <legend>select</legend>
+    <fieldset>
+      <legend>default</legend>
+      <select
+              id="24"
+              data-ctform-config-name="24"
+              data-ctform-config-type="default"
+              data-ctform-config-label="详细信息"
+              data-ctform-config-labelposition="labeltop"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      >
+        <option>1</option>
+        <option value="2">2</option>
+      </select>
+      <select
+              data-ctform-config-name="25"
+              data-ctform-config-type="default"
+              data-ctform-config-label="详细信息"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-labelalign="aligntop"
+              data-ctform-config-full="full"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      >
+        <option>1</option>
+      </select>
+      <select
+              data-ctform-config-name="26"
+              data-ctform-config-type="default"
+              data-ctform-config-label="详细信息"
+              data-ctform-config-inset="inset"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-labelalign="aligncenter"
+              data-ctform-config-full="full"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      >
+        <option>1</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <legend>ios</legend>
+      <select
+              data-ctform-config-name="27"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="详细信息"
+              data-ctform-config-labelposition="labeltop"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      >
+        <option>1</option>
+      </select>
+      <select
+              data-ctform-config-name="28"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="详细信息"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-labelalign="aligntop"
+              data-ctform-config-full="full"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      >
+        <option>1</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <legend>material</legend>
+      <select
+              data-ctform-config-name="29"
+              data-ctform-config-type="material"
+              data-ctform-config-label="详细信息"
+              data-ctform-config-labelposition="labeltop"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      >
+        <option>1</option>
+      </select>
+      <select
+              data-ctform-config-name="30"
+              data-ctform-config-type="material"
+              data-ctform-config-label="详细信息"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-labelalign="aligntop"
+              data-ctform-config-full="full"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      >
+        <option>1</option>
+      </select>
+    </fieldset>
+  </fieldset>
+
+  <fieldset>
+    <legend>slider</legend>
+    <fieldset>
+      <legend>ios</legend>
+      <input type="range"
+             id="31"
+             data-ctform-config-name="31"
+             data-ctform-config-type="ios"
+             data-ctform-config-label="音量"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+      <input
+              type="range"
+              data-ctform-config-name="32"
+              disabled
+              data-ctform-config-type="ios"
+              data-ctform-config-label="音量"
+              data-ctform-config-labelposition="labelbottom"
+              data-ctform-config-full="full"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      />
+      <input
+              type="range"
+              data-ctform-config-name="33"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="音量"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-full="full"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      />
+      <input
+              type="range"
+              data-ctform-config-name="34"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="音量"
+              data-ctform-config-labelposition="labelright"
+              data-ctform-config-full="full"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      />
+    </fieldset>
+    <fieldset>
+      <legend>material</legend>
+      <input type="range"
+             disabled
+             data-ctform-config-name="35"
+             data-ctform-config-type="material"
+             data-ctform-config-label="音量"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+             data-ctform-config-maxlength="100"
+             data-ctform-config-minlength="1"
+      />
+      <input
+              type="range"
+              data-ctform-config-name="36"
+              data-ctform-config-type="material"
+              data-ctform-config-label="音量"
+              data-ctform-config-labelposition="labelbottom"
+              data-ctform-config-full="full"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      />
+      <input
+              type="range"
+              data-ctform-config-name="37"
+              data-ctform-config-type="material"
+              data-ctform-config-label="音量"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-full="full"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      />
+      <input
+              type="range"
+              data-ctform-config-name="38"
+              data-ctform-config-type="material"
+              data-ctform-config-label="音量"
+              data-ctform-config-labelposition="labelright"
+              data-ctform-config-full="full"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+              data-ctform-config-maxlength="100"
+              data-ctform-config-minlength="1"
+      />
+    </fieldset>
+  </fieldset>
+
+  <fieldset>
+    <legend>radio</legend>
+    <fieldset>
+      <legend>ios</legend>
+      <input type="radio"
+             checked
+             disabled
+             data-ctform-config-name="39"
+             data-ctform-config-type="ios"
+             data-ctform-config-label="男"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+      />
+      <input
+              type="radio"
+              disabled
+              data-ctform-config-name="40"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="男"
+              data-ctform-config-labelposition="labelbottom"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+      <input
+              type="radio"
+              data-ctform-config-name="41"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="男"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+      <input
+              type="radio"
+              data-ctform-config-name="42"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="男"
+              data-ctform-config-labelposition="labelright"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+    </fieldset>
+    <fieldset>
+      <legend>material</legend>
+      <input type="radio"
+             data-ctform-config-name="43"
+             data-ctform-config-type="material"
+             data-ctform-config-label="女"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+      />
+      <input
+              type="radio"
+              disabled
+              data-ctform-config-name="44"
+              data-ctform-config-type="material"
+              data-ctform-config-label="女"
+              data-ctform-config-labelposition="labelbottom"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+      <input
+              type="radio"
+              data-ctform-config-name="45"
+              data-ctform-config-type="material"
+              data-ctform-config-label="女"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+      <input
+              type="radio"
+              checked
+              disabled
+              data-ctform-config-name="46"
+              data-ctform-config-type="material"
+              data-ctform-config-label="女"
+              data-ctform-config-labelposition="labelright"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+    </fieldset>
+  </fieldset>
+
+  <fieldset>
+    <legend>checkbox</legend>
+    <fieldset>
+      <legend>ios</legend>
+      <input type="checkbox"
+             checked
+             disabled
+             data-ctform-config-name="47"
+             data-ctform-config-type="ios"
+             data-ctform-config-label="男"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+      />
+      <input
+              type="checkbox"
+              disabled
+              data-ctform-config-name="48"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="男"
+              data-ctform-config-labelposition="labelbottom"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+      <input
+              type="checkbox"
+              data-ctform-config-name="49"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="男"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+      <input
+              type="checkbox"
+              data-ctform-config-name="50"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="男"
+              data-ctform-config-labelposition="labelright"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+    </fieldset>
+    <fieldset>
+      <legend>material</legend>
+      <input type="checkbox"
+             data-ctform-config-name="51"
+             data-ctform-config-type="material"
+             data-ctform-config-label="女"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+      />
+      <input
+              type="checkbox"
+              disabled
+              data-ctform-config-name="52"
+              data-ctform-config-type="material"
+              data-ctform-config-label="女"
+              data-ctform-config-labelposition="labelbottom"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+      <input
+              type="checkbox"
+              data-ctform-config-name="53"
+              data-ctform-config-type="material"
+              data-ctform-config-label="女"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+      <input
+              type="checkbox"
+              checked
+              disabled
+              data-ctform-config-name="54"
+              data-ctform-config-type="material"
+              data-ctform-config-label="女"
+              data-ctform-config-labelposition="labelright"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+    </fieldset>
+  </fieldset>
+
+  <fieldset>
+    <legend>switch</legend>
+    <fieldset>
+      <legend>ios</legend>
+      <input type="checkbox"
+             class="switch"
+             checked
+             disabled
+             data-ctform-config-name="55"
+             data-ctform-config-type="ios"
+             data-ctform-config-label="wifi下加载图片"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+      />
+      <input
+              type="checkbox"
+              class="switch"
+              disabled
+              data-ctform-config-name="56"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="wifi下加载图片"
+              data-ctform-config-labelposition="labelbottom"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+      <input
+              type="checkbox"
+              class="switch"
+              data-ctform-config-name="57"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="wifi下加载图片"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+      <input
+              type="checkbox"
+              class="switch"
+              data-ctform-config-name="58"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="wifi下加载图片"
+              data-ctform-config-labelposition="labelright"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+    </fieldset>
+    <fieldset>
+      <legend>material</legend>
+      <input type="checkbox"
+             class="switch"
+             data-ctform-config-name="59"
+             data-ctform-config-type="material"
+             data-ctform-config-label="开启缓存"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+      />
+      <input
+              type="checkbox"
+              class="switch"
+              disabled
+              data-ctform-config-name="60"
+              data-ctform-config-type="material"
+              data-ctform-config-label="开启缓存"
+              data-ctform-config-labelposition="labelbottom"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+      <input
+              type="checkbox"
+              class="switch"
+              data-ctform-config-name="61"
+              data-ctform-config-type="material"
+              data-ctform-config-label="开启缓存"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+      <input
+              type="checkbox"
+              class="switch"
+              checked
+              disabled
+              data-ctform-config-name="62"
+              data-ctform-config-type="material"
+              data-ctform-config-label="开启缓存"
+              data-ctform-config-labelposition="labelright"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+    </fieldset>
+  </fieldset>
+
+  <fieldset>
+    <legend>spinner</legend>
+    <fieldset>
+      <legend>ios</legend>
+      <input type="number"
+             id="63"
+             class="ios fill round"
+             data-ctform-config-name="63"
+             data-ctform-config-type="ios"
+             data-ctform-config-label="wifi下加载图片"
+             data-ctform-config-tooltip="始终有的提示信息"
+             data-ctform-config-require="require"
+      />
+      <input
+              type="number"
+              class="ios fill"
+              data-ctform-config-name="64"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="wifi下加载图片"
+              data-ctform-config-labelposition="labelbottom"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+      <input
+              type="number"
+              class="ios round"
+              data-ctform-config-name="65"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="wifi下加载图片"
+              data-ctform-config-labelposition="labelleft"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+      <input
+              type="number"
+              class="ios"
+              data-ctform-config-name="66"
+              data-ctform-config-type="ios"
+              data-ctform-config-label="wifi下加载图片"
+              data-ctform-config-labelposition="labelright"
+              data-ctform-config-tooltip="始终有的提示信息"
+              data-ctform-config-require="require"
+      />
+    </fieldset>
+  </fieldset>
+
+  <fieldset>
+    <legend>group</legend>
+    <fieldset>
+      <legend>checkboxgroup</legend>
+      <div class="ct-form-checkboxgroup"
+           data-ctform-config-name="67"
+           data-ctform-config-type="default"
+           data-ctform-config-label="兴趣爱好"
+           data-ctform-config-labelposition="labelleft"
+           data-ctform-config-labelalign="aligntop"
+           data-ctform-config-tooltip="始终有的提示信息"
+           data-ctform-config-require="require"
+           data-ctform-config-requiremessage="require"
+      >
+        <input type="checkbox"
+               name="sex"
+               checked
+               id="67-1"
+               data-ctform-config-labelposition="labelright"
+               data-ctform-config-type="material"
+               data-ctform-config-label="看书"/>
+        <input type="checkbox"
+               name="sex"
+               data-ctform-config-labelposition="labelright"
+               data-ctform-config-type="ios"
+               data-ctform-config-label="打球"/>
+        <input type="checkbox"
+               name="sex"
+               data-ctform-config-type="material"
+               data-ctform-config-labelposition="labelright"
+               data-ctform-config-label="游戏"/>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>radiogroup</legend>
+      <div class="ct-form-radiogroup"
+           data-ctform-config-name="68"
+           data-ctform-config-type="default"
+           data-ctform-config-label="所在城市"
+           data-ctform-config-labelposition="labelleft"
+           data-ctform-config-labelalign="aligntop"
+           data-ctform-config-tooltip="始终有的提示信息"
+           data-ctform-config-require="require"
+           data-ctform-config-requiremessage="require"
+      >
+        <input type="radio"
+               name="sex"
+               checked
+               id="68-1"
+               data-ctform-config-labelposition="labelright"
+               data-ctform-config-type="material"
+               data-ctform-config-label="沈阳"/>
+        <input type="radio"
+               name="sex"
+               data-ctform-config-labelposition="labelright"
+               data-ctform-config-type="ios"
+               data-ctform-config-label="大连"/>
+        <input type="radio"
+               name="sex"
+               data-ctform-config-type="material"
+               data-ctform-config-labelposition="labelright"
+               data-ctform-config-label="铁岭"/>
+      </div>
+    </fieldset>
+  </fieldset>
+
+  <div class="toolbar">
+    <input type="button" id="validatePropagation" value="validatePropagation"/>
+    <input type="button" id="validateStopPropagation" value="validateStopPropagation"/>
+    <input type="button" id="submit" value="获取数据"/>
+  </div>
+</form>
+
+      </code>
+        </pre>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+        <pre>
+      <code class="javascript">
+import $ from 'jquery';
+import Form from '@ctmobile/ui-form';
+
+const validatePropagationDom = document.getElementById('validatePropagation');
+const validateStopPropagationDom = document.getElementById('validateStopPropagation');
+const submitDom = document.getElementById('submit');
+
+validatePropagationDom.addEventListener('click', () => {
+  const flag = form.validatePropagation();
+  console.log(flag);
+  return false;
+});
+
+validateStopPropagationDom.addEventListener('click', () => {
+  const flag = form.validateStopPropagation();
+  console.log(flag);
+  return false;
+});
+
+submitDom.addEventListener('click', () => {
+  const entry = form.getEntrys();
+  alert(JSON.stringify(entry));
+  return false;
+});
+
+const form = Form(document.getElementById('containerdemo'),[
+  'autoheighttextarea',
+  'clearinput',
+  'pwdtoggle',
+  'select',
+  'slider',
+  'radio',
+  'checkbox',
+  'switch',
+  'spinner',
+  'radiogroup',
+  'checkboxgroup',
+]);
+      </code>
+        </pre>
+        </dd>
+      </dl>
+    </div>
+
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner">
+          <form id="containerdemo">
+            <fieldset>
+              <legend>autoheighttextarea</legend>
+              <fieldset>
+                <legend>default</legend>
+                <textarea
+                        id="1"
+                        data-ctform-config-name="1"
+                        data-ctform-config-type="default"
+                        data-ctform-config-label="详细信息"
+                        data-ctform-config-labelposition="labeltop"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-requiremessage="请输入用户名"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                ></textarea>
+                <textarea
+                        data-ctform-config-name="2"
+                        data-ctform-config-type="default"
+                        data-ctform-config-label="详细信息"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-labelalign="aligntop"
+                        data-ctform-config-full="full"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                ></textarea>
+                <textarea
+                        data-ctform-config-name="3"
+                        data-ctform-config-type="default"
+                        data-ctform-config-label="详细信息"
+                        data-ctform-config-inset="inset"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-labelalign="aligncenter"
+                        data-ctform-config-full="full"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                ></textarea>
+              </fieldset>
+              <fieldset>
+                <legend>ios</legend>
+                <textarea
+                        data-ctform-config-name="4"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="详细信息"
+                        data-ctform-config-labelposition="labeltop"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                ></textarea>
+                <textarea
+                        data-ctform-config-name="5"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="详细信息"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-labelalign="aligntop"
+                        data-ctform-config-full="full"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                ></textarea>
+              </fieldset>
+              <fieldset>
+                <legend>material</legend>
+                <textarea
+                        data-ctform-config-name="6"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="详细信息"
+                        data-ctform-config-labelposition="labeltop"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                ></textarea>
+                <textarea
+                        data-ctform-config-name="7"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="详细信息"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-labelalign="aligntop"
+                        data-ctform-config-full="full"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                ></textarea>
+              </fieldset>
+            </fieldset>
+
+            <fieldset>
+              <legend>clearinput</legend>
+              <fieldset>
+                <legend>default</legend>
+                <input type="text"
+                       id="8"
+                       data-ctform-config-name="8"
+                       data-ctform-config-type="default"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-labelposition="labeltop"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="2"
+                       data-ctform-config-minlength="1"
+                />
+                <input type="text"
+                       data-ctform-config-name="9"
+                       data-ctform-config-type="default"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-labelposition="labelleft"
+                       data-ctform-config-labelalign="aligntop"
+                       data-ctform-config-full="full"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+                <input type="text"
+                       data-ctform-config-name="10"
+                       data-ctform-config-type="default"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-inset="inset"
+                       data-ctform-config-labelposition="labelleft"
+                       data-ctform-config-labelalign="aligncenter"
+                       data-ctform-config-full="full"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+              </fieldset>
+              <fieldset>
+                <legend>ios</legend>
+                <input type="text"
+                       data-ctform-config-name="11"
+                       data-ctform-config-type="ios"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-labelposition="labeltop"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+                <input type="text"
+                       data-ctform-config-name="12"
+                       data-ctform-config-type="ios"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-labelposition="labelleft"
+                       data-ctform-config-labelalign="aligntop"
+                       data-ctform-config-full="full"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+              </fieldset>
+              <fieldset>
+                <legend>material</legend>
+                <input type="text"
+                       data-ctform-config-name="13"
+                       data-ctform-config-type="material"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-labelposition="labeltop"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+                <input type="text"
+                       data-ctform-config-name="14"
+                       data-ctform-config-type="material"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-labelposition="labelleft"
+                       data-ctform-config-labelalign="aligntop"
+                       data-ctform-config-full="full"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+                <input type="text"
+                       data-ctform-config-name="15"
+                       data-ctform-config-type="material"
+                       data-ctform-config-inset="inset"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-labelposition="labelleft"
+                       data-ctform-config-labelalign="aligntop"
+                       data-ctform-config-full="full"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+              </fieldset>
+            </fieldset>
+
+            <fieldset>
+              <legend>pwdtoggle</legend>
+              <fieldset>
+                <legend>default</legend>
+                <input type="password"
+                       id="16"
+                       data-ctform-config-name="16"
+                       data-ctform-config-type="default"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-labelposition="labeltop"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+                <input type="password"
+                       data-ctform-config-name="17"
+                       data-ctform-config-type="default"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-labelposition="labelleft"
+                       data-ctform-config-labelalign="aligntop"
+                       data-ctform-config-full="full"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+                <input type="password"
+                       data-ctform-config-name="18"
+                       data-ctform-config-type="default"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-inset="inset"
+                       data-ctform-config-labelposition="labelleft"
+                       data-ctform-config-labelalign="aligncenter"
+                       data-ctform-config-full="full"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+              </fieldset>
+              <fieldset>
+                <legend>ios</legend>
+                <input type="password"
+                       data-ctform-config-name="19"
+                       data-ctform-config-type="ios"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-labelposition="labeltop"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+                <input type="password"
+                       data-ctform-config-name="20"
+                       data-ctform-config-type="ios"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-labelposition="labelleft"
+                       data-ctform-config-labelalign="aligntop"
+                       data-ctform-config-full="full"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+              </fieldset>
+              <fieldset>
+                <legend>material</legend>
+                <input type="password"
+                       data-ctform-config-name="21"
+                       data-ctform-config-type="material"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-labelposition="labeltop"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+                <input type="password"
+                       data-ctform-config-name="22"
+                       data-ctform-config-type="material"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-labelposition="labelleft"
+                       data-ctform-config-labelalign="aligntop"
+                       data-ctform-config-full="full"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+                <input type="password"
+                       data-ctform-config-name="23"
+                       data-ctform-config-type="material"
+                       data-ctform-config-inset="inset"
+                       data-ctform-config-label="详细信息"
+                       data-ctform-config-labelposition="labelleft"
+                       data-ctform-config-labelalign="aligntop"
+                       data-ctform-config-full="full"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+              </fieldset>
+            </fieldset>
+
+            <fieldset>
+              <legend>select</legend>
+              <fieldset>
+                <legend>default</legend>
+                <select
+                        id="24"
+                        data-ctform-config-name="24"
+                        data-ctform-config-type="default"
+                        data-ctform-config-label="详细信息"
+                        data-ctform-config-labelposition="labeltop"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                >
+                  <option>1</option>
+                  <option value="2">2</option>
+                </select>
+                <select
+                        data-ctform-config-name="25"
+                        data-ctform-config-type="default"
+                        data-ctform-config-label="详细信息"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-labelalign="aligntop"
+                        data-ctform-config-full="full"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                >
+                  <option>1</option>
+                </select>
+                <select
+                        data-ctform-config-name="26"
+                        data-ctform-config-type="default"
+                        data-ctform-config-label="详细信息"
+                        data-ctform-config-inset="inset"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-labelalign="aligncenter"
+                        data-ctform-config-full="full"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                >
+                  <option>1</option>
+                </select>
+              </fieldset>
+              <fieldset>
+                <legend>ios</legend>
+                <select
+                        data-ctform-config-name="27"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="详细信息"
+                        data-ctform-config-labelposition="labeltop"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                >
+                  <option>1</option>
+                </select>
+                <select
+                        data-ctform-config-name="28"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="详细信息"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-labelalign="aligntop"
+                        data-ctform-config-full="full"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                >
+                  <option>1</option>
+                </select>
+              </fieldset>
+              <fieldset>
+                <legend>material</legend>
+                <select
+                        data-ctform-config-name="29"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="详细信息"
+                        data-ctform-config-labelposition="labeltop"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                >
+                  <option>1</option>
+                </select>
+                <select
+                        data-ctform-config-name="30"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="详细信息"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-labelalign="aligntop"
+                        data-ctform-config-full="full"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                >
+                  <option>1</option>
+                </select>
+              </fieldset>
+            </fieldset>
+
+            <fieldset>
+              <legend>slider</legend>
+              <fieldset>
+                <legend>ios</legend>
+                <input type="range"
+                       id="31"
+                       data-ctform-config-name="31"
+                       data-ctform-config-type="ios"
+                       data-ctform-config-label="音量"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+                <input
+                        type="range"
+                        data-ctform-config-name="32"
+                        disabled
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="音量"
+                        data-ctform-config-labelposition="labelbottom"
+                        data-ctform-config-full="full"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                />
+                <input
+                        type="range"
+                        data-ctform-config-name="33"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="音量"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-full="full"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                />
+                <input
+                        type="range"
+                        data-ctform-config-name="34"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="音量"
+                        data-ctform-config-labelposition="labelright"
+                        data-ctform-config-full="full"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                />
+              </fieldset>
+              <fieldset>
+                <legend>material</legend>
+                <input type="range"
+                       disabled
+                       data-ctform-config-name="35"
+                       data-ctform-config-type="material"
+                       data-ctform-config-label="音量"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                       data-ctform-config-maxlength="100"
+                       data-ctform-config-minlength="1"
+                />
+                <input
+                        type="range"
+                        data-ctform-config-name="36"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="音量"
+                        data-ctform-config-labelposition="labelbottom"
+                        data-ctform-config-full="full"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                />
+                <input
+                        type="range"
+                        data-ctform-config-name="37"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="音量"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-full="full"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                />
+                <input
+                        type="range"
+                        data-ctform-config-name="38"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="音量"
+                        data-ctform-config-labelposition="labelright"
+                        data-ctform-config-full="full"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                        data-ctform-config-maxlength="100"
+                        data-ctform-config-minlength="1"
+                />
+              </fieldset>
+            </fieldset>
+
+            <fieldset>
+              <legend>radio</legend>
+              <fieldset>
+                <legend>ios</legend>
+                <input type="radio"
+                       checked
+                       disabled
+                       data-ctform-config-name="39"
+                       data-ctform-config-type="ios"
+                       data-ctform-config-label="男"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                />
+                <input
+                        type="radio"
+                        disabled
+                        data-ctform-config-name="40"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="男"
+                        data-ctform-config-labelposition="labelbottom"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+                <input
+                        type="radio"
+                        data-ctform-config-name="41"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="男"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+                <input
+                        type="radio"
+                        data-ctform-config-name="42"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="男"
+                        data-ctform-config-labelposition="labelright"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+              </fieldset>
+              <fieldset>
+                <legend>material</legend>
+                <input type="radio"
+                       data-ctform-config-name="43"
+                       data-ctform-config-type="material"
+                       data-ctform-config-label="女"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                />
+                <input
+                        type="radio"
+                        disabled
+                        data-ctform-config-name="44"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="女"
+                        data-ctform-config-labelposition="labelbottom"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+                <input
+                        type="radio"
+                        data-ctform-config-name="45"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="女"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+                <input
+                        type="radio"
+                        checked
+                        disabled
+                        data-ctform-config-name="46"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="女"
+                        data-ctform-config-labelposition="labelright"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+              </fieldset>
+            </fieldset>
+
+            <fieldset>
+              <legend>checkbox</legend>
+              <fieldset>
+                <legend>ios</legend>
+                <input type="checkbox"
+                       checked
+                       disabled
+                       data-ctform-config-name="47"
+                       data-ctform-config-type="ios"
+                       data-ctform-config-label="男"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                />
+                <input
+                        type="checkbox"
+                        disabled
+                        data-ctform-config-name="48"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="男"
+                        data-ctform-config-labelposition="labelbottom"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+                <input
+                        type="checkbox"
+                        data-ctform-config-name="49"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="男"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+                <input
+                        type="checkbox"
+                        data-ctform-config-name="50"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="男"
+                        data-ctform-config-labelposition="labelright"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+              </fieldset>
+              <fieldset>
+                <legend>material</legend>
+                <input type="checkbox"
+                       data-ctform-config-name="51"
+                       data-ctform-config-type="material"
+                       data-ctform-config-label="女"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                />
+                <input
+                        type="checkbox"
+                        disabled
+                        data-ctform-config-name="52"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="女"
+                        data-ctform-config-labelposition="labelbottom"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+                <input
+                        type="checkbox"
+                        data-ctform-config-name="53"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="女"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+                <input
+                        type="checkbox"
+                        checked
+                        disabled
+                        data-ctform-config-name="54"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="女"
+                        data-ctform-config-labelposition="labelright"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+              </fieldset>
+            </fieldset>
+
+            <fieldset>
+              <legend>switch</legend>
+              <fieldset>
+                <legend>ios</legend>
+                <input type="checkbox"
+                       class="switch"
+                       checked
+                       disabled
+                       data-ctform-config-name="55"
+                       data-ctform-config-type="ios"
+                       data-ctform-config-label="wifi下加载图片"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                />
+                <input
+                        type="checkbox"
+                        class="switch"
+                        disabled
+                        data-ctform-config-name="56"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="wifi下加载图片"
+                        data-ctform-config-labelposition="labelbottom"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+                <input
+                        type="checkbox"
+                        class="switch"
+                        data-ctform-config-name="57"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="wifi下加载图片"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+                <input
+                        type="checkbox"
+                        class="switch"
+                        data-ctform-config-name="58"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="wifi下加载图片"
+                        data-ctform-config-labelposition="labelright"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+              </fieldset>
+              <fieldset>
+                <legend>material</legend>
+                <input type="checkbox"
+                       class="switch"
+                       data-ctform-config-name="59"
+                       data-ctform-config-type="material"
+                       data-ctform-config-label="开启缓存"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                />
+                <input
+                        type="checkbox"
+                        class="switch"
+                        disabled
+                        data-ctform-config-name="60"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="开启缓存"
+                        data-ctform-config-labelposition="labelbottom"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+                <input
+                        type="checkbox"
+                        class="switch"
+                        data-ctform-config-name="61"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="开启缓存"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+                <input
+                        type="checkbox"
+                        class="switch"
+                        checked
+                        disabled
+                        data-ctform-config-name="62"
+                        data-ctform-config-type="material"
+                        data-ctform-config-label="开启缓存"
+                        data-ctform-config-labelposition="labelright"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+              </fieldset>
+            </fieldset>
+
+            <fieldset>
+              <legend>spinner</legend>
+              <fieldset>
+                <legend>ios</legend>
+                <input type="number"
+                       id="63"
+                       class="ios fill round"
+                       data-ctform-config-name="63"
+                       data-ctform-config-type="ios"
+                       data-ctform-config-label="wifi下加载图片"
+                       data-ctform-config-tooltip="始终有的提示信息"
+                       data-ctform-config-require="require"
+                />
+                <input
+                        type="number"
+                        class="ios fill"
+                        data-ctform-config-name="64"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="wifi下加载图片"
+                        data-ctform-config-labelposition="labelbottom"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+                <input
+                        type="number"
+                        class="ios round"
+                        data-ctform-config-name="65"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="wifi下加载图片"
+                        data-ctform-config-labelposition="labelleft"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+                <input
+                        type="number"
+                        class="ios"
+                        data-ctform-config-name="66"
+                        data-ctform-config-type="ios"
+                        data-ctform-config-label="wifi下加载图片"
+                        data-ctform-config-labelposition="labelright"
+                        data-ctform-config-tooltip="始终有的提示信息"
+                        data-ctform-config-require="require"
+                />
+              </fieldset>
+            </fieldset>
+
+            <fieldset>
+              <legend>group</legend>
+              <fieldset>
+                <legend>checkboxgroup</legend>
+                <div class="ct-form-checkboxgroup"
+                     data-ctform-config-name="67"
+                     data-ctform-config-type="default"
+                     data-ctform-config-label="兴趣爱好"
+                     data-ctform-config-labelposition="labelleft"
+                     data-ctform-config-labelalign="aligntop"
+                     data-ctform-config-tooltip="始终有的提示信息"
+                     data-ctform-config-require="require"
+                     data-ctform-config-requiremessage="require"
+                >
+                  <input type="checkbox"
+                         name="sex"
+                         checked
+                         id="67-1"
+                         data-ctform-config-labelposition="labelright"
+                         data-ctform-config-type="material"
+                         data-ctform-config-label="看书"/>
+                  <input type="checkbox"
+                         name="sex"
+                         data-ctform-config-labelposition="labelright"
+                         data-ctform-config-type="ios"
+                         data-ctform-config-label="打球"/>
+                  <input type="checkbox"
+                         name="sex"
+                         data-ctform-config-type="material"
+                         data-ctform-config-labelposition="labelright"
+                         data-ctform-config-label="游戏"/>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>radiogroup</legend>
+                <div class="ct-form-radiogroup"
+                     data-ctform-config-name="68"
+                     data-ctform-config-type="default"
+                     data-ctform-config-label="所在城市"
+                     data-ctform-config-labelposition="labelleft"
+                     data-ctform-config-labelalign="aligntop"
+                     data-ctform-config-tooltip="始终有的提示信息"
+                     data-ctform-config-require="require"
+                     data-ctform-config-requiremessage="require"
+                >
+                  <input type="radio"
+                         name="sex"
+                         checked
+                         id="68-1"
+                         data-ctform-config-labelposition="labelright"
+                         data-ctform-config-type="material"
+                         data-ctform-config-label="沈阳"/>
+                  <input type="radio"
+                         name="sex"
+                         data-ctform-config-labelposition="labelright"
+                         data-ctform-config-type="ios"
+                         data-ctform-config-label="大连"/>
+                  <input type="radio"
+                         name="sex"
+                         data-ctform-config-type="material"
+                         data-ctform-config-labelposition="labelright"
+                         data-ctform-config-label="铁岭"/>
+                </div>
+              </fieldset>
+            </fieldset>
+
+            <div class="toolbar">
+              <input type="button" id="validatePropagation" value="validatePropagation"/>
+              <input type="button" id="validateStopPropagation" value="validateStopPropagation"/>
+              <input type="button" id="submit" value="获取数据"/>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!--方法-->
+  <h2 id="form-methods">方法</h2>
+  <div class="method-wrap">
+    <p>validatePropagation() - 验证表单(传递)</p>
+  </div>
+  <div class="method-wrap">
+    <p>validateStopPropagation() - 验证表单(阻止向下传递)</p>
+  </div>
+  <div class="method-wrap">
+    <p>showToolTip(<span class="parameter">name</span>,<span class="parameter">tip</span>) - 显示tooltip的提示信息</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">name</span>-<span class="parameterType">String</span> 元素的唯一标志(data-ctform-config-name的值)
+      </li>
+      <li>
+        <span class="parameter">tip</span>-<span class="parameterType">string</span> 提示信息
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>showErrorTip(<span class="parameter">name</span>,<span class="parameter">tip</span>) - 显示errortip的提示信息</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">name</span>-<span class="parameterType">String</span> 元素的唯一标志(data-ctform-config-name的值)
+      </li>
+      <li>
+        <span class="parameter">tip</span>-<span class="parameterType">string</span> 提示信息
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>showSuccessTip(<span class="parameter">name</span>,<span class="parameter">tip</span>) - 显示successtip的提示信息</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">name</span>-<span class="parameterType">String</span> 元素的唯一标志(data-ctform-config-name的值)
+      </li>
+      <li>
+        <span class="parameter">tip</span>-<span class="parameterType">string</span> 提示信息
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>showRangeTip(<span class="parameter">name</span>,<span class="parameter">tip</span>) - 显示rangetip的提示信息</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">name</span>-<span class="parameterType">String</span> 元素的唯一标志(data-ctform-config-name的值)
+      </li>
+      <li>
+        <span class="parameter">tip</span>-<span class="parameterType">string</span> 提示信息
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>hideToolTip(<span class="parameter">name</span>) - 隐藏tooltip信息</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">name</span>-<span class="parameterType">String</span> 元素的唯一标志(data-ctform-config-name的值)
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>hideErrorMessageTip(<span class="parameter">name</span>) - 隐藏errormessagetip信息</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">name</span>-<span class="parameterType">String</span> 元素的唯一标志(data-ctform-config-name的值)
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>hideErrorMessageAllTips() - 隐藏所有的errorMessage信息</p>
+  </div>
+  <div class="method-wrap">
+    <p>hideRangeTip(<span class="parameter">name</span>) - 隐藏rangetip信息</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">name</span>-<span class="parameterType">String</span> 元素的唯一标志(data-ctform-config-name的值)
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>hideAllTip(<span class="parameter">name</span>) - 隐藏一项中的所有</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">name</span>-<span class="parameterType">String</span> 元素的唯一标志(data-ctform-config-name的值)
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>getEntrys() - 返回表单数据</p>
+  </div>
+</div>
+
+</body>
+</html>

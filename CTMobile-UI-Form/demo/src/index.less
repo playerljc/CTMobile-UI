@@ -1,0 +1,60 @@
+@import "../node_modules/font-awesome/less/font-awesome.less";
+@import "../node_modules/@ctmobile/ui-demo-util/lib/index.less";
+@import "../node_modules/@ctmobile/ui-form/lib/form.less";
+@import "../node_modules/@ctmobile/ui-form/lib/themes/default/form.less";
+
+.ctmobile-ui-doc-demo-device-inner {
+  > h3 {
+    padding-left: 1rem;
+  }
+}
+
+.events-table tr td {
+  text-align: center;
+}
+
+fieldset {
+  border: 1px ridge #00FF66;
+  color: #00FF66;
+  padding: .5rem .5rem .5rem 1rem;
+  margin: .5rem;
+  fieldset {
+    border: 1px ridge #00CCCC;
+    color: #00CCCC;
+    padding: 1rem;
+    > .ct-form-control {
+      &:last-child {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        &:after {
+          height: 0;
+        }
+      }
+    }
+  }
+}
+
+.ct-form-control {
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
+  .label {
+    font-size: 12px !important;
+  }
+}
+
+input[type="button"] {
+  display: block;
+  width: 100%;
+  margin: 10px 5px;
+}
