@@ -34,3 +34,4 @@ npm-debug
 .vscode
 
 demo/src/ctmobile-ui-cascadecompared
+demo/dist

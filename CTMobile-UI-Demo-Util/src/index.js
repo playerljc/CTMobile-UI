@@ -4,7 +4,7 @@ import './jquery.pin';
 
 export default {
   initial() {
-    const $code = document.getElementsByClassName("html");
+    const $code = document.getElementsByClassName('html');
     for (let i = 0; i < $code.length; i++) {
       let element = $code[i];
       element.innerText = element.innerHTML;
@@ -12,7 +12,7 @@ export default {
 
     hljs.initHighlightingOnLoad();
 
-    $(".ctmobile-ui-doc-demo-device").pin({
+    $('.ctmobile-ui-doc-demo-device').pin({
       containerSelector: '.with-device'
     });
   }

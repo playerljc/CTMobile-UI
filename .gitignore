@@ -33,17 +33,41 @@ npm-debug
 
 .vscode
 
-src/CTMobile-UI-Accordion/.idea
-src/CTMobile-UI-Accordion/node_modules
-src/CTMobile-UI-Accordion/demo/node_modules
+CTMobile-UI-Accordion/.idea
+CTMobile-UI-Accordion/node_modules
+CTMobile-UI-Accordion/demo/node_modules
+CTMobile-UI-Accordion/demo/dist
+CTMobile-UI-Accordion/demo/src/assets
 
-src/CTMobile-UI-StickupLayout/.idea
-src/CTMobile-UI-StickupLayout/node_modules
-src/CTMobile-UI-StickupLayout/demo/node_modules
+CTMobile-UI-CascadeCompared/.idea
+CTMobile-UI-CascadeCompared/node_modules
+CTMobile-UI-CascadeCompared/demo/node_modules
+CTMobile-UI-CascadeCompared/demo/dist
+CTMobile-UI-CascadeCompared/demo/src/assets
 
-src/CTMobile-UI-CascadeCompared/.idea
-src/CTMobile-UI-CascadeCompared/node_modules
-src/CTMobile-UI-CascadeCompared/demo/node_modules
+CTMobile-UI-StickupLayout/.idea
+CTMobile-UI-StickupLayout/node_modules
+CTMobile-UI-StickupLayout/demo/node_modules
+CTMobile-UI-StickupLayout/demo/dist
+CTMobile-UI-StickupLayout/demo/src/assets
 
-src/CTMobile-UI-Demo-Util/.idea
-src/CTMobile-UI-Demo-Util/node_modules
+CTMobile-UI-DragLayout/.idea
+CTMobile-UI-DragLayout/node_modules
+CTMobile-UI-DragLayout/demo/node_modules
+CTMobile-UI-DragLayout/demo/dist
+CTMobile-UI-DragLayout/demo/src/assets
+
+CTMobile-UI-FontSizeSetting/.idea
+CTMobile-UI-FontSizeSetting/node_modules
+CTMobile-UI-FontSizeSetting/demo/node_modules
+CTMobile-UI-FontSizeSetting/demo/dist
+CTMobile-UI-FontSizeSetting/demo/src/assets
+
+CTMobile-UI-Form/.idea
+CTMobile-UI-Form/node_modules
+CTMobile-UI-Form/demo/node_modules
+CTMobile-UI-Form/demo/dist
+CTMobile-UI-Form/demo/src/assets
+
+CTMobile-UI-Demo-Util/.idea
+CTMobile-UI-Demo-Util/node_modules
