@@ -1,0 +1,35 @@
+{
+  "name": "ctmobile-ui-imageviewer-demo",
+  "version": "1.0.0",
+  "description": "ctmobile-ui-imageviewer的Demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "startapp": "ctbuild --type startapp",
+    "buildapp": "ctbuild --type buildapp"
+  },
+  "author": "playerljc <playerljc@163.com>",
+  "license": "MIT",
+  "keywords": [
+    "ctmobile-UI",
+    "CtMobile",
+    "Ctmobile-UI-ImageViewer",
+    "mobile",
+    "webapp",
+    "SPA",
+    "Hybrid",
+    "Cordova",
+    "Android",
+    "iOS",
+    "Material",
+    "playerljc",
+    "WebFramework"
+  ],
+  "devDependencies": {
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.11",
+    "normalize.less": "^1.0.0",
+    "@ct/build": "^1.0.0"
+  }
+}

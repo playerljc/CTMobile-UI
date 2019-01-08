@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-imageviewer-demo</title>
+</head>
+
+<body>
+
+<div class="ctmobile-ui-doc">
+  <!-- ImageViewer -->
+
+  <!--菜单-->
+  <h1>ImageViewer</h1>
+  <ul>
+    <li><a href="#imageviewer-started">Getting started</a></li>
+    <li><a href="#imageviewer-options">Options</a></li>
+    <li><a href="#imageviewer-api">API</a></li>
+    <li><a href="#imageviewer-faq">FAQ</a></li>
+    <li><a href="#imageviewer-htmlinslides">HTML in slides</a></li>
+    <li><a href="#imageviewer-responsiveimages">Responsive images</a></li>
+    <li><a href="#imageviewer-performancetips">Performance tips</a></li>
+    <li><a href="#imageviewer-demo">demo</a></li>
+  </ul>
+
+  <h2 id="imageviewer-started">Getting started</h2>
+  <a target="_blank" href="http://photoswipe.com/documentation/getting-started.html">请参考photoswipe的Getting started</a>
+
+  <h2 id="imageviewer-options">Options</h2>
+  <a target="_blank" href="http://photoswipe.com/documentation/options.html">请参考photoswipe的Options</a>
+
+  <h2 id="imageviewer-api">API</h2>
+  <a target="_blank" href="http://photoswipe.com/documentation/api.html">请参考photoswipe的API</a>
+
+  <h2 id="imageviewer-faq">FAQ</h2>
+  <a target="_blank" href="http://photoswipe.com/documentation/faq.html">请参考photoswipe的FAQ</a>
+
+  <h2 id="imageviewer-htmlinslides">HTML in slides</h2>
+  <a target="_blank" href="http://photoswipe.com/documentation/custom-html-in-slides.html">请参考photoswipe的HTML in slides</a>
+
+  <h2 id="imageviewer-responsiveimages">Responsive images</h2>
+  <a target="_blank" href="http://photoswipe.com/documentation/responsive-images.html">请参考photoswipe的Responsive images</a>
+
+  <h2 id="imageviewer-performancetips">Performance tips</h2>http://photoswipe.com/documentation/performance-tips.html
+  <a target="_blank" href="http://photoswipe.com/documentation/performance-tips.html">请参考photoswipe的Performance tips</a>
+
+  <!--例子-->
+  <h2 id="imageviewer-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+        <pre>
+      <code class="html">
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="pswp__bg"></div>
+  <div class="pswp__scroll-wrap">
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <div class="pswp__counter"></div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--share" title="Share"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip"></div>
+      </div>
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center"></div>
+      </div>
+    </div>
+  </div>
+</div>
+      </code>
+        </pre>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+        <pre>
+      <code class="javascript">
+import ImageViewer from '@ctmobile/ui-imageviewer';
+
+// build items array
+const items = [
+  {
+    src: 'https://placekitten.com/600/400',
+    w: 600,
+    h: 400
+  },
+  {
+    src: 'https://placekitten.com/1200/900',
+    w: 1200,
+    h: 900
+  }
+];
+
+document.getElementById('photo1').addEventListener('click', () => {
+  const imageviewer = ImageViewer(document.getElementById('imageviewer'), items, {
+    index: 0
+  });
+  imageviewer.photoswipe.init();
+});
+
+document.getElementById('photo2').addEventListener('click', () => {
+  const imageviewer = ImageViewer(document.getElementById('imageviewer'), items, {
+    index: 1
+  });
+  imageviewer.photoswipe.init();
+});
+      </code>
+        </pre>
+        </dd>
+      </dl>
+    </div>
+
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner">
+          
+          <ul class="photoWrap">
+            <li id="photo1"><img src="https://placekitten.com/600/400"></li>
+            <li id="photo2"><img src="https://placekitten.com/1200/900"></li>
+          </ul>
+          
+          <div class="pswp" id="imageviewer">
+            <div class="pswp__bg"></div>
+            <div class="pswp__scroll-wrap">
+              <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+              </div>
+              <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                  <div class="pswp__counter"></div>
+                  <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                  <button class="pswp__button pswp__button--share" title="Share"></button>
+                  <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                  <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                  <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                  <div class="pswp__share-tooltip"></div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                </button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                </button>
+                <div class="pswp__caption">
+                  <div class="pswp__caption__center"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -32,10 +32,11 @@
   },
   "homepage": "https://github.com/playerljc/CTMobile-UI#readme",
   "devDependencies": {
-    "@babel/runtime": "^7.2.0",
-    "jquery": "^3.3.1"
+    "@ct/build": "^1.0.0"
   },
   "dependencies": {
+    "@babel/runtime": "^7.2.0",
+    "jquery": "^3.3.1",
     "highlight.js": "^9.13.1"
   }
 }

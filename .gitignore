@@ -69,5 +69,11 @@ CTMobile-UI-Form/demo/node_modules
 CTMobile-UI-Form/demo/dist
 CTMobile-UI-Form/demo/src/assets
 
+CTMobile-UI-ImageViewer/.idea
+CTMobile-UI-ImageViewer/node_modules
+CTMobile-UI-ImageViewer/demo/node_modules
+CTMobile-UI-ImageViewer/demo/dist
+CTMobile-UI-ImageViewer/demo/src/assets
+
 CTMobile-UI-Demo-Util/.idea
 CTMobile-UI-Demo-Util/node_modules

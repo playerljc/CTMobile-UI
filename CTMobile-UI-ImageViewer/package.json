@@ -1,8 +1,8 @@
 {
-  "name": "@ctmobile/ui-form",
+  "name": "@ctmobile/ui-imageviewer",
   "version": "1.0.0",
-  "description": "支持移动端的UI组件-表单",
-  "main": "lib/form.js",
+  "description": "支持移动端的UI组件-ImageViewer",
+  "main": "lib/imageviewer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
@@ -13,7 +13,7 @@
     "url": "https://github.com/playerljc/CTMobile-UI.git"
   },
   "keywords": [
-    "form",
+    "imageviewer",
     "CtMobile",
     "CTMibole-UI",
     "mobile",
@@ -35,8 +35,7 @@
   "homepage": "https://github.com/playerljc/CTMobile-UI#readme",
   "dependencies": {
     "@babel/runtime": "^7.2.0",
-    "jquery": "^3.3.1",
-    "lodash": "^4.17.11"
+    "photoswipe": "^4.1.2"
   },
   "devDependencies": {
     "@ct/build": "^1.0.0"

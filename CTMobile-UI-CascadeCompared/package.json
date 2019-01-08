@@ -33,8 +33,13 @@
     "url": "https://github.com/playerljc/CTMobile-UI/issues"
   },
   "homepage": "https://github.com/playerljc/CTMobile-UI#readme",
-  "devDependencies": {
+  "dependencies": {
     "@babel/runtime": "^7.2.0",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "iscroll": "^5.2.0",
+    "@ctmobile/ui-stickuplayout": "^1.0.0"
+  },
+  "devDependencies": {
+    "@ct/build": "^1.0.0"
   }
 }
