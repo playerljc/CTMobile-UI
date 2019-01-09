@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-jdcategorytab-demo</title>
+</head>
+
+<body>
+
+<div class="ctmobile-ui-doc">
+  <!-- JdCategoryTab -->
+
+  <!--菜单-->
+  <h1>JdCategoryTab</h1>
+  <ul>
+    <li><a href="#jdcategorytab-layout">基本布局</a></li>
+    <li><a href="#jdcategorytab-initial">初始化</a></li>
+    <li><a href="#jdcategorytab-demo">例子</a></li>
+    <li><a href="#jdcategorytab-methods">方法</a></li>
+    <li>
+      <a href="#jdcategorytab-events">事件</a>
+      <ul>
+        <li><a href="#jdcategorytab-events-change">change</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--基本布局-->
+  <h2 id="jdcategorytab-layout">基本布局</h2>
+  <p>常见的布局如下：</p>
+  <pre>
+  <code class="html">
+<div class="ct-jdcategorytab">
+  <div class="ct-jdcategorytab-menu">
+    <ul>
+      <li class="cur"></li>
+      <li></li>
+      ...
+    </ul>
+  </div>
+  <ul class="ct-jdcategorytab-tab">
+    <li class="cur"></li>
+      <li></li>
+      ...
+  </ul>
+</div>
+  </code>
+  </pre>
+  <ul>
+    <li>
+      ct-jdcategorytab - 代表是一个JdCategoryTab组件
+      <ul>
+        <li>
+          ct-jdcategorytab-menu - 代表菜单
+          <ul>
+            <li>li - 代表菜单项</li>
+          </ul>
+        </li>
+        <li>
+          ct-jdcategorytab-tab - 代表面板
+          <ul>
+            <li>li - 代表面板项</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--初始化-->
+  <h2 id="jdcategorytab-initial">初始化</h2>
+  <pre>
+  <code class="javascript">
+  import JdCategoryTab from @ctmobile/ui-jdcategorytab;
+  const jdcategorytab = JdCategoryTab(el);
+  </code>
+  </pre>
+
+  <!--例子-->
+  <h2 id="jdcategorytab-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+        <pre>
+      <code class="html">
+<dl>
+  <dt>
+    <h3>基本</h3>
+  </dt>
+  <dd>
+    <div class="ct-jdcategorytab-wrap">
+      <div class="ct-jdcategorytab" id="ct-jdcategorytab-base">
+        <div class="ct-jdcategorytab-menu">
+          <ul></ul>
+        </div>
+        <ul class="ct-jdcategorytab-tab"></ul>
+      </div>
+    </div>
+  </dd>
+</dl>
+
+<dl>
+  <dt>
+    <h3>动态添加</h3>
+    <div class="toolbar">
+      <div class="toolbar">
+        <button id="ct-jdcategorytab-dynamic-addbtn">添加</button>
+      </div>
+    </div>
+  </dt>
+  <dd>
+    <div class="ct-jdcategorytab-wrap">
+      <div class="ct-jdcategorytab" id="ct-jdcategorytab-dynamic">
+        <div class="ct-jdcategorytab-menu">
+          <ul></ul>
+        </div>
+        <ul class="ct-jdcategorytab-tab"></ul>
+      </div>
+    </div>
+  </dd>
+</dl>
+
+<dl>
+  <dt>
+    <h3>滚动到指定位置</h3>
+    <div class="toolbar">
+      <div class="toolbar">
+        <button id="ct-jdcategorytab-dynamic-scrolltopbtn">置顶</button>
+        <button id="ct-jdcategorytab-dynamic-scrollbottombtn">置底</button>
+      </div>
+    </div>
+  </dt>
+  <dd>
+    <div class="ct-jdcategorytab-wrap">
+      <div class="ct-jdcategorytab" id="ct-jdcategorytab-scrollto">
+        <div class="ct-jdcategorytab-menu">
+          <ul></ul>
+        </div>
+        <ul class="ct-jdcategorytab-tab"></ul>
+      </div>
+    </div>
+  </dd>
+</dl>
+      </code>
+        </pre>
+        </dd>
+      </dl>
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+        <pre>
+      <code class="javascript">
+import $ from 'jquery';
+import JdCategoryTab from '@ctmobile/ui-jdcategorytab';
+
+function add(index) {
+  return {
+    menu: $(<pre><code class="html">`<li><a>菜单 ${index + 1} </a></li>`</code></pre>)[0],
+    tab: $(<pre><code class="html">`<li>${index + 1}</li>`</code></pre>)[0]
+  }
+}
+
+function initMenuAndTab(jdel) {
+  const df1 = document.createDocumentFragment();
+  const df2 = document.createDocumentFragment();
+  for (let count = 0; count &lt; 100; count++) {
+    const objs = add(count);
+    df1.appendChild(objs.menu);
+    df2.appendChild(objs.tab);
+  }
+  jdel.find('.ct-jdcategorytab-menu > ul')[0].appendChild(df1);
+  jdel.find('.ct-jdcategorytab-tab')[0].appendChild(df2);
+}
+
+window.onload = () => {
+  // 添加
+  $('#ct-jdcategorytab-dynamic-addbtn').on('click', () => {
+    let length = jdcategorytabDynamicJO.find(' > .ct-jdcategorytab-menu > ul > li').length;
+    const objs = add(length);
+    jdcategorytabDynamicJO.find(' > .ct-jdcategorytab-menu > ul').append(objs.menu);
+    jdcategorytabDynamicJO.find(' > .ct-jdcategorytab-tab').append(objs.tab);
+    jdcategorytabDynamic.refresh();
+    jdcategorytabDynamic.scrollTo(length);
+  });
+
+  // 置顶
+  $('#ct-jdcategorytab-dynamic-scrolltopbtn').on('click', () => {
+    jdcategorytabScrollto.scrollTo(0);
+  });
+
+  // 置底
+  $('#ct-jdcategorytab-dynamic-scrollbottombtn').on('click', () => {
+    let length = jdcategorytabScrolltoJO.find(' > .ct-jdcategorytab-menu > ul > li').length;
+    jdcategorytabScrollto.scrollTo(length);
+  });
+
+
+  const jdcategorytabBaseJO = $('#ct-jdcategorytab-base');
+  const jdcategorytabDynamicJO = $('#ct-jdcategorytab-dynamic');
+  const jdcategorytabScrolltoJO = $('#ct-jdcategorytab-scrollto');
+
+  initMenuAndTab(jdcategorytabBaseJO);
+  initMenuAndTab(jdcategorytabDynamicJO);
+  initMenuAndTab(jdcategorytabScrolltoJO);
+
+  const jdcategorytabBase = JdCategoryTab(jdcategorytabBaseJO[0]);
+  const jdcategorytabDynamic = JdCategoryTab(jdcategorytabDynamicJO[0]);
+  const jdcategorytabScrollto = JdCategoryTab(jdcategorytabScrolltoJO[0]);
+}
+      </code>
+        </pre>
+        </dd>
+      </dl>
+    </div>
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner">
+          <dl>
+            <dt>
+              <h3>基本</h3>
+            </dt>
+            <dd>
+              <div class="ct-jdcategorytab-wrap">
+                <div class="ct-jdcategorytab" id="ct-jdcategorytab-base">
+                  <div class="ct-jdcategorytab-menu">
+                    <ul></ul>
+                  </div>
+                  <ul class="ct-jdcategorytab-tab"></ul>
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+          <dl>
+            <dt>
+              <h3>动态添加</h3>
+              <div class="toolbar">
+                <div class="toolbar">
+                  <button id="ct-jdcategorytab-dynamic-addbtn">添加</button>
+                </div>
+              </div>
+            </dt>
+            <dd>
+              <div class="ct-jdcategorytab-wrap">
+                <div class="ct-jdcategorytab" id="ct-jdcategorytab-dynamic">
+                  <div class="ct-jdcategorytab-menu">
+                    <ul></ul>
+                  </div>
+                  <ul class="ct-jdcategorytab-tab"></ul>
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+          <dl>
+            <dt>
+              <h3>滚动到指定位置</h3>
+              <div class="toolbar">
+                <div class="toolbar">
+                  <button id="ct-jdcategorytab-dynamic-scrolltopbtn">置顶</button>
+                  <button id="ct-jdcategorytab-dynamic-scrollbottombtn">置底</button>
+                </div>
+              </div>
+            </dt>
+            <dd>
+              <div class="ct-jdcategorytab-wrap">
+                <div class="ct-jdcategorytab" id="ct-jdcategorytab-scrollto">
+                  <div class="ct-jdcategorytab-menu">
+                    <ul></ul>
+                  </div>
+                  <ul class="ct-jdcategorytab-tab"></ul>
+                </div>
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--方法-->
+  <h2 id="jdcategorytab-methods">方法</h2>
+  <div class="method-wrap">
+    <p>scrollTo(
+      <span class="parameter">index</span>
+      <span class="parameter">time</span>
+      <span class="parameter">easing</span>) - 滚动到指定索引处</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">index</span>-<span class="parameterType">number</span> 滚动到的索引
+      </li>
+      <li>
+        <span class="parameter">time</span>-<span class="parameterType">number</span> 滚动所需时间
+      </li>
+      <li>
+        <span class="parameter">easing</span>-<span class="parameterType">Object</span>动画类型(quadratic,circular,back,bounce,elastic)
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>refresh() - 刷新</p>
+  </div>
+  <div class="method-wrap">
+    <p>on(<span class="parameter">type</span>, <span class="parameter">handler</span>) - 注册事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span> 注册事件的类型,包括[change]
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span> 注册事件的回调函数
+      </li>
+    </ul>
+  </div>
+
+  <!--事件-->
+  <h2 id="jdcategorytab-events">事件</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="jdcategorytab-events-change">
+      <td>change</td>
+      <td>菜单切换</td>
+    </tr>
+    </tbody>
+  </table>
+  <pre>
+  <code class="javascript">
+import $ from 'jquery';
+import JdCategoryTab from '@ctmobile/ui-jdcategorytab';
+
+window.onload = () => {
+  const jdcategorytabBaseJO = $('#ct-jdcategorytab-base');
+  const jdcategorytabBase = JdCategoryTab(jdcategorytabBaseJO[0]);
+  jdcategorytabBase.on((index,target,tab) => {
+    console.log(index,target,tab);
+  });
+}
+  </code>
+  </pre>
+
+</div>
+
+</body>
+</html>
