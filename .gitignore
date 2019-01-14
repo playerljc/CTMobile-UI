@@ -81,5 +81,11 @@ CTMobile-UI-JdCategoryTab/demo/node_modules
 CTMobile-UI-JdCategoryTab/demo/dist
 CTMobile-UI-JdCategoryTab/demo/src/assets
 
+CTMobile-UI-ListView/.idea
+CTMobile-UI-ListView/node_modules
+CTMobile-UI-ListView/demo/node_modules
+CTMobile-UI-ListView/demo/dist
+CTMobile-UI-ListView/demo/src/assets
+
 CTMobile-UI-Demo-Util/.idea
 CTMobile-UI-Demo-Util/node_modules
