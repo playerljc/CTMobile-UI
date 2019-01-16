@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-kwlist-demo</title>
+</head>
+
+<body>
+
+<div class="ctmobile-ui-doc">
+
+  <!-- KwList -->
+
+  <!--菜单-->
+  <h1>KwList</h1>
+  <ul>
+    <li><a href="#kwlist-layout">布局</a></li>
+    <li><a href="#kwlist-initial">初始化</a></li>
+    <li><a href="#kwlist-demo">例子</a></li>
+    <li><a href="#kwlist-methods">方法</a></li>
+    <li>
+      <a href="#kwlist-events">事件</a>
+      <ul>
+        <li><a href="#kwlist-events-show">show</a></li>
+        <li><a href="#kwlist-events-hide">hide</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--基本布局-->
+  <h2 id="kwlist-layout">布局</h2>
+  <pre>
+  <code class="html">
+    <ul class="ct-list-kw">
+      <li class="ct-list-kw-item-content">
+        <div class="ct-list-kw-item-info">
+          <a class="ct-list-kw-item-link"></a>
+          <div class="ct-list-kw-item-option"></div>
+        </div>
+        <div class="ct-list-kw-item-buttons">
+          <i class="fa fa-...">...</i>
+        </div>
+      </li>
+      ...
+    </ul>
+  </code>
+  </pre>
+  <ul>
+    <li>
+      ct-list-kw - 代表是一个kwlist组件
+      <ul>
+        ct-list-kw-item-content - 代表一项
+        <ul>
+          <li>
+            ct-list-kw-item-info - 一项的详细
+            <ul>
+              ct-list-kw-item-link - 一项的主体部分
+              ct-list-kw-item-option - 展开的收起的操作按钮
+            </ul>
+          </li>
+          <li>
+            ct-list-kw-item-buttons - 工具栏
+            <ul>
+              fa fa-xxx - 工具项
+            </ul>
+          </li>
+        </ul>
+      </ul>
+    </li>
+  </ul>
+
+  <!--初始化-->
+  <h2 id="kwlist-initial">初始化</h2>
+  <pre>
+  <code class="javascript">
+  import KwList from @ctmobile/ui-kwlist;
+  const kwlist = KwList(el);
+  </code>
+  </pre>
+
+  <!--例子-->
+  <h2 id="kwlist-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+        <pre>
+      <code class="html">
+  <div>
+    <button id="openIndexBtn">打开第一项</button>
+    <button id="closeIndexBtn">关闭第一项</button>
+    <button id="addBtn">添加</button>
+  </div>
+  <div class="ct-list ios media-list">
+    <ul class="ct-list-kw" id="ct-list-kw">
+      <li class="ct-list-kw-item-content">
+        <div class="ct-list-kw-item-info">
+          <div class="ct-list-kw-item-link">
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><img src="http://lorempixel.com/160/160/people/1" width="80"/></div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">Yellow Submarine</div>
+                  <div class="item-after">$15</div>
+                </div>
+                <div class="item-subtitle">Beatles</div>
+                <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut
+                  turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit
+                  amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In
+                  vel dui laoreet, commodo augue id, pulvinar lacus.
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="ct-list-kw-item-option"></div>
+        </div>
+        <div class="ct-list-kw-item-buttons">
+          <i class="fa fa-address-book">编辑1</i>
+          <i class="fa fa-address-book">编辑2</i>
+          <i class="fa fa-address-book">编辑3</i>
+          <i class="fa fa-address-book">编辑4</i>
+        </div>
+      </li>
+
+      <li class="ct-list-kw-item-content">
+        <div class="ct-list-kw-item-info">
+          <div class="ct-list-kw-item-link">
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><img src="http://lorempixel.com/160/160/people/2" width="80"/></div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">Don't Stop Me Now</div>
+                  <div class="item-after">$22</div>
+                </div>
+                <div class="item-subtitle">Queen</div>
+                <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut
+                  turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit
+                  amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In
+                  vel dui laoreet, commodo augue id, pulvinar lacus.
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="ct-list-kw-item-option"></div>
+        </div>
+        <div class="ct-list-kw-item-buttons">
+          <i class="fa fa-address-book">编辑1</i>
+          <i class="fa fa-address-book">编辑2</i>
+          <i class="fa fa-address-book">编辑3</i>
+          <i class="fa fa-address-book">编辑4</i>
+        </div>
+      </li>
+
+      <li class="ct-list-kw-item-content">
+        <div class="ct-list-kw-item-info">
+          <div class="ct-list-kw-item-link">
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><img src="http://lorempixel.com/160/160/people/3" width="80"/></div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">Billie Jean</div>
+                  <div class="item-after">$16</div>
+                </div>
+                <div class="item-subtitle">Michael Jackson</div>
+                <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut
+                  turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit
+                  amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In
+                  vel dui laoreet, commodo augue id, pulvinar lacus.
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="ct-list-kw-item-option"></div>
+        </div>
+        <div class="ct-list-kw-item-buttons">
+          <i class="fa fa-address-book">编辑1</i>
+          <i class="fa fa-address-book">编辑2</i>
+          <i class="fa fa-address-book">编辑3</i>
+          <i class="fa fa-address-book">编辑4</i>
+        </div>
+      </li>
+    </ul>
+  </div>
+      </code>
+        </pre>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+        <pre>
+        <code class="javascript">
+import KwList from '@ctmobile/ui-kwlist';
+import $ from 'jquery';
+
+document.getElementById('openIndexBtn').addEventListener('click',() => {
+  kwlist.expand(0);
+});
+
+document.getElementById('closeIndexBtn').addEventListener('click',() => {
+  kwlist.close(0);
+});
+
+document.getElementById('addBtn').addEventListener('click',() => {
+  const ctlistkwEl = document.querySelector('.ct-list-kw');
+  ctlistkwEl.appendChild($(
+    <pre>
+      <code class="html">
+        `
+    <li class="ct-list-kw-item-content">
+      <div class="ct-list-kw-item-info">
+        <div class="ct-list-kw-item-link">
+          <a href="#" class="item-link item-content">
+            <div class="item-media"><img src="http://lorempixel.com/160/160/people/1" width="80"/></div>
+            <div class="item-inner">
+              <div class="item-title-row">
+                <div class="item-title">Yellow Submarine</div>
+                <div class="item-after">$15</div>
+              </div>
+              <div class="item-subtitle">Beatles</div>
+              <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut
+                turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit
+                amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In
+                vel dui laoreet, commodo augue id, pulvinar lacus.
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="ct-list-kw-item-option"></div>
+      </div>
+      <div class="ct-list-kw-item-buttons">
+        <i class="fa fa-address-book">编辑1</i>
+        <i class="fa fa-address-book">编辑2</i>
+        <i class="fa fa-address-book">编辑3</i>
+        <i class="fa fa-address-book">编辑4</i>
+      </div>
+    </li>
+    `
+      </code>
+    </pre>
+  )[0]);
+  kwlist.refresh();
+});
+
+const kwlist = KwList(document.querySelector('.ct-list-kw'));
+kwlist.on('show',() => {
+
+});
+kwlist.on('hide',() => {
+
+});
+        </code>
+        </pre>
+        </dd>
+      </dl>
+    </div>
+
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner">
+
+          <div>
+            <button id="openIndexBtn">打开第一项</button>
+            <button id="closeIndexBtn">关闭第一项</button>
+            <button id="addBtn">添加</button>
+          </div>
+          <div class="ct-list ios media-list">
+            <ul class="ct-list-kw" id="ct-list-kw">
+              <li class="ct-list-kw-item-content">
+                <div class="ct-list-kw-item-info">
+                  <div class="ct-list-kw-item-link">
+                    <a href="#" class="item-link item-content">
+                      <div class="item-media"><img src="http://lorempixel.com/160/160/people/1" width="80"/></div>
+                      <div class="item-inner">
+                        <div class="item-title-row">
+                          <div class="item-title">Yellow Submarine</div>
+                          <div class="item-after">$15</div>
+                        </div>
+                        <div class="item-subtitle">Beatles</div>
+                        <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut
+                          turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit
+                          amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In
+                          vel dui laoreet, commodo augue id, pulvinar lacus.
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="ct-list-kw-item-option"></div>
+                </div>
+                <div class="ct-list-kw-item-buttons">
+                  <i class="fa fa-address-book">编辑1</i>
+                  <i class="fa fa-address-book">编辑2</i>
+                  <i class="fa fa-address-book">编辑3</i>
+                  <i class="fa fa-address-book">编辑4</i>
+                </div>
+              </li>
+
+              <li class="ct-list-kw-item-content">
+                <div class="ct-list-kw-item-info">
+                  <div class="ct-list-kw-item-link">
+                    <a href="#" class="item-link item-content">
+                      <div class="item-media"><img src="http://lorempixel.com/160/160/people/2" width="80"/></div>
+                      <div class="item-inner">
+                        <div class="item-title-row">
+                          <div class="item-title">Don't Stop Me Now</div>
+                          <div class="item-after">$22</div>
+                        </div>
+                        <div class="item-subtitle">Queen</div>
+                        <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut
+                          turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit
+                          amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In
+                          vel dui laoreet, commodo augue id, pulvinar lacus.
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="ct-list-kw-item-option"></div>
+                </div>
+                <div class="ct-list-kw-item-buttons">
+                  <i class="fa fa-address-book">编辑1</i>
+                  <i class="fa fa-address-book">编辑2</i>
+                  <i class="fa fa-address-book">编辑3</i>
+                  <i class="fa fa-address-book">编辑4</i>
+                </div>
+              </li>
+
+              <li class="ct-list-kw-item-content">
+                <div class="ct-list-kw-item-info">
+                  <div class="ct-list-kw-item-link">
+                    <a href="#" class="item-link item-content">
+                      <div class="item-media"><img src="http://lorempixel.com/160/160/people/3" width="80"/></div>
+                      <div class="item-inner">
+                        <div class="item-title-row">
+                          <div class="item-title">Billie Jean</div>
+                          <div class="item-after">$16</div>
+                        </div>
+                        <div class="item-subtitle">Michael Jackson</div>
+                        <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut
+                          turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit
+                          amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In
+                          vel dui laoreet, commodo augue id, pulvinar lacus.
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="ct-list-kw-item-option"></div>
+                </div>
+                <div class="ct-list-kw-item-buttons">
+                  <i class="fa fa-address-book">编辑1</i>
+                  <i class="fa fa-address-book">编辑2</i>
+                  <i class="fa fa-address-book">编辑3</i>
+                  <i class="fa fa-address-book">编辑4</i>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--方法-->
+  <h2 id="kwlist-methods">方法</h2>
+  <div class="method-wrap">
+    <p>refresh() - 刷新整个KwList</p>
+  </div>
+  <div class="method-wrap">
+    <p>on(<span class="parameter">type</span>, <span class="parameter">handler</span>) - 注册事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span> 注册事件的类型,包括[show,hide]
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span> 注册事件的回调函数
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>expand(<span class="parameter">index</span>) - 展开一项</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">index</span>-<span class="parameterType">number</span> 打开项的索引
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>close(<span class="parameter">index</span>) - 关闭一项</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">index</span>-<span class="parameterType">number</span> 关闭项的索引
+      </li>
+    </ul>
+  </div>
+
+  <!--事件-->
+  <h2 id="kwlist-events">事件</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+      <tr>
+        <th>名称</th>
+        <th>说明</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="kwlist-events-show">
+        <td>show</td>
+        <td>一项展开触发</td>
+      </tr>
+      <tr id="kwlist-events-hide">
+        <td>hide</td>
+        <td>一项关闭触发</td>
+      </tr>
+    </tbody>
+  </table>
+  <pre>
+  <code class="javascript">
+  import KwList from '@ctmobile/ui-kwlist';
+  const kwlist = KwList(document.querySelector('.ct-list-kw'));
+  kwlist.on('show',(contentEl,index) => {
+    console.log(contentEl,index);
+  });
+  kwlist.on('hide',(contentEl,index) => {
+    console.log(contentEl,index);
+  });
+  </code>
+  </pre>
+</div>
+
+
+</body>
+</html>

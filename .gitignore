@@ -87,5 +87,14 @@ CTMobile-UI-ListView/demo/node_modules
 CTMobile-UI-ListView/demo/dist
 CTMobile-UI-ListView/demo/src/assets
 
+CTMobile-UI-KwList/.idea
+CTMobile-UI-KwList/node_modules
+CTMobile-UI-KwList/demo/node_modules
+CTMobile-UI-KwList/demo/dist
+CTMobile-UI-KwList/demo/src/assets
+
+CTMobile-UI-Util/.idea
+CTMobile-UI-Util/node_modules
+
 CTMobile-UI-Demo-Util/.idea
 CTMobile-UI-Demo-Util/node_modules
