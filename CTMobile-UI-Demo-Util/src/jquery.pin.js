@@ -11,14 +11,14 @@ $.fn.pin = function (options) {
       const $this = elements[i];
 
       if (options.minWidth && $window.width() <= options.minWidth) {
-        if ($this.parent().is(".pin-wrapper")) {
+        if ($this.parent().is('.pin-wrapper')) {
           $this.unwrap();
         }
         $this.css({
-          width: "",
-          left: "",
-          top: "",
-          position: ""
+          width: '',
+          left: '',
+          top: '',
+          position: '',
         });
         if (options.activeClass) {
           $this.removeClass(options.activeClass);
@@ -29,32 +29,32 @@ $.fn.pin = function (options) {
         disabled = false;
       }
 
-      let $container = options.containerSelector ? $this.closest(options.containerSelector) : $(document.body);
-      let offset = $this.offset();
-      let containerOffset = $container.offset();
-      let parentOffset = $this.offsetParent().offset();
+      const $container = options.containerSelector ? $this.closest(options.containerSelector) : $(document.body);
+      const offset = $this.offset();
+      const containerOffset = $container.offset();
+      const parentOffset = $this.offsetParent().offset();
 
-      if (!$this.parent().is(".pin-wrapper")) {
+      if (!$this.parent().is('.pin-wrapper')) {
         $this.wrap("<div class='pin-wrapper'>");
       }
 
-      let pad = $.extend({
+      const pad = $.extend({
         top: 0,
-        bottom: 0
+        bottom: 0,
       }, options.padding || {});
 
-      $this.data("pin", {
-        pad: pad,
+      $this.data('pin', {
+        pad,
         from: (options.containerSelector ? containerOffset.top : offset.top) - pad.top,
         to: containerOffset.top + $container.height() - $this.outerHeight() - pad.bottom,
         end: containerOffset.top + $container.height(),
-        parentTop: parentOffset.top
+        parentTop: parentOffset.top,
       });
 
       $this.css({
-        width: $this.outerWidth()
+        width: $this.outerWidth(),
       });
-      $this.parent().css("height", $this.outerHeight());
+      $this.parent().css('height', $this.outerHeight());
     }
   };
 
@@ -65,10 +65,10 @@ $.fn.pin = function (options) {
 
     scrollY = $window.scrollTop();
 
-    let elmts = [];
+    const elmts = [];
     for (let i = 0, len = elements.length; i < len; i++) {
       let $this = $(elements[i]),
-        data = $this.data("pin");
+        data = $this.data('pin');
 
       if (!data) { // Removed element
         continue;
@@ -85,26 +85,26 @@ $.fn.pin = function (options) {
       }
 
       if (from < scrollY && to > scrollY) {
-        !($this.css("position") == "fixed") && $this.css({
+        !($this.css('position') == 'fixed') && $this.css({
           left: $this.offset().left,
-          top: data.pad.top
-        }).css("position", "fixed");
+          top: data.pad.top,
+        }).css('position', 'fixed');
         if (options.activeClass) {
           $this.addClass(options.activeClass);
         }
       } else if (scrollY >= to) {
         $this.css({
-          left: "",
-          top: to - data.parentTop + data.pad.top
-        }).css("position", "absolute");
+          left: '',
+          top: to - data.parentTop + data.pad.top,
+        }).css('position', 'absolute');
         if (options.activeClass) {
           $this.addClass(options.activeClass);
         }
       } else {
         $this.css({
-          position: "",
-          top: "",
-          left: ""
+          position: '',
+          top: '',
+          left: '',
         });
         if (options.activeClass) {
           $this.removeClass(options.activeClass);
@@ -127,13 +127,13 @@ $.fn.pin = function (options) {
       return;
     }
     elements.push($this);
-    $("img", this).one("load", recalculateLimits);
+    $('img', this).one('load', recalculateLimits);
     data.update = update;
     $(this).data('pin', data);
   });
 
   $window.scroll(onScroll);
-  $window.resize(function () {
+  $window.resize(() => {
     recalculateLimits();
   });
   recalculateLimits();

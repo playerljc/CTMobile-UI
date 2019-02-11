@@ -15,5 +15,16 @@
   "bugs": {
     "url": "https://github.com/playerljc/CTMobile-UI/issues"
   },
-  "homepage": "https://github.com/playerljc/CTMobile-UI#readme"
+  "homepage": "https://github.com/playerljc/CTMobile-UI#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.1.2",
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-plugin-babel": "^4.0.0",
+    "eslint-plugin-compat": "^2.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-markdown": "^1.0.0-beta.6",
+    "eslint-plugin-react": "^7.0.1"
+  }
 }

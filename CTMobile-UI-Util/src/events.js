@@ -18,7 +18,7 @@ class Events {
    */
   remove(type, handler) {
     if (this.events[type]) {
-      let index = this.events[type].handlers.findIndex((item) => {
+      const index = this.events[type].handlers.findIndex((item) => {
         return item === handler;
       });
 
@@ -36,7 +36,7 @@ class Events {
   on(type, handler) {
     if (!this.events[type]) {
       this.events[type] = {
-        handlers: []
+        handlers: [],
       };
     }
     this.events[type].handlers.push(handler);

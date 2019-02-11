@@ -4,15 +4,15 @@ import $ from 'jquery';
 // import '@ctmobile/ui-kwlist/kwlist.less';
 import './index.less';
 
-document.getElementById('openIndexBtn').addEventListener('click',() => {
+document.getElementById('openIndexBtn').addEventListener('click', () => {
   kwlist.expand(0);
 });
 
-document.getElementById('closeIndexBtn').addEventListener('click',() => {
+document.getElementById('closeIndexBtn').addEventListener('click', () => {
   kwlist.close(0);
 });
 
-document.getElementById('addBtn').addEventListener('click',() => {
+document.getElementById('addBtn').addEventListener('click', () => {
   const ctlistkwEl = document.querySelector('.ct-list-kw');
   ctlistkwEl.appendChild($(
     `
@@ -50,9 +50,9 @@ document.getElementById('addBtn').addEventListener('click',() => {
 });
 
 const kwlist = KwList(document.querySelector('.ct-list-kw'));
-kwlist.on('show',() => {
+kwlist.on('show', () => {
 
 });
-kwlist.on('hide',() => {
+kwlist.on('hide', () => {
 
 });

@@ -7,7 +7,8 @@ DemoUtil.initial();
 
 const fontDom = $('#font')[0];
 const curValueDom = $('#setCurValue')[0];
-const baseRem = 0.7, baseValue = 33.3;
+const baseRem = 0.7,
+  baseValue = 33.3;
 
 curValueDom.addEventListener('input', () => {
   fontSizeSetting.setValue(curValueDom.value);

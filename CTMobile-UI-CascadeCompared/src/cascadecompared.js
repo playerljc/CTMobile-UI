@@ -2,7 +2,7 @@ import $ from 'jquery';
 import IScroll from 'iscroll/build/iscroll-probe';
 import StickupLayout from '@ctmobile/ui-stickuplayout';
 
-/***
+/** *
  * 选择器
  */
 const SELECTORS = {
@@ -12,8 +12,8 @@ const SELECTORS = {
   masterFixedWrap: '.ct-cascadecompared-master > .ct-cascadecompared-master-inner > .ct-stickuplayout-inner > .ct-stickuplayout-item > .ct-stickuplayout-item-content > .ct-cascadecompared-fixedWrap',
   masterAutoWrap: '.ct-cascadecompared-master > .ct-cascadecompared-master-inner > .ct-stickuplayout-inner > .ct-stickuplayout-item > .ct-stickuplayout-item-content > .ct-cascadecompared-autoWrap',
   indicatorFirstCell: '.ct-cascadecompared-indicator > .ct-cascadecompared-fixedWrap > .ct-cascadecompared-item > .ct-cascadecompared-cell',
-  indicatorCellOfType: (index) => (`.ct-cascadecompared-indicator > .ct-cascadecompared-autoWrap > .ct-cascadecompared-item > .ct-cascadecompared-cell:nth-of-type(${index})`),
-  masterCellOfType: (index) => (`.ct-cascadecompared-master > .ct-cascadecompared-master-inner > .ct-stickuplayout-inner > .ct-stickuplayout-item > .ct-stickuplayout-item-content > .ct-cascadecompared-autoWrap .ct-cascadecompared-item > .ct-cascadecompared-cell:nth-of-type(${index})`),
+  indicatorCellOfType: index => (`.ct-cascadecompared-indicator > .ct-cascadecompared-autoWrap > .ct-cascadecompared-item > .ct-cascadecompared-cell:nth-of-type(${index})`),
+  masterCellOfType: index => (`.ct-cascadecompared-master > .ct-cascadecompared-master-inner > .ct-stickuplayout-inner > .ct-stickuplayout-item > .ct-stickuplayout-item-content > .ct-cascadecompared-autoWrap .ct-cascadecompared-item > .ct-cascadecompared-cell:nth-of-type(${index})`),
 
   row: '.ct-cascadecompared-master > .ct-cascadecompared-master-inner > .ct-stickuplayout-inner > .ct-stickuplayout-item > .ct-stickuplayout-item-content > .ct-cascadecompared-fixedWrap > .ct-cascadecompared-item',
   indicator: 'ct-cascadecompared-indicator',
@@ -50,7 +50,7 @@ function initScroll() {
       eventPassthrough: true,
       scrollX: true,
       scrollY: false,
-      preventDefault: false
+      preventDefault: false,
     });
     this.scrolls.push(scroll);
 
@@ -62,9 +62,9 @@ function initScroll() {
       }
     });
 
-    scroll.on('scrollEnd', function () {
-      if (self.stickup.events['scrollEnd']) {
-        self.stickup.events['scrollEnd']();
+    scroll.on('scrollEnd', () => {
+      if (self.stickup.events.scrollEnd) {
+        self.stickup.events.scrollEnd();
       }
     });
   }
@@ -87,7 +87,7 @@ function initial() {
  * @access private
  */
 function initDimension() {
-  const {columnsWidth = [], rowsHeight = []} = this.config;
+  const { columnsWidth = [], rowsHeight = [] } = this.config;
 
   // 获取有多少列
   const columnCellLength = this.el.querySelectorAll(SELECTORS.column).length;
@@ -108,7 +108,6 @@ function initDimension() {
       this.$el.find(SELECTORS.indicatorAutoWrap).css('margin-left', `${parseInt(value)}px`);
       this.$el.find(SELECTORS.masterFixedWrap).css('width', `${parseInt(value)}px`);
       this.$el.find(SELECTORS.masterAutoWrap).css('margin-left', `${parseInt(value)}px`);
-
     } else {
       // 其他列
       if (isAuto(columnsWidth[i])) {
@@ -150,7 +149,6 @@ function initDimension() {
       this.$el.find(SELECTORS.masterAutoWrapRow).eq(i - 1).css('height', `${value}px`);
     }
   }
-
 }
 
 /**

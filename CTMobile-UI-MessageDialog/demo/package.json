@@ -1,0 +1,37 @@
+{
+  "name": "ctmobile-ui-messagedialog-demo",
+  "version": "1.0.0",
+  "description": "ctmobile-ui-messagedialog的Demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "startapp": "ctbuild --type startapp",
+    "buildapp": "ctbuild --type buildapp",
+    "link": "npm link @ct/build && npm link @ctmobile/ui-demo-util && npm link @ctmobile/ui-messagedialog"
+  },
+  "author": "playerljc <playerljc@163.com>",
+  "license": "MIT",
+  "keywords": [
+    "ctmobile-UI",
+    "CtMobile",
+    "Ctmobile-UI-MessageDialog",
+    "mobile",
+    "webapp",
+    "SPA",
+    "Hybrid",
+    "Cordova",
+    "Android",
+    "iOS",
+    "Material",
+    "playerljc",
+    "WebFramework"
+  ],
+  "devDependencies": {
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "load-awesome": "^1.1.0",
+    "lodash": "^4.17.11",
+    "normalize.less": "^1.0.0"
+  }
+}

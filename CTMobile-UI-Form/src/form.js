@@ -1,14 +1,14 @@
 import $ from 'jquery';
 import _ from 'lodash';
 
-/***
+/** *
  * requireInputTypes
  */
 const _requireInputTypes = [
-  'text', 'number', 'email', 'url', 'tel', 'date', 'week', 'datetime', 'datetime-local', 'image', 'month', 'time', 'password', 'range', 'search'
+  'text', 'number', 'email', 'url', 'tel', 'date', 'week', 'datetime', 'datetime-local', 'image', 'month', 'time', 'password', 'range', 'search',
 ];
 
-/***
+/** *
  * insetMaterialLabel
  */
 const _insetMaterialLabel = {
@@ -19,17 +19,17 @@ const _insetMaterialLabel = {
         <%=label%>
       </div>
       <%}%>`,
-  input: '     <%=input%>'
+  input: '     <%=input%>',
 };
 
-/***
+/** *
  * rangeTipTemplate
  */
 const _rangeTipTemplate = _.template(
   '<%=minLength%> / <%=maxLength%>'
 );
 
-/***
+/** *
  * templates
  */
 const _templates = {
@@ -54,7 +54,7 @@ const _templates = {
         </div>`
       ),
     inset: {
-      'default':
+      default:
         _.template(
           `<div class="ct-form-control default labelleft labelinset">
              <div class="ct-form-control-inner">
@@ -69,7 +69,7 @@ const _templates = {
              </div>
            </div>`
         ),
-      'material':
+      material:
         _.template(
           `<div class="ct-form-control material labelleft labelinset">
              <div class="ct-form-control-inner">
@@ -84,7 +84,7 @@ const _templates = {
              </div>
            </div>`
         ),
-    }
+    },
   },
   controls: {
     clearinput:
@@ -167,7 +167,7 @@ const _templates = {
            <div class="checkbox"></div>
          </div>`
       ),
-    'switch':
+    switch:
       _.template(
         `<div class="ct-form-switch <%=type%>">
            <%=input%>
@@ -199,52 +199,52 @@ const _templates = {
         `<div class="ct-form-checkboxgroup-wrap <%=type%>">
            <%=input%>
          </div>`
-      )
-  }
+      ),
+  },
 };
 
-/***
+/** *
  * containers
  */
 const _containers = {
   // 自动适应高的textarea
-  "autoheighttextarea": renderAutoheighttextarea,
+  autoheighttextarea: renderAutoheighttextarea,
   // 带清除功能的input
-  "clearinput": renderClearinput,
+  clearinput: renderClearinput,
   // 带有眼睛的password
-  "pwdtoggle": renderPwdToggle,
+  pwdtoggle: renderPwdToggle,
   // select
-  "select": renderSelect,
+  select: renderSelect,
   // radio
-  "radio": renderRadio,
+  radio: renderRadio,
   // checkbox
-  "checkbox": renderCheckbox,
+  checkbox: renderCheckbox,
   // switch
-  "switch": renderSwitch,
+  switch: renderSwitch,
   // slider
-  "slider": renderSlider,
+  slider: renderSlider,
   // spinner
-  "spinner": renderSpinner,
+  spinner: renderSpinner,
   // radiogroup
-  "radiogroup": renderRadioGroup,
+  radiogroup: renderRadioGroup,
   // checkboxgroup
-  "checkboxgroup": renderCheckboxGroup
+  checkboxgroup: renderCheckboxGroup,
 };
 
-/***
+/** *
  * _validateChainConfig
  */
 const _validateChainConfig = [
   {
     isValidate: ['data-ctform-config-require'],
-    validate: RequireChain
+    validate: RequireChain,
   }, {
     isValidate: ['data-ctform-config-minlength', 'data-ctform-config-maxlength'],
-    validate: PatternChain
+    validate: PatternChain,
   }, {
     isValidate: ['data-ctform-config-pattern'],
-    validate: LengthChain
-  }
+    validate: LengthChain,
+  },
 ];
 
 /**
@@ -281,7 +281,7 @@ function makeExpandingArea(textarea, type) {
 
   const _self = this;
   const name = textarea.dataset.ctformConfigName;
-  const container = createContainer(textarea, type, parent => {
+  const container = createContainer(textarea, type, (parent) => {
     const dom = parent.querySelector('textarea');
     dom.parentNode.replaceChild(textarea.cloneNode(true), dom);
   });
@@ -303,12 +303,11 @@ function makeExpandingArea(textarea, type) {
 
     if (rangetipDom) {
       if (this.value.length <= maxLangth) {
-        rangetipDom.innerText = _rangeTipTemplate({minLength: this.value.length, maxLength: maxLangth});
+        rangetipDom.innerText = _rangeTipTemplate({ minLength: this.value.length, maxLength: maxLangth });
       }
     }
-
   }, false);
-  textAreaDom.addEventListener('focus', function (e) {
+  textAreaDom.addEventListener('focus', (e) => {
     if (!e.relatedTarget) {
       _self.hideErrorMessageTip(name);
     }
@@ -318,7 +317,7 @@ function makeExpandingArea(textarea, type) {
       }
     }
   });
-  textAreaDom.addEventListener('blur', function () {
+  textAreaDom.addEventListener('blur', () => {
     if (textarea.dataset.ctformConfigInset) {
       if (ctFormExpandingareaInner.classList.contains('focus')) {
         ctFormExpandingareaInner.classList.remove('focus');
@@ -340,7 +339,7 @@ function makeClearInput(input, type) {
   const isRender = input.dataset.render;
   if (isRender) return false;
 
-  const container = createContainer(input, type, parent => {
+  const container = createContainer(input, type, (parent) => {
     const dom = parent.querySelector('input');
     dom.parentNode.replaceChild(input.cloneNode(true), dom);
   });
@@ -359,7 +358,7 @@ function makePwdToggle(password, type) {
   const isRender = password.dataset.render;
   if (isRender) return false;
 
-  const container = createContainer(password, type, parent => {
+  const container = createContainer(password, type, (parent) => {
     const dom = parent.querySelector('input');
     dom.parentNode.replaceChild(password.cloneNode(true), dom);
   });
@@ -367,7 +366,7 @@ function makePwdToggle(password, type) {
   passwordDom.dataset.render = 'true';
 
   const toggleDom = container.querySelector('.toggle');
-  toggleDom.addEventListener('click', function () {
+  toggleDom.addEventListener('click', () => {
     if (toggleDom.classList.contains('close')) {
       passwordDom.type = 'password';
       toggleDom.classList.remove('close');
@@ -392,14 +391,14 @@ function makeSelects(select, type) {
 
   const _self = this;
   const name = select.dataset.ctformConfigName;
-  const container = createContainer(select, type, parent => {
+  const container = createContainer(select, type, (parent) => {
     const dom = parent.querySelector('select');
     dom.parentNode.replaceChild(select.cloneNode(true), dom);
   });
   const selectDom = container.querySelector('select');
   selectDom.value = select.value;
   selectDom.dataset.render = 'true';
-  selectDom.addEventListener('focus', function (e) {
+  selectDom.addEventListener('focus', (e) => {
     if (!e.relatedTarget) {
       _self.hideErrorMessageTip(name);
     }
@@ -418,13 +417,13 @@ function makeRadioGroups(radioGroup, type) {
 
   const _self = this;
   const name = radioGroup.dataset.ctformConfigName;
-  const container = createContainer(radioGroup, type, parent => {
+  const container = createContainer(radioGroup, type, (parent) => {
     const dom = parent.querySelector('.ct-form-radiogroup');
     dom.parentNode.replaceChild(radioGroup.cloneNode(true), dom);
   });
   const radioGroupDom = container.querySelector('.ct-form-radiogroup');
   radioGroupDom.dataset.render = 'true';
-  radioGroupDom.addEventListener('click', function (e) {
+  radioGroupDom.addEventListener('click', (e) => {
     if (!e.relatedTarget) {
       _self.hideErrorMessageTip(name);
     }
@@ -443,13 +442,13 @@ function makeCheckboxGroup(checkboxGroup, type) {
 
   const _self = this;
   const name = checkboxGroup.dataset.ctformConfigName;
-  const container = createContainer(checkboxGroup, type, parent => {
+  const container = createContainer(checkboxGroup, type, (parent) => {
     const dom = parent.querySelector('.ct-form-checkboxgroup');
     dom.parentNode.replaceChild(checkboxGroup.cloneNode(true), dom);
   });
   const checkboxGroupDom = container.querySelector('.ct-form-checkboxgroup');
   checkboxGroupDom.dataset.render = 'true';
-  checkboxGroupDom.addEventListener('click', function () {
+  checkboxGroupDom.addEventListener('click', () => {
     _self.hideErrorMessageTip(name);
   });
 }
@@ -466,13 +465,13 @@ function makeCheckboxs(checkbox, type) {
 
   const _self = this;
   const name = checkbox.dataset.ctformConfigName;
-  const container = createContainer(checkbox, type, parent => {
+  const container = createContainer(checkbox, type, (parent) => {
     const dom = parent.querySelector('input[type="checkbox"]');
     dom.parentNode.replaceChild(checkbox.cloneNode(true), dom);
   });
   const checkboxDom = container.querySelector('input[type="checkbox"]');
   checkboxDom.dataset.render = 'true';
-  container.addEventListener('click', function (e) {
+  container.addEventListener('click', (e) => {
     if (!e.relatedTarget) {
       _self.hideErrorMessageTip(name);
     }
@@ -497,13 +496,13 @@ function makeRadios(radio, type) {
 
   const _self = this;
   const name = radio.dataset.ctformConfigName;
-  const container = createContainer(radio, type, function (parent) {
+  const container = createContainer(radio, type, (parent) => {
     const dom = parent.querySelector('input[type="radio"]');
     dom.parentNode.replaceChild(radio.cloneNode(true), dom);
   });
   const radioDom = container.querySelector('input[type="radio"]');
   radioDom.dataset.render = 'true';
-  container.addEventListener('click', function (e) {
+  container.addEventListener('click', (e) => {
     if (!e.relatedTarget) {
       _self.hideErrorMessageTip(name);
     }
@@ -528,13 +527,13 @@ function makeSwitchs(checkbox, type) {
 
   const _self = this;
   const name = checkbox.dataset.ctformConfigName;
-  const container = createContainer(checkbox, type, parent => {
+  const container = createContainer(checkbox, type, (parent) => {
     const dom = parent.querySelector('input[type="checkbox"]');
     dom.parentNode.replaceChild(checkbox.cloneNode(true), dom);
   });
   const checkboxDom = container.querySelector('input[type="checkbox"]');
   checkboxDom.dataset.render = 'true';
-  container.addEventListener('click', function (e) {
+  container.addEventListener('click', (e) => {
     if (!e.relatedTarget) {
       _self.hideErrorMessageTip(name);
     }
@@ -559,13 +558,13 @@ function makeSliders(slider, type) {
 
   const _self = this;
   const name = slider.dataset.ctformConfigName;
-  const container = createContainer(slider, type, parent => {
+  const container = createContainer(slider, type, (parent) => {
     const dom = parent.querySelector('input[type="range"]');
     dom.parentNode.replaceChild(slider.cloneNode(true), dom);
   });
   const sliderDom = container.querySelector('input[type="range"]');
   sliderDom.dataset.render = 'true';
-  sliderDom.addEventListener('focus', function (e) {
+  sliderDom.addEventListener('focus', (e) => {
     if (!e.relatedTarget) {
       _self.hideErrorMessageTip(name);
     }
@@ -584,7 +583,7 @@ function makeSpinners(spinner, type) {
 
   const _self = this;
   const name = spinner.dataset.ctformConfigName;
-  const container = createContainer(spinner, type, parent => {
+  const container = createContainer(spinner, type, (parent) => {
     const dom = parent.querySelector('input[type="number"].ios');
     dom.parentNode.replaceChild(spinner.cloneNode(true), dom);
   });
@@ -601,7 +600,7 @@ function makeSpinners(spinner, type) {
   spinnerDom.dataset.render = 'true';
 
   // plus
-  plusDom.addEventListener('click', function () {
+  plusDom.addEventListener('click', () => {
     _self.hideErrorMessageTip(name);
     if (spinnerDom.disabled || spinnerDom.readOnly) return false;
     if (value >= max) return false;
@@ -613,7 +612,7 @@ function makeSpinners(spinner, type) {
     spinnerDom.value = value;
   });
   // minus
-  minusDom.addEventListener('click', function () {
+  minusDom.addEventListener('click', () => {
     _self.hideErrorMessageTip(name);
     if (spinnerDom.disabled || spinnerDom.readOnly) return false;
     if (value <= min) return false;
@@ -827,7 +826,7 @@ function renderCheckboxGroup(container, type) {
 function clearInputEvent(container) {
   const _self = this;
   const inputDom = container.querySelector('input');
-  const clearDom = container.querySelector(".clear");
+  const clearDom = container.querySelector('.clear');
   const labelDom = container.querySelector('.label');
   const rangetipDom = container.querySelector('.rangetip');
   const name = inputDom.dataset.ctformConfigName;
@@ -837,7 +836,7 @@ function clearInputEvent(container) {
     inputDom.setAttribute('maxlength', `${maxLangth}`);
   }
 
-  clearDom.addEventListener('click', function () {
+  clearDom.addEventListener('click', () => {
     inputDom.value = '', inputDom.focus(), clearDom.style.display = 'none';
     if (inputDom.dataset.ctformConfigInset && inputDom.dataset.ctformConfigType === 'material') {
       labelDom.classList.remove('animate');
@@ -847,7 +846,7 @@ function clearInputEvent(container) {
   inputDom.addEventListener('input', function () {
     if (rangetipDom) {
       if (this.value.length <= maxLangth) {
-        rangetipDom.innerText = _rangeTipTemplate({minLength: this.value.length, maxLength: maxLangth});
+        rangetipDom.innerText = _rangeTipTemplate({ minLength: this.value.length, maxLength: maxLangth });
       }
     }
 
@@ -855,15 +854,13 @@ function clearInputEvent(container) {
     if (inputDom.dataset.ctformConfigInset && inputDom.dataset.ctformConfigType === 'material') {
       if (!this.value) {
         labelDom.classList.remove('animate');
-      } else {
-        if (!labelDom.classList.contains('animate')) {
-          labelDom.classList.add('animate');
-        }
+      } else if (!labelDom.classList.contains('animate')) {
+        labelDom.classList.add('animate');
       }
     }
   }, false);
 
-  inputDom.addEventListener('focus', function (e) {
+  inputDom.addEventListener('focus', (e) => {
     if (!e.relatedTarget) {
       _self.hideErrorMessageTip(name);
     }
@@ -878,7 +875,6 @@ function clearInputEvent(container) {
       labelDom.classList.remove('animate');
     }
   });
-
 }
 
 /**
@@ -899,7 +895,7 @@ function createContainer(dom, type, replaceSelfCallback) {
   let domType = dom.dataset.ctformConfigType || 'default';
 
   if (dom.dataset.ctformConfigInset) {
-    /***
+    /** *
      * 有inset的type
      * autoheighttextarea default
      clearinput default material
@@ -922,10 +918,9 @@ function createContainer(dom, type, replaceSelfCallback) {
         require: dom.dataset.ctformConfigRequire || '',
         border: domType !== 'material',
         inset: true,
-      })
+      }),
     });
-  }
-  else {
+  } else {
     templateStr = _templates.layout.outset({
       type: domType,
       labelposition: dom.dataset.ctformConfigLabelposition || '',
@@ -943,15 +938,15 @@ function createContainer(dom, type, replaceSelfCallback) {
         label: '',
         require: false,
         border: false,
-        inset: false
-      })
+        inset: false,
+      }),
     });
   }
 
   // 如果type是group去掉data-ctform-config-require='require'
   if (type.lastIndexOf('group') !== -1) {
-    let tempDom = createDomByHtml(templateStr);
-    let groupTempDom = tempDom.querySelector('.ct-form-radiogroup,.ct-form-checkboxgroup');
+    const tempDom = createDomByHtml(templateStr);
+    const groupTempDom = tempDom.querySelector('.ct-form-radiogroup,.ct-form-checkboxgroup');
     groupTempDom.innerHTML = groupTempDom.innerHTML.replace(
       /data-ctform-config-require=["']require["']/igm, ''
     );
@@ -973,7 +968,7 @@ function createContainer(dom, type, replaceSelfCallback) {
  * @access private
  */
 function createDomByHtml(html) {
-  let dom = document.createElement('div');
+  const dom = document.createElement('div');
   dom.innerHTML = html;
   return dom.firstChild;
 }
@@ -992,7 +987,7 @@ function getRangeTip(dom) {
   if (!isNaN(maxLength)) {
     result = _rangeTipTemplate({
       minLength: 0,
-      maxLength: maxLength,
+      maxLength,
     });
   }
 
@@ -1008,7 +1003,8 @@ function getRangeTip(dom) {
  */
 function parentUntil(el, className) {
   if (!className || !el) return null;
-  let element = null, parent = el;
+  let element = null,
+    parent = el;
   const popup = function () {
     if (parent.classList.contains(className)) {
       element = parent;
@@ -1036,7 +1032,9 @@ function RequireChain(validateDom) {
   // checkboxGroup 是否有input checkbox选中
   let flag = false;
   const tagName = validateDom.tagName.toLowerCase();
-  let inputType, groupName, name;
+  let inputType,
+    groupName,
+    name;
   if (tagName === 'input') {
     inputType = validateDom.type;
     if (_requireInputTypes.indexOf(inputType) !== -1) {
@@ -1045,13 +1043,11 @@ function RequireChain(validateDom) {
         flag = true;
       }
     }
-  }
-  else if (tagName === 'textarea') {
+  } else if (tagName === 'textarea') {
     if (validateDom.value && validateDom.value.trim()) {
       flag = true;
     }
-  }
-  else if (validateDom.classList.contains('ct-form-radiogroup') || validateDom.classList.contains('ct-form-checkboxgroup')) {
+  } else if (validateDom.classList.contains('ct-form-radiogroup') || validateDom.classList.contains('ct-form-checkboxgroup')) {
     groupName = validateDom.dataset.ctformConfigGroupname;
     if (validateDom.classList.contains('ct-form-radiogroup')) {
       if (validateDom.querySelector(`input[type="radio"][name="${groupName}"]:checked`)) {
@@ -1062,8 +1058,7 @@ function RequireChain(validateDom) {
         flag = true;
       }
     }
-  }
-  else {
+  } else {
     flag = true;
   }
 
@@ -1086,7 +1081,10 @@ function LengthChain(validateDom) {
   let flag = false;
   let value;// = validateDom.value.trim();
   const tagName = validateDom.tagName.toLowerCase();
-  let inputType, name, minlength, maxlength;
+  let inputType,
+    name,
+    minlength,
+    maxlength;
 
   minlength = parseInt(validateDom.dataset.ctformConfigMinlength);
   maxlength = parseInt(validateDom.dataset.ctformConfigMaxlength);
@@ -1100,8 +1098,7 @@ function LengthChain(validateDom) {
           flag = true;
         }
       }
-    }
-    else if (tagName === 'textarea') {
+    } else if (tagName === 'textarea') {
       // 验证length
       value = validateDom.value.trim();
       // 验证length
@@ -1134,7 +1131,9 @@ function PatternChain(validateDom) {
   let flag = false;
   let value;
   const tagName = validateDom.tagName.toLowerCase();
-  let inputType, name, pattern = validateDom.dataset.ctformConfigPattern,
+  let inputType,
+    name,
+    pattern = validateDom.dataset.ctformConfigPattern,
     RegExp = _patterns[pattern] ? _patterns[pattern] : (pattern ? new RegExp(pattern) : '');
 
   if (tagName === 'input') {
@@ -1144,13 +1143,11 @@ function PatternChain(validateDom) {
       // 验证pattern
       flag = RegExp ? RegExp.test(value) : true;
     }
-  }
-  else if (tagName === 'textarea') {
+  } else if (tagName === 'textarea') {
     // 验证pattern
     value = validateDom.value.trim();
     flag = RegExp ? RegExp.test(value) : true;
-  }
-  else {
+  } else {
     flag = true;
   }
 
@@ -1170,7 +1167,10 @@ function PatternChain(validateDom) {
  * @access private
  */
 function _validateChain(validateDom) {
-  let isValidate, validate, loopFlag = true, isValidateFlag = false;
+  let isValidate,
+    validate,
+    loopFlag = true,
+    isValidateFlag = false;
   for (let i = 0; i < _validateChainConfig.length; i++) {
     isValidate = _validateChainConfig[i].isValidate;
     validate = _validateChainConfig[i].validate;
@@ -1206,13 +1206,16 @@ function _validate(stopPropagation) {
      [data-ctform-config-maxlength],
      [data-ctform-config-minlength]`
   );
-  let i, validateDom, loopFlag = true, flag = true, firstValidateDom;
+  let i,
+    validateDom,
+    loopFlag = true,
+    flag = true,
+    firstValidateDom;
   for (i = 0; i < validateDoms.length; i++) {
     validateDom = validateDoms[i];
     if (validateDom.disabled || validateDom.readOnly) {
       loopFlag = true;
-    }
-    else {
+    } else {
       loopFlag = _validateChain.call(this, validateDom);
     }
     if (!loopFlag) {
@@ -1238,7 +1241,6 @@ function _validate(stopPropagation) {
  * @access private
  */
 function _showTip(name, tip, type) {
-
   const dom = this.el.querySelector(`[data-ctform-config-name="${name}"]`);
   if (!dom) return false;
   const parentDom = parentUntil(dom, 'ct-form-control');
@@ -1248,16 +1250,13 @@ function _showTip(name, tip, type) {
   if (type === 'errortip' || type === 'successtip') {
     if (type === 'errortip') {
       parentDom.classList.add('validerror');
-    }
-    else {
+    } else {
       parentDom.classList.add('validsuccess');
     }
     tipDom = $parent.find(' > .tooltipwrap > .errormessage')[0];
-  }
-  else if (type === 'tooltip') {
+  } else if (type === 'tooltip') {
     tipDom = $parent.find(' > .tooltipwrap > .tooltipfixed > .tooltip')[0];
-  }
-  else if (type === 'rangetip') {
+  } else if (type === 'rangetip') {
     tipDom = $parent.find(' > .tooltipwrap > .tooltipfixed > .rangetip')[0];
   }
   if (!tipDom) return false;
@@ -1277,19 +1276,18 @@ function _hideTip(name, type) {
   const parentDom = parentUntil(dom, 'ct-form-control');
   if (!parentDom) return false;
   const $parent = $(parentDom);
-  let errorTipDom, toolTipDom, rangeTipDom;
+  let errorTipDom,
+    toolTipDom,
+    rangeTipDom;
   if (type === 'errortip') {
     parentDom.classList.remove('validerror');
     parentDom.classList.remove('validsuccess');
     errorTipDom = $parent.find(' > .tooltipwrap > .errormessage')[0];
-  }
-  else if (type === 'tooltip') {
+  } else if (type === 'tooltip') {
     toolTipDom = $parent.find(' > .tooltipwrap > .tooltipfixed > .tooltip')[0];
-  }
-  else if (type === 'rangetip') {
+  } else if (type === 'rangetip') {
     rangeTipDom = $parent.find(' > .tooltipwrap > .tooltipfixed > .rangetip')[0];
-  }
-  else if (type === 'alltip') {
+  } else if (type === 'alltip') {
     parentDom.classList.remove('validerror');
     parentDom.classList.remove('validsuccess');
     errorTipDom = $parent.find(' > .tooltipwrap > .errormessage')[0];
@@ -1319,15 +1317,15 @@ function _hideTip(name, type) {
  * @access private
  */
 function init() {
-  /***
+  /** *
    * 渲染指定元素的区域内的组件
    */
-  let grouptypes = [], ungrouptypes = [];
+  let grouptypes = [],
+    ungrouptypes = [];
   for (let i = 0; i < this.types.length; i++) {
     if (this.types[i].lastIndexOf('group') !== -1) {
       grouptypes.push(this.types[i]);
-    }
-    else {
+    } else {
       ungrouptypes.push(this.types[i]);
     }
   }
@@ -1453,7 +1451,10 @@ class Form {
    * @return {Object}
    */
   getEntrys() {
-    let entrys = {}, formItemDom, tagName, checkedDoms;
+    let entrys = {},
+      formItemDom,
+      tagName,
+      checkedDoms;
     const formItemDoms = this.el.querySelectorAll('[data-ctform-config-name]');
     for (let i = 0; i < formItemDoms.length; i++) {
       formItemDom = formItemDoms[i];
@@ -1463,24 +1464,21 @@ class Form {
           if (checkedDoms) {
             entrys[formItemDom.dataset.ctformConfigName] = checkedDoms.value ? checkedDoms.value.trim() : '';
           }
-        }
-        else {
+        } else {
           checkedDoms = formItemDom.querySelectorAll('input[type="checkbox"]:checked');
           if (checkedDoms && checkedDoms.length !== 0) {
-            entrys[formItemDom.dataset.ctformConfigName] = Array.prototype.map.call(checkedDoms, function (t) {
+            entrys[formItemDom.dataset.ctformConfigName] = Array.prototype.map.call(checkedDoms, (t) => {
               return t.value ? t.value.trim() : '';
             });
           }
         }
-      }
-      else {
+      } else {
         tagName = formItemDom.tagName.toLowerCase();
         if (tagName === 'input' && (formItemDom.type === 'radio' || formItemDom.type === 'checkbox')) {
           if (formItemDom.checked) {
             entrys[formItemDom.dataset.ctformConfigName] = formItemDom.value ? formItemDom.value.trim() : '';
           }
-        }
-        else {
+        } else {
           entrys[formItemDom.dataset.ctformConfigName] = formItemDom.value ? formItemDom.value.trim() : '';
         }
       }

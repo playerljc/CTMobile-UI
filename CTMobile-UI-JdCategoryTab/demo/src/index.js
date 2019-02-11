@@ -9,8 +9,8 @@ import './index.less';
 function add(index) {
   return {
     menu: $(`<li><a>菜单 ${index + 1} </a></li>`)[0],
-    tab: $(`<li>${index + 1}</li>`)[0]
-  }
+    tab: $(`<li>${index + 1}</li>`)[0],
+  };
 }
 
 function initMenuAndTab(jdel) {
@@ -28,10 +28,9 @@ function initMenuAndTab(jdel) {
 DemoUtil.initial();
 
 window.onload = () => {
-
   // 添加
   $('#ct-jdcategorytab-dynamic-addbtn').on('click', () => {
-    let length = jdcategorytabDynamicJO.find(' > .ct-jdcategorytab-menu > ul > li').length;
+    const length = jdcategorytabDynamicJO.find(' > .ct-jdcategorytab-menu > ul > li').length;
     const objs = add(length);
     jdcategorytabDynamicJO.find(' > .ct-jdcategorytab-menu > ul').append(objs.menu);
     jdcategorytabDynamicJO.find(' > .ct-jdcategorytab-tab').append(objs.tab);
@@ -46,7 +45,7 @@ window.onload = () => {
 
   // 置底
   $('#ct-jdcategorytab-dynamic-scrollbottombtn').on('click', () => {
-    let length = jdcategorytabScrolltoJO.find(' > .ct-jdcategorytab-menu > ul > li').length;
+    const length = jdcategorytabScrolltoJO.find(' > .ct-jdcategorytab-menu > ul > li').length;
     jdcategorytabScrollto.scrollTo(length - 1);
   });
 

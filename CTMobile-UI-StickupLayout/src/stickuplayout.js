@@ -5,7 +5,10 @@
  */
 function position() {
   const val = this.innerEl.scrollTop;
-  let low = 0, high = this.index.length - 1, middle, target;
+  let low = 0,
+    high = this.index.length - 1,
+    middle,
+    target;
   while ((low <= high) &&
   (low <= this.index.length - 1) &&
   (high <= this.index.length - 1)) {
@@ -27,8 +30,8 @@ function position() {
     } else {
       this.preScrollObj = target;
       this.fixedEl.innerHTML = target.dom.outerHTML;
-      if (this.events['change']) {
-        this.events['change'](target.dom, target.index);
+      if (this.events.change) {
+        this.events.change(target.dom, target.index);
       }
     }
   }
@@ -44,7 +47,8 @@ function createIndex() {
   this.preScrollObj = null;
   for (let i = 0, len = this.headerEls.length; i < len; i++) {
     const header = this.headerEls[i];
-    let ranageStart = pre, rangeEnd;
+    let ranageStart = pre,
+      rangeEnd;
     if (i !== len - 1) {
       rangeEnd = this.headerEls[i + 1].offsetTop - header.offsetHeight;
     } else {
@@ -54,7 +58,7 @@ function createIndex() {
       start: ranageStart,
       end: rangeEnd,
       dom: header,
-      index: i
+      index: i,
     });
     pre = rangeEnd;
 
@@ -87,9 +91,9 @@ function scrollAnimationTo(targetTop = 0, duration = 300) {
      * 一次滚动的步进
      * @type {number}
      */
-    setp = this.innerEl.scrollHeight / ( duration / (screen.updateInterval || 16.7) + (duration % (screen.updateInterval || 16.7) !== 0 ? 1 : 0) );
+    setp = this.innerEl.scrollHeight / (duration / (screen.updateInterval || 16.7) + (duration % (screen.updateInterval || 16.7) !== 0 ? 1 : 0));
 
-  /***
+  /** *
    * 动画的滚动
    */
   function scrollAnimation() {
@@ -99,12 +103,10 @@ function scrollAnimationTo(targetTop = 0, duration = 300) {
       } else {
         scrollVal += setp;
       }
+    } else if ((scrollVal - setp) < targetTop) {
+      scrollVal = targetTop;
     } else {
-      if ((scrollVal - setp) < targetTop) {
-        scrollVal = targetTop;
-      } else {
-        scrollVal -= setp;
-      }
+      scrollVal -= setp;
     }
 
     self.innerEl.scrollTop = scrollVal;
@@ -115,12 +117,10 @@ function scrollAnimationTo(targetTop = 0, duration = 300) {
       } else {
         window.requestAnimationFrame(scrollAnimation);
       }
+    } else if (scrollVal <= targetTop) {
+      clear();
     } else {
-      if (scrollVal <= targetTop) {
-        clear();
-      } else {
-        window.requestAnimationFrame(scrollAnimation);
-      }
+      window.requestAnimationFrame(scrollAnimation);
     }
 
     function clear() {
@@ -129,7 +129,7 @@ function scrollAnimationTo(targetTop = 0, duration = 300) {
     }
   }
 
-  /***
+  /** *
    * 滚动core
    */
   window.requestAnimationFrame(scrollAnimation);
@@ -155,7 +155,7 @@ function scrollTo(item, duration = 300) {
  * @access private
  */
 function initMask() {
-  if(!this.maskEl) {
+  if (!this.maskEl) {
     this.maskEl = document.createElement('div');
     this.maskEl.className = 'ct-stickuplayout-mask';
     window.document.body.appendChild(this.maskEl);
@@ -171,14 +171,14 @@ function initial() {
   this.key = false;
   this.index = [];
   this.events = {};
-  this.innerEl = this.el.querySelector(".ct-stickuplayout-inner");
-  this.fixedEl = this.el.querySelector(".ct-stickuplayout-fixed");
-  this.headerEls = this.el.querySelectorAll(".ct-stickuplayout-inner .ct-stickuplayout-item-header");
+  this.innerEl = this.el.querySelector('.ct-stickuplayout-inner');
+  this.fixedEl = this.el.querySelector('.ct-stickuplayout-fixed');
+  this.headerEls = this.el.querySelectorAll('.ct-stickuplayout-inner .ct-stickuplayout-item-header');
 
   createIndex.call(this);
   position.call(this);
 
-  this.innerEl.addEventListener("scroll", function () {
+  this.innerEl.addEventListener('scroll', () => {
     position.call(self);
   });
 }
@@ -201,7 +201,8 @@ class StickupLayout {
    * @return {boolean}
    */
   scrollToByIndex(index, duration = 300) {
-    let i = 0, item;
+    let i = 0,
+      item;
     for (; i < this.index.length; i++) {
       if (this.index[i].index === index) {
         item = this.index[i];
@@ -219,7 +220,9 @@ class StickupLayout {
    * @return {boolean}
    */
   scrollToByHeaderEl(headerEl, duration = 300) {
-    let i = 0, item, index = -1;
+    let i = 0,
+      item,
+      index = -1;
     for (; i < this.index.length; i++) {
       if (this.index[i].dom === headerEl) {
         item = this.index[i];

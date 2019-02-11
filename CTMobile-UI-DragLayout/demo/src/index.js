@@ -5,16 +5,12 @@ import './index.less';
 
 DemoUtil.initial();
 
-DragLayout($('#ct-draglayout-demo')[0],{
+DragLayout($('#ct-draglayout-demo')[0], {
   showCallback() {
 
   },
   hideCallback() {
 
-  }
+  },
 });
-
-
-
-
 

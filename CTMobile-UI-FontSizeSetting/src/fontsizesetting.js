@@ -4,7 +4,7 @@
  * @param {object} config
  * @return {string}
  */
-function getTemplateStr(config = {min: '0', max: '100', setp: '1', value: '0'}) {
+function getTemplateStr(config = { min: '0', max: '100', setp: '1', value: '0' }) {
   return (
     `<div class="ct-fontsizesetting-rangeWrap">
       <div class="ct-fontsizesetting-separatedtool">
@@ -63,7 +63,7 @@ class FontSizeSetting {
     initial.call(this);
     this.range = this.el.querySelector('input[type="range"]');
     this.range.addEventListener('change', function () {
-      if (self.events['change']) {
+      if (self.events.change) {
         trigger.call(self, 'change', this.value);
       }
     }, false);
@@ -99,7 +99,7 @@ class FontSizeSetting {
    */
   setValue(value) {
     this.range.value = value;
-    if (this.events['change']) {
+    if (this.events.change) {
       trigger.call(this, 'change', this.range.value);
     }
   }

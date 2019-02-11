@@ -102,8 +102,8 @@ function getMasterScaleMinValue() {
   const self = this;
   return {
     scaleX: 1 - self.swipeWidth / self.masterWidth,
-    scaleY: 1 - self.swipeWidth / self.masterHeight
-  }
+    scaleY: 1 - self.swipeWidth / self.masterHeight,
+  };
 }
 
 /**
@@ -153,10 +153,10 @@ function setOpacity(dom, value) {
  */
 function onTouchstartAction(e) {
   const self = this;
-  self.startTime = +new Date;
+  self.startTime = +new Date();
   self.endTime = 0;
   self.startX = e.changedTouches ? e.changedTouches[0].pageX : e.pageX;
-  self.startY = e.changedTouches ? e.changedTouches[0].pageY: e.pageY;
+  self.startY = e.changedTouches ? e.changedTouches[0].pageY : e.pageY;
   self.endX = 0;
   self.endY = 0;
   self.isMove = false;
@@ -198,22 +198,18 @@ function onTouchmoveAction(e) {
     // noswipe状态
     if (distance <= 0) {
       noSwipe.call(self);
-    }
-    else if (Math.abs(distance) <= self.swipeWidth) {
+    } else if (Math.abs(distance) <= self.swipeWidth) {
       swipe.call(self, distance);
-    }
-    else {
+    } else {
       swipeEnd.call(self);
     }
   } else if (self.masterDom.dataset.status === STATUS_SWIPE) {
     // swipe状态
     if (distance >= 0) {
       swipeEnd.call(self);
-    }
-    else if (Math.abs(distance) <= self.swipeWidth) {
+    } else if (Math.abs(distance) <= self.swipeWidth) {
       swipe.call(self, distance);
-    }
-    else {
+    } else {
       noSwipe.call(self);
     }
   }
@@ -239,7 +235,7 @@ function onTouchendAction(e) {
     return;
   }
 
-  self.endX = e.changedTouches ? e.changedTouches[0].pageX: e.pageX;
+  self.endX = e.changedTouches ? e.changedTouches[0].pageX : e.pageX;
   self.endTime = +new Date();
   const distance = parseInt(self.endX) - parseInt(self.startX);
 

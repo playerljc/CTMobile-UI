@@ -1,4 +1,4 @@
-import {Dom6, Events} from '@ctmobile/ui-util';
+import { Dom6, Events } from '@ctmobile/ui-util';
 
 /**
  * 显示
@@ -33,7 +33,7 @@ function hide(contentEl) {
   const buttonsEl = contentEl.querySelector('.ct-list-kw-item-buttons');
 
   optionEl.classList.remove('activity');
-  buttonsEl.style.display = "none";
+  buttonsEl.style.display = 'none';
 
   this.events.trigger('hide', contentEl, contentEl.dataset.index);
 }
@@ -46,7 +46,7 @@ function initEvents() {
   const self = this;
 
   // 点击操作按钮的事件监听
-  this.el.addEventListener('click', function (e) {
+  this.el.addEventListener('click', (e) => {
     const target = e.target;
     if (target.classList.contains('ct-list-kw-item-option')) {
       const contentEl = Dom6.getTopDom(target, 'ct-list-kw-item-content');

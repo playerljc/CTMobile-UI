@@ -39,10 +39,9 @@ export default {
     if (parent.lastChild === targetElement) {
       // 如果最后的节点是目标元素，则直接添加。因为默认是最后
       parent.appendChild(newElement);
-    }
-    else {
+    } else {
       parent.insertBefore(newElement, targetElement.nextSibling);
-      //如果不是，则插入在目标元素的下一个兄弟节点 的前面。也就是目标元素的后面
+      // 如果不是，则插入在目标元素的下一个兄弟节点 的前面。也就是目标元素的后面
     }
   },
 
@@ -63,7 +62,8 @@ export default {
    * @return {HtmlElement}
    */
   prevSibling(dom) {
-    let result, index = -1;
+    let result,
+      index = -1;
     if (!dom || !dom.parentNode) return result;
 
     const children = dom.parentNode.children;
@@ -90,7 +90,8 @@ export default {
    * @return {HtmlElement}
    */
   nextSibling(dom) {
-    let result, index = -1;
+    let result,
+      index = -1;
     if (!dom || !dom.parentNode) return result;
 
     const children = dom.parentNode.children;
@@ -109,5 +110,5 @@ export default {
       }
     }
     return result;
-  }
+  },
 };

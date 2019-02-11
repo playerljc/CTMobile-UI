@@ -5,8 +5,8 @@ import IScroll from 'iscroll/build/iscroll';
  * @access private
  */
 function initMenuScroll() {
-  this.scroll = new IScroll(this.menuDom, {mouseWheel: true, click: true});
-  this.menuDom.addEventListener('touchmove', function (e) {
+  this.scroll = new IScroll(this.menuDom, { mouseWheel: true, click: true });
+  this.menuDom.addEventListener('touchmove', (e) => {
     e.preventDefault();
   });
 }
@@ -17,7 +17,7 @@ function initMenuScroll() {
  */
 function initEvents() {
   const self = this;
-  this.menuULDom.addEventListener('click', function (e) {
+  this.menuULDom.addEventListener('click', (e) => {
     const target = e.target;
     scrollTo.call(self, target);
   });
@@ -93,9 +93,9 @@ class JdCategoryTab {
     }
 
     this.event[type] = {
-      type: type,
-      handler: handler
-    }
+      type,
+      handler,
+    };
   }
 
   /**

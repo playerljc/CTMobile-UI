@@ -1,34 +1,12 @@
-"use strict";
+const _interopRequireDefault = require('@babel/runtime/helpers/interopRequireDefault');
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, '__esModule', { value: !0 }), exports.default = _default; let _classCallCheck2 = _interopRequireDefault(require('@babel/runtime/helpers/classCallCheck')),
+  _photoswipe = _interopRequireDefault(require('photoswipe/dist/photoswipe.js')),
+  _photoswipeUiDefault = _interopRequireDefault(require('photoswipe/dist/photoswipe-ui-default.js')),
+  ImageViewer = function e(t, i, r) { (0, _classCallCheck2.default)(this, e), this.el = t, this.photoswipe = new _photoswipe.default(this.el, _photoswipeUiDefault.default, i, r); };
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = _default;
-
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _photoswipe = _interopRequireDefault(require("photoswipe/dist/photoswipe.js"));
-
-var _photoswipeUiDefault = _interopRequireDefault(require("photoswipe/dist/photoswipe-ui-default.js"));
-
-var ImageViewer = function ImageViewer(el, items, options) {
-  (0, _classCallCheck2.default)(this, ImageViewer);
-  this.el = el;
-  this.photoswipe = new _photoswipe.default(this.el, _photoswipeUiDefault.default, items, options);
-};
-/**
- * ImageViewerFactory
- * @param {HtmlElement} el
- * @param {Array} items
- * @param {Object} options
- * @return {ImageViewer}
- */
-
-
-function _default(el) {
-  var items = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-  return new ImageViewer(el, items, options);
+function _default(e) {
+  let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : [],
+    i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {}; return new ImageViewer(e, t, i);
 }
+// # sourceMappingURL=imageviewer.js.map
