@@ -1,0 +1,25 @@
+//@import "../node_modules/font-awesome/less/font-awesome.less";
+@import "../node_modules/@ctmobile/ui-demo-util/lib/index.less";
+@import '../node_modules/@ctmobile/ui-messagedialog/lib/themes/default/messagedialog.less';
+@import '../node_modules/@ctmobile/ui-messagedialog/lib/messagedialog.less';
+
+.ctmobile-ui-doc-demo-device-inner {
+  position: relative !important;
+  .messagedialog-demo-wrap {
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+    > li {
+      border-bottom: 1px solid rgba(0, 0, 0, .1);
+      padding: .5rem;
+      &:last-child {
+        border: 0;
+      }
+      &:before, &:after {
+        width: 0 !important;
+      }
+    }
+  }
+}

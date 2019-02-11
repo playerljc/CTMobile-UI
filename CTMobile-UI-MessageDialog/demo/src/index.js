@@ -1,10 +1,16 @@
-import MessageDialog from '@ctmobile/ui-messagedialog/messagedialog';
-import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
-import '@ctmobile/ui-messagedialog/messagedialog.less';
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import DemoUtil from '@ctmobile/ui-demo-util';
+import 'normalize.less';
+import './index.less';
 
-$('#alert')[0].addEventListener('click', () => {
+DemoUtil.initial();
+
+const $container = $('.ctmobile-ui-doc-demo-device-inner');
+const $parent = $container.find(' .messagedialog-demo-wrap');
+
+$parent.find('.alert')[0].addEventListener('click', () => {
   const alert = MessageDialog.alert({
-    parent: document.body,
+    parent: $container[0],
     title: '提示',
     text: '这是一个弹出框',
     icon: 'icon-exclamation-sign',
@@ -14,9 +20,9 @@ $('#alert')[0].addEventListener('click', () => {
   });
 });
 
-$('#confirm')[0].addEventListener('click', () => {
+$parent.find('.confirm')[0].addEventListener('click', () => {
   MessageDialog.confirm({
-    parent: document.body,
+    parent: $container[0],
     title: '提示',
     text: '您真的要删除此条记录吗？',
     icon: 'icon-exclamation-sign',
@@ -24,7 +30,7 @@ $('#confirm')[0].addEventListener('click', () => {
       console.log(`flag:${flag}`);
       if (flag === 0) {
         MessageDialog.alert({
-          parent: document.body,
+          parent: $container[0],
           title: '提示',
           text: '删除成功',
           icon: 'icon-exclamation-sign',
@@ -37,9 +43,9 @@ $('#confirm')[0].addEventListener('click', () => {
   });
 });
 
-$('#prompt')[0].addEventListener('click', () => {
+$parent.find('.prompt')[0].addEventListener('click', () => {
   MessageDialog.prompt({
-    parent: document.body,
+    parent: $container[0],
     title: '提示',
     text: '请输入您的有效地址',
     icon: 'icon-exclamation-sign',
@@ -49,7 +55,7 @@ $('#prompt')[0].addEventListener('click', () => {
       console.log(`flag:${flag}`);
       if (flag === 0) {
         MessageDialog.alert({
-          parent: document.body,
+          parent: $container[0],
           title: '提示',
           text: val,
           icon: 'icon-exclamation-sign',
@@ -62,10 +68,10 @@ $('#prompt')[0].addEventListener('click', () => {
   });
 });
 
-$('#showTop')[0].addEventListener('click', () => {
+$parent.find('.showTop')[0].addEventListener('click', () => {
   for (let i = 0; i < 5; i++) {
     MessageDialog.makeText({
-      parent: document.body,
+      parent: $container[0],
       text: 'this is a top toast',
       position: 'top',
       duration: 'short',
@@ -73,18 +79,18 @@ $('#showTop')[0].addEventListener('click', () => {
   }
 });
 
-$('#showCenter')[0].addEventListener('click', () => {
+$parent.find('.showCenter')[0].addEventListener('click', () => {
   MessageDialog.makeText({
-    parent: document.body,
+    parent: $container[0],
     text: 'this is a center toast',
     position: 'center',
     duration: 'short',
   });
 });
 
-$('#showBottom')[0].addEventListener('click', () => {
+$parent.find('.showBottom')[0].addEventListener('click', () => {
   MessageDialog.makeText({
-    parent: document.body,
+    parent: $container[0],
     text: 'this is a bottom toast',
     position: 'bottom',
     duration: 'short',
@@ -92,7 +98,7 @@ $('#showBottom')[0].addEventListener('click', () => {
 });
 
 const loadingDialog = MessageDialog.makeLoading({
-  parent: document.body,
+  parent: $container[0],
   refreshCallback() {
     alert('点击了刷新');
     loadingDialog.hide();
@@ -108,38 +114,38 @@ const loadingDialog = MessageDialog.makeLoading({
   },
 });
 
-$('#loadingNonetwork')[0].addEventListener('click', () => {
+$parent.find('.loadingNonetwork')[0].addEventListener('click', () => {
   loadingDialog.setNoNetWorkTip('请检查网络！');
   loadingDialog.showNoNetWork();
 });
 
-$('#loadingFail')[0].addEventListener('click', () => {
+$parent.find('.loadingFail')[0].addEventListener('click', () => {
   loadingDialog.setFailTip('程序发成异常请重试！');
   loadingDialog.showFail();
 });
 
-$('#loadingLoading')[0].addEventListener('click', () => {
+$parent.find('.loadingLoading')[0].addEventListener('click', () => {
   loadingDialog.showLoading();
   setTimeout(() => {
     loadingDialog.hide();
   }, 5000);
 });
 
-$('#loadingEmpty')[0].addEventListener('click', () => {
+$parent.find('.loadingEmpty')[0].addEventListener('click', () => {
   loadingDialog.setEmptyTip('暂无数据！');
   loadingDialog.showEmpty();
 });
 
-$('#loadingSubmit')[0].addEventListener('click', () => {
+$parent.find('.loadingSubmit')[0].addEventListener('click', () => {
   loadingDialog.showSubmit();
   setTimeout(() => {
     loadingDialog.hide();
   }, 5000);
 });
 
-$('#custom')[0].addEventListener('click', () => {
+$parent.find('.custom')[0].addEventListener('click', () => {
   const dialog = MessageDialog.customDialog({
-    parent: document.body,
+    parent: $container[0],
     title: '自定义',
     html: `
           <form class='form'>
@@ -151,7 +157,7 @@ $('#custom')[0].addEventListener('click', () => {
       handler() {
         dialog.close();
         MessageDialog.alert({
-          parent: document.body,
+          parent: $container[0],
           title: '提示',
           text: '点击了确定',
           icon: 'icon-exclamation-sign',

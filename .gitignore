@@ -93,6 +93,12 @@ CTMobile-UI-KwList/demo/node_modules
 CTMobile-UI-KwList/demo/dist
 CTMobile-UI-KwList/demo/src/assets
 
+CTMobile-UI-MessageDialog/.idea
+CTMobile-UI-MessageDialog/node_modules
+CTMobile-UI-MessageDialog/demo/node_modules
+CTMobile-UI-MessageDialog/demo/dist
+CTMobile-UI-MessageDialog/demo/src/assets
+
 CTMobile-UI-Util/.idea
 CTMobile-UI-Util/node_modules
 

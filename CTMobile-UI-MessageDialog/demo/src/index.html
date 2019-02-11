@@ -5,55 +5,1115 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
   <title>ctmobile-ui-messagedialog-demo</title>
-
-  <style>
-    html, body {
-      font-family: Roboto, Noto, Helvetica, Arial, sans-serif;
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      font-size: 20px;
-      overflow: hidden;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 10px;
-      border: 1px solid rgba(0, 0, 0, .1);
-      border-radius: .5rem;
-    }
-
-    ul > li {
-      border-bottom: 1px solid rgba(0, 0, 0, .1);
-      padding: .5rem;
-    }
-
-    ul > li:last-child {
-      border: 0;
-    }
-  </style>
-
 </head>
 
 <body>
 
-<ul>
-  <li id="showTop">show top toast</li>
-  <li id="showCenter">show center toast</li>
-  <li id="showBottom">show bottom toast</li>
-  <li id="alert">show alert</li>
-  <li id="confirm">show confirm</li>
-  <li id="prompt">show prompt</li>
-  <li id="custom">show custom</li>
+<div class="ctmobile-ui-doc">
 
-  <li id="loadingNonetwork">show nonetwork</li>
-  <li id="loadingFail">show fail</li>
-  <li id="loadingLoading">show loading</li>
-  <li id="loadingEmpty">show empty</li>
-  <li id="loadingSubmit">show submit</li>
-</ul>
+  <!-- MessageDialog -->
+
+  <!--菜单-->
+  <h1>MessageDialog</h1>
+  <ul>
+    <li>
+      <a>对话框类型</a>
+      <ul>
+        <li>
+          <a>toast</a>
+          <ul>
+            <li href="#messagedialog-type-toast-showtop">showTop</li>
+            <li href="#messagedialog-type-toast-showcenter">showCenter</li>
+            <li href="#messagedialog-type-toast-showbottom">showBottom</li>
+          </ul>
+        </li>
+        <li><a href="#messagedialog-type-alert">alert</a></li>
+        <li><a href="#messagedialog-type-confirm">confirm</a></li>
+        <li>
+          <a>prompt</a>
+          <ul>
+            <li><a href="#messagedialog-type-prompt">input</a></li>
+            <li><a href="#messagedialog-type-promptmulit">textarea</a></li>
+          </ul>
+        </li>
+        <li><a href="#messagedialog-type-custom">custom</a></li>
+        <li>
+          <a>loading</a>
+          <ul>
+            <li><a href="#messagedialog-type-loading-nonetwork">nonetwork</a></li>
+            <li><a href="#messagedialog-type-loading-fail">fail</a></li>
+            <li><a href="#messagedialog-type-loading-loading">loading</a></li>
+            <li><a href="#messagedialog-type-loading-empty">empty</a></li>
+            <li><a href="#messagedialog-type-loading-submit">submit</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#messagedialog-demo">例子</a></li>
+    <li><a href="#messagedialog-methods">方法</a></li>
+  </ul>
+
+  <!--toast-showTop-->
+  <h2 id="messagedialog-type-toast-showtop">toast-showTop</h2>
+  <dl>
+    <dt><h4>js</h4></dt>
+    <dd>
+    <pre>
+    <code class="javascript">
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+MessageDialog.makeText({
+  parent: document.body,
+  text: 'this is a top toast',
+  position: 'top',
+  duration: 'short',
+});
+    </code>
+    </pre>
+    </dd>
+  </dl>
+
+  <!--toast-showCenter-->
+  <h2 id="messagedialog-type-toast-showcenter">toast-showCenter</h2>
+  <dl>
+    <dt><h4>js</h4></dt>
+    <dd>
+    <pre>
+    <code class="javascript">
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+MessageDialog.makeText({
+  parent: document.body,
+  text: 'this is a center toast',
+  position: 'center',
+  duration: 'short',
+});
+    </code>
+    </pre>
+    </dd>
+  </dl>
+
+  <!--toast-showBottom-->
+  <h2 id="messagedialog-type-toast-showbottom">toast-showBottom</h2>
+  <dl>
+    <dt><h4>js</h4></dt>
+    <dd>
+    <pre>
+    <code class="javascript">
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+MessageDialog.makeText({
+  parent: document.body,
+  text: 'this is a bottom toast',
+  position: 'bottom',
+  duration: 'short',
+});
+    </code>
+    </pre>
+    </dd>
+  </dl>
+
+  <!--alert-->
+  <h2 id="messagedialog-type-alert">alert</h2>
+  <dl>
+    <dt><h4>js</h4></dt>
+    <dd>
+    <pre>
+    <code class="javascript">
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+const alert = MessageDialog.alert({
+  parent: document.body,
+  title: '提示',
+  text: '这是一个弹出框',
+  icon: 'icon-exclamation-sign',
+  callback() {
+    console.log('callback');
+  },
+});
+    </code>
+    </pre>
+    </dd>
+  </dl>
+
+  <!--confirm-->
+  <h2 id="messagedialog-type-confirm">confirm</h2>
+  <dl>
+    <dt><h4>js</h4></dt>
+    <dd>
+    <pre>
+    <code class="javascript">
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+MessageDialog.confirm({
+  parent: document.body,
+  title: '提示',
+  text: '您真的要删除此条记录吗？',
+  icon: 'icon-exclamation-sign',
+  callback(flag) {
+    console.log(`flag:${flag}`);
+    if (flag === 0) {
+      MessageDialog.alert({
+        parent: document.body,
+        title: '提示',
+        text: '删除成功',
+        icon: 'icon-exclamation-sign',
+        callback() {
+          console.log('callback');
+        },
+      });
+    }
+  },
+});
+    </code>
+    </pre>
+    </dd>
+  </dl>
+
+  <!--prompt-->
+  <h2 id="messagedialog-type-prompt">prompt</h2>
+  <dl>
+    <dt><h4>js</h4></dt>
+    <dd>
+    <pre>
+    <code class="javascript">
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+MessageDialog.prompt({
+  parent: document.body,
+  title: '提示',
+  text: '请输入您的有效地址',
+  icon: 'icon-exclamation-sign',
+  defaultVal: '辽宁省沈阳市',
+  placeholder: '请输入您的有效地址',
+  callback(flag, val) {
+    console.log(`flag:${flag}`);
+    if (flag === 0) {
+      MessageDialog.alert({
+        parent: document.body,
+        title: '提示',
+        text: val,
+        icon: 'icon-exclamation-sign',
+        callback() {
+          console.log('callback');
+        },
+      });
+    }
+  },
+});
+    </code>
+    </pre>
+    </dd>
+  </dl>
+
+  <!--promptmulit-->
+  <h2 id="messagedialog-type-promptmulit">promptmulit</h2>
+  <dl>
+    <dt><h4>js</h4></dt>
+    <dd>
+    <pre>
+    <code class="javascript">
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+MessageDialog.promptmulit({
+  parent: document.body,
+  title: '提示',
+  text: '请输入您的有效地址',
+  icon: 'icon-exclamation-sign',
+  defaultVal: '辽宁省沈阳市',
+  placeholder: '请输入您的有效地址',
+  callback(flag, val) {
+    console.log(`flag:${flag}`);
+    if (flag === 0) {
+      MessageDialog.alert({
+        parent: document.body,
+        title: '提示',
+        text: val,
+        icon: 'icon-exclamation-sign',
+        callback() {
+          console.log('callback');
+        },
+      });
+    }
+  },
+});
+    </code>
+    </pre>
+    </dd>
+  </dl>
+
+  <!--custom-->
+  <h2 id="messagedialog-type-custom">custom</h2>
+  <dl>
+    <dt><h4>js</h4></dt>
+    <dd>
+    <pre>
+    <code class="javascript">
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+const dialog = MessageDialog.customDialog({
+  parent: document.body,
+  title: '自定义',
+  html: <pre>
+        <code class="html">
+        `<form class='form'>
+           <label for='name'>用户名</label>
+           <input type='text'>
+        </form>`
+        </code>
+        </pre>,
+  buttons: [{
+    text: '确定',
+    handler() {
+      dialog.close();
+      MessageDialog.alert({
+        parent: document.body,
+        title: '提示',
+        text: '点击了确定',
+        icon: 'icon-exclamation-sign',
+        callback() {
+          alert(dialog.el.querySelector('.form > input').value);
+        },
+      });
+    },
+  }, {
+    text: '关闭',
+    handler() {
+      dialog.close();
+    },
+  }],
+  rendercallback() {
+    console.log('renderSuccess');
+  },
+});
+    </code>
+    </pre>
+    </dd>
+  </dl>
+
+  <!--nonetwork-->
+  <h2 id="messagedialog-type-loading-nonetwork">nonetwork</h2>
+  <dl>
+    <dt><h4>js</h4></dt>
+    <dd>
+    <pre>
+    <code class="javascript">
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+const loadingDialog = MessageDialog.makeLoading({
+  parent: document.body,
+  refreshCallback() {
+    alert('点击了刷新');
+    loadingDialog.hide();
+  },
+  boundingCallback() {
+    return {
+      top: '0',
+      bottom: '0',
+    };
+  },
+  isShowHeader() {
+    return true;
+  },
+});
+
+loadingDialog.setNoNetWorkTip('请检查网络！');
+loadingDialog.showNoNetWork();
+    </code>
+    </pre>
+    </dd>
+  </dl>
+
+  <!--fail-->
+  <h2 id="messagedialog-type-loading-fail">fail</h2>
+  <dl>
+    <dt><h4>js</h4></dt>
+    <dd>
+    <pre>
+    <code class="javascript">
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+const loadingDialog = MessageDialog.makeLoading({
+  parent: document.body,
+  refreshCallback() {
+    alert('点击了刷新');
+    loadingDialog.hide();
+  },
+  boundingCallback() {
+    return {
+      top: '0',
+      bottom: '0',
+    };
+  },
+  isShowHeader() {
+    return true;
+  },
+});
+
+loadingDialog.setFailTip('程序发成异常请重试！');
+loadingDialog.showFail();
+    </code>
+    </pre>
+    </dd>
+  </dl>
+
+  <!--loading-->
+  <h2 id="messagedialog-type-loading-loading">loading</h2>
+  <dl>
+    <dt><h4>js</h4></dt>
+    <dd>
+    <pre>
+    <code class="javascript">
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+const loadingDialog = MessageDialog.makeLoading({
+  parent: document.body,
+  refreshCallback() {
+    alert('点击了刷新');
+    loadingDialog.hide();
+  },
+  boundingCallback() {
+    return {
+      top: '0',
+      bottom: '0',
+    };
+  },
+  isShowHeader() {
+    return true;
+  },
+});
+
+loadingDialog.showLoading();
+setTimeout(() => {
+  loadingDialog.hide();
+}, 5000);
+    </code>
+    </pre>
+    </dd>
+  </dl>
+
+  <!--empty-->
+  <h2 id="messagedialog-type-loading-empty">empty</h2>
+  <dl>
+    <dt><h4>js</h4></dt>
+    <dd>
+    <pre>
+    <code class="javascript">
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+const loadingDialog = MessageDialog.makeLoading({
+  parent: document.body,
+  refreshCallback() {
+    alert('点击了刷新');
+    loadingDialog.hide();
+  },
+  boundingCallback() {
+    return {
+      top: '0',
+      bottom: '0',
+    };
+  },
+  isShowHeader() {
+    return true;
+  },
+});
+
+loadingDialog.setEmptyTip('暂无数据！');
+loadingDialog.showEmpty();
+    </code>
+    </pre>
+    </dd>
+  </dl>
+
+  <!--submit-->
+  <h2 id="messagedialog-type-loading-submit">submit</h2>
+  <dl>
+    <dt><h4>js</h4></dt>
+    <dd>
+    <pre>
+    <code class="javascript">
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+const loadingDialog = MessageDialog.makeLoading({
+  parent: document.body,
+  refreshCallback() {
+    alert('点击了刷新');
+    loadingDialog.hide();
+  },
+  boundingCallback() {
+    return {
+      top: '0',
+      bottom: '0',
+    };
+  },
+  isShowHeader() {
+    return true;
+  },
+});
+
+loadingDialog.showSubmit();
+setTimeout(() => {
+  loadingDialog.hide();
+}, 5000);
+    </code>
+    </pre>
+    </dd>
+  </dl>
+
+  <!--例子-->
+  <h2 id="messagedialog-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+        <pre>
+      <code class="html">
+        <ul class="messagedialog-demo-wrap">
+          <li class="showTop">show top toast</li>
+          <li class="showCenter">show center toast</li>
+          <li class="showBottom">show bottom toast</li>
+          <li class="alert">show alert</li>
+          <li class="confirm">show confirm</li>
+          <li class="prompt">show prompt</li>
+          <li class="custom">show custom</li>
+          <li class="loadingNonetwork">show nonetwork</li>
+          <li class="loadingFail">show fail</li>
+          <li class="loadingLoading">show loading</li>
+          <li class="loadingEmpty">show empty</li>
+          <li class="loadingSubmit">show submit</li>
+        </ul>
+      </code>
+        </pre>
+        </dd>
+      </dl>
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+        <pre>
+      <code class="javascript">
+import $ from 'jquery';
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+const $container = $('.ctmobile-ui-doc-demo-device-inner');
+const $parent = $container.find(' .messagedialog-demo-wrap');
+
+$parent.find('.alert')[0].addEventListener('click', () => {
+  const alert = MessageDialog.alert({
+    parent: $container[0],
+    title: '提示',
+    text: '这是一个弹出框',
+    icon: 'icon-exclamation-sign',
+    callback() {
+      console.log('callback');
+    },
+  });
+});
+
+$parent.find('.confirm')[0].addEventListener('click', () => {
+  MessageDialog.confirm({
+    parent: $container[0],
+    title: '提示',
+    text: '您真的要删除此条记录吗？',
+    icon: 'icon-exclamation-sign',
+    callback(flag) {
+      console.log(`flag:${flag}`);
+      if (flag === 0) {
+        MessageDialog.alert({
+          parent: $container[0],
+          title: '提示',
+          text: '删除成功',
+          icon: 'icon-exclamation-sign',
+          callback() {
+            console.log('callback');
+          },
+        });
+      }
+    },
+  });
+});
+
+$parent.find('.prompt')[0].addEventListener('click', () => {
+  MessageDialog.prompt({
+    parent: $container[0],
+    title: '提示',
+    text: '请输入您的有效地址',
+    icon: 'icon-exclamation-sign',
+    defaultVal: '辽宁省沈阳市',
+    placeholder: '请输入您的有效地址',
+    callback(flag, val) {
+      console.log(`flag:${flag}`);
+      if (flag === 0) {
+        MessageDialog.alert({
+          parent: $container[0],
+          title: '提示',
+          text: val,
+          icon: 'icon-exclamation-sign',
+          callback() {
+            console.log('callback');
+          },
+        });
+      }
+    },
+  });
+});
+
+$parent.find('.showTop')[0].addEventListener('click', () => {
+  for (let i = 0; i &lt; 5; i++) {
+    MessageDialog.makeText({
+      parent: $container[0],
+      text: 'this is a top toast',
+      position: 'top',
+      duration: 'short',
+    });
+  }
+});
+
+$parent.find('.showCenter')[0].addEventListener('click', () => {
+  MessageDialog.makeText({
+    parent: $container[0],
+    text: 'this is a center toast',
+    position: 'center',
+    duration: 'short',
+  });
+});
+
+$parent.find('.showBottom')[0].addEventListener('click', () => {
+  MessageDialog.makeText({
+    parent: $container[0],
+    text: 'this is a bottom toast',
+    position: 'bottom',
+    duration: 'short',
+  });
+});
+
+const loadingDialog = MessageDialog.makeLoading({
+  parent: $container[0],
+  refreshCallback() {
+    alert('点击了刷新');
+    loadingDialog.hide();
+  },
+  boundingCallback() {
+    return {
+      top: '0',
+      bottom: '0',
+    };
+  },
+  isShowHeader() {
+    return true;
+  },
+});
+
+$parent.find('.loadingNonetwork')[0].addEventListener('click', () => {
+  loadingDialog.setNoNetWorkTip('请检查网络！');
+  loadingDialog.showNoNetWork();
+});
+
+$parent.find('.loadingFail')[0].addEventListener('click', () => {
+  loadingDialog.setFailTip('程序发成异常请重试！');
+  loadingDialog.showFail();
+});
+
+$parent.find('.loadingLoading')[0].addEventListener('click', () => {
+  loadingDialog.showLoading();
+  setTimeout(() => {
+    loadingDialog.hide();
+  }, 5000);
+});
+
+$parent.find('.loadingEmpty')[0].addEventListener('click', () => {
+  loadingDialog.setEmptyTip('暂无数据！');
+  loadingDialog.showEmpty();
+});
+
+$parent.find('.loadingSubmit')[0].addEventListener('click', () => {
+  loadingDialog.showSubmit();
+  setTimeout(() => {
+    loadingDialog.hide();
+  }, 5000);
+});
+
+$parent.find('.custom')[0].addEventListener('click', () => {
+  const dialog = MessageDialog.customDialog({
+    parent: $container[0],
+    title: '自定义',
+    html: <pre>
+          <code class="html">
+            `<form class='form'>
+               <label for='name'>用户名</label>
+               <input type='text'>
+            </form>`
+          </code>
+        </pre>
+    buttons: [{
+      text: '确定',
+      handler() {
+        dialog.close();
+        MessageDialog.alert({
+          parent: $container[0],
+          title: '提示',
+          text: '点击了确定',
+          icon: 'icon-exclamation-sign',
+          callback() {
+            alert(dialog.el.querySelector('.form > input').value);
+          },
+        });
+      },
+    }, {
+      text: '关闭',
+      handler() {
+        dialog.close();
+      },
+    }],
+    rendercallback() {
+      console.log('renderSuccess');
+    },
+  });
+});
+      </code>
+        </pre>
+        </dd>
+      </dl>
+    </div>
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner">
+          <ul class="messagedialog-demo-wrap">
+            <li class="showTop">show top toast</li>
+            <li class="showCenter">show center toast</li>
+            <li class="showBottom">show bottom toast</li>
+            <li class="alert">show alert</li>
+            <li class="confirm">show confirm</li>
+            <li class="prompt">show prompt</li>
+            <li class="custom">show custom</li>
+            <li class="loadingNonetwork">show nonetwork</li>
+            <li class="loadingFail">show fail</li>
+            <li class="loadingLoading">show loading</li>
+            <li class="loadingEmpty">show empty</li>
+            <li class="loadingSubmit">show submit</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--方法-->
+  <h2 id="messagedialog-methods">方法</h2>
+
+  <div class="method-wrap">
+    <p>alert({
+      <span class="parameter">parent</span>,
+      <span class="parameter">title</span>,
+      <span class="parameter">text</span>,
+      <span class="parameter">icon</span>,
+      <span class="parameter">callback</span>}) - 显示一个消息提示框</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">parent</span>-<span class="parameterType">HtmlElement</span>父容器dom
+      </li>
+      <li>
+        <span class="parameter">title</span>-<span class="parameterType">string</span>标题
+      </li>
+      <li>
+        <span class="parameter">text</span>-<span class="parameterType">string</span>内容
+      </li>
+      <li>
+        <span class="parameter">icon</span>-<span class="parameterType">string</span>图标</br>
+        <span>icon-exclamation-sign</span></br>
+        <span>icon-off</span></br>
+        <span>icon-ok-sign</span></br>
+        <span>icon-info-sign</span></br>
+        <span>icon-remove-sign</span></br>
+        <span>icon-user</span></br>
+        <span>icon-key</span></br>
+        <span>icon-home</span>
+      </li>
+      <li>
+        <span class="parameter">callback</span>-<span class="parameterType">Function</span>点击确定回调函数
+      </li>
+      <li>
+        <span class="parameter">返回值</span>-<span class="parameterType">Object</span>
+        <ul class="method-parameters">
+          <li>
+            <div class="method-wrap">
+              <p>close() - 关闭对话框</p>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="method-wrap">
+    <p>confirm({
+      <span class="parameter">parent</span>,
+      <span class="parameter">title</span>,
+      <span class="parameter">text</span>,
+      <span class="parameter">icon</span>,
+      <span class="parameter">callback</span>}) - 显示一个确认对话框</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">parent</span>-<span class="parameterType">HtmlElement</span>父容器dom
+      </li>
+      <li>
+        <span class="parameter">title</span>-<span class="parameterType">string</span>标题
+      </li>
+      <li>
+        <span class="parameter">text</span>-<span class="parameterType">string</span>内容
+      </li>
+      <li>
+        <span class="parameter">icon</span>-<span class="parameterType">string</span>图标</br>
+        <span>icon-exclamation-sign</span></br>
+        <span>icon-off</span></br>
+        <span>icon-ok-sign</span></br>
+        <span>icon-info-sign</span></br>
+        <span>icon-remove-sign</span></br>
+        <span>icon-user</span></br>
+        <span>icon-key</span></br>
+        <span>icon-home</span>
+      </li>
+      <li>
+        <span class="parameter">callback</span>-<span class="parameterType">Function</span>点击确定回调函数(flag [0 | 1] 0确定
+        1取消)
+      </li>
+    </ul>
+  </div>
+
+  <div class="method-wrap">
+    <p>prompt({
+      <span class="parameter">parent</span>,
+      <span class="parameter">title</span>,
+      <span class="parameter">text</span>,
+      <span class="parameter">icon</span>,
+      <span class="parameter">defaultVal</span>,
+      <span class="parameter">placeholder</span>,
+      <span class="parameter">value</span>,
+      <span class="parameter">callback</span>}) - 弹出一个带有input的对话框</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">parent</span>-<span class="parameterType">HtmlElement</span>父容器dom
+      </li>
+      <li>
+        <span class="parameter">title</span>-<span class="parameterType">string</span>标题
+      </li>
+      <li>
+        <span class="parameter">text</span>-<span class="parameterType">string</span>内容
+      </li>
+      <li>
+        <span class="parameter">icon</span>-<span class="parameterType">string</span>图标</br>
+        <span>icon-exclamation-sign</span></br>
+        <span>icon-off</span></br>
+        <span>icon-ok-sign</span></br>
+        <span>icon-info-sign</span></br>
+        <span>icon-remove-sign</span></br>
+        <span>icon-user</span></br>
+        <span>icon-key</span></br>
+        <span>icon-home</span>
+      </li>
+      <li>
+        <span class="parameter">defaultVal</span>-<span class="parameterType">string</span>缺省值
+      </li>
+      <li>
+        <span class="parameter">placeholder</span>-<span class="parameterType">string</span>string input的缺省提示
+      </li>
+      <li>
+        <span class="parameter">value</span>-<span class="parameterType">string</span>输入的值
+      </li>
+      <li>
+        <span class="parameter">callback</span>-<span class="parameterType">Function</span>点击确定回调函数(flag [0 | 1] 0确定
+        1取消)
+      </li>
+    </ul>
+  </div>
+
+  <div class="method-wrap">
+    <p>promptmulit({
+      <span class="parameter">parent</span>,
+      <span class="parameter">title</span>,
+      <span class="parameter">text</span>,
+      <span class="parameter">icon</span>,
+      <span class="parameter">defaultVal</span>,
+      <span class="parameter">placeholder</span>,
+      <span class="parameter">value</span>,
+      <span class="parameter">callback</span>}) - 弹出一个带有textarea的对话框</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">parent</span>-<span class="parameterType">HtmlElement</span>父容器dom
+      </li>
+      <li>
+        <span class="parameter">title</span>-<span class="parameterType">string</span>标题
+      </li>
+      <li>
+        <span class="parameter">text</span>-<span class="parameterType">string</span>内容
+      </li>
+      <li>
+        <span class="parameter">icon</span>-<span class="parameterType">string</span>图标</br>
+        <span>icon-exclamation-sign</span></br>
+        <span>icon-off</span></br>
+        <span>icon-ok-sign</span></br>
+        <span>icon-info-sign</span></br>
+        <span>icon-remove-sign</span></br>
+        <span>icon-user</span></br>
+        <span>icon-key</span></br>
+        <span>icon-home</span>
+      </li>
+      <li>
+        <span class="parameter">defaultVal</span>-<span class="parameterType">string</span>缺省值
+      </li>
+      <li>
+        <span class="parameter">placeholder</span>-<span class="parameterType">string</span>string input的缺省提示
+      </li>
+      <li>
+        <span class="parameter">value</span>-<span class="parameterType">string</span>输入的值
+      </li>
+      <li>
+        <span class="parameter">callback</span>-<span class="parameterType">Function</span>点击确定回调函数(flag [0 | 1] 0确定
+        1取消)
+      </li>
+    </ul>
+  </div>
+
+  <div class="method-wrap">
+    <p>customDialog({
+      <span class="parameter">parent</span>,
+      <span class="parameter">title</span>,
+      <span class="parameter">html</span>,
+      <span class="parameter">buttons</span>,
+      <span class="parameter">rendercallback</span>}) - 弹出一个带有textarea的对话框</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">parent</span>-<span class="parameterType">HtmlElement</span>父容器dom
+      </li>
+      <li>
+        <span class="parameter">title</span>-<span class="parameterType">string</span>标题
+      </li>
+      <li>
+        <span class="parameter">html</span>-<span class="parameterType">string</span>内容
+      </li>
+      <li>
+        <span class="parameter">buttons</span>-<span class="parameterType">Array({text:string 按钮文字,handler:Function 按钮点击回调})</span>按钮
+      </li>
+      <li>
+        <span class="parameter">rendercallback</span>-<span class="parameterType">Function</span>渲染后的回调函数
+      </li>
+      <li>
+        <span class="parameter">返回值</span>-<span class="parameterType">Object</span>
+        <ul class="method-parameters">
+          <li>
+            <div class="method-wrap">
+              <p>close() - 关闭对话框</p>
+            </div>
+          </li>
+          <li>
+            <span class="parameter">el</span>-<span class="parameterType">HtmlElement</span>对话框的el
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="method-wrap">
+    <p>makeText({
+      <span class="parameter">parent</span>,
+      <span class="parameter">text</span>,
+      <span class="parameter">position</span>,
+      <span class="parameter">duration</span>) - 显示一个toast</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">parent</span>-<span class="parameterType">HtmlElement</span>父容器dom
+      </li>
+      <li>
+        <span class="parameter">text</span>-<span class="parameterType">string</span>内容
+      </li>
+      <li>
+        <span class="parameter">position</span>-<span class="parameterType">string</span>位置 [top | bottom | center]
+        default bottom
+      </li>
+      <li>
+        <span class="parameter">duration</span>-<span class="parameterType">string</span>持续时间 [long | short] default
+        short
+      </li>
+    </ul>
+  </div>
+
+  <div class="method-wrap">
+    <p>makeLoading({
+      <span class="parameter">parent</span>,
+      <span class="parameter">tip</span>,
+      <span class="parameter">refreshCallback</span>,
+      <span class="parameter">boundingCallback</span>,
+      <span class="parameter">isShowHeader</span>) - 显示一个toast</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">parent</span>-<span class="parameterType">HtmlElement</span>父容器dom
+      </li>
+      <li>
+        <span class="parameter">tip</span>-<span class="parameterType">string</span>提示
+      </li>
+      <li>
+        <span class="parameter">refreshCallback</span>-<span class="parameterType">Function</span>重新加载数据的回调函数
+      </li>
+      <li>
+        <span class="parameter">boundingCallback</span>-<span class="parameterType">Object</span>加载loading,empty的时候top和bottom的值,nonetwork,fail,submit
+        不需要设置 {top:"",bottom:""}
+      </li>
+      <li>
+        <span class="parameter">isShowHeader</span>-<span class="parameterType">boolean</span>nonetwork,fail 是否需要显示头
+      </li>
+      <li>
+        <span class="parameter">返回值</span>-<span class="parameterType">Object</span>
+        <ul class="method-parameters">
+          <li>
+            <div class="method-wrap">
+              <p>setLoadingTip(<span class="parameter">tip</span>) - 设置loading的tip</p>
+              <ul class="method-parameters">
+                <li>
+                  <span class="parameter">tip</span>-<span class="parameterType">string</span>提示信息
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>setNoNetWorkTip(<span class="parameter">tip</span>) - 设置nonetwork的tip</p>
+              <ul class="method-parameters">
+                <li>
+                  <span class="parameter">tip</span>-<span class="parameterType">string</span>提示信息
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>setFailTip(<span class="parameter">tip</span>) - 设置fail的tip</p>
+              <ul class="method-parameters">
+                <li>
+                  <span class="parameter">tip</span>-<span class="parameterType">string</span>提示信息
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>setEmptyTip(<span class="parameter">tip</span>) - 设置empty的tip</p>
+              <ul class="method-parameters">
+                <li>
+                  <span class="parameter">tip</span>-<span class="parameterType">string</span>提示信息
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>setSubmitTip(<span class="parameter">tip</span>) - 设置submit的tip</p>
+              <ul class="method-parameters">
+                <li>
+                  <span class="parameter">tip</span>-<span class="parameterType">string</span>提示信息
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>showLoading() - 显示loading</p>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>showEmpty() - 显示empty</p>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>showNoNetWork() - 显示nonetwork</p>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>showFail() - 显示fail</p>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>showSubmit() - 显示submit</p>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>hide() - 关闭loadingDialog</p>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>close() - 删除loadingDialog</p>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>isShowLoading() - 是否显示loading</p>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>isShowNoNetWork() - 是否显示NoNetwork</p>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>isShowFail() - 是否显示fail</p>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>isShowEmpty() - 是否显示empty</p>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>isShowSubmit() - 是否显示submit</p>
+            </div>
+          </li>
+          <li>
+            <div class="method-wrap">
+              <p>getParent() - 获取parent的el</p>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
 
 </body>
 </html>

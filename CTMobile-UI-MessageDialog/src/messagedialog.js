@@ -10,8 +10,8 @@ const _template = {
              <div class="ct-messdialog-dialog-in-inner-title"><%=title%></div>
              <div class="ct-messdialog-dialog-in-inner-text <%=icon%>"><%=text%></div>
          </div>
-         <div class="messdialog-dialog-in-buttons">
-             <span class="messdialog-dialog-in-buttons-button">确定</span>
+         <div class="ct-messdialog-dialog-in-buttons">
+             <span class="ct-messdialog-dialog-in-buttons-button">确定</span>
          </div>
      </div>
   </div>`,
@@ -72,7 +72,7 @@ const _template = {
   </div>`,
   loading:
     `<div class="ct-messdialog-loading">
-      // nonetwork
+      <!-- nonetwork -->
       <div class="ct-messdialog-loading-nonetwork">
           <div class="ct-messdialog-loading-nonetwork-header">
             <a data-role="none" class="icon-back-purple"></a>
@@ -83,7 +83,7 @@ const _template = {
              <div class="ct-messdialog-loading-nonetwork-content-setting">设置</div>
           </div>
       </div>
-      // fail
+      <!-- fail -->
       <div class="ct-messdialog-loading-fail">
           <div class="ct-messdialog-loading-fail-header">
             <a data-role="none" class="icon-back-purple"></a>
@@ -94,20 +94,20 @@ const _template = {
              <div class="ct-messdialog-loading-fail-content-refresh">重试</div>
           </div>
       </div>
-      // loading
+      <!-- loading -->
      <div class="ct-messdialog-loading-loading">
          <div class="la-ball-clip-rotate la-dark" style="color: #3e98f0;">
              <div></div>
          </div>
          <div class="ct-messdialog-loading-loading-tip">加载中...</div>
      </div>
-      // empty
+      <!-- empty -->
       <div class="ct-messdialog-loading-empty">
           <div class="ct-messdialog-loading-empty-logo"></div>
           <div class="ct-messdialog-loading-empty-tip"></div>
           <div class="ct-messdialog-loading-empty-refresh">重新加载</div>
       </div>
-      // submit
+      <!-- submit -->
       <div class="ct-messdialog-loading-submit">
           <div class="ct-messdialog-loading-submit-inner">
               <div class="la-line-spin-clockwise-fade-rotating la-dark">
@@ -377,10 +377,88 @@ function customdialogCreate({ parent, title, html, buttons, rendercallback }) {
   show(dialog, inner);
 
   return {
+    el: dialog,
     close() {
       close(parent, inner, dialog);
     },
   };
+}
+
+/**
+ * Toast
+ * @class
+ * @classdesc
+ */
+class Toast {
+  /**
+   * @constructor
+   * @param {Object} config
+   */
+  constructor(config) {
+    this.config = config;
+    this.init();
+  }
+
+  static toastQueue = [];
+  static toastKey = false;
+
+  /**
+   * init
+   */
+  init() {
+    let { parent, text, position, duration } = this.config;
+    duration = duration === 'long' ? 2000 : 1000;
+    const toast = _$(_template.toast, {
+      text,
+      position,
+    });
+
+    Toast.toastQueue.push({
+      parent,
+      toast,
+      duration,
+    });
+
+    if (Toast.toastKey) return;
+    Toast.toastKey = true;
+    this.showToast();
+  }
+
+  /**
+   * showToast
+   */
+  showToast() {
+    const self = this;
+
+    if (Toast.toastQueue.length === 0) {
+      Toast.toastKey = false;
+      return;
+    }
+
+    let toast = Toast.toastQueue.shift();
+    const duration = toast.duration;
+    const parent = toast.parent;
+    toast = toast.toast;
+
+    const inner = toast.querySelector('.ct-messdialog-toast-wrap');
+    parent.appendChild(toast);
+
+    toast.style.display = 'flex';
+    setTimeout(() => {
+      inner.classList.add('ct-messdialog-toast-show');
+      setTimeout(() => {
+        function transitionendAction() {
+          inner.removeEventListener('transitionend', transitionendAction);
+          toast.style.display = 'none';
+          parent.removeChild(toast);
+          self.showToast();
+        }
+
+        inner.addEventListener('transitionend', transitionendAction);
+        inner.classList.remove('ct-messdialog-toast-show');
+      }, duration);
+    }, 100);
+  }
 }
 
 /**
@@ -394,90 +472,9 @@ function customdialogCreate({ parent, title, html, buttons, rendercallback }) {
  * }
  * @access private
  */
-const makeTextCreate = (function () {
-  /**
-   * Toast
-   * @class
-   * @classdesc
-   */
-  class Toast {
-    /**
-     * @constructor
-     * @param {Object} config
-     */
-    constructor(config) {
-      this.config = config;
-      this.toastQueue = [];
-      this.toastKey = false;
-      this.init();
-    }
-
-    /**
-     * init
-     */
-    init() {
-      let { parent, text, position, duration } = this.config;
-      duration = duration === 'long' ? 2000 : 1000;
-      const toast = _$(_template.toast, {
-        text,
-        position,
-      });
-
-      this.toastQueue.push({
-        parent,
-        toast,
-        duration,
-      });
-
-      if (this.toastKey) return;
-      this.toastKey = true;
-      this.showToast();
-    }
-
-    /**
-     * showToast
-     */
-    showToast() {
-      const self = this;
-
-      if (this.toastQueue.length === 0) {
-        this.toastKey = false;
-        return;
-      }
-
-      let toast = this.toastQueue.shift();
-      const duration = toast.duration;
-      const parent = toast.parent;
-      toast = toast.toast;
-
-      const inner = toast.querySelector('.ct-messdialog-toast-wrap');
-      parent.appendChild(toast);
-
-      toast.style.display = 'flex';
-      const handler = setTimeout(() => {
-        clearTimeout(handler);
-        inner.classList.add('ct-messdialog-toast-show');
-        const handler = setTimeout(() => {
-          clearTimeout(handler);
-
-          function transitionendAction() {
-            inner.removeEventListener('transitionend', transitionendAction);
-            toast.style.display = 'none';
-            parent.removeChild(toast);
-            self.showToast();
-          }
-
-          inner.addEventListener('transitionend', transitionendAction);
-          inner.classList.remove('ct-messdialog-toast-show');
-        }, duration);
-      }, 100);
-    }
-  }
-
-  return function (config) {
-    new Toast(config);
-  };
-}());
+const makeTextCreate = (config) => {
+  new Toast(config);
+};
 
 /**
  * 显示一个数据加载的遮罩
@@ -504,7 +501,11 @@ function makeLoadingCreate({ parent, refreshCallback, boundingCallback, isShowHe
   const submitDom = loading.querySelector('.ct-messdialog-loading-submit');
 
   // 重试
-  const refreshDoms = loading.querySelectorAll('.ct-messdialog-loading-loading-refresh');
+  const refreshDoms = [
+    loading.querySelector('.ct-messdialog-loading-nonetwork-content-setting'),
+    loading.querySelector('.ct-messdialog-loading-fail-content-refresh'),
+    loading.querySelector('.ct-messdialog-loading-empty-refresh'),
+  ];
   if (refreshDoms && refreshDoms.length !== 0) {
     for (let i = 0, len = refreshDoms.length; i < len; i++) {
       refreshDoms[i].addEventListener('click', () => {
@@ -518,7 +519,7 @@ function makeLoadingCreate({ parent, refreshCallback, boundingCallback, isShowHe
   /**
    * 进行网络设置
    */
-  loading.querySelector('.ct-messdialog-loading-loading-setting').addEventListener('click', () => {
+  loading.querySelector('.ct-messdialog-loading-nonetwork-content-setting').addEventListener('click', () => {
 
   });
 
@@ -529,19 +530,17 @@ function makeLoadingCreate({ parent, refreshCallback, boundingCallback, isShowHe
       loadingDom.querySelector('.ct-messdialog-loading-loading-tip').innerText = tip;
     },
     setNoNetWorkTip(tip) {
-      nonetworkDom.querySelector('.ct-messdialog-loading-nonetwork-tip').innerText = tip;
+      nonetworkDom.querySelector('.ct-messdialog-loading-nonetwork-content-tip').innerText = tip;
     },
     setFailTip(tip) {
-      failDom.querySelector('.ct-messdialog-loading-fail-tip').innerText = tip;
+      failDom.querySelector('.ct-messdialog-loading-fail-content-tip').innerText = tip;
     },
     setEmptyTip(tip) {
       emptyDom.querySelector('.ct-messdialog-loading-empty-tip').innerText = tip;
     },
     setSubmitTip(tip) {
-      submitDom.querySelector('.ct-messdialog-loading-submit-tip').innerText = tip;
+      submitDom.querySelector('.ct-messdialog-loading-submit-inner-tip').innerText = tip;
     },
-
-
     showLoading() {
       parent.style.overflowY = 'hidden';
       loadingDom.style.display = 'flex';
@@ -609,8 +608,6 @@ function makeLoadingCreate({ parent, refreshCallback, boundingCallback, isShowHe
       loading.style.bottom = '0';
       loading.style.display = 'flex';
     },
-
-
     hide() {
       parent.style.overflowY = 'auto';
       loading.style.display = 'none';
@@ -621,8 +618,6 @@ function makeLoadingCreate({ parent, refreshCallback, boundingCallback, isShowHe
       parent.removeChild(loading);
       loading = null;
     },
-
-
     isShowLoading() {
       if (loadingDom.style.display === 'none') {
         return false;
@@ -658,7 +653,6 @@ function makeLoadingCreate({ parent, refreshCallback, boundingCallback, isShowHe
         return true;
       }
     },
-
     getParent() {
       return parent;
     },
@@ -680,6 +674,9 @@ class MessageDialog {
    *   {string} text 内容
    *   {string} icon 图标
    *   {Function} callback 点击确定回调函数
+   * }
+   * @return {Object} {
+   *   @param {Function} close 关闭窗体
    * }
    */
   static alert(config) {
@@ -714,7 +711,7 @@ class MessageDialog {
    *  {string} placeholder string input的缺省提示
    *  {Function} callback 成功的回调函数
    *  flag [0 | 1] 0确定 1取消
-   *  value string 输入的值
+   *  {string} value 输入的值
    * }
    */
   static prompt(config) {
@@ -732,6 +729,7 @@ class MessageDialog {
    *  {string} defaultVal
    *  {string} placeholder
    *  {Function} callback
+   *  {string} value 输入的值
    * }
    */
   static promptmulit(config) {
@@ -751,7 +749,7 @@ class MessageDialog {
    * }
    *
    */
-  customdialog(config) {
+  static customDialog(config) {
     return customdialogCreate(config);
   }
 
@@ -765,7 +763,7 @@ class MessageDialog {
    *  {string} duration 持续时间 [long | short] default short
    * }
    */
-  makeText(config) {
+  static makeText(config) {
     makeTextCreate(config);
   }
 
@@ -785,7 +783,7 @@ class MessageDialog {
    *
    * @return {Object}
    */
-  makeLoading(config) {
+  static makeLoading(config) {
     return makeLoadingCreate(config);
   }
 }

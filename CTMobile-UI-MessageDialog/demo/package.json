@@ -28,10 +28,11 @@
     "WebFramework"
   ],
   "devDependencies": {
-    "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
-    "load-awesome": "^1.1.0",
     "lodash": "^4.17.11",
-    "normalize.less": "^1.0.0"
+    "normalize.less": "^1.0.0",
+    "@ct/build": "^1.0.0",
+    "@ctmobile/ui-demo-util": "^1.0.0",
+    "@ctmobile/ui-messagedialog": "^1.0.0"
   }
 }

@@ -1,4 +1,7 @@
 @import "./mixins";
+@import "../node_modules/load-awesome/css/ball-clip-rotate.min.css";
+@import "../node_modules/load-awesome/css/line-spin-clockwise-fade-rotating.min.css";
+@import "../node_modules/font-awesome/less/font-awesome.less";
 
 .ct {
   &-messdialog {
@@ -54,7 +57,19 @@
       align-items: center;
       opacity: 0;
       transition-duration: 400ms;
-      > &-in {
+
+      &-in {
+        &-show {
+          opacity: 1;
+        }
+
+        &-hide {
+          opacity: 0;
+        }
+
+      }
+
+      & > &-in {
         width: 80%;
         border-radius: 3px;
         opacity: 0;
@@ -62,9 +77,9 @@
         transition-property: transform, opacity;
         transition-duration: 400ms;
 
-        &-inner {
+        & > .ct-messdialog-dialog-in-inner {
           padding: 1.2rem 1.2rem 1rem;
-          &-title {
+          & > .ct-messdialog-dialog-in-inner-title {
             font-weight: 500;
             font-size: .72rem;
             line-height: 1.3;
@@ -72,13 +87,13 @@
             text-overflow: ellipsis;
             white-space: nowrap;
           }
-          &-container {
+          & > .ct-messdialog-dialog-in-inner-container {
             max-height: 400px;
             overflow-x: hidden;
             overflow-y: auto;
             word-break: break-all;
           }
-          &-text {
+          & > .ct-messdialog-dialog-in-inner-text {
             margin-top: 1rem;
             line-height: 1.5;
             font-size: .68rem;
@@ -87,7 +102,7 @@
             overflow-x: hidden;
             overflow-y: auto;
           }
-          &-input-field {
+          & > .ct-messdialog-dialog-in-inner-input-field {
             position: relative;
             textarea {
               resize: none;
@@ -112,8 +127,8 @@
               outline: none;
             }
           }
-          &-text,
-          &-input-field {
+          & > .ct-messdialog-dialog-in-inner-text,
+          & > .ct-messdialog-dialog-in-inner-input-field {
             &.icon {
               &-exclamation-sign,
               &-off,
@@ -188,7 +203,7 @@
           }
         }
 
-        &-buttons {
+        & > .ct-messdialog-dialog-in-buttons {
           height: 2.5rem;
           padding: .3rem .4rem;
           box-sizing: border-box;
@@ -196,7 +211,7 @@
           flex-direction: row;
           justify-content: flex-end;
           align-items: center;
-          &-button {
+          & > .ct-messdialog-dialog-in-buttons-button {
             height: 2.1rem;
             line-height: 2.1rem;
             font-weight: 700;
@@ -204,30 +219,22 @@
           }
         }
 
-        &&-show {
+        &-show {
           opacity: 1;
           transform: translate3d(0, 0, 0) scale(1);
         }
 
-        &&-hide {
+        &-hide {
           opacity: 0;
           transform: translate3d(0, 0, 0) scale(0.815);
         }
       }
     }
 
-    &-dialog&dialog-show {
-      opacity: 1;
-    }
-
-    &-dialog&dialog-hide {
-      opacity: 0;
-    }
-
     // loading
     &-loading {
-      > &-nonetwork, > &-fail {
-        &-header {
+      &-nonetwork, &-fail {
+        & > &-header {
           position: absolute;
           width: 100%;
           border-bottom: 1px solid rgba(0, 0, 0, .1);
@@ -239,7 +246,7 @@
           padding: .5rem .5rem .5rem .5rem;
           box-sizing: border-box;
         }
-        &-content {
+        & > &-content {
           .ct-messdialog-loading-flexcolumncenter;
           position: absolute;
           width: 100%;
@@ -250,11 +257,11 @@
         }
       }
 
-      > &-loading, > &-empty, > &-submit {
+      &-loading, &-empty, &-submit {
         .ct-messdialog-loading-flexcolumncenter;
       }
 
-      > &-nonetwork, > &-fail, > &-empty {
+      &-nonetwork-content, &-fail-content, &-empty {
         &-logo {
           width: 3rem;
           height: 3rem;
@@ -268,7 +275,7 @@
         }
       }
 
-      > &-fail, > &-empty {
+      &-fail-content, &-empty {
         &-refresh {
           margin-top: 1rem;
           width: 4rem;
@@ -280,30 +287,32 @@
         }
       }
 
-      > &-empty {
+      &-empty {
         margin-bottom: 1rem;
       }
 
-      > &-nonetwork {
-        &-setting {
-          margin-top: 1rem;
-          width: 4rem;
-          height: 1.5rem;
-          line-height: 1.5rem;
-          text-align: center;
-          border-radius: .25rem;
-          font-size: .6rem;
+      &-nonetwork {
+        &-content {
+          &-setting {
+            margin-top: 1rem;
+            width: 4rem;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            text-align: center;
+            border-radius: .25rem;
+            font-size: .6rem;
+          }
         }
       }
 
-      > &-loading {
+      &-loading {
         &-tip {
           margin-top: .5rem;
           font-size: .6rem;
         }
       }
 
-      > &-submit {
+      &-submit {
         &-inner {
           width: 70%;
           height: 100px;
@@ -312,9 +321,9 @@
           justify-content: center;
           align-items: center;
           flex-direction: column;
-        }
-        &-inner.la-line-spin-clockwise-fade-rotating.la-dark {
-          margin: 10px;
+          & > .la-line-spin-clockwise-fade-rotating.la-dark {
+            margin: 10px;
+          }
         }
       }
     }
