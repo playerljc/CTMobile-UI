@@ -1,0 +1,62 @@
+@import "../../node_modules/swiper/dist/css/swiper.min.css";
+
+.ctmobile-ui-demo {
+  &-done {
+    &-container, &-wrappe, &-page {
+      width: 100%;
+      height: 100%;
+    }
+
+    &-page {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+      background-color: #fff;
+
+      &-header, &-content {
+        width: 100%;
+      }
+
+      &-header {
+        flex-shrink: 0;
+        height: 3rem;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+        &-backicon {
+          flex-shrink: 0;
+          width: 2.5rem;
+          height: 2.5rem;
+          background: url("./images/back.svg") no-repeat;
+          background-size: 100% 100%;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        &-title {
+          flex-grow: 1;
+          min-width: 0;
+          overflow: hidden;
+          font-size: 14px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      &-content {
+        position: relative;
+        flex-grow: 1;
+        min-height: 0;
+        overflow: auto;
+      }
+    }
+  }
+}

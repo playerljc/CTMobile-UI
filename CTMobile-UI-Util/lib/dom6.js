@@ -1,12 +1,2 @@
-Object.defineProperty(exports, '__esModule', { value: !0 }), exports.default = void 0; const _default = { getTopDom(e, r) { if (!e || !r) return null; if (e.className.indexOf(r) !== -1) return e; for (var n = e; (n = n.parentNode) && n.className.indexOf(r) === -1 && n !== document.body;);return n || null; },
-  insertAfter(e, r) { const n = r.parentNode; n.lastChild === r ? n.appendChild(e) : n.insertBefore(e, r.nextSibling); },
-  createElement(e) { const r = document.createElement('div'); return r.innerHTML = e, r.firstChild; },
-  prevSibling(e) {
-    let r,
-      n = -1; if (!e || !e.parentNode) return r; for (var t = e.parentNode.children, i = 0; i < t.length; i++) if (e === t[i]) { n = i; break; } return n !== -1 && (r = n === 0 ? t[0] : t[n - 1]), r;
-  },
-  nextSibling(e) {
-    let r,
-      n = -1; if (!e || !e.parentNode) return r; for (var t = e.parentNode.children, i = 0; i < t.length; i++) if (e === t[i]) { n = i; break; } return n !== -1 && (r = n === t.length - 1 ? t[0] : t[n + 1]), r;
-  } }; exports.default = _default;
-// # sourceMappingURL=dom6.js.map
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _default={getTopDom:function(e,r){if(!e||!r)return null;if(-1!==e.className.indexOf(r))return e;for(var n=e;(n=n.parentNode)&&-1===n.className.indexOf(r)&&n!==document.body;);return n||null},insertAfter:function(e,r){var n=r.parentNode;n.lastChild===r?n.appendChild(e):n.insertBefore(e,r.nextSibling)},createElement:function(e){var r=document.createElement("div");return r.innerHTML=e,r.firstChild},prevSibling:function(e){var r,n=-1;if(!e||!e.parentNode)return r;for(var t=e.parentNode.children,a=0;a<t.length;a++)if(e===t[a]){n=a;break}return-1!==n&&(r=0===n?t[0]:t[n-1]),r},nextSibling:function(e){var r,n=-1;if(!e||!e.parentNode)return r;for(var t=e.parentNode.children,a=0;a<t.length;a++)if(e===t[a]){n=a;break}return-1!==n&&(r=n===t.length-1?t[0]:t[n+1]),r},getParentElementByTag:function(e,n){if(!n)return null;var t,a=e;return function e(){if(!(a=a.parentElement))return null;var r=a.tagName.toLocaleLowerCase();r===n?t=a:"body"===r?t=null:e()}(),t}};exports.default=_default;
+//# sourceMappingURL=dom6.js.map

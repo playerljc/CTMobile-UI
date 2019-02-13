@@ -1,6 +1,9 @@
 import $ from 'jquery';
 import hljs from 'highlight.js/lib/index';
+import Bone from './bone/index';
 import './jquery.pin';
+
+export { Bone };
 
 export default {
   initial() {

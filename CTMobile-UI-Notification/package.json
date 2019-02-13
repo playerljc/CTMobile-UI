@@ -1,18 +1,20 @@
 {
-  "name": "@ctmobile/ui-demo-util",
+  "name": "@ctmobile/ui-notification",
   "version": "1.0.0",
-  "description": "ctmobile中demo的工具类",
-  "main": "lib/index.js",
+  "description": "支持移动端的UI组件-通知",
+  "main": "lib/notification.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "jsdoc src README.md -d doc -u doc/tutorials",
     "buildpackage": "ctbuild --type buildpackage",
-    "link": "npm link @ct/build && npm link @ctmobile/ui-util"
+    "link": "npm link @ct/build"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/playerljc/CTMobile-UI.git"
   },
   "keywords": [
-    "accordion",
+    "notification",
     "CtMobile",
     "CTMibole-UI",
     "mobile",
@@ -32,14 +34,11 @@
     "url": "https://github.com/playerljc/CTMobile-UI/issues"
   },
   "homepage": "https://github.com/playerljc/CTMobile-UI#readme",
-  "devDependencies": {
-    "@ct/build": "^1.0.0"
-  },
   "dependencies": {
     "@babel/runtime": "^7.2.0",
-    "highlight.js": "^9.13.1",
-    "jquery": "^3.3.1",
-    "swiper": "^4.4.6",
-    "@ctmobile/ui-util": "^1.0.0"
+    "font-awesome": "^4.7.0"
+  },
+  "devDependencies": {
+    "@ct/build": "^1.0.0"
   }
 }

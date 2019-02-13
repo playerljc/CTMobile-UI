@@ -2,7 +2,7 @@
   "name": "@ctmobile/ui-util",
   "version": "1.0.0",
   "description": "支持移动端的UI组件-工具",
-  "main": "lib/util.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",

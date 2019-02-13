@@ -29,6 +29,23 @@ class Events {
   }
 
   /**
+   * clear 清除一个type下的所有handler
+   * @param {string} type
+   */
+  clear(type) {
+    if (this.events[type]) {
+      this.events[type].handlers = [];
+    }
+  }
+
+  /**
+   * 清除所有
+   */
+  clearAll() {
+    this.events = {};
+  }
+
+  /**
    * on
    * @param {string} type
    * @param {Function} handler

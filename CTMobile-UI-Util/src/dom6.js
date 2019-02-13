@@ -111,4 +111,30 @@ export default {
     }
     return result;
   },
+  /**
+   * getParentElementByTag
+   * @param {HtmlElement} el
+   * @param {string} tag
+   * @return {HtmlElement}
+   */
+  getParentElementByTag(el, tag) {
+    if (!tag) return null;
+    let element;
+    let parent = el;
+    const popup = () => {
+      parent = parent.parentElement;
+      if (!parent) return null;
+      const tagParent = parent.tagName.toLocaleLowerCase();
+      if (tagParent === tag) {
+        element = parent;
+      } else if (tagParent === 'body') {
+        element = null;
+      } else {
+        popup();
+      }
+    };
+
+    popup();
+    return element;
+  },
 };

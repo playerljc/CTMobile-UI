@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-notification-demo</title>
+
+  <style>
+    body, html {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #showNotifictionBottomMaterial,
+    #showNotifictionTopMaterial,
+    #showNotifictionBottomiOS,
+    #showNotifictionTopiOS {
+      position: absolute;
+      display: block;
+      width: 85%;
+      padding: .5rem;
+      border-radius: .25rem;
+      border: 1px solid #0077b3;
+      text-align: center;
+      left: 7.5%;
+      box-sizing: border-box;
+    }
+
+    #showNotifictionBottomMaterial {
+      top: 1rem;
+    }
+
+    #showNotifictionBottomiOS {
+      top: 4rem;
+    }
+
+    #showNotifictionTopMaterial {
+      bottom: 1rem;
+    }
+
+    #showNotifictionTopiOS {
+      bottom: 4rem;
+    }
+
+    #showNotifictionBottomMaterial:active,
+    #showNotifictionTopMaterial:active,
+    #showNotifictionBottomiOS:active,
+    #showNotifictionTopiOS:active {
+      background: rgba(0, 0, 0, .1);
+    }
+  </style>
+</head>
+
+<body>
+
+<a id="showNotifictionBottomMaterial">showNotifictionBottomMaterial</a>
+<a id="showNotifictionTopMaterial">showNotifictionTopMaterial</a>
+<a id="showNotifictionBottomiOS">showNotifictionBottomiOS</a>
+<a id="showNotifictionTopiOS">showNotifictionTopiOS</a>
+
+<div id="ct-notification-bottom-material">
+  <ul></ul>
+</div>
+
+<div id="ct-notification-top-material">
+  <ul></ul>
+</div>
+
+<div id="ct-notification-bottom-ios">
+  <ul></ul>
+</div>
+
+<div id="ct-notification-top-ios">
+  <ul></ul>
+</div>
+
+</body>
+</html>
