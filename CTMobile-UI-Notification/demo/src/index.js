@@ -22,8 +22,6 @@ import {
 
 } from './SliderClassFactory';
 
-import '@ctmobile/ui-notification/notification.less';
-import '@ctmobile/ui-notification/themes/default/notification.less';
 import 'normalize.less';
 import './index.less';
 
@@ -65,93 +63,3 @@ const demoBone = new Bone(document.getElementById('swiper-container'), [
   ['style-ios-bottom-unclosed-custom', iOSBottomUnClosedCustomClass],
   ['style-ios-bottom-unclosed-standard', iOSBottomUnClosedStandardClass],
 ]);
-
-// let meTopN,
-//   meBottomN,
-//   iosTopN,
-//   iosBottomN;
-//
-// const StandardNConfig = {
-//   headerLabel: 'Framework7',
-//   headerIcon: 'http://framework7.io/kitchen-sink/core/img/f7-icon.png',
-//   title: 'Notification with close button',
-//   text: 'Notification with close buttonNotification with close buttonNotification with close buttonNotification with close buttonNotification with close buttonNotification with close buttonNotification with close button',
-//   icon: 'http://framework7.io/kitchen-sink/core/img/f7-icon.png',
-//   closed: true,
-//   datetime: '2019-02-12',
-// };
-//
-// const listenersConfig = {
-//   create() {
-//     console.log('create');
-//   },
-//   show() {
-//     console.log('show');
-//   },
-//   closeBefore() {
-//     console.log('closeBefore');
-//   },
-//   closeAfter() {
-//     console.log('closeAfter');
-//   },
-// };
-//
-// $('#showNotifictionBottomMaterial').on('click', () => {
-//   // material bottom
-//   if (!meBottomN) {
-//     meBottomN = new Notification(
-//       document.getElementById('ct-notification-bottom-material'),
-//       {
-//         style: 'material',
-//         type: 'bottom',
-//         listeners: listenersConfig,
-//       });
-//   }
-//
-//   meBottomN.showStandard(StandardNConfig);
-// });
-//
-// $('#showNotifictionTopMaterial').on('click', () => {
-//   // material top
-//   if (!meTopN) {
-//     meTopN = new Notification(
-//       document.getElementById('ct-notification-top-material'),
-//       {
-//         style: 'material',
-//         type: 'top',
-//         listeners: listenersConfig,
-//       });
-//   }
-//
-//   meTopN.showStandard(StandardNConfig);
-// });
-//
-// $('#showNotifictionBottomiOS').on('click', () => {
-//   // iOS bottom
-//   if (!iosBottomN) {
-//     iosBottomN = new Notification(
-//       document.getElementById('ct-notification-bottom-ios'),
-//       {
-//         style: 'ios',
-//         type: 'bottom',
-//         listeners: listenersConfig,
-//       });
-//   }
-//
-//   iosBottomN.showStandard(StandardNConfig);
-// });
-//
-// $('#showNotifictionTopiOS').on('click', () => {
-//   // iOS top
-//   if (!iosTopN) {
-//     iosTopN = new Notification(
-//       document.getElementById('ct-notification-top-ios'),
-//       {
-//         style: 'ios',
-//         type: 'top',
-//         listeners: listenersConfig,
-//       });
-//   }
-//
-//   iosTopN.showStandard(StandardNConfig);
-// });

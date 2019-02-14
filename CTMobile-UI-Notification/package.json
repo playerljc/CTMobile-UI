@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
     "buildpackage": "ctbuild --type buildpackage",
-    "link": "npm link @ct/build"
+    "link": "npm link @ct/build && npm link @ctmobile/ui-util"
   },
   "repository": {
     "type": "git",
@@ -36,7 +36,7 @@
   "homepage": "https://github.com/playerljc/CTMobile-UI#readme",
   "dependencies": {
     "@babel/runtime": "^7.2.0",
-    "font-awesome": "^4.7.0"
+    "@ctmobile/ui-util": "^1.0.0"
   },
   "devDependencies": {
     "@ct/build": "^1.0.0"

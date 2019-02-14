@@ -99,6 +99,12 @@ CTMobile-UI-MessageDialog/demo/node_modules
 CTMobile-UI-MessageDialog/demo/dist
 CTMobile-UI-MessageDialog/demo/src/assets
 
+CTMobile-UI-Notification/.idea
+CTMobile-UI-Notification/node_modules
+CTMobile-UI-Notification/demo/node_modules
+CTMobile-UI-Notification/demo/dist
+CTMobile-UI-Notification/demo/src/assets
+
 CTMobile-UI-Util/.idea
 CTMobile-UI-Util/node_modules
 

@@ -1,0 +1,148 @@
+@import "./mixins.less";
+
+.ct {
+  &-notification {
+    &-top, &-bottom {
+      &-material, &-ios {
+        position: absolute;
+        z-index: 1999;
+        width: 100%;
+        left: 0;
+        background: transparent;
+        overflow: hidden;
+        > ul {
+          width: 100%;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          > li {
+            position: relative;
+            padding: 0 1rem;
+            transition: height @transitionduration 0ms;
+            height: 0;
+            > .info {
+              font-size: 14px;
+              word-break: break-all;
+              padding: .5rem .5rem .5rem 0;
+              opacity: 0;
+              transition: opacity @transitionduration 0ms;
+              flex-grow: 1;
+              min-width: 0;
+
+              > .ct-notification-standard-header {
+                padding: 10px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                > .ct-notification-standard-header-icon {
+                  > img {
+                    width: 50px;
+                    height: 50px;
+                    margin-right: 10px;
+                    border-radius: 50%;
+                  }
+                }
+                > .ct-notification-standard-header-label {
+                  font-size: 14px;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                }
+              }
+
+              > .ct-notification-standard-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                > .ct-notification-standard-content-media-l, .ct-notification-standard-content-media-r {
+                  flex-shrink: 0;
+                }
+
+                > .ct-notification-standard-content-media-l {
+                  > img {
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    margin: 10px;
+                  }
+                }
+
+                > .ct-notification-standard-content-media-r {
+                  font-size: 14px;
+                  overflow: hidden;
+                  align-self: flex-start;
+                  margin: 10px;
+                  word-break: break-all;
+                  width: 50px;
+                }
+
+                > .ct-notification-standard-content-row {
+                  flex-grow: 1;
+                  min-width: 0;
+                  > .ct-notification-standard-content-row-title {
+                    font-size: 16px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    margin-bottom: 10px;
+                  }
+
+                  > .ct-notification-standard-content-row-text {
+                    line-height: 21px;
+                    font-size: 14px;
+                    word-break: break-all;
+                  }
+                }
+              }
+            }
+
+            > .closeBtn {
+              position: absolute;
+              right: 10px;
+              top: 10px;
+              z-index: 999;
+            }
+          }
+        }
+      }
+
+      &-ios {
+        > ul {
+          > li {
+            border-radius: 5px;
+            margin: 10px;
+            > .closeBtn {
+              width: 30px;
+              height: 30px;
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+
+      &-material {
+        > ul {
+          > li {
+            border-radius: 5px;
+            > .closeBtn {
+              width: 1.5rem;
+              height: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    &-top {
+      &-material, &-ios {
+        top: 0;
+      }
+    }
+
+    &-bottom {
+      &-material, &-ios {
+        bottom: 0;
+      }
+    }
+  }
+}

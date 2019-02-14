@@ -31,6 +31,7 @@ function LinkCapture(target) {
   if (index === -1) return false;
   this.swiper.slideTo(index);
   this.history.push(index);
+  console.log('historyStart', this.history);
   return true;
 }
 
@@ -46,8 +47,10 @@ function BackCapture(target) {
 
   if (this.history.length <= 1) return false;
   const index = this.history.length - 2;
+  console.log('backIndex:', index);
   this.swiper.slideTo(index);
   this.history.pop();
+  console.log('historyEnd', this.history);
   return true;
 }
 
@@ -115,12 +118,9 @@ class Bone {
    */
   onInit() {
     this.classed.forEach((value, key) => {
-      console.log(value, key);
-
       if (!value) return false;
 
       const slideInstance = new value({ context: this, key, el: this.getElByKey(key) });
-      console.log(slideInstance);
       if (slideInstance.onInit) {
         slideInstance.onInit();
       }
@@ -145,9 +145,7 @@ class Bone {
   onSlideChange() {
     const activeIndex = this.swiper ? this.swiper.activeIndex : 0;
     const key = this.findKeyByIndex(activeIndex);
-    console.log(activeIndex, key);
     const slideInstance = this.slideInstances.get(key);
-    console.log(slideInstance);
     if (slideInstance && slideInstance.onShow) {
       slideInstance.onShow();
     }
