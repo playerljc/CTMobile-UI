@@ -71,6 +71,19 @@ class Events {
       });
     }
   }
+
+  /**
+   * document自定义事件的触发
+   * @param {string} - type
+   * @param {Object} - params
+   */
+  static trigger(type, ...params) {
+    document.dispatchEvent(new CustomEvent(type, {
+      bubbles: 'true',
+      cancelable: 'true',
+      detail: params,
+    }));
+  }
 }
 
 /**
