@@ -105,6 +105,12 @@ CTMobile-UI-Notification/demo/node_modules
 CTMobile-UI-Notification/demo/dist
 CTMobile-UI-Notification/demo/src/assets
 
+CTMobile-UI-Popup/.idea
+CTMobile-UI-Popup/node_modules
+CTMobile-UI-Popup/demo/node_modules
+CTMobile-UI-Popup/demo/dist
+CTMobile-UI-Popup/demo/src/assets
+
 CTMobile-UI-Util/.idea
 CTMobile-UI-Util/node_modules
 

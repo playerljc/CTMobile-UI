@@ -1,0 +1,75 @@
+@import "../node_modules/@ctmobile/ui-demo-util/lib/index.less";
+@import '../node_modules/@ctmobile/ui-popup/lib/popup.less';
+
+.ctmobile-ui-doc-demo-device-inner {
+  position: relative !important;
+}
+
+.ctmobile-ui-demo-done-button {
+  display: block;
+  width: 85%;
+  padding: .5rem;
+  border-radius: .25rem;
+  border: 1px solid #0077b3;
+  text-align: center;
+  left: 7.5%;
+  box-sizing: border-box;
+  margin: 15px auto;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.ctmobile-ui-demo-done-page {
+  ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    li {
+      margin: 0 !important;
+      padding: 0 1rem !important;
+      &:after, &:before {
+        width: 0 !important;
+        height: 0 !important;
+      }
+    }
+  }
+}
+
+.demo-popup {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  &-header {
+    flex-shrink: 0;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > a {
+      color: #3e98f0;
+      font-size: 14px;
+    }
+    &-left, &-right {
+      width: 6rem;
+      flex-shrink: 0;
+      text-align: center;
+    }
+
+    &-title {
+      flex-grow: 1;
+      min-width: 0;
+      text-align: center;
+    }
+  }
+
+  &-content {
+    font-size: 14px;
+    flex-grow: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 1rem;
+    box-sizing: border-box;
+    line-height: 21px;
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "name": "@ctmobile/ui-notification",
+  "name": "@ctmobile/ui-popup",
   "version": "1.0.0",
   "description": "支持移动端的UI组件-Popup",
   "main": "lib/popup.js",

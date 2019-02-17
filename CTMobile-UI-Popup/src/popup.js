@@ -2,6 +2,7 @@ import { Dom6, Events } from '@ctmobile/ui-util';
 
 let prePopup;
 let maskEl;
+let el = document.body;
 
 /**
  * bindEvents
@@ -17,6 +18,15 @@ function bindEvents() {
  * @access private
  */
 function initEvents() {
+  if (this.config && this.config.listeners) {
+    const { listeners = {} } = this.config;
+    const keys = Object.keys(listeners);
+    for (let i = 0; i < keys.length; i += 1) {
+      const p = keys[i];
+      this.events.on(p, listeners[p]);
+    }
+  }
+
   this.innerEl.addEventListener('transitionend', this.onInnerElTransitionend);
 }
 
@@ -39,7 +49,9 @@ function LinkCaptureShow(target) {
   if (!popupId) return false;
 
   if (!prePopup || (prePopup && (prePopup.getId() !== popupId))) {
-    PopupFactory.show(PopupFactory.create(document.getElementById(popupId)));
+    PopupFactory.show(PopupFactory.create(
+      document.getElementById(popupId)
+    ));
   } else {
     return false;
   }
@@ -77,20 +89,29 @@ const CaptureElement = (function () {
   const chain = [LinkCaptureShow, LinkCaptureClose];
 
   return function () {
-    const self = this;
-    this.innerEl.addEventListener('click', (e) => {
+    document.body.addEventListener('click', (e) => {
       e.preventDefault();
       const target = e.target;
       if (!target) return false;
 
       for (let i = 0; i < chain.length; i++) {
         const CaptureTarget = chain[i];
-        const flag = CaptureTarget.call(self, target);
+        const flag = CaptureTarget(target);
         if (flag) break;
       }
     });
   };
 }());
+
+/**
+ * createMask
+ * @access private
+ */
+function createMask() {
+  maskEl = Dom6.createElement('<div class="ct-popup-mask"></div>');
+  el.appendChild(maskEl);
+  maskEl.addEventListener('transitionend', this.onMaskElTransitionend);
+}
 
 /**
  * Popup
@@ -101,14 +122,9 @@ class Popup {
   /**
    * constructor
    * @param {HtmlElement} - tel <template>的el
-   * @param {Object} - config
-   * {
-   *   tel {HtmlElement}
-   *   el {HtmlElement}
-   *   config {Object}
-   * }
+   * @param config {Object} - config
    */
-  constructor({ tel, el = document.body, config = {} }) {
+  constructor(tel, config = {}) {
     this.isShow = false;
     this.tel = tel;
     this.el = el;
@@ -118,10 +134,55 @@ class Popup {
     this.innerEl = this.tel.content.querySelector('.ct-popup').cloneNode(true);
     bindEvents.call(this);
     initEvents.call(this);
-    CaptureElement.call(this);
     this.el.appendChild(this.innerEl);
     this.events.trigger('create', this.innerEl);
     Events.trigger('ct-popup-event-create', this, this.innerEl);
+  }
+
+  /**
+   * 显示一个popup
+   */
+  show() {
+    if (!maskEl) {
+      createMask.call(this);
+    }
+    if (prePopup) {
+      prePopup.close();
+    }
+    maskEl.style.display = 'block';
+    this.innerEl.style.display = 'block';
+    this.isShow = true;
+    this.events.trigger('beforeshow');
+    Events.trigger('ct-popup-event-beforeshow', this);
+    setTimeout(() => {
+      maskEl.classList.add('modal-in');
+      this.innerEl.classList.add('modal-in');
+    }, 100);
+  }
+
+  /**
+   * 关闭一个popup
+   */
+  close() {
+    if (!maskEl) {
+      createMask.call(this);
+    }
+
+    this.isShow = false;
+    this.events.trigger('beforeclose');
+    Events.trigger('ct-popup-event-beforeclose', this);
+    this.innerEl.classList.remove('modal-in');
+    maskEl.classList.remove('modal-in');
+  }
+
+  /**
+   * 销毁一个popup
+   */
+  distory() {
+    this.innerEl.parentNode.removeChild(this.innerEl);
+    this.innerEl = null;
+    this.events.trigger('distory');
+    Events.trigger('ct-popup-event-distory', this);
   }
 
   /**
@@ -147,61 +208,6 @@ class Popup {
     if (!this.isShow) {
       maskEl.style.display = 'none';
     }
-  }
-
-  /**
-   * createMask
-   */
-  createMask() {
-    maskEl = Dom6.createElement('<div class="ct-popup-mask"></div>');
-    document.body.appendChild(maskEl);
-    maskEl.addEventListener('transitionend', this.onMaskElTransitionend);
-  }
-
-  /**
-   * 显示一个popup
-   */
-  show() {
-    if (!maskEl) {
-      this.createMask();
-    }
-    if (prePopup) {
-      prePopup.close();
-    }
-    maskEl.style.display = 'block';
-    this.innerEl.style.display = 'block';
-    this.isShow = true;
-    this.events.trigger('beforeshow');
-    Events.trigger('ct-popup-event-beforeshow', this);
-    setTimeout(() => {
-      maskEl.classList.add('modal-in');
-      this.innerEl.classList.add('modal-in');
-    }, 100);
-  }
-
-  /**
-   * 关闭一个popup
-   */
-  close() {
-    if (!maskEl) {
-      this.createMask();
-    }
-
-    this.isShow = false;
-    this.events.trigger('beforeclose');
-    Events.trigger('ct-popup-event-beforeclose', this);
-    this.innerEl.classList.remove('modal-in');
-    maskEl.classList.remove('modal-in');
-  }
-
-  /**
-   * 销毁一个popup
-   */
-  distory() {
-    this.innerEl.parentNode.removeChild(this.innerEl);
-    this.innerEl = null;
-    this.events.trigger('distory');
-    Events.trigger('ct-popup-event-distory', this);
   }
 
   /**
@@ -301,7 +307,23 @@ const PopupFactory = {
     if (popup.isDistory()) return false;
     popup.distory();
   },
+  /**
+   * getEl
+   * @return {HTMLElement}
+   */
+  getEl() {
+    return el;
+  },
+  /**
+   * setEl
+   * @param {HtmlElement} - el
+   */
+  setEl(tel) {
+    el = tel;
+  },
 };
+
+CaptureElement();
 
 /**
  * Factory
