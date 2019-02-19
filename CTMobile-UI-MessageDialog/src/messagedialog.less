@@ -126,6 +126,24 @@
               transform-origin: 50% 100%;
               outline: none;
             }
+            .progress-infinite {
+              .ct-messdialog-progress;
+              &:before {
+                .ct-messdialog-progress-bar;
+                content: '';
+                left: -30%;
+                width: 50%;
+                background-color: rgb(0, 122, 255);
+                animation: progress-infinite 1s linear infinite;
+              }
+            }
+            .progress-determined {
+              .ct-messdialog-progress;
+              > .progress-bar {
+                .ct-messdialog-progress-bar;
+                width: 0;
+              }
+            }
           }
           & > .ct-messdialog-dialog-in-inner-text,
           & > .ct-messdialog-dialog-in-inner-input-field {

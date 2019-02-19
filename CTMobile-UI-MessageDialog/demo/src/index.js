@@ -177,3 +177,78 @@ $parent.find('.custom')[0].addEventListener('click', () => {
     },
   });
 });
+
+
+$parent.find('.infinite')[0].addEventListener('click', () => {
+  const dialog = MessageDialog.infiniteProgressDialog({
+    parent: $container[0],
+    title: 'infinite ProgressDialog',
+    text: 'Loading...',
+    buttons: [{
+      text: '确定',
+      handler() {
+        dialog.close();
+        MessageDialog.alert({
+          parent: $container[0],
+          title: '提示',
+          text: '点击了确定',
+          icon: 'icon-exclamation-sign',
+          callback() {
+            alert(dialog.el.querySelector('.form > input').value);
+          },
+        });
+      },
+    }, {
+      text: '关闭',
+      handler() {
+        dialog.close();
+      },
+    }],
+    rendercallback() {
+      console.log('renderSuccess');
+    },
+  });
+});
+
+$parent.find('.determined')[0].addEventListener('click', () => {
+  let value = 0;
+  let handler;
+  const dialog = MessageDialog.determinedProgressDialog({
+    parent: $container[0],
+    title: 'determined ProgressDialog',
+    text: 'Loading...',
+    buttons: [{
+      text: '确定',
+      handler() {
+        dialog.close();
+        MessageDialog.alert({
+          parent: $container[0],
+          title: '提示',
+          text: '点击了确定',
+          icon: 'icon-exclamation-sign',
+          callback() {
+            alert(dialog.el.querySelector('.form > input').value);
+          },
+        });
+      },
+    }, {
+      text: '关闭',
+      handler() {
+        dialog.close();
+      },
+    }],
+    rendercallback() {
+      console.log('renderSuccess');
+      handler = setInterval(() => {
+        dialog.setValue(++value);
+      }, 500);
+    },
+    completecallback() {
+      dialog.close();
+      clearInterval(handler);
+    },
+    changecallback() {
+
+    },
+  });
+});

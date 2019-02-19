@@ -1,144 +1,179 @@
-const _template = {
-  toast:
-    `<div class="ct-messdialog-toast-<%=position%>">
-      <div class="ct-messdialog-toast-wrap"><%=text%></div>
-   </div>`,
-  alert:
-    `<div class="ct-messdialog-dialog">
-     <div class="ct-messdialog-dialog-in">
-         <div class="ct-messdialog-dialog-in-inner">
-             <div class="ct-messdialog-dialog-in-inner-title"><%=title%></div>
-             <div class="ct-messdialog-dialog-in-inner-text <%=icon%>"><%=text%></div>
-         </div>
-         <div class="ct-messdialog-dialog-in-buttons">
-             <span class="ct-messdialog-dialog-in-buttons-button">确定</span>
-         </div>
-     </div>
-  </div>`,
-  confirm:
-    `<div class="ct-messdialog-dialog">
-     <div class="ct-messdialog-dialog-in">
-         <div class="ct-messdialog-dialog-in-inner">
-             <div class="ct-messdialog-dialog-in-inner-title"><%=title%></div>
-             <div class="ct-messdialog-dialog-in-inner-text <%=icon%>"><%=text%></div>
-         </div>
-         <div class="ct-messdialog-dialog-in-buttons">
-             <span class="ct-messdialog-dialog-in-buttons-button ok">确定</span>
-             <span class="ct-messdialog-dialog-in-buttons-button cancel">取消</span>
-         </div>
-     </div>
-  </div>`,
-  prompt:
-    `<div class="ct-messdialog-dialog">
-     <div class="ct-messdialog-dialog-in">
-         <div class="ct-messdialog-dialog-in-inner">
-             <div class="ct-messdialog-dialog-in-inner-title"><%=title%></div>
-             <div class="ct-messdialog-dialog-in-inner-text"><%=text%></div>
-             <div class="ct-messdialog-dialog-in-inner-input-field <%=icon%>">
-                 <input type="text" value="<%=defaultVal%>" class="text-input" placeholder="<%=placeholder%>">
-             </div>
-         </div>
-         <div class="ct-messdialog-dialog-in-buttons">
-             <span class="ct-messdialog-dialog-in-buttons-button ok">确定</span>
-             <span class="ct-messdialog-dialog-in-buttons-button cancel">取消</span>
-         </div>
-     </div>
-  </div>`,
-  promptmulit:
-    `<div class="ct-messdialog-dialog">
-     <div class="ct-messdialog-dialog-in">
-         <div class="ct-messdialog-dialog-in-inner">
-             <div class="ct-messdialog-dialog-in-inner-title"><%=title%></div>
-             <div class="ct-messdialog-dialog-in-inner-text"><%=text%></div>
-             <div class="ct-messdialog-dialog-in-inner-input-field <%=icon%>">
-                 <textarea value="<%=defaultVal%>" class="text-input" placeholder="<%=placeholder%>"></textarea>
-             </div>
-         </div>
-         <div class="ct-messdialog-dialog-in-buttons">
-             <span class="ct-messdialog-dialog-in-buttons-button ok">确定</span>
-             <span class="ct-messdialog-dialog-in-buttons-button cancel">取消</span>
-         </div>
-     </div>
-  </div>`,
-  custom:
-    `<div class="ct-messdialog-dialog">
-     <div class="ct-messdialog-dialog-in">
-         <div class="ct-messdialog-dialog-in-inner">
-             <div class="ct-messdialog-dialog-in-inner-title"><%=title%></div>
-             <div class="ct-messdialog-dialog-in-inner-container"><%=html%></div>
-         </div>
-         <div class="ct-messdialog-dialog-in-buttons"></div>
-     </div>
-  </div>`,
-  loading:
-    `<div class="ct-messdialog-loading">
-      <!-- nonetwork -->
-      <div class="ct-messdialog-loading-nonetwork">
-          <div class="ct-messdialog-loading-nonetwork-header">
-            <a data-role="none" class="icon-back-purple"></a>
-          </div>
-          <div class="ct-messdialog-loading-nonetwork-content">
-             <div class="ct-messdialog-loading-nonetwork-content-logo"></div>
-             <div class="ct-messdialog-loading-nonetwork-content-tip"></div>
-             <div class="ct-messdialog-loading-nonetwork-content-setting">设置</div>
-          </div>
-      </div>
-      <!-- fail -->
-      <div class="ct-messdialog-loading-fail">
-          <div class="ct-messdialog-loading-fail-header">
-            <a data-role="none" class="icon-back-purple"></a>
-          </div>
-          <div class="ct-messdialog-loading-fail-content">
-             <div class="ct-messdialog-loading-fail-content-logo"></div>
-             <div class="ct-messdialog-loading-fail-content-tip"></div>
-             <div class="ct-messdialog-loading-fail-content-refresh">重试</div>
-          </div>
-      </div>
-      <!-- loading -->
-     <div class="ct-messdialog-loading-loading">
-         <div class="la-ball-clip-rotate la-dark" style="color: #3e98f0;">
-             <div></div>
-         </div>
-         <div class="ct-messdialog-loading-loading-tip">加载中...</div>
-     </div>
-      <!-- empty -->
-      <div class="ct-messdialog-loading-empty">
-          <div class="ct-messdialog-loading-empty-logo"></div>
-          <div class="ct-messdialog-loading-empty-tip"></div>
-          <div class="ct-messdialog-loading-empty-refresh">重新加载</div>
-      </div>
-      <!-- submit -->
-      <div class="ct-messdialog-loading-submit">
-          <div class="ct-messdialog-loading-submit-inner">
-              <div class="la-line-spin-clockwise-fade-rotating la-dark">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-              </div>
-              <span class="ct-messdialog-loading-submit-inner-tip">玩命处理中，请稍后...</span>
-          </div>
-      </div>
-  </div>`,
-};
+import _ from 'lodash';
 
-/**
- * 表达式
- */
-const _expressions = [
-  'title',
-  'icon',
-  'text',
-  'placeholder',
-  'defaultVal',
-  'position',
-  'tip',
-  'html',
-];
+const template = {
+  toast:
+    _.template(
+      `<div class="ct-messdialog-toast-<%=position%>">
+          <div class="ct-messdialog-toast-wrap"><%=text%></div>
+       </div>`
+    ),
+  alert:
+    _.template(
+      `<div class="ct-messdialog-dialog">
+         <div class="ct-messdialog-dialog-in">
+             <div class="ct-messdialog-dialog-in-inner">
+                 <div class="ct-messdialog-dialog-in-inner-title"><%=title%></div>
+                 <div class="ct-messdialog-dialog-in-inner-text <%=icon%>"><%=text%></div>
+             </div>
+             <div class="ct-messdialog-dialog-in-buttons">
+                 <span class="ct-messdialog-dialog-in-buttons-button">确定</span>
+             </div>
+         </div>
+      </div>`
+    ),
+  confirm:
+    _.template(
+      `<div class="ct-messdialog-dialog">
+         <div class="ct-messdialog-dialog-in">
+             <div class="ct-messdialog-dialog-in-inner">
+                 <div class="ct-messdialog-dialog-in-inner-title"><%=title%></div>
+                 <div class="ct-messdialog-dialog-in-inner-text <%=icon%>"><%=text%></div>
+             </div>
+             <div class="ct-messdialog-dialog-in-buttons">
+                 <span class="ct-messdialog-dialog-in-buttons-button ok">确定</span>
+                 <span class="ct-messdialog-dialog-in-buttons-button cancel">取消</span>
+             </div>
+         </div>
+      </div>`
+    ),
+  prompt:
+    _.template(
+      `<div class="ct-messdialog-dialog">
+         <div class="ct-messdialog-dialog-in">
+             <div class="ct-messdialog-dialog-in-inner">
+                 <div class="ct-messdialog-dialog-in-inner-title"><%=title%></div>
+                 <div class="ct-messdialog-dialog-in-inner-text"><%=text%></div>
+                 <div class="ct-messdialog-dialog-in-inner-input-field <%=icon%>">
+                     <input type="text" value="<%=defaultVal%>" class="text-input" placeholder="<%=placeholder%>">
+                 </div>
+             </div>
+             <div class="ct-messdialog-dialog-in-buttons">
+                 <span class="ct-messdialog-dialog-in-buttons-button ok">确定</span>
+                 <span class="ct-messdialog-dialog-in-buttons-button cancel">取消</span>
+             </div>
+         </div>
+      </div>`
+    ),
+  promptmulit:
+    _.template(
+      `<div class="ct-messdialog-dialog">
+         <div class="ct-messdialog-dialog-in">
+             <div class="ct-messdialog-dialog-in-inner">
+                 <div class="ct-messdialog-dialog-in-inner-title"><%=title%></div>
+                 <div class="ct-messdialog-dialog-in-inner-text"><%=text%></div>
+                 <div class="ct-messdialog-dialog-in-inner-input-field <%=icon%>">
+                     <textarea value="<%=defaultVal%>" class="text-input" placeholder="<%=placeholder%>"></textarea>
+                 </div>
+             </div>
+             <div class="ct-messdialog-dialog-in-buttons">
+                 <span class="ct-messdialog-dialog-in-buttons-button ok">确定</span>
+                 <span class="ct-messdialog-dialog-in-buttons-button cancel">取消</span>
+             </div>
+         </div>
+      </div>`
+    ),
+  custom:
+    _.template(
+      `<div class="ct-messdialog-dialog">
+         <div class="ct-messdialog-dialog-in">
+             <div class="ct-messdialog-dialog-in-inner">
+                 <div class="ct-messdialog-dialog-in-inner-title"><%=title%></div>
+                 <div class="ct-messdialog-dialog-in-inner-container"><%=html%></div>
+             </div>
+             <div class="ct-messdialog-dialog-in-buttons"></div>
+         </div>
+      </div>`
+    ),
+  infinite:
+    _.template(
+      `<div class="ct-messdialog-dialog">
+         <div class="ct-messdialog-dialog-in">
+             <div class="ct-messdialog-dialog-in-inner">
+                 <div class="ct-messdialog-dialog-in-inner-title"><%=title%></div>
+                 <div class="ct-messdialog-dialog-in-inner-text"><%=text%></div>
+                 <div class="ct-messdialog-dialog-in-inner-input-field">
+                   <div class="progress-infinite"></div>
+                 </div>
+             </div>
+             <div class="ct-messdialog-dialog-in-buttons"></div>
+         </div>
+      </div>`
+    ),
+  determined:
+    _.template(
+      `<div class="ct-messdialog-dialog">
+         <div class="ct-messdialog-dialog-in">
+             <div class="ct-messdialog-dialog-in-inner">
+                 <div class="ct-messdialog-dialog-in-inner-title"><%=title%></div>
+                 <div class="ct-messdialog-dialog-in-inner-text"><%=text%></div>
+                 <div class="ct-messdialog-dialog-in-inner-text ct-messdialog-dialog-in-inner-progress-text "><%=format%></div>
+                 <div class="ct-messdialog-dialog-in-inner-input-field">
+                   <div class="progress-determined">
+                    <div class="progress-bar"></div>
+                   </div>
+                 </div>
+             </div>
+             <div class="ct-messdialog-dialog-in-buttons"></div>
+         </div>
+      </div>`
+    ),
+  loading:
+    _.template(
+      `<div class="ct-messdialog-loading">
+          <!-- nonetwork -->
+          <div class="ct-messdialog-loading-nonetwork">
+              <div class="ct-messdialog-loading-nonetwork-header">
+                <a data-role="none" class="icon-back-purple"></a>
+              </div>
+              <div class="ct-messdialog-loading-nonetwork-content">
+                 <div class="ct-messdialog-loading-nonetwork-content-logo"></div>
+                 <div class="ct-messdialog-loading-nonetwork-content-tip"></div>
+                 <div class="ct-messdialog-loading-nonetwork-content-setting">设置</div>
+              </div>
+          </div>
+          <!-- fail -->
+          <div class="ct-messdialog-loading-fail">
+              <div class="ct-messdialog-loading-fail-header">
+                <a data-role="none" class="icon-back-purple"></a>
+              </div>
+              <div class="ct-messdialog-loading-fail-content">
+                 <div class="ct-messdialog-loading-fail-content-logo"></div>
+                 <div class="ct-messdialog-loading-fail-content-tip"></div>
+                 <div class="ct-messdialog-loading-fail-content-refresh">重试</div>
+              </div>
+          </div>
+          <!-- loading -->
+         <div class="ct-messdialog-loading-loading">
+             <div class="la-ball-clip-rotate la-dark" style="color: #3e98f0;">
+                 <div></div>
+             </div>
+             <div class="ct-messdialog-loading-loading-tip">加载中...</div>
+         </div>
+          <!-- empty -->
+          <div class="ct-messdialog-loading-empty">
+              <div class="ct-messdialog-loading-empty-logo"></div>
+              <div class="ct-messdialog-loading-empty-tip"></div>
+              <div class="ct-messdialog-loading-empty-refresh">重新加载</div>
+          </div>
+          <!-- submit -->
+          <div class="ct-messdialog-loading-submit">
+              <div class="ct-messdialog-loading-submit-inner">
+                  <div class="la-line-spin-clockwise-fade-rotating la-dark">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                  </div>
+                  <span class="ct-messdialog-loading-submit-inner-tip">玩命处理中，请稍后...</span>
+              </div>
+          </div>
+      </div>`
+    ),
+};
 
 /**
  * 显示
@@ -184,31 +219,14 @@ function close(parent, inner, component, callback) {
 }
 
 /**
- * 表达式替换
- * @param {string} html
- * @param {Object} obj
- * @access private
- * @return {string}
- */
-function _expressionReplace(html, obj) {
-  for (let i = 0, len = _expressions.length; i < len; i++) {
-    html = html.replace(`<%=${_expressions[i]}%>`, obj[_expressions[i]]);
-  }
-
-  return html;
-}
-
-/**
  * 根据html创建dom
- * @param {string} html
+ * @param {template} template
  * @param {Object} obj
  * @access private
  * @return {HtmlElement}
  */
-function _$(html, obj) {
-  if (obj) {
-    html = _expressionReplace(html, obj);
-  }
+function createElement(template, obj = {}) {
+  const html = template(obj);
   const div = document.createElement('div');
   div.innerHTML = html;
   return div.firstElementChild;
@@ -229,7 +247,7 @@ function _$(html, obj) {
  * @returns {Object}
  */
 function alertCreate({ parent, title, text, icon, callback }) {
-  const alert = _$(_template.alert, { title, text, icon });
+  const alert = createElement(template.alert, { title, text, icon });
   alert.querySelector('.ct-messdialog-dialog-in-buttons-button').addEventListener('click', () => {
     close(parent, inner, alert, callback);
   });
@@ -259,7 +277,7 @@ function alertCreate({ parent, title, text, icon, callback }) {
  * @access private
  */
 function confirmCreate({ parent, title, text, icon, callback }) {
-  const confirm = _$(_template.confirm, { title, text, icon });
+  const confirm = createElement(template.confirm, { title, text, icon });
   confirm.querySelector('.ok').addEventListener('click', (e) => {
     e.stopPropagation();
     e.preventDefault();
@@ -303,7 +321,7 @@ function confirmCreate({ parent, title, text, icon, callback }) {
  * @access private
  */
 function promptCreate({ type, parent, selector, title, text, icon, defaultVal, placeholder, callback }) {
-  const prompt = _$(_template[type], {
+  const prompt = createElement(template[type], {
     title,
     text,
     icon,
@@ -347,13 +365,13 @@ function promptCreate({ type, parent, selector, title, text, icon, defaultVal, p
  * @return {Object}
  */
 function customdialogCreate({ parent, title, html, buttons, rendercallback }) {
-  const dialog = _$(_template.custom, { title, html });
+  const dialog = createElement(template.custom, { title, html });
 
   const containerDom = dialog.querySelector('.ct-messdialog-dialog-in-inner-container');
   const buttonsDom = dialog.querySelector('.ct-messdialog-dialog-in-buttons');
   const btnDoms = buttonsDom.children;
   buttonsDom.addEventListener('click', (e) => {
-    const target = e.target;
+    const { target } = e;
     const index = Array.prototype.indexOf.call(btnDoms, target);
     if (buttons[index] && buttons[index].handler) {
       buttons[index].handler();
@@ -363,7 +381,7 @@ function customdialogCreate({ parent, title, html, buttons, rendercallback }) {
   const df = document.createDocumentFragment();
   for (let i = 0; buttons && i < buttons.length; i++) {
     const button = buttons[i];
-    df.appendChild(_$(`<span class='ct-messdialog-dialog-in-buttons-button'>${button.text}</span>`));
+    df.appendChild(createElement(_.template(`<span class='ct-messdialog-dialog-in-buttons-button'>${button.text}</span>`)));
   }
   buttonsDom.appendChild(df);
 
@@ -380,6 +398,141 @@ function customdialogCreate({ parent, title, html, buttons, rendercallback }) {
     el: dialog,
     close() {
       close(parent, inner, dialog);
+    },
+  };
+}
+
+/**
+ *  无限进度的对话框
+ *  @param {Object} config
+ *  {
+ *    {HtmlElement} parent
+ *    {string} title
+ *    {string} text
+ *    {Array} buttons
+ *    {Function} rendercallback
+ *  }
+ *  @access private
+ *  @return {Object}
+ */
+function infiniteProgressDialogCreate({ parent, title, text = '', buttons, rendercallback }) {
+  const dialog = createElement(template.infinite, { title, text });
+
+  const containerDom = dialog.querySelector('.ct-messdialog-dialog-in-inner-container');
+  const buttonsDom = dialog.querySelector('.ct-messdialog-dialog-in-buttons');
+  const btnDoms = buttonsDom.children;
+  buttonsDom.addEventListener('click', (e) => {
+    const { target } = e;
+    const index = Array.prototype.indexOf.call(btnDoms, target);
+    if (buttons[index] && buttons[index].handler) {
+      buttons[index].handler();
+    }
+  });
+
+  const df = document.createDocumentFragment();
+  for (let i = 0; buttons && i < buttons.length; i++) {
+    const button = buttons[i];
+    df.appendChild(createElement(_.template(`<span class='ct-messdialog-dialog-in-buttons-button'>${button.text}</span>`)));
+  }
+  buttonsDom.appendChild(df);
+
+  parent.appendChild(dialog);
+  if (rendercallback) {
+    rendercallback(containerDom);
+  }
+
+  const inner = dialog.querySelector('.ct-messdialog-dialog-in');
+  dialog.style.display = 'flex';
+  show(dialog, inner);
+
+  return {
+    el: dialog,
+    close() {
+      close(parent, inner, dialog);
+    },
+  };
+}
+
+/**
+ 进度对话框
+ * * @param {Object} config
+ * {
+ *  {HtmlElement} parent
+ *  {string} title
+ *  {string} text
+ *  {string} format
+ *  {number} total
+ *  {Array} buttons
+ *  {Function} rendercallback
+ *  {Function} completecallback
+ *  {Function} changecallback
+ *  @return {Object}
+ * }
+ */
+function determinedProgressDialogCreate({ parent, title = '', text = '', format = '<%=value%> of <%=total%>', total = 100, buttons = [], rendercallback, completecallback, changecallback }) {
+  const templateStr = template.determined({ title, text, format });
+  const dialog = createElement(_.template(templateStr), { value: 0, total });
+
+  const containerDom = dialog.querySelector('.ct-messdialog-dialog-in-inner-container');
+  const buttonsDom = dialog.querySelector('.ct-messdialog-dialog-in-buttons');
+  const progressBarDom = dialog.querySelector('.progress-bar');
+  const progressTextDom = dialog.querySelector('.ct-messdialog-dialog-in-inner-progress-text');
+  const btnDoms = buttonsDom.children;
+  buttonsDom.addEventListener('click', (e) => {
+    const { target } = e;
+    const index = Array.prototype.indexOf.call(btnDoms, target);
+    if (buttons[index] && buttons[index].handler) {
+      buttons[index].handler();
+    }
+  });
+
+  const df = document.createDocumentFragment();
+  for (let i = 0; buttons && i < buttons.length; i++) {
+    const button = buttons[i];
+    df.appendChild(createElement(_.template(`<span class='ct-messdialog-dialog-in-buttons-button'>${button.text}</span>`)));
+  }
+  buttonsDom.appendChild(df);
+
+  parent.appendChild(dialog);
+  if (rendercallback) {
+    rendercallback(containerDom);
+  }
+
+  const inner = dialog.querySelector('.ct-messdialog-dialog-in');
+  dialog.style.display = 'flex';
+  show(dialog, inner);
+
+  return {
+    el: dialog,
+    close() {
+      close(parent, inner, dialog);
+    },
+    setValue(value) {
+      if (!value) return false;
+      if (typeof value === 'string') {
+        value = parseFloat(value);
+      }
+
+      if (isNaN(value)) return false;
+
+      if (value < 0) {
+        value = 0;
+      }
+
+      if (value > total) {
+        value = total;
+      }
+
+      progressBarDom.style.width = `${Math.floor(value / total * 100)}%`;
+      const progressText = _.template(format)({ value, total });
+      progressTextDom.innerText = progressText;
+      if (value !== total) {
+        if (changecallback) {
+          changecallback(value);
+        }
+      } else if (completecallback) {
+        completecallback();
+      }
     },
   };
 }
@@ -406,9 +559,9 @@ class Toast {
    * init
    */
   init() {
-    let { parent, text, position, duration } = this.config;
+    let { parent, text = '', position, duration } = this.config;
     duration = duration === 'long' ? 2000 : 1000;
-    const toast = _$(_template.toast, {
+    const toast = createElement(template.toast, {
       text,
       position,
     });
@@ -436,8 +589,7 @@ class Toast {
     }
 
     let toast = Toast.toastQueue.shift();
-    const duration = toast.duration;
-    const parent = toast.parent;
+    const { duration, parent } = toast;
     toast = toast.toast;
 
     const inner = toast.querySelector('.ct-messdialog-toast-wrap');
@@ -493,7 +645,7 @@ const makeTextCreate = (config) => {
  * nonetwork,fail 是有header的
  */
 function makeLoadingCreate({ parent, refreshCallback, boundingCallback, isShowHeader }) {
-  let loading = _$(_template.loading);
+  let loading = createElement(template.loading);
   const loadingDom = loading.querySelector('.ct-messdialog-loading-loading');
   const failDom = loading.querySelector('.ct-messdialog-loading-fail');
   const nonetworkDom = loading.querySelector('.ct-messdialog-loading-nonetwork');
@@ -747,10 +899,45 @@ class MessageDialog {
    *  {Function} rendercallback
    *  @return {Object}
    * }
-   *
    */
   static customDialog(config) {
     return customdialogCreate(config);
+  }
+
+  /**
+   * 无限进度的对话框
+   * * @param {Object} config
+   * {
+   *  {HtmlElement} parent
+   *  {string} title
+   *  {string} text
+   *  {Array} buttons
+   *  {Function} rendercallback
+   *  @return {Object}
+   * }
+   */
+  static infiniteProgressDialog(config) {
+    return infiniteProgressDialogCreate(config);
+  }
+
+  /**
+   * 进度对话框
+   * * @param {Object} config
+   * {
+   *  {HtmlElement} parent
+   *  {string} title
+   *  {string} text
+   *  {string} format
+   *  {number} total
+   *  {Array} buttons
+   *  {Function} rendercallback
+   *  {Function} completecallback
+   *  {Function} changecallback
+   *  @return {Object}
+   * }
+   */
+  static determinedProgressDialog(config) {
+    return determinedProgressDialogCreate(config);
   }
 
   /**

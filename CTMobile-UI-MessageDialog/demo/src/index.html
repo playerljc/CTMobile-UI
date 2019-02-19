@@ -37,6 +37,8 @@
           </ul>
         </li>
         <li><a href="#messagedialog-type-custom">custom</a></li>
+        <li><a href="#messagedialog-type-infinite">infinite</a></li>
+        <li><a href="#messagedialog-type-determined">determined</a></li>
         <li>
           <a>loading</a>
           <ul>
@@ -307,6 +309,110 @@ const dialog = MessageDialog.customDialog({
     </dd>
   </dl>
 
+  <!--infinite-->
+  <h2 id="messagedialog-type-infinite">infinite</h2>
+  <dl>
+    <dt><h4>js</h4></dt>
+    <dd>
+    <pre>
+    <code class="javascript">
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+$parent.find('.infinite')[0].addEventListener('click', () => {
+  const dialog = MessageDialog.infiniteProgressDialog({
+    parent: $container[0],
+    title: 'infinite ProgressDialog',
+    text: 'Loading...',
+    buttons: [{
+      text: '确定',
+      handler() {
+        dialog.close();
+        MessageDialog.alert({
+          parent: $container[0],
+          title: '提示',
+          text: '点击了确定',
+          icon: 'icon-exclamation-sign',
+          callback() {
+            alert(dialog.el.querySelector('.form > input').value);
+          },
+        });
+      },
+    }, {
+      text: '关闭',
+      handler() {
+        dialog.close();
+      },
+    }],
+    rendercallback() {
+      console.log('renderSuccess');
+    },
+  });
+});
+    </code>
+    </pre>
+    </dd>
+  </dl>
+
+  <!--determined-->
+  <h2 id="messagedialog-type-determined">determined</h2>
+  <dl>
+    <dt><h4>js</h4></dt>
+    <dd>
+    <pre>
+    <code class="javascript">
+import MessageDialog from '@ctmobile/ui-messagedialog';
+import '@ctmobile/ui-messagedialog/themes/default/messagedialog.less';
+import '@ctmobile/ui-messagedialog/messagedialog.less';
+
+$parent.find('.determined')[0].addEventListener('click', () => {
+  let value = 0;
+  let handler;
+  const dialog = MessageDialog.determinedProgressDialog({
+    parent: $container[0],
+    title: 'determined ProgressDialog',
+    text: 'Loading...',
+    buttons: [{
+      text: '确定',
+      handler() {
+        dialog.close();
+        MessageDialog.alert({
+          parent: $container[0],
+          title: '提示',
+          text: '点击了确定',
+          icon: 'icon-exclamation-sign',
+          callback() {
+            alert(dialog.el.querySelector('.form > input').value);
+          },
+        });
+      },
+    }, {
+      text: '关闭',
+      handler() {
+        dialog.close();
+      },
+    }],
+    rendercallback() {
+      console.log('renderSuccess');
+      handler = setInterval(() => {
+        dialog.setValue(++value);
+      }, 500);
+    },
+    completecallback() {
+      dialog.close();
+      clearInterval(handler);
+    },
+    changecallback() {
+
+    },
+  });
+});
+    </code>
+    </pre>
+    </dd>
+  </dl>
+
   <!--nonetwork-->
   <h2 id="messagedialog-type-loading-nonetwork">nonetwork</h2>
   <dl>
@@ -504,6 +610,8 @@ setTimeout(() => {
           <li class="confirm">show confirm</li>
           <li class="prompt">show prompt</li>
           <li class="custom">show custom</li>
+          <li class="infinite">show infinite</li>
+          <li class="determined">show determined</li>
           <li class="loadingNonetwork">show nonetwork</li>
           <li class="loadingFail">show fail</li>
           <li class="loadingLoading">show loading</li>
@@ -699,6 +807,80 @@ $parent.find('.custom')[0].addEventListener('click', () => {
     },
   });
 });
+
+$parent.find('.infinite')[0].addEventListener('click', () => {
+  const dialog = MessageDialog.infiniteProgressDialog({
+    parent: $container[0],
+    title: 'infinite ProgressDialog',
+    text: 'Loading...',
+    buttons: [{
+      text: '确定',
+      handler() {
+        dialog.close();
+        MessageDialog.alert({
+          parent: $container[0],
+          title: '提示',
+          text: '点击了确定',
+          icon: 'icon-exclamation-sign',
+          callback() {
+            alert(dialog.el.querySelector('.form > input').value);
+          },
+        });
+      },
+    }, {
+      text: '关闭',
+      handler() {
+        dialog.close();
+      },
+    }],
+    rendercallback() {
+      console.log('renderSuccess');
+    },
+  });
+});
+
+$parent.find('.determined')[0].addEventListener('click', () => {
+  let value = 0;
+  let handler;
+  const dialog = MessageDialog.determinedProgressDialog({
+    parent: $container[0],
+    title: 'determined ProgressDialog',
+    text: 'Loading...',
+    buttons: [{
+      text: '确定',
+      handler() {
+        dialog.close();
+        MessageDialog.alert({
+          parent: $container[0],
+          title: '提示',
+          text: '点击了确定',
+          icon: 'icon-exclamation-sign',
+          callback() {
+            alert(dialog.el.querySelector('.form > input').value);
+          },
+        });
+      },
+    }, {
+      text: '关闭',
+      handler() {
+        dialog.close();
+      },
+    }],
+    rendercallback() {
+      console.log('renderSuccess');
+      handler = setInterval(() => {
+        dialog.setValue(++value);
+      }, 500);
+    },
+    completecallback() {
+      dialog.close();
+      clearInterval(handler);
+    },
+    changecallback() {
+
+    },
+  });
+});
       </code>
         </pre>
         </dd>
@@ -716,6 +898,8 @@ $parent.find('.custom')[0].addEventListener('click', () => {
             <li class="confirm">show confirm</li>
             <li class="prompt">show prompt</li>
             <li class="custom">show custom</li>
+            <li class="infinite">show infinite</li>
+            <li class="determined">show determined</li>
             <li class="loadingNonetwork">show nonetwork</li>
             <li class="loadingFail">show fail</li>
             <li class="loadingLoading">show loading</li>
@@ -936,6 +1120,100 @@ $parent.find('.custom')[0].addEventListener('click', () => {
           </li>
           <li>
             <span class="parameter">el</span>-<span class="parameterType">HtmlElement</span>对话框的el
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="method-wrap">
+    <p>infiniteProgressDialog({
+      <span class="parameter">parent</span>,
+      <span class="parameter">title</span>,
+      <span class="parameter">text</span>,
+      <span class="parameter">buttons</span>,
+      <span class="parameter">rendercallback</span>}) - 无限进度的对话框</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">parent</span>-<span class="parameterType">HtmlElement</span>父容器dom
+      </li>
+      <li>
+        <span class="parameter">title</span>-<span class="parameterType">string</span>标题
+      </li>
+      <li>
+        <span class="parameter">text</span>-<span class="parameterType">string</span>内容
+      </li>
+      <li>
+        <span class="parameter">buttons</span>-<span class="parameterType">Array({text:string 按钮文字,handler:Function 按钮点击回调})</span>按钮
+      </li>
+      <li>
+        <span class="parameter">rendercallback</span>-<span class="parameterType">Function</span>渲染后的回调函数
+      </li>
+      <li>
+        <span class="parameter">返回值</span>-<span class="parameterType">Object</span>
+        <ul class="method-parameters">
+          <li>
+            <div class="method-wrap">
+              <p>close() - 关闭对话框</p>
+            </div>
+          </li>
+          <li>
+            <span class="parameter">el</span>-<span class="parameterType">HtmlElement</span>对话框的el
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="method-wrap">
+    <p>determinedProgressDialog({
+      <span class="parameter">parent</span>,
+      <span class="parameter">title</span>,
+      <span class="parameter">text</span>,
+      <span class="parameter">format</span>,
+      <span class="parameter">total</span>,
+      <span class="parameter">buttons</span>,
+      <span class="parameter">rendercallback</span>},
+      <span class="parameter">completecallback</span>},
+      <span class="parameter">changecallback</span>}) - 进度对话框</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">parent</span>-<span class="parameterType">HtmlElement</span>父容器dom
+      </li>
+      <li>
+        <span class="parameter">title</span>-<span class="parameterType">string</span>标题
+      </li>
+      <li>
+        <span class="parameter">text</span>-<span class="parameterType">string</span>内容
+      </li>
+      <li>
+        <span class="parameter">format</span>-<span class="parameterType">string</span>进度显示文本 默认:&lt;%=value%&gt; of &lt;%=total%&gt; &lt;%=value%&gt;当前值 &lt;%=total%&gt;总的值
+      </li>
+      <li>
+        <span class="parameter">total</span>-<span class="parameterType">number</span>总的进度值
+      </li>
+      <li>
+        <span class="parameter">buttons</span>-<span class="parameterType">Array({text:string 按钮文字,handler:Function 按钮点击回调})</span>按钮
+      </li>
+      <li>
+        <span class="parameter">rendercallback</span>-<span class="parameterType">Function</span>渲染后的回调函数
+      </li>
+      <li>
+        <span class="parameter">completecallback</span>-<span class="parameterType">Function</span>进度完成后的回调
+      </li>
+      <li>
+        <span class="parameter">changecallback</span>-<span class="parameterType">Function</span>进度改变的回调
+      </li>
+      <li>
+        <span class="parameter">返回值</span>-<span class="parameterType">Object</span>
+        <ul class="method-parameters">
+          <li>
+            <div class="method-wrap">
+              <p>close() - 关闭对话框</p>
+            </div>
+          </li>
+          <li>
+            <span class="parameter">setValue</span>-<span class="parameterType">Function</span>设置对话框的进度值
           </li>
         </ul>
       </li>
