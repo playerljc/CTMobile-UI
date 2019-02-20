@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
-    "buildpackage": "ctbuild --type buildpackage",
+    "buildpackage": "ctbuild --type buildpackage --srcpath ../",
+    "buildumd": "ctbuild --type buildumd --packagename imageviewer",
     "link":"npm link @ct/build"
   },
   "repository": {
