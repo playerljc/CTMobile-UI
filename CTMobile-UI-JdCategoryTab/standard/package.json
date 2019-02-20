@@ -1,0 +1,45 @@
+{
+  "name": "@ctmobile/ui-jdcategorytab-sd",
+  "version": "1.0.0",
+  "description": "支持移动端的UI组件-京东分类列表",
+  "main": "lib/jdcategorytab.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "jsdoc src README.md -d doc -u doc/tutorials",
+    "buildpackage": "ctbuild --type buildpackage --srcpath ../",
+    "buildumd": "ctbuild --type buildumd --packagename jdcategorytab",
+    "link":"npm link @ct/build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/playerljc/CTMobile-UI.git"
+  },
+  "keywords": [
+    "JdCategoryTab",
+    "CtMobile",
+    "CTMibole-UI",
+    "mobile",
+    "webapp",
+    "SPA",
+    "Hybrid",
+    "Cordova",
+    "Android",
+    "iOS",
+    "Material",
+    "playerljc",
+    "WebFramework"
+  ],
+  "author": "playerljc <playerljc@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/playerljc/CTMobile-UI/issues"
+  },
+  "homepage": "https://github.com/playerljc/CTMobile-UI#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.2.0"
+  },
+  "devDependencies": {
+    "@ct/build": "^1.0.0",
+    "iscroll": "^5.2.0"
+  }
+}
