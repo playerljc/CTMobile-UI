@@ -1,12 +1,12 @@
 {
-  "name": "@ctmobile/ui-draglayout",
+  "name": "@ctmobile/ui-draglayout-sd",
   "version": "1.0.0",
   "description": "支持移动端的UI组件-DragLayout",
   "main": "lib/draglayout.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
-    "buildpackage": "ctbuild --type buildpackage",
+    "buildpackage": "ctbuild --type buildpackage --srcpath ../",
     "link":"npm link @ct/build"
   },
   "repository": {
