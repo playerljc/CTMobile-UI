@@ -1,0 +1,331 @@
+@import "./mixins";
+
+// ct-list
+.ct-list {
+  ul {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      position: relative;
+      box-sizing: border-box;
+    }
+    li.list-group-title, li.list-group-title {
+      position: sticky;
+      top: 0;
+      margin-top: 0;
+      z-index: 20;
+    }
+    .item-content {
+      .ct-listview-flex-v-sb-h-c;
+    }
+    .item-media {
+      .ct-listview-flex-v-c;
+      flex-shrink: 0;
+      flex-wrap: nowrap;
+      padding-bottom: 8px;
+      .fa {
+        .ct-listview-icon;
+      }
+    }
+    .item-inner {
+      position: relative;
+      width: 100%;
+      padding: 8px 0;
+      min-width: 0;
+      .ct-listview-flex-v-sb-h-c;
+    }
+    .item-title {
+      flex-shrink: 1;
+      position: relative;
+      .ct-listview-inline-nowrap;
+    }
+    .item-after {
+      flex-shrink: 0;
+      white-space: nowrap;
+      display: flex;
+      margin-left: auto;
+    }
+    .item-subtitle {
+      position: relative;
+      max-width: 100%;
+      .ct-listview-inline-nowrap;
+    }
+    .item-text {
+      position: relative;
+      .ct-listview-text-omit(2);
+    }
+    .item-link {
+      transition-duration: .3s;
+      transition-property: background-color;
+      position: relative;
+      overflow: hidden;
+      color: inherit;
+    }
+    .item-title-row {
+      .ct-listview-flex-v-sb-h-c;
+      box-sizing: border-box;
+      .item-after {
+        align-self: center;
+      }
+    }
+    .item-after {
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: flex;
+      margin-left: auto;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  .item-divider, li.item-divider, li.list-group-title {
+    .ct-listview-inline-nowrap;
+    position: relative;
+    z-index: 15;
+  }
+}
+
+// ct-list ios
+.ct-list.ios {
+  position: relative;
+  margin: 35px 0;
+  font-size: 17px;
+  ul {
+    background-color: #fff;
+    .item-content {
+      padding-left: 15px;
+      min-height: 44px;
+    }
+    .item-media {
+      padding-top: 7px;
+      + .item-inner {
+        margin-left: 15px;
+      }
+    }
+    .item-inner {
+      min-height: 44px;
+      padding-right: 15px;
+    }
+    .item-after {
+      padding-left: 5px;
+    }
+    .item-link {
+      .item-inner {
+        padding-right: 35px;
+        box-sizing: border-box;
+      }
+    }
+    .item-subtitle {
+      font-size: 15px;
+    }
+    .item-text {
+      font-size: 15px;
+      .ct-listview-text-omit-count(21px);
+    }
+    .item-header {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 1.2;
+      white-space: normal;
+    }
+    ul {
+      padding-left: 45px;
+      &:before, &:after {
+        height: 0;
+      }
+    }
+  }
+
+  .item-divider, .list-group-title {
+    margin-top: -1px;
+    padding: 4px 15px;
+  }
+}
+
+// ct-list md
+.ct-list.md {
+  margin: 32px 0;
+  font-size: 16px;
+  ul {
+    background-color: #fff;
+    .ct-listview-topbottombordered-md;
+    .item-content {
+      padding-left: 16px;
+      min-height: 48px;
+    }
+    .item-media {
+      padding-top: 8px;
+      min-width: 40px;
+      + .item-inner {
+        margin-left: 16px;
+      }
+    }
+    .item-inner {
+      min-height: 48px;
+      padding-right: 16px;
+    }
+    .item-after {
+      font-size: 14px;
+      padding-left: 8px;
+    }
+    .item-link {
+      .item-inner {
+        padding-right: 42px;
+        box-sizing: border-box;
+      }
+    }
+    .item-subtitle {
+      font-size: 14px;
+    }
+    .item-text {
+      font-size: 14px;
+      .ct-listview-text-omit-count(20px);
+    }
+    .item-header {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 1.2;
+      white-space: normal;
+    }
+    ul {
+      padding-left: 56px;
+      &:before, &:after {
+        height: 0;
+      }
+    }
+  }
+  .item-divider, .list-group-title {
+    padding: 0 16px;
+    height: 48px;
+    line-height: 48px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+}
+
+// 简单的列表
+.ct-list.simple-list {
+  li {
+    position: relative;
+    .ct-listview-flex-v-sb-h-c;
+    .ct-listview-inline-nowrap;
+    box-sizing: border-box;
+  }
+}
+
+// 简单列表 ios
+.ct-list.ios.simple-list {
+  li {
+    padding: 0 15px;
+    line-height: 44px;
+    height: 44px;
+  }
+}
+
+// 简单列表 md
+.ct-list.md.simple-list {
+  li {
+    padding-left: 16px;
+    padding-right: 16px;
+    line-height: 48px;
+    height: 48px;
+    &:not(:last-child):after {
+      .ct-listview-bottombordered-md(15px)
+    }
+  }
+}
+
+// inset列表 ios
+.ct-list.ios.inset {
+  margin: 15px 0 !important;
+  border-radius: 7px;
+}
+
+// inset列表 md
+.ct-list.md.inset {
+  margin: 16px 0 !important;
+  border-radius: 4px;
+}
+
+// 带有链接的列表
+.ct-list.links-list {
+  a {
+    position: relative;
+    color: #000;
+    .ct-listview-flex-v-sb-h-c;
+    .ct-listview-inline-nowrap;
+  }
+}
+
+// 带有链接的列表 ios
+.ct-list.ios.links-list {
+  a {
+    padding-left: 15px;
+    padding-right: 35px;
+    height: 44px;
+    background-position: calc(100% - 15px) center;
+  }
+}
+
+// 带有链接的列表 md
+.ct-list.md.links-list {
+  a {
+    padding-left: 16px;
+    padding-right: 42px;
+    height: 48px;
+    background-position: calc(100% - 16px) center;
+  }
+}
+
+// media-list
+.ct-list.media-list {
+  .item-media, li.media-item .item-media {
+    align-self: flex-start;
+  }
+
+  .item-inner {
+    display: block;
+    padding-right: 15px !important;
+    background-image: none !important;
+  }
+}
+
+// media-list ios
+.ct-list.ios.media-list {
+  .item-media, li.media-item .item-media {
+    padding-top: 9px;
+    padding-bottom: 10px;
+  }
+
+  .item-link {
+    .item-title-row {
+      padding-right: 20px;
+    }
+  }
+
+  .item-title {
+    font-weight: 600;
+  }
+}
+
+// media-list md
+.ct-list.md.media-list {
+  .item-media, li.media-item .item-media {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .item-link {
+    .item-title-row {
+      padding-right: 26px;
+    }
+  }
+
+  .item-title {
+    font-weight: 600;
+  }
+}

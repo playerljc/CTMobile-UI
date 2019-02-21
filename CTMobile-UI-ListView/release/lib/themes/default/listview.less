@@ -1,0 +1,98 @@
+@import "../../mixins";
+
+// ct-list ios
+.ct-list.ios {
+  ul {
+    .ct-listview-topbottombordered-ios(#c8c7cc);
+    .item-after {
+      color: #8e8e93;
+    }
+    .item-text {
+      color: #8e8e93;
+    }
+    .item-link {
+      .item-inner {
+        .ct-listview-item-link-background(calc(100% - 15px), center, url(./images/arrow-right.png));
+      }
+    }
+    li {
+      &:not(:last-child) {
+        .item-inner {
+          &:after {
+            .ct-listview-bottombordered-ios(0, #c8c7cc);
+          }
+        }
+      }
+    }
+  }
+
+  .item-divider, .list-group-title {
+    background: #f7f7f7;
+    color: #8e8e93;
+  }
+}
+
+// ct-list md
+.ct-list.md {
+  ul {
+    .item-after {
+      color: #757575;
+    }
+    .item-text {
+      color: #757575;
+    }
+    .item-link {
+      .item-inner {
+        .ct-listview-item-link-background(calc(100% - 16px), center, url(./images/arrow-right.png));
+      }
+    }
+    li {
+      &:not(:last-child) {
+        .item-inner {
+          &:after {
+            .ct-listview-bottombordered-ios(0, #c8c7cc);
+          }
+        }
+      }
+    }
+  }
+
+  .item-divider, .list-group-title {
+    background: #f4f4f4;
+    color: rgba(0, 0, 0, .54);
+  }
+}
+
+// 简单列表 ios
+.ct-list.ios.simple-list {
+  li {
+    &:not(:last-child):after {
+      .ct-listview-bottombordered-ios(15px, #c8c7cc);
+    }
+  }
+}
+
+// 带有链接的列表
+.ct-list.links-list {
+  a {
+    .ct-listview-item-link-background(calc(100% - 15px), center, url(./images/arrow-right.png));
+  }
+  li {
+    &:not(:last-child) {
+      a {
+        &:after {
+          .ct-listview-bottombordered-ios(15px, #c8c7cc)
+        }
+      }
+    }
+  }
+}
+
+// media-list
+.ct-list.media-list {
+  .item-link {
+    .item-title-row {
+      .ct-listview-item-link-background(right, center, url(./images/arrow-right.png));
+    }
+  }
+}
