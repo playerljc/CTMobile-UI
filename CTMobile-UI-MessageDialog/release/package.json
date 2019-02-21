@@ -1,0 +1,48 @@
+{
+  "name": "@ctmobile/ui-messagedialog",
+  "version": "1.0.0",
+  "description": "支持移动端的UI组件-消息对话框",
+  "main": "lib/messagedialog.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "jsdoc src README.md -d doc -u doc/tutorials",
+    "buildpackage": "ctbuild --type buildpackage --srcpath ../",
+    "buildumd": "ctbuild --type buildumd --packagename messagedialog",
+    "link": "npm link @ct/build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/playerljc/CTMobile-UI.git"
+  },
+  "keywords": [
+    "messagedialog",
+    "CtMobile",
+    "CTMibole-UI",
+    "mobile",
+    "webapp",
+    "SPA",
+    "Hybrid",
+    "Cordova",
+    "Android",
+    "iOS",
+    "Material",
+    "playerljc",
+    "WebFramework"
+  ],
+  "author": "playerljc <playerljc@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/playerljc/CTMobile-UI/issues"
+  },
+  "homepage": "https://github.com/playerljc/CTMobile-UI#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.2.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "load-awesome": "^1.1.0",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "@ct/build": "^1.0.0"
+  }
+}
