@@ -1,0 +1,80 @@
+@import "../../mixins.less";
+
+.ct {
+  &-notification {
+    &-top, &-bottom {
+      &-material {
+        > ul {
+          > li {
+            border-bottom: 1px solid rgba(0, 0, 0, .1);
+            > .info {
+              > .ct-notification-standard-header {
+                border-bottom: 1px solid rgba(0, 0, 0, .1);
+              }
+              > .ct-notification-standard-content {
+                > .ct-notification-standard-content-media-r {
+                  color: #8e8e93;
+                }
+                > .ct-notification-standard-content-row {
+                  > .ct-notification-standard-content-row-text {
+                    color: #8e8e93;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &-top, &-bottom {
+      &-material {
+        > ul {
+          background-color: #323232;
+          > li {
+            > .info {
+              color: #fff;
+              > .ct-notification-standard-content {
+                > .ct-notification-standard-content-row {
+                  > .ct-notification-standard-content-row-title {
+                    color: #fff;
+                  }
+                }
+              }
+            }
+            > .closeBtn {
+              background: url("./images/materialcha.png") no-repeat;
+              background-size: 100% 100%;
+            }
+          }
+        }
+      }
+    }
+
+    &-top, &-bottom {
+      &-ios {
+        > ul {
+          background-color: transparent;
+          > li {
+            background-color: rgba(255, 255, 255, .7);
+            box-shadow: rgba(0, 0, 0, 0.7) 0 5px 25px -10px;
+            > .info {
+              color: #000;
+              > .ct-notification-standard-content {
+                > .ct-notification-standard-content-row {
+                  > .ct-notification-standard-content-row-title {
+                    color: #000;
+                  }
+                }
+              }
+            }
+            > .closeBtn {
+              background: url("./images/ioscha.svg") no-repeat;
+              background-size: 100% 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
