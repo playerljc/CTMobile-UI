@@ -1,7 +1,5 @@
-import PullRefresh from '@ctmobile/ui-pullrefresh/pullrefresh';
+import PullRefresh from '@ctmobile/ui-pullrefresh';
 import DemoUtil from '@ctmobile/ui-demo-util';
-import '@ctmobile/ui-pullrefresh/themes/default/pullrefresh.less';
-import '@ctmobile/ui-pullrefresh/pullrefresh.less';
 import './index.less';
 
 DemoUtil.initial();
@@ -19,6 +17,10 @@ const pullRefresh = new PullRefresh({
   scrollEl, scrollInnerEl, pullEl,
 });
 
+pullRefresh.on('pullStart', () => { console.log('pullStart'); });
+pullRefresh.on('pullRebound', () => { console.log('pullRebound'); });
+pullRefresh.on('pullCanRefresh', () => { console.log('pullCanRefresh'); });
+pullRefresh.on('pullBottom', () => { console.log('pullBottom'); });
 pullRefresh.on('pullRefresh', (ins) => {
   setTimeout(() => {
     ins.reset();
