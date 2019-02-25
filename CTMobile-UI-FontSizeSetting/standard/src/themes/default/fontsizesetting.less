@@ -1,0 +1,31 @@
+.ct-fontsizesetting {
+  > .ct-fontsizesetting-rangeWrap {
+    /*滑块*/
+    > input[type="range"] {
+      &::-webkit-slider-thumb {
+        border: 1px solid #0bc2b4;
+        background-color: #fff;
+      }
+      &::-webkit-slider-runnable-track {
+        background-color: #ccc;
+      }
+    }
+    /*滚道*/
+    > .ct-fontsizesetting-separatedtool {
+      > .ct-fontsizesetting-separated {
+        background: #ccc;
+        > span {
+          color: #0bc2b4;
+        }
+      }
+    }
+  }
+  &:before {
+    background: url(./images/A-.svg) no-repeat;
+    background-size: 100% 100%;
+  }
+  &:after {
+    background: url(./images/A+.svg) no-repeat;
+    background-size: 100% 100%;
+  }
+}

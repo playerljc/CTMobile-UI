@@ -1,0 +1,1159 @@
+/*
+ ct-form
+ */
+
+/**
+ ---------------------------------------------ct-form-control----------------------------------------------
+ data-ctform-config-name 标识字段 获取数据的时候已此为键
+ data-ctform-config-type 类型 [default | ios | material]
+ data-ctform-config-label 文本
+ data-ctform-config-labelposition [labelleft | labelright | labeltop | labelbottom]
+ data-ctform-config-labelalign [aligncenter | aligntop]
+ data-ctform-config-full [full]
+ data-ctform-config-inset [inset] 是否是inset模式
+ data-ctform-config-tooltip 始终有的提示信息
+ data-ctform-config-groupname 如果是radio或checkbox组中的名字
+
+ ---------------------必填验证-------------------
+ data-ctform-config-require [require] 是否是必填项
+ data-ctform-config-requiremessage 必填项没填的提示信息
+
+ ---------------------长度验证-------------------
+ 只有输入项才进行长度验证
+ data-ctform-config-maxlength 最大字符数
+ data-ctform-config-minlength 最小字符数
+ data-ctform-config-lengthmessage 超出range是的提示信息
+
+ ---------------------有效性验证------------------
+ data-ctform-config-pattern 正则
+ data-ctform-config-patternmessage 不符合正则的提示
+
+
+
+
+
+ label top && outset
+     default 在上方 require在input前面
+     ios 在上方 require在input前面
+     material 在上方 require在input前面
+ label top && inset
+     default 没有inset还是在上方 require在input前面
+     ios 没有inset还是在上方 require在input前面
+     material 在里面点击后浮上去 require在input前面
+ label left && outset
+     default 在左侧但是不包在里面 require在字前面
+     ios 在左侧但是不在里面 require在字前面
+     material 没有在左侧的 require在input前面
+ label left && inset
+     default 在左侧但是包在里面 require在字前面
+     ios 在左侧不包在里面 require在字前面
+     material 在里面点击后浮上去 require在input前面
+
+ maxlength和minlength在右下方
+ lengthmessage 在左下方
+ requiremessage 在左下方
+ patternmessage 在左下方
+ tooltip 在左下方 如果和length | require | patter冲突，则先显示三种，取消后在显示
+
+
+ 结构:
+ ct-form-control
+   // top || left&&outset
+   ct-form-control-inner
+     .label
+     .controlWrap
+     .tooltipwrap
+      .tooltip
+      .errormessage
+      .rangetip
+     // left&&inset
+
+ */
+
+/*表单控件的最上层*/
+.ct-form-control {
+  position: relative;
+}
+
+.ct-form-control > .ct-form-control-inner {
+  padding: .25rem;
+}
+
+/*表单控件的label*/
+.ct-form-control > .ct-form-control-inner > .label {
+  font-size: 16px;
+  word-break: break-all;
+}
+
+.ct-form-control > .ct-form-control-inner > .label > .require {
+  line-height: normal;
+  margin-right: .5rem;
+}
+
+.ct-form-control > .ct-form-control-inner > .label > .require:before {
+  content: '*';
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.ct-form-control > .ct-form-control-inner > .controlWrap {
+  word-break: break-all;
+}
+
+/*------------------控件是基本类型(default)---------------------*/
+
+/*---------------------top---------------------*/
+/*label在上方 label*/
+.ct-form-control.labeltop > .ct-form-control-inner > .label {
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+.ct-form-control.labelbottom > .ct-form-control-inner > .label {
+  margin-top: .5rem;
+  margin-bottom: 0;
+}
+
+/*---------------------let common----------------------*/
+/*label在左侧且是outset*/
+.ct-form-control.labeltop > .ct-form-control-inner,
+.ct-form-control.labelleft > .ct-form-control-inner,
+.ct-form-control.labelright > .ct-form-control-inner,
+.ct-form-control.labelbottom > .ct-form-control-inner {
+  display: flex;
+}
+
+.ct-form-control.labelleft > .ct-form-control-inner,
+.ct-form-control.labelright > .ct-form-control-inner {
+  flex-direction: row;
+}
+
+.ct-form-control.labeltop > .ct-form-control-inner,
+.ct-form-control.labelbottom > .ct-form-control-inner {
+  flex-direction: column;
+}
+
+.ct-form-control.labelright > .ct-form-control-inner > .label,
+.ct-form-control.labelbottom > .ct-form-control-inner > .label {
+  order: 1;
+}
+
+/*label在左侧 label*/
+.ct-form-control.labelleft > .ct-form-control-inner > .label,
+.ct-form-control.labelright > .ct-form-control-inner > .label {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 .5rem;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-line-clamp: 2;
+  line-height: 1.2;
+}
+
+/*label在左侧且是outset 文本居上*/
+.ct-form-control.labelleft.aligntop > .ct-form-control-inner,
+.ct-form-control.labelright.aligntop > .ct-form-control-inner {
+  align-items: flex-start;
+  -webkit-box-pack: start;
+}
+
+/*label在左侧且是outset 文本居中*/
+.ct-form-control.labelleft.aligncenter > .ct-form-control-inner,
+.ct-form-control.labelright.aligncenter > .ct-form-control-inner {
+  align-items: center;
+  -webkit-box-pack: center;
+}
+
+/*默认是自动宽度*/
+.ct-form-control.labelleft .ct-form-control-inner > .controlWrap,
+.ct-form-control.labelright .ct-form-control-inner > .controlWrap {
+  flex-grow: inherit;
+}
+
+/*label在左侧且是outset control 宽度自动充满*/
+.ct-form-control.labelleft > .ct-form-control-inner > .controlWrap.full,
+.ct-form-control.labelright > .ct-form-control-inner > .controlWrap.full {
+  flex-grow: 1;
+  word-break: break-all;
+}
+
+.ct-form-control.labelleft > .ct-form-control-inner > .controlWrap.full > .ct-form-select > .inner > select,
+.ct-form-control.labelright > .ct-form-control-inner > .controlWrap.full > .ct-form-select > .inner > select {
+  width: 100%;
+}
+
+.ct-form-control > .ct-form-control-inner .ct-form-expandingarea > .inner {
+  display: flex;
+}
+
+/*---------------------left inset---------------------*/
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 44px;
+}
+
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner {
+  padding: .375rem 1.5rem .375rem .75rem;
+}
+
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner {
+  padding: .375rem 3.5rem .375rem .75rem;
+}
+
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner {
+  padding: .375rem .75rem .375rem .75rem;
+}
+
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: .5rem;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-line-clamp: 2;
+  line-height: 1.2;
+}
+
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner.aligntop > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner.aligntop > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner.aligntop > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner.aligntop > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner.aligntop > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner.aligntop > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner.aligntop > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner.aligntop > .label {
+  align-items: flex-start;
+  -webkit-box-pack: start;
+}
+
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner.aligncenter > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner.aligncenter > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner.aligncenter > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner.aligncenter > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner.aligncenter > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner.aligncenter > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner.aligncenter > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner.aligncenter > .label {
+  align-items: center;
+  -webkit-box-pack: center;
+}
+
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label > .require,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label > .require,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label > .require,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label > .require,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label > .require,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label > .require,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label > .require,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label > .require {
+  line-height: normal;
+  margin-right: .5rem;
+}
+
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label > .require:before,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label > .require:before,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label > .require:before,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label > .require:before,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label > .require:before,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label > .require:before,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label > .require:before,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label > .require:before {
+  content: '*';
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner select,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner textarea,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner select,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner textarea {
+  flex-grow: inherit;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  min-height: initial;
+}
+
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input:focus,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input:focus,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner select:focus,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner textarea:focus,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input:focus,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input:focus,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner select:focus,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner textarea:focus {
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+}
+
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input + .border,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input + .border,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner select + .border,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner .ct-form-expandingarea-inner + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner select + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner .ct-form-expandingarea-inner + .border {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  box-sizing: border-box;
+}
+
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput.full,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle.full,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select.full,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea.full,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput.full,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle.full,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select.full,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea.full {
+  width: 100%;
+}
+
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea {
+  z-index: 1;
+}
+
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput.full > .inner input,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle.full > .inner input,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select.full > .inner select,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea.full > .inner > .ct-form-expandingarea-inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput.full > .inner input,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle.full > .inner input,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select.full > .inner select,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea.full > .inner > .ct-form-expandingarea-inner {
+  flex-grow: 1;
+  word-break: break-all;
+}
+
+/*-----------------------控件是material类型(material)---------------------*/
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-select > .inner,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner {
+  position: relative;
+}
+
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  transition: all .2s;
+  transform-origin: left;
+  pointer-events: none;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.2;
+}
+
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label > .require,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label > .require,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label > .require,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label > .require {
+  line-height: normal;
+  margin-right: .5rem;
+}
+
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label > .require:before,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label > .require:before,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label > .require:before,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label > .require:before {
+  content: '*';
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+/*.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input:focus + .label,*/
+/*.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input:focus + .label,*/
+/*.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner textarea:focus + .label {*/
+/*transform: scale(.75) translateY(-27px);*/
+/*top: 0;*/
+/*color: #2196f3;*/
+/*}*/
+
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input + .label.animate,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input + .label.animate,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner textarea + .label.animate {
+  transform: scale(.75) translateY(-27px);
+  top: 0;
+}
+
+/*-----------------------.tooltipwrap---------------------*/
+/*-----------------------.tooltip---------------------*/
+/*-----------------------.errormessage---------------------*/
+/*-----------------------.rangetip---------------------*/
+.ct-form-control > .tooltipwrap {
+  margin: .5rem;
+  overflow: hidden;
+}
+
+.ct-form-control > .tooltipwrap > .errormessage {
+  display: none;
+}
+
+.ct-form-control > .tooltipwrap > .tooltipfixed {
+  overflow: hidden;
+  margin-top: .5rem;
+}
+
+.ct-form-control > .tooltipwrap > .tooltipfixed > .tooltip,
+.ct-form-control > .tooltipwrap > .tooltipfixed > .rangetip {
+  width: 50%;
+  font-size: 12px;
+  word-break: break-all;
+}
+
+.ct-form-control > .tooltipwrap > .errormessage {
+  font-size: 12px;
+  word-break: break-all;
+}
+
+.ct-form-control > .tooltipwrap > .tooltipfixed > .tooltip {
+  float: left;
+}
+
+.ct-form-control > .tooltipwrap > .tooltipfixed > .rangetip {
+  float: right;
+  text-align: right;
+}
+
+.ct-form-control.labeltop > .ct-form-control-inner > .controlWrap > .ct-form-select > .inner select {
+  min-width: 100%;
+}
+
+/**--------------------alert-----------------------**/
+.ct-form-control.default.labelleft.labelinset.validerror .ct-form-clearinput.default > .inner > input:focus,
+.ct-form-control.default.labelleft.labelinset.validerror .ct-form-select.default > .inner > select:focus,
+.ct-form-control.default.labelleft.labelinset.validerror .ct-form-expandingarea.default > .inner textarea:focus,
+.ct-form-control.default.labelright.labelinset.validerror .ct-form-clearinput.default > .inner > input:focus,
+.ct-form-control.default.labelright.labelinset.validerror .ct-form-select.default > .inner > select:focus,
+.ct-form-control.default.labelright.labelinset.validerror .ct-form-expandingarea.default > .inner textarea:focus {
+  box-shadow: none;
+}
+
+.ct-form-control.default.labelleft.labelinset.validsuccess .ct-form-clearinput.default > .inner > input:focus,
+.ct-form-control.default.labelleft.labelinset.validsuccess .ct-form-select.default > .inner > select:focus,
+.ct-form-control.default.labelleft.labelinset.validsuccess .ct-form-expandingarea.default > .inner textarea:focus,
+.ct-form-control.default.labelright.labelinset.validsuccess .ct-form-clearinput.default > .inner > input:focus,
+.ct-form-control.default.labelright.labelinset.validsuccess .ct-form-select.default > .inner > select:focus,
+.ct-form-control.default.labelright.labelinset.validsuccess .ct-form-expandingarea.default > .inner textarea:focus {
+  box-shadow: none;
+}
+
+/*
+  ----------------------------------------expandingarea----------------------------------------
+*/
+.ct-form-expandingarea {
+  position: relative;
+}
+
+.ct-form-expandingarea > .inner > .ct-form-expandingarea-inner {
+  position: relative;
+  width: 100%;
+}
+
+.ct-form-expandingarea textarea,
+.ct-form-expandingarea pre {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+}
+
+.ct-form-expandingarea > .inner textarea,
+.ct-form-expandingarea > .inner pre {
+  padding: 5px;
+  background: transparent;
+  font: 400 13px/16px helvetica, arial, sans-serif;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.ct-form-expandingarea > .inner textarea {
+  box-sizing: border-box;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  resize: none;
+}
+
+.ct-form-expandingarea.active > .inner textarea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 1.2rem;
+  resize: none;
+  outline-width: 0;
+  background: transparent;
+  min-width: 100%;
+}
+
+.ct-form-expandingarea > .inner pre {
+  display: none;
+  /*font-size: 0;*/
+  padding: 0;
+}
+
+.ct-form-expandingarea.active > .inner pre {
+  display: block;
+  visibility: hidden;
+}
+
+/**
+  -----------------------------------------ct-form-clearinput------------------------------------------
+  ------------------------------------------ct-form-pwdtoggle-------------------------------------------
+ */
+.ct-form-clearinput,
+.ct-form-pwdtoggle,
+.ct-form-expandingarea {
+  position: relative;
+  box-sizing: border-box;
+  border-radius: .25rem;
+}
+
+.ct-form-clearinput.default > .inner input,
+.ct-form-pwdtoggle.default > .inner input,
+.ct-form-expandingarea.default > .inner textarea {
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  min-height: 44px;
+}
+
+.ct-form-expandingarea.default > .inner pre {
+  min-height: 44px;
+}
+
+.ct-form-clearinput.default > .inner input {
+  padding: .375rem 1.5rem .375rem .75rem;
+}
+
+.ct-form-pwdtoggle.default > .inner input {
+  padding: .375rem 3.5rem .375rem .75rem;
+}
+
+.ct-form-expandingarea.default > .inner textarea {
+  padding: .375rem .75rem .375rem .75rem;
+}
+
+.ct-form-clearinput.ios,
+.ct-form-clearinput.material,
+.ct-form-pwdtoggle.ios,
+.ct-form-pwdtoggle.material,
+.ct-form-expandingarea.ios,
+.ct-form-expandingarea.material {
+  border: 0;
+  min-height: 44px;
+}
+
+.ct-form-clearinput.ios > .inner,
+.ct-form-pwdtoggle.ios > .inner,
+.ct-form-expandingarea.ios > .inner,
+.ct-form-clearinput.material > .inner,
+.ct-form-pwdtoggle.material > .inner,
+.ct-form-expandingarea.material > .inner {
+  min-height: 44px;
+}
+
+.ct-form-clearinput > .inner input,
+.ct-form-pwdtoggle > .inner input,
+.ct-form-expandingarea > .inner textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  outline-width: 0;
+}
+
+.ct-form-clearinput.ios > .inner input,
+.ct-form-clearinput.material > .inner input,
+.ct-form-pwdtoggle.ios > .inner input,
+.ct-form-pwdtoggle.material > .inner input {
+  min-height: 44px;
+  transition: all .3s;
+}
+
+.ct-form-clearinput.ios > .inner input,
+.ct-form-clearinput.material > .inner input {
+  padding-right: 1.5rem;
+}
+
+.ct-form-pwdtoggle.ios > .inner input,
+.ct-form-pwdtoggle.material > .inner input {
+  padding-right: 3.5rem;
+}
+
+.ct-form-expandingarea.ios > .inner textarea,
+.ct-form-expandingarea.ios > .inner pre,
+.ct-form-expandingarea.material > .inner textarea,
+.ct-form-expandingarea.material > .inner pre {
+  min-height: 44px;
+  transition: all .3s;
+}
+
+.ct-form-clearinput > .inner input::-webkit-input-placeholder,
+.ct-form-pwdtoggle > .inner input::-webkit-input-placeholder,
+.ct-form-expandingarea > .inner textarea::-webkit-input-placeholder {
+  font-size: 16px;
+}
+
+.ct-form-clearinput.material > .inner input:focus,
+.ct-form-pwdtoggle.material > .inner input:focus,
+.ct-form-expandingarea.material > .inner textarea:focus {
+  border-bottom-width: 2px;
+}
+
+.ct-form-pwdtoggle > .ct-form-tool > .toggle {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: .25rem;
+}
+
+.ct-form-clearinput > .ct-form-tool > .clear {
+  display: none;
+  width: 1rem;
+  height: 1rem;
+}
+
+.ct-form-clearinput.material > .ct-form-tool > .clear {
+  width: .7rem;
+  height: .7rem;
+}
+
+.ct-form-clearinput > .ct-form-tool {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: .25rem;
+  height: 100%;
+  z-index: 100;
+}
+
+.ct-form-clearinput.ios > .ct-form-tool {
+  right: .1rem;
+}
+
+.ct-form-clearinput.material > .ct-form-tool {
+  right: 0;
+}
+
+.ct-form-clearinput.material > .ct-form-tool > .clear {
+  border-radius: 50%;
+  padding: 5px;
+}
+
+/**
+  -------------------------------------------ct-form-checkbox--------------------------------------------
+ */
+.ct-form-checkbox,
+.ct-form-checkbox .checkbox {
+  position: relative;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.ct-form-checkbox.material,
+.ct-form-checkbox.material .checkbox {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 2px;
+}
+
+.ct-form-checkbox.ios,
+.ct-form-checkbox.ios .checkbox {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+}
+
+.ct-form-checkbox .checkbox {
+  animation: ct-form-checkbox-nochecked 100ms;
+  -webkit-animation: ct-form-checkbox-nochecked 100ms;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.ct-form-checkbox > input[type="checkbox"]:checked + .checkbox {
+  animation: ct-form-checkbox-checked 100ms;
+  animation-fill-mode: forwards;
+  -webkit-animation: ct-form-checkbox-checked 100ms;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.ct-form-checkbox > input[type="checkbox"]:disabled:not(:checked) + .checkbox {
+  animation: ct-form-checkbox-disabled-nochecked 100ms;
+  -webkit-animation: ct-form-checkbox-disabled-nochecked 100ms;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.ct-form-checkbox > input[type="checkbox"]:disabled:checked + .checkbox {
+  animation: ct-form-checkbox-disabled-checked 100ms;
+  -webkit-animation: ct-form-checkbox-disabled-checked 100ms;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.ct-form-checkbox > input[type="checkbox"] {
+  display: none;
+}
+
+/**
+  --------------------------------------------ct-form-radio----------------------------------------------
+ */
+.ct-form-radio,
+.ct-form-radio > .radio {
+  width: 1.3rem;
+  height: 1.3rem;
+  position: relative;
+  border-radius: .6rem;
+  background: transparent;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 100ms;
+}
+
+.ct-form-radio > input[type="radio"] {
+  display: none;
+}
+
+.ct-form-radio .inner {
+  width: .7rem;
+  height: .7rem;
+  border-radius: .35rem;
+  box-sizing: border-box;
+  transition-duration: 100ms;
+  transform: scale(0);
+  transform-origin: center center;
+}
+
+.ct-form-radio > input[type="radio"]:checked + .radio > .inner {
+  transform: scale(1);
+}
+
+/**
+  ---------------------------------------------ct-form-switch------------------------------------------------
+ */
+.ct-form-switch,
+.ct-form-switch > .checkbox {
+  position: relative;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+.ct-form-switch.ios,
+.ct-form-switch.ios > .checkbox {
+  display: inline-block;
+  width: 52px;
+  height: 32px;
+  border-radius: 16px;
+}
+
+.ct-form-switch.material,
+.ct-form-switch.material > .checkbox {
+  width: 36px;
+  height: 14px;
+  border-radius: 36px;
+}
+
+.ct-form-switch.material {
+  display: inline-block;
+}
+
+.ct-form-switch.material > .checkbox {
+  display: block;
+}
+
+.ct-form-switch > input[type="checkbox"] {
+  display: none;
+  outline: 0;
+}
+
+.ct-form-switch > .checkbox {
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  border: none;
+  transition-duration: .3s;
+}
+
+.ct-form-switch.ios > .checkbox:before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  border-radius: 16px;
+  box-sizing: border-box;
+  transition-duration: .3s;
+  transform: scale(1);
+}
+
+.ct-form-switch > .checkbox:after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+}
+
+.ct-form-switch.ios > .checkbox:after {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  top: 2px;
+  left: 2px;
+}
+
+.ct-form-switch.material > .checkbox:after {
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  top: -3px;
+  left: 0;
+}
+
+.ct-form-switch.ios > input[type="checkbox"]:checked + .checkbox:before {
+  transform: scale(0);
+}
+
+.ct-form-switch.ios > input[type="checkbox"]:checked + .checkbox:after {
+  transform: translateX(20px);
+}
+
+.ct-form-switch.material > input[type="checkbox"]:checked + .checkbox:after {
+  transform: translateX(16px);
+}
+
+/**
+ -------------------------------------------------ct-form-slider--------------------------------------------------
+ */
+.ct-form-slider {
+  display: flex;
+  align-items: center;
+}
+
+/*ios*/
+.ct-form-slider input[type="range"] {
+  position: relative;
+  height: 28px;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  -ms-background-position-y: 500px;
+}
+
+.ct-form-slider.ios input[type="range"] {
+  margin: 4px 0 5px 0;
+  border: none;
+  box-sizing: content-box;
+}
+
+.ct-form-slider.material input[type="range"] {
+  margin: 0;
+}
+
+.ct-form-slider input[type="range"]:focus,
+.ct-form-slider input[type="range"]:active {
+  border: 0;
+  outline: 0;
+}
+
+.ct-form-slider.ios input[type="range"]:after {
+  height: 2px;
+  background: #fff;
+  content: ' ';
+  width: 5px;
+  top: 50%;
+  margin-top: -1px;
+  left: -5px;
+  z-index: 1;
+  position: absolute;
+}
+
+.ct-form-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border: none;
+  position: relative;
+}
+
+.ct-form-slider.material input[type="range"]::-webkit-slider-thumb {
+  outline: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+}
+
+.ct-form-slider.ios input[type="range"]::-webkit-slider-thumb {
+  height: 28px;
+  width: 28px;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  content: ' ';
+}
+
+.ct-form-slider input[type="range"]::-webkit-slider-thumb:before {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 2000px;
+  height: 2px;
+  margin-top: -1px;
+  z-index: 1;
+  content: ' ';
+}
+
+.ct-form-slider input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 2px;
+  border: none;
+  outline: 0;
+}
+
+.ct-form-slider.ios input[type="range"]::-moz-range-thumb {
+  height: 28px;
+  width: 28px;
+  border-radius: 28px;
+  background: #fff;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  border: 0;
+  outline: 0;
+  position: absolute;
+  box-sizing: border-box;
+  content: ' ';
+}
+
+.ct-form-slider.material input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border: none;
+  outline: 0;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  border-radius: 20px;
+}
+
+.ct-form-slider input[type="range"]::-ms-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.ct-form-slider.ios input[type="range"]::-ms-thumb {
+  height: 28px;
+  width: 28px;
+  border-radius: 28px;
+  background: #fff;
+  z-index: 10;
+  border: 0;
+  outline: 0;
+  position: absolute;
+  content: ' ';
+  box-shadow: none;
+  box-sizing: border-box;
+  margin-top: 0;
+  top: 50%;
+}
+
+.ct-form-slider.material input[type="range"]::-ms-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border: none;
+  outline: 0;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  border-radius: 20px;
+}
+
+/**
+  --------------------------------------------ct-form-spinner---------------------------------------------
+ */
+.ct-form-spinner {
+  max-width: 150px;
+  min-width: 130px;
+  position: relative;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.ct-form-spinner > input[type='number'] {
+  display: block;
+  border: 0;
+  outline: 0;
+  width: calc(100% - 80px);
+  margin: 0 auto;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.ct-form-spinner > .plus,
+.ct-form-spinner > .minus {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.ct-form-spinner > .plus {
+  right: 0;
+  border-radius: 0 .25rem .25rem 0;
+}
+
+.ct-form-spinner > .minus {
+  left: 0;
+  border-radius: .25rem 0 0 .25rem;
+}
+
+.ct-form-spinner.round > .plus {
+  border-radius: 0 29px 29px 0;
+}
+
+.ct-form-spinner.round > .minus {
+  border-radius: 29px 0 0 29px;
+}
+
+.ct-form-spinner > .plus:before,
+.ct-form-spinner > .plus:after,
+.ct-form-spinner > .minus:before,
+.ct-form-spinner > .minus:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ct-form-spinner > .minus:after {
+  width: 15px;
+  height: 2px;
+}
+
+.ct-form-spinner > .plus:before {
+  height: 15px;
+  width: 2px;
+}
+
+.ct-form-spinner > .plus:after {
+  width: 15px;
+  height: 2px;
+}
+
+/**
+ ------------------------------------------------ct-form-select---------------------------------------------
+ */
+.ct-form-select {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.ct-form-select > .inner > select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  min-height: 44px;
+  padding: .5rem;
+  outline: 0;
+}
+
+.ct-form-select.default > .inner > select {
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.ct-form-select.ios > .inner > select,
+.ct-form-select.material > .inner > select {
+  border: 0;
+}
