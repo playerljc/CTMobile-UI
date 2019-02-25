@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
-    "buildpackage": "ctbuild --type buildpackage --srcpath ../",
+    "buildpackage": "ctbuild --type buildpackage",
     "buildumd": "ctbuild --type buildumd --packagename notification",
     "link": "npm link @ct/build && npm link @ctmobile/ui-util"
   },
