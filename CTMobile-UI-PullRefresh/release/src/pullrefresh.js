@@ -1,23 +1,46 @@
 import moment from 'moment';
+import _ from 'lodash';
 import { Dom6, Events } from '@ctmobile/ui-util';
 
 let maskEl;
 const selectorPrefix = 'ct-pullrefresh-';
 const dataFormatStr = 'YYYY-MM-DD HH:mm:ss';
 
-const template =
+/** *
+ * ct-pullrefresh
+ *   ct-pullrefresh-inner
+ *     ct-pullrefresh-icon
+ *     ct-pullrefresh-label
+ *     ct-pullrefresh-update
+ *   ct-pullrefresh-refresh
+ * @type {string}
+ */
+const template = _.template(
   `<div class="${selectorPrefix}inner">
-      <div class="${selectorPrefix}icon"></div>
-      <p class="${selectorPrefix}label">下拉刷新</p>
+      <%if(icon){%>
+        <div class="${selectorPrefix}icon" style="background: none;"><img src="<%=icon%>"></div>
+      <%} else {%>
+        <div class="${selectorPrefix}icon"></div>  
+      <%}%>
+      <p class="${selectorPrefix}label"><%=label%></p>
+      <%if(showUpdate) {%>
       <p class="${selectorPrefix}update">更新时间：<span class="${selectorPrefix}update-label">${moment().format(dataFormatStr)}</span></p>
+      <%}%>
    </div>
-   <div class="${selectorPrefix}refresh la-ball-circus la-dark">
+   <%if(loadingAnimation) {%>
+    <div class="${selectorPrefix}refresh">
+      <%=loadingAnimation%>
+    </div>
+   <%} else {%>
+    <div class="${selectorPrefix}refresh la-ball-circus la-dark">
       <div></div>
       <div></div>
       <div></div>
       <div></div>
       <div></div>
-   </div>`;
+   </div>
+   <%}%>
+   `);
 
 /**
  * Y平移
@@ -57,7 +80,9 @@ function clear() {
   this.isTop = true;
   this.pullEl.style.display = 'flex';
   this.refreshEl.style.display = 'none';
-  rotateIcon(this.iconEl, 180, 0);
+  if (!this.config.icon) {
+    rotateIcon(this.iconEl, 180, 0);
+  }
   this.scrollEl.style.overflowY = 'auto';
   maskEl.style.display = 'none';
 }
@@ -85,7 +110,9 @@ function refresh() {
   self.scrollEl.addEventListener('transitionend', onTransitionEnd);
   translateY(self.scrollEl, self.refreshHeight, 500);
   translateY(self.el, self.refreshHeight, 500);
-  rotateIcon(self.iconEl, 180, 300);
+  if (!self.config.icon) {
+    rotateIcon(self.iconEl, 180, 300);
+  }
 }
 
 /**
@@ -110,19 +137,38 @@ function reset() {
  * PullRefresh
  * @class PullRefresh
  * @classdesc PullRefresh
+ *
+ *
+ *     ct-pullrefresh-icon
+ *     ct-pullrefresh-label
+ *     ct-pullrefresh-update
+ *   ct-pullrefresh-refresh
  */
 class PullRefresh {
   /**
    * constructor
-   * @param {HtmlElement} scrollEl
-   * @param {HtmlElement} scrollInnerEl
-   * @param {HtmlElement} pullEl
-   * @param {number} pullHeight
+   * @param {HtmlElement} scrollEl 滚动元素
+   * @param {HtmlElement} scrollInnerEl 滚动元素inner
+   * @param {HtmlElement} pullEl 下拉刷新元素
+   * @param {number} pullHeight 拉动高度
+   * @param {string} icon 图标html
+   * @param {string} label 默认文本html
+   * @param {string} canLabel 可以刷新文本html
+   * @param {boolean} showUpdate 是否显示更新时间
+   * @param {string} loadingAnimation 动画
    */
-  constructor({ scrollEl, scrollInnerEl, pullEl, pullHeight = 200 }) {
+  constructor({ scrollEl, scrollInnerEl, pullEl, pullHeight = 200, icon = '', label = '下拉刷新', canLabel = '松开刷新', showUpdate = true, loadingAnimation = '' }) {
     this.scrollEl = scrollEl;
     this.scrollInnerEl = scrollInnerEl;
     this.el = pullEl;
+
+    this.config = {
+      icon,
+      label,
+      canLabel,
+      showUpdate,
+      loadingAnimation,
+    };
 
     this.pullHeight = pullHeight;
     if (pullHeight <= 0) {
@@ -133,7 +179,7 @@ class PullRefresh {
       this.pullHeight = pullHeight;
     }
 
-    this.el.innerHTML = template;
+    this.el.innerHTML = template(this.config);
 
     this.pullEl = this.el.querySelector(`.${selectorPrefix}inner`);
     this.iconEl = this.el.querySelector(`.${selectorPrefix}icon`);
@@ -159,8 +205,10 @@ class PullRefresh {
      * @type {boolean}
      * @private
      */
-    this.updateTime = moment().format(dataFormatStr);
-    this.updateEl.innerText = this.updateTime;
+    if (this.config.showUpdate) {
+      this.updateTime = moment().format(dataFormatStr);
+      this.updateEl.innerText = this.updateTime;
+    }
 
     this.isTop = true;
 
@@ -205,13 +253,17 @@ class PullRefresh {
         translateY(this.scrollEl, distance, 0);
         translateY(this.el, distance, 0);
         if (distance >= this.refreshHeight + 80) {
-          rotateIcon(this.iconEl, 0, 150);
+          if (!this.config.icon) {
+            rotateIcon(this.iconEl, 0, 150);
+          }
           console.log('3.具备刷新条件');
-          this.labelEl.innerText = '松开刷新';
+          this.labelEl.innerText = this.config.canLabel;
           this.events.trigger('pullCanRefresh');
         } else {
-          rotateIcon(this.iconEl, 180, 150);
-          this.labelEl.innerText = '下拉刷新';
+          if (!this.config.icon) {
+            rotateIcon(this.iconEl, 180, 150);
+          }
+          this.labelEl.innerText = this.config.label;
         }
         this.el.style.display = 'flex';
       } else {
@@ -220,9 +272,11 @@ class PullRefresh {
          */
         translateY(this.scrollEl, this.pullHeight, 0);
         translateY(this.el, this.pullHeight, 0);
-        rotateIcon(this.iconEl, 0, 150);
+        if (!this.config.icon) {
+          rotateIcon(this.iconEl, 0, 150);
+        }
         console.log('4.拉动到了底部');
-        this.labelEl.innerText = '松开刷新';
+        this.labelEl.innerText = this.config.canLabel;
         this.events.trigger('pullBottom');
       }
     } else if (this.downpull) {
@@ -232,7 +286,9 @@ class PullRefresh {
       e.preventDefault();
       translateY(this.scrollEl, 0, 0);
       translateY(this.el, 0, 0);
-      rotateIcon(this.iconEl, 180, 0);
+      if (!this.config.icon) {
+        rotateIcon(this.iconEl, 180, 0);
+      }
     } else {
       clear.call(this);
     }
@@ -299,8 +355,10 @@ class PullRefresh {
    * reset
    */
   reset() {
-    this.updateTime = moment().format(dataFormatStr);
-    this.updateEl.innerText = this.updateTime;
+    if (this.config.showUpdate) {
+      this.updateTime = moment().format(dataFormatStr);
+      this.updateEl.innerText = this.updateTime;
+    }
     reset.call(this);
   }
 

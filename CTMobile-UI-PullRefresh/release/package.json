@@ -37,9 +37,10 @@
   "homepage": "https://github.com/playerljc/CTMobile-UI#readme",
   "dependencies": {
     "@babel/runtime": "^7.2.0",
+    "@ctmobile/ui-util": "^1.0.0",
     "load-awesome": "^1.1.0",
-    "moment": "^2.24.0",
-    "@ctmobile/ui-util": "^1.0.0"
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0"
   },
   "devDependencies": {
     "@ct/build": "^1.0.0"
