@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-pullrefresh-demo</title>
+</head>
+
+<body>
+
+<div class="ctmobile-ui-doc">
+
+  <!-- PullRefresh -->
+
+  <!--菜单-->
+  <h1>PullRefresh</h1>
+  <ul>
+    <li><a href="#pullrefresh-layout">基本布局</a></li>
+    <li><a href="#pullrefresh-initial">初始化</a></li>
+    <li><a href="#pullrefresh-demo">例子</a></li>
+    <li><a href="#pullrefresh-methods">方法</a></li>
+    <li>
+      <a href="#pullrefresh-events">事件</a>
+      <ul>
+        <li><a href="#pullrefresh-events-pullstart">pullStart</a></li>
+        <li><a href="#pullrefresh-events-pullrebound">pullRebound</a></li>
+        <li><a href="#pullrefresh-events-pullcanrefresh">pullCanRefresh</a></li>
+        <li><a href="#pullrefresh-events-pullbottom">pullBottom</a></li>
+        <li><a href="#pullrefresh-events-pullrefresh">pullRefresh</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--基本布局-->
+  <h2 id="pullrefresh-layout">基本布局</h2>
+  <dl>
+    <dt>
+      <pre>
+        <code class="html">
+<div class="containerBlock">
+  <div class="ct-pullrefresh"></div>
+  <header class="headerBlock"></header>
+  <div class="scrollBlock">
+    <ul class="scrollInnerBlock"></ul>
+  </div>
+</div>
+        </code>
+      </pre>
+    </dt>
+    <dd>
+      <ul>
+        <li>
+          containerBlock - 整体容器
+          <ul>
+            <li>ct-pullrefresh - 下拉刷新容器</li>
+            <li>headerBlock - 头容器，覆盖下拉刷新容器</li>
+            <li>
+              scrollBlock - 滚动容器
+              <ul>
+                <li>scrollInnerBlock - 滚动内容容器</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </dd>
+  </dl>
+
+  <!--初始化-->
+  <h2 id="pullrefresh-initial">初始化</h2>
+  <pre>
+    <code class="javascript">
+import PullRefresh from '@ctmobile/ui-pullrefresh';
+import '@ctmobile/ui-pullrefresh/themes/default/pullrefresh.less';
+import '@ctmobile/ui-pullrefresh/pullrefresh.less';
+
+const scrollEl = document.getElementById('content');
+const scrollInnerEl = document.getElementById('list');
+const pullEl = document.getElementById('ct-pullrefresh');
+
+const pullRefresh = new PullRefresh({
+  scrollEl, scrollInnerEl, pullEl,
+});
+
+pullRefresh.on('pullRefresh', (ins) => {
+  setTimeout(() => {
+    ins.reset();
+  }, 1000 * 2);
+});
+    </code>
+  </pre>
+
+  <!--例子-->
+  <h2 id="pullrefresh-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+        <pre>
+<code class="html">
+<div id="container">
+  <div class="ct-pullrefresh" id="ct-pullrefresh"></div>
+  <header id="header">pullrefreshExample<a></a></header>
+  <div id="content" class="ct-list ios media-list">
+    <ul id="list">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/1" width="44"/></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">Yellow Submarine</div>
+            </div>
+            <div class="item-subtitle">Beatles</div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a class="item-link item-content">
+          <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/2" width="44"/></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">Don't Stop Me Now</div>
+            </div>
+            <div class="item-subtitle">Queen</div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/3" width="44"/></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">Billie Jean</div>
+            </div>
+            <div class="item-subtitle">Michael Jackson</div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/1" width="44"/></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">Yellow Submarine</div>
+            </div>
+            <div class="item-subtitle">Beatles</div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a class="item-link item-content">
+          <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/2" width="44"/></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">Don't Stop Me Now</div>
+            </div>
+            <div class="item-subtitle">Queen</div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/3" width="44"/></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">Billie Jean</div>
+            </div>
+            <div class="item-subtitle">Michael Jackson</div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/1" width="44"/></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">Yellow Submarine</div>
+            </div>
+            <div class="item-subtitle">Beatles</div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a class="item-link item-content">
+          <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/2" width="44"/></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">Don't Stop Me Now</div>
+            </div>
+            <div class="item-subtitle">Queen</div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/3" width="44"/></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">Billie Jean</div>
+            </div>
+            <div class="item-subtitle">Michael Jackson</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <footer id="footer">
+    <button id="pullrefresh-api-button">手动触发刷新</button>
+  </footer>
+</div>
+</code>
+        </pre>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+        <pre>
+<code class="javascript">
+import PullRefresh from '@ctmobile/ui-pullrefresh';
+import '@ctmobile/ui-pullrefresh/themes/default/pullrefresh.less';
+import '@ctmobile/ui-pullrefresh/pullrefresh.less';
+import './index.less';
+
+const scrollEl = document.getElementById('content');
+const scrollInnerEl = document.getElementById('list');
+const pullEl = document.getElementById('ct-pullrefresh');
+const pullRefreshApiButton = document.getElementById('pullrefresh-api-button');
+
+pullRefreshApiButton.addEventListener('click', () => {
+  pullRefresh.refresh();
+});
+
+const pullRefresh = new PullRefresh({
+  scrollEl, scrollInnerEl, pullEl,
+});
+
+pullRefresh.on('pullRefresh', (ins) => {
+  setTimeout(() => {
+    ins.reset();
+  }, 1000 * 2);
+});
+</code>
+        </pre>
+        </dd>
+      </dl>
+    </div>
+
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner" id="ctmobile-ui-doc-demo-device">
+          <div id="container">
+            <div class="ct-pullrefresh" id="ct-pullrefresh"></div>
+            <header id="header">pullrefreshExample<a></a></header>
+            <div id="content" class="ct-list ios media-list">
+              <ul id="list">
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/1" width="44"/></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title">Yellow Submarine</div>
+                      </div>
+                      <div class="item-subtitle">Beatles</div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <a class="item-link item-content">
+                    <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/2" width="44"/></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title">Don't Stop Me Now</div>
+                      </div>
+                      <div class="item-subtitle">Queen</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/3" width="44"/></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title">Billie Jean</div>
+                      </div>
+                      <div class="item-subtitle">Michael Jackson</div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/1" width="44"/></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title">Yellow Submarine</div>
+                      </div>
+                      <div class="item-subtitle">Beatles</div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <a class="item-link item-content">
+                    <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/2" width="44"/></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title">Don't Stop Me Now</div>
+                      </div>
+                      <div class="item-subtitle">Queen</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/3" width="44"/></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title">Billie Jean</div>
+                      </div>
+                      <div class="item-subtitle">Michael Jackson</div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/1" width="44"/></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title">Yellow Submarine</div>
+                      </div>
+                      <div class="item-subtitle">Beatles</div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <a class="item-link item-content">
+                    <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/2" width="44"/></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title">Don't Stop Me Now</div>
+                      </div>
+                      <div class="item-subtitle">Queen</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><img src="http://lorempixel.com/88/88/fashion/3" width="44"/></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title">Billie Jean</div>
+                      </div>
+                      <div class="item-subtitle">Michael Jackson</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <footer id="footer">
+              <button id="pullrefresh-api-button">手动触发刷新</button>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--方法-->
+  <h2 id="pullrefresh-methods">方法</h2>
+  <div class="method-wrap">
+    <p>reset - 取消下拉刷新</p>
+  </div>
+
+  <div class="method-wrap">
+    <p>refresh - 手动调用下拉刷新</p>
+  </div>
+
+  <div class="method-wrap">
+    <p>on(
+      <span class="parameter">type</span>,
+      <span class="parameter">handler</span>,
+      ) - 注册事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span>
+        事件类型
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span>
+        事件句柄
+      </li>
+    </ul>
+  </div>
+
+  <div class="method-wrap">
+    <p>off(
+      <span class="parameter">type</span>,
+      <span class="parameter">handler</span>,
+      ) - 删除指定type下的时间或清除所有事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span>
+        事件类型
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span>
+        事件句柄
+      </li>
+    </ul>
+  </div>
+
+
+  <!--事件-->
+  <h2 id="pullrefresh-events">事件</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="pullrefresh-events-pullstart">
+      <td>pullStart</td>
+      <td>拉动开始</td>
+    </tr>
+    <tr id="pullrefresh-events-pullrebound">
+      <td>pullRebound</td>
+      <td>没有具备刷新条件弹回</td>
+    </tr>
+    <tr id="pullrefresh-events-pullcanrefresh">
+      <td>pullcanrefresh</td>
+      <td>具备刷新条件</td>
+    </tr>
+    <tr id="pullrefresh-events-pullbottom">
+      <td>pullBottom</td>
+      <td>拉动到了底部</td>
+    </tr>
+    <tr id="pullrefresh-events-pullrefresh">
+      <td>pullRefresh</td>
+      <td>刷新</td>
+    </tr>
+    </tbody>
+  </table>
+  <pre>
+  <code class="javascript">
+import PullRefresh from '@ctmobile/ui-pullrefresh';
+import '@ctmobile/ui-pullrefresh/themes/default/pullrefresh.less';
+import '@ctmobile/ui-pullrefresh/pullrefresh.less';
+import './index.less';
+
+const scrollEl = document.getElementById('content');
+const scrollInnerEl = document.getElementById('list');
+const pullEl = document.getElementById('ct-pullrefresh');
+const pullRefreshApiButton = document.getElementById('pullrefresh-api-button');
+
+pullRefreshApiButton.addEventListener('click', () => {
+  pullRefresh.refresh();
+});
+
+const pullRefresh = new PullRefresh({
+  scrollEl, scrollInnerEl, pullEl,
+});
+
+pullRefresh.on('pullStart',() => {console.log('pullStart')});
+pullRefresh.on('pullRebound',() => {console.log('pullRebound')});
+pullRefresh.on('pullCanRefresh', () => {console.log('pullCanRefresh')});
+pullRefresh.on('pullBottom', () => {console.log('pullBottom')});
+pullRefresh.on('pullRefresh', () => {console.log('pullRefresh')});
+
+pullRefresh.on('pullRefresh', (ins) => {
+  setTimeout(() => {
+    ins.reset();
+  }, 1000 * 2);
+});
+  </code>
+  </pre>
+</div>
+
+
+</body>
+</html>
