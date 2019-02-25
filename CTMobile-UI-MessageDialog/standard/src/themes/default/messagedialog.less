@@ -1,0 +1,146 @@
+@import "../../mixins";
+
+.ct {
+  &-messdialog {
+    //Toast
+    &-toast {
+      &-top, &-bottom, &-center {
+        .ct-messdialog-toast-wrap {
+          color: #fff;
+          background: rgba(0, 0, 0, .8);
+          font-size: .8em;
+        }
+      }
+    }
+
+    // dialog
+    &-dialog {
+      font-family: Roboto, Noto, Helvetica, Arial, sans-serif;
+      background: rgba(0, 0, 0, 0.4);
+      & > &-in {
+        background: #fff;
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22), 0 15px 12px rgba(0, 0, 0, 0.22);
+        & > .ct-messdialog-dialog-in-inner {
+          & > .ct-messdialog-dialog-in-inner-title {
+            color: #212121;
+          }
+          & > .ct-messdialog-dialog-in-inner-text {
+            color: #757575;
+          }
+          & > .ct-messdialog-dialog-in-inner-input-field {
+            .text-input {
+              background: #fff;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+              &:focus {
+                border-bottom: 2px solid #2196f3;
+              }
+            }
+
+            .progress-infinite {
+              background-color: rgba(0, 0, 0, .1);
+              &:before {
+                background-color: rgb(0, 122, 255);
+              }
+            }
+
+            .progress-determined {
+              background-color: rgba(0, 0, 0, .1);
+              > .progress-bar {
+                background-color: rgb(0, 122, 255);
+              }
+            }
+          }
+        }
+        & > .ct-messdialog-dialog-in-buttons {
+          & > .ct-messdialog-dialog-in-buttons-button {
+            color: #2196f3;
+          }
+        }
+      }
+    }
+
+    // loading
+    &-loading {
+      &-nonetwork, &-fail, &-loading {
+        background-color: #fff;
+        &-content {
+          &-tip {
+            color: #ccc;
+          }
+        }
+      }
+
+      &-fail, &-empty {
+        border: 1px solid #3e98f0;
+        background: #fff;
+        color: #3e98f0;
+      }
+
+      &-nonetwork, &-fail {
+        &-content {
+          background: #fff;
+        }
+      }
+
+      &-loading {
+        &-tip {
+          color: #ccc;
+        }
+      }
+
+      &-nonetwork {
+        &-content {
+          &-logo {
+            background: url(./images/nonet.svg) no-repeat;
+            background-size: 100% 100%;
+          }
+          &-setting {
+            border: 1px solid #3e98f0;
+            background: #fff;
+            color: #3e98f0;
+          }
+        }
+      }
+
+      &-fail {
+        &-content {
+          &-logo {
+            background: url(./images/exception.svg) no-repeat;
+            background-size: 100%;
+          }
+          &-refresh {
+            border: 1px solid #3e98f0;
+            background: #fff;
+            color: #3e98f0;
+          }
+        }
+      }
+
+      &-empty {
+        &-logo {
+          background: url(./images/nodata.svg) no-repeat;
+          background-size: 100% 100%;
+        }
+        &-refresh {
+          border: 1px solid #3e98f0;
+          background: #fff;
+          color: #3e98f0;
+        }
+        &-tip {
+          color: #ccc;
+        }
+      }
+
+      &-submit {
+        background-color: rgba(0, 0, 0, .5);
+        &-inner {
+          background: #323232;
+          color: #fff;
+          & > .la-line-spin-clockwise-fade-rotating.la-dark {
+            color: #ccc;
+          }
+        }
+      }
+    }
+  }
+}

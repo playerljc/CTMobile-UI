@@ -1,0 +1,117 @@
+// media中的icon
+.ct-listview-icon(@color: red) {
+  width: 29px;
+  height: 29px;
+  line-height: 29px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: 100% auto;
+  font-style: normal;
+  position: relative;
+  color: @color !important;
+  border-radius: 50%;
+  text-align: center;
+}
+
+// 下方的边框
+.ct-listview-bottombordered-ios(@left: 0,@background:#c8c7cc) {
+  content: '';
+  position: absolute;
+  background-color: @background;
+  height: 1px;
+  transform-origin: 50% 50%;
+  right: 0;
+  left: @left;
+  bottom: 0;
+}
+
+// 下方的边框
+.ct-listview-bottombordered-md(@left: 0) {
+  content: '';
+  position: absolute;
+  background-color: rgba(0, 0, 0, .12);
+  right: 0;
+  bottom: 0;
+  left: @left;
+  height: 1px;
+  transform-origin: 50% 100%;
+}
+
+// 上下边框
+.ct-listview-topbottombordered-ios(@background:#c8c7cc) {
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    background-color: @background;
+    height: 1px;
+    width: 100%;
+    transform-origin: 50% 50%;
+    left: 0;
+  }
+  &:before {
+    top: 0;
+  }
+  &:after {
+    bottom: 0;
+  }
+}
+
+// 上下边框
+.ct-listview-topbottombordered-md {
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, .12);
+    height: 1px;
+    width: 100%;
+    transform-origin: 50% 0;
+    left: 0;
+  }
+  &:before {
+    top: 0;
+  }
+  &:after {
+    bottom: 0;
+  }
+}
+
+// 水平居中
+.ct-listview-flex-v-c {
+  display: flex;
+  align-items: center;
+}
+
+// 文本两端对齐，水平居中
+.ct-listview-flex-v-sb-h-c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// 文本一行省略
+.ct-listview-inline-nowrap {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+// item-link右侧的箭头
+.ct-listview-item-link-background(@positionLeft:'center';@positionRight:'center';@background) {
+  background: @background no-repeat @positionLeft @positionRight;
+  background-size: 12px 20px;
+}
+
+// 省略...
+.ct-listview-text-omit(@lineClamp:2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: @lineClamp;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+
+// 省略函数
+.ct-listview-text-omit-count(@count) {
+  line-height: @count;
+  max-height: @count * 2;
+}
