@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-revolving-demo</title>
+</head>
+
+<body>
+
+<div class="ctmobile-ui-doc">
+
+  <!-- Revolving -->
+
+  <!--菜单-->
+  <h1>Revolving</h1>
+  <ul>
+    <li><a href="#revolving-layout">基本布局</a></li>
+    <li><a href="#revolving-initial">初始化</a></li>
+    <li><a href="#revolving-demo">例子</a></li>
+    <li><a href="#revolving-methods">方法</a></li>
+    <li>
+      <a href="#revolving-events">事件</a>
+      <ul>
+        <li><a href="#revolving-events-autoplayStart">autoplayStart</a></li>
+        <li><a href="#revolving-events-autoplayStopEvent">autoplayStopEvent</a></li>
+        <li><a href="#revolving-events-autoplay">autoplay</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--基本布局-->
+  <h2 id="revolving-layout">基本布局</h2>
+  <dl>
+    <dt>
+      <pre>
+        <code class="html">
+<div class="ct-revolving">
+  <div class="ct-revolving-wrapper">
+      <div class="ct-revolving-slide">Slide 1</div>
+      ...
+  </div>
+</div>
+        </code>
+      </pre>
+    </dt>
+    <dd>
+      <ul>
+        <li>
+          ct-revolving - 整体容器
+          <ul>
+            <li>
+              ct-revolving-wrapper - 滚动项包装容器
+              <ul>
+                <li>ct-revolving-slide - 滚动项(多个)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </dd>
+  </dl>
+
+  <!--初始化-->
+  <h2 id="revolving-initial">初始化</h2>
+  <pre>
+    <code class="javascript">
+import Revolving from '@ctmobile/ui-revolving';
+import '@ctmobile/ui-revolving/lib/revolving.less';
+
+const revolving = new Revolving(
+  document.getElementById('ct-revolving'), {
+    delay: 3000,
+    direction: 'top',
+  }
+);
+
+revolving.on('autoplayStart', () => { console.log('autoplayStart'); });
+revolving.on('autoplayStopEvent', () => { console.log('autoplayStopEvent'); });
+revolving.on('autoplay', () => { console.log('autoplay'); });
+    </code>
+  </pre>
+
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{HtmlElement} - el</td>
+      <td>整体元素</td>
+    </tr>
+    <tr>
+      <td>{object} - config</td>
+      <td>
+        <p>配置</p>
+        <div class="method-wrap">
+          <p>speed {number} - 幻灯片之间的过渡持续时间（毫秒）</p>
+        </div>
+        <div class="method-wrap">
+          <p>delay {number} - 转换之间的延迟（以ms为单位）</p>
+        </div>
+        <div class="method-wrap">
+          <p>direction {string} - [left | right | top | bottom] 滚动方向</p>
+        </div>
+        <div class="method-wrap">
+          <p>loop {boolean} - 是否循环播放</p>
+        </div>
+        <div class="method-wrap">
+          <p>stopOnLastSlide {boolean} - 启用此参数并在到达最后一张幻灯片时停止自动播放（在循环模式下无效）</p>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--例子-->
+  <h2 id="revolving-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+        <pre>
+<code class="html">
+<dl>
+          <dt>direction - left</dt>
+          <dd>
+            <div class="ct-revolving" id="ct-revolving-left">
+              <div class="ct-revolving-wrapper">
+                <div class="ct-revolving-slide">Slide 1</div>
+                <div class="ct-revolving-slide">Slide 2</div>
+                <div class="ct-revolving-slide">Slide 3</div>
+                <div class="ct-revolving-slide">Slide 4</div>
+                <div class="ct-revolving-slide">Slide 5</div>
+                <div class="ct-revolving-slide">Slide 6</div>
+                <div class="ct-revolving-slide">Slide 7</div>
+                <div class="ct-revolving-slide">Slide 8</div>
+                <div class="ct-revolving-slide">Slide 9</div>
+                <div class="ct-revolving-slide">Slide 10</div>
+              </div>
+            </div>
+          </dd>
+        </dl>
+
+<dl>
+  <dt>direction - right</dt>
+  <dd>
+    <div class="ct-revolving" id="ct-revolving-right">
+      <div class="ct-revolving-wrapper">
+        <div class="ct-revolving-slide">Slide 1</div>
+        <div class="ct-revolving-slide">Slide 2</div>
+        <div class="ct-revolving-slide">Slide 3</div>
+        <div class="ct-revolving-slide">Slide 4</div>
+        <div class="ct-revolving-slide">Slide 5</div>
+        <div class="ct-revolving-slide">Slide 6</div>
+        <div class="ct-revolving-slide">Slide 7</div>
+        <div class="ct-revolving-slide">Slide 8</div>
+        <div class="ct-revolving-slide">Slide 9</div>
+        <div class="ct-revolving-slide">Slide 10</div>
+      </div>
+    </div>
+  </dd>
+</dl>
+
+<dl>
+  <dt>direction - top</dt>
+  <dd>
+    <div class="ct-revolving" id="ct-revolving-top">
+      <div class="ct-revolving-wrapper">
+        <div class="ct-revolving-slide">Slide 1</div>
+        <div class="ct-revolving-slide">Slide 2</div>
+        <div class="ct-revolving-slide">Slide 3</div>
+        <div class="ct-revolving-slide">Slide 4</div>
+        <div class="ct-revolving-slide">Slide 5</div>
+        <div class="ct-revolving-slide">Slide 6</div>
+        <div class="ct-revolving-slide">Slide 7</div>
+        <div class="ct-revolving-slide">Slide 8</div>
+        <div class="ct-revolving-slide">Slide 9</div>
+        <div class="ct-revolving-slide">Slide 10</div>
+      </div>
+    </div>
+  </dd>
+</dl>
+
+<dl>
+  <dt>direction - bottom</dt>
+  <dd>
+    <div class="ct-revolving" id="ct-revolving-bottom">
+      <div class="ct-revolving-wrapper">
+        <div class="ct-revolving-slide">Slide 1</div>
+        <div class="ct-revolving-slide">Slide 2</div>
+        <div class="ct-revolving-slide">Slide 3</div>
+        <div class="ct-revolving-slide">Slide 4</div>
+        <div class="ct-revolving-slide">Slide 5</div>
+        <div class="ct-revolving-slide">Slide 6</div>
+        <div class="ct-revolving-slide">Slide 7</div>
+        <div class="ct-revolving-slide">Slide 8</div>
+        <div class="ct-revolving-slide">Slide 9</div>
+        <div class="ct-revolving-slide">Slide 10</div>
+      </div>
+    </div>
+  </dd>
+</dl>
+
+<dl>
+  <dt>speed - 过度时间</dt>
+  <dd>
+    <div class="ct-revolving" id="ct-revolving-speed">
+      <div class="ct-revolving-wrapper">
+        <div class="ct-revolving-slide">Slide 1</div>
+        <div class="ct-revolving-slide">Slide 2</div>
+        <div class="ct-revolving-slide">Slide 3</div>
+        <div class="ct-revolving-slide">Slide 4</div>
+        <div class="ct-revolving-slide">Slide 5</div>
+        <div class="ct-revolving-slide">Slide 6</div>
+        <div class="ct-revolving-slide">Slide 7</div>
+        <div class="ct-revolving-slide">Slide 8</div>
+        <div class="ct-revolving-slide">Slide 9</div>
+        <div class="ct-revolving-slide">Slide 10</div>
+      </div>
+    </div>
+  </dd>
+</dl>
+
+<dl>
+  <dt>delay - 转换时间</dt>
+  <dd>
+    <div class="ct-revolving" id="ct-revolving-delay">
+      <div class="ct-revolving-wrapper">
+        <div class="ct-revolving-slide">Slide 1</div>
+        <div class="ct-revolving-slide">Slide 2</div>
+        <div class="ct-revolving-slide">Slide 3</div>
+        <div class="ct-revolving-slide">Slide 4</div>
+        <div class="ct-revolving-slide">Slide 5</div>
+        <div class="ct-revolving-slide">Slide 6</div>
+        <div class="ct-revolving-slide">Slide 7</div>
+        <div class="ct-revolving-slide">Slide 8</div>
+        <div class="ct-revolving-slide">Slide 9</div>
+        <div class="ct-revolving-slide">Slide 10</div>
+      </div>
+    </div>
+  </dd>
+</dl>
+
+<dl>
+  <dt>api控制</dt>
+  <dd>
+    <div class="ct-revolving" id="ct-revolving-api">
+      <div class="ct-revolving-wrapper">
+        <div class="ct-revolving-slide">Slide 1</div>
+        <div class="ct-revolving-slide">Slide 2</div>
+        <div class="ct-revolving-slide">Slide 3</div>
+        <div class="ct-revolving-slide">Slide 4</div>
+        <div class="ct-revolving-slide">Slide 5</div>
+        <div class="ct-revolving-slide">Slide 6</div>
+        <div class="ct-revolving-slide">Slide 7</div>
+        <div class="ct-revolving-slide">Slide 8</div>
+        <div class="ct-revolving-slide">Slide 9</div>
+        <div class="ct-revolving-slide">Slide 10</div>
+      </div>
+    </div>
+
+    <div>
+      <a class="ctmobile-ui-demo-button" id="startRevolving">start</a>
+      <a class="ctmobile-ui-demo-button" id="stopRevolving">stop</a>
+    </div>
+  </dd>
+</dl>
+</code>
+        </pre>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+        <pre>
+<code class="javascript">
+import Revolving from '@ctmobile/ui-revolving';
+import '@ctmobile/ui-revolving/revolving.less';
+
+const leftRevolving = new Revolving(
+document.getElementById('ct-revolving-left'), {
+  direction: 'left',
+});
+
+const rightRevolving = new Revolving(
+document.getElementById('ct-revolving-right'), {
+  direction: 'right',
+});
+
+const topRevolving = new Revolving(
+document.getElementById('ct-revolving-top'), {
+  direction: 'top',
+});
+
+const bottomRevolving = new Revolving(
+document.getElementById('ct-revolving-bottom'), {
+  direction: 'bottom',
+});
+
+const speedRevolving = new Revolving(
+document.getElementById('ct-revolving-speed'), {
+  speed: 1000 * 3,
+});
+
+const delayRevolving = new Revolving(
+document.getElementById('ct-revolving-delay'), {
+  delay: 1000 * 3,
+});
+
+const apiRevolving = new Revolving(
+  document.getElementById('ct-revolving-api')
+);
+
+document.getElementById('startRevolving').addEventListener('click', () => {
+  apiRevolving.start();
+});
+
+document.getElementById('stopRevolving').addEventListener('click', () => {
+  apiRevolving.stop();
+});
+</code>
+        </pre>
+        </dd>
+      </dl>
+    </div>
+
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner" id="ctmobile-ui-doc-demo-device">
+
+          <dl>
+            <dt>direction - left</dt>
+            <dd>
+              <div class="ct-revolving" id="ct-revolving-left">
+                <div class="ct-revolving-wrapper">
+                  <div class="ct-revolving-slide">Slide 1</div>
+                  <div class="ct-revolving-slide">Slide 2</div>
+                  <div class="ct-revolving-slide">Slide 3</div>
+                  <div class="ct-revolving-slide">Slide 4</div>
+                  <div class="ct-revolving-slide">Slide 5</div>
+                  <div class="ct-revolving-slide">Slide 6</div>
+                  <div class="ct-revolving-slide">Slide 7</div>
+                  <div class="ct-revolving-slide">Slide 8</div>
+                  <div class="ct-revolving-slide">Slide 9</div>
+                  <div class="ct-revolving-slide">Slide 10</div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+          <dl>
+            <dt>direction - right</dt>
+            <dd>
+              <div class="ct-revolving" id="ct-revolving-right">
+                <div class="ct-revolving-wrapper">
+                  <div class="ct-revolving-slide">Slide 1</div>
+                  <div class="ct-revolving-slide">Slide 2</div>
+                  <div class="ct-revolving-slide">Slide 3</div>
+                  <div class="ct-revolving-slide">Slide 4</div>
+                  <div class="ct-revolving-slide">Slide 5</div>
+                  <div class="ct-revolving-slide">Slide 6</div>
+                  <div class="ct-revolving-slide">Slide 7</div>
+                  <div class="ct-revolving-slide">Slide 8</div>
+                  <div class="ct-revolving-slide">Slide 9</div>
+                  <div class="ct-revolving-slide">Slide 10</div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+          <dl>
+            <dt>direction - top</dt>
+            <dd>
+              <div class="ct-revolving" id="ct-revolving-top">
+                <div class="ct-revolving-wrapper">
+                  <div class="ct-revolving-slide">Slide 1</div>
+                  <div class="ct-revolving-slide">Slide 2</div>
+                  <div class="ct-revolving-slide">Slide 3</div>
+                  <div class="ct-revolving-slide">Slide 4</div>
+                  <div class="ct-revolving-slide">Slide 5</div>
+                  <div class="ct-revolving-slide">Slide 6</div>
+                  <div class="ct-revolving-slide">Slide 7</div>
+                  <div class="ct-revolving-slide">Slide 8</div>
+                  <div class="ct-revolving-slide">Slide 9</div>
+                  <div class="ct-revolving-slide">Slide 10</div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+          <dl>
+            <dt>direction - bottom</dt>
+            <dd>
+              <div class="ct-revolving" id="ct-revolving-bottom">
+                <div class="ct-revolving-wrapper">
+                  <div class="ct-revolving-slide">Slide 1</div>
+                  <div class="ct-revolving-slide">Slide 2</div>
+                  <div class="ct-revolving-slide">Slide 3</div>
+                  <div class="ct-revolving-slide">Slide 4</div>
+                  <div class="ct-revolving-slide">Slide 5</div>
+                  <div class="ct-revolving-slide">Slide 6</div>
+                  <div class="ct-revolving-slide">Slide 7</div>
+                  <div class="ct-revolving-slide">Slide 8</div>
+                  <div class="ct-revolving-slide">Slide 9</div>
+                  <div class="ct-revolving-slide">Slide 10</div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+          <dl>
+            <dt>speed - 过度时间</dt>
+            <dd>
+              <div class="ct-revolving" id="ct-revolving-speed">
+                <div class="ct-revolving-wrapper">
+                  <div class="ct-revolving-slide">Slide 1</div>
+                  <div class="ct-revolving-slide">Slide 2</div>
+                  <div class="ct-revolving-slide">Slide 3</div>
+                  <div class="ct-revolving-slide">Slide 4</div>
+                  <div class="ct-revolving-slide">Slide 5</div>
+                  <div class="ct-revolving-slide">Slide 6</div>
+                  <div class="ct-revolving-slide">Slide 7</div>
+                  <div class="ct-revolving-slide">Slide 8</div>
+                  <div class="ct-revolving-slide">Slide 9</div>
+                  <div class="ct-revolving-slide">Slide 10</div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+          <dl>
+            <dt>delay - 转换时间</dt>
+            <dd>
+              <div class="ct-revolving" id="ct-revolving-delay">
+                <div class="ct-revolving-wrapper">
+                  <div class="ct-revolving-slide">Slide 1</div>
+                  <div class="ct-revolving-slide">Slide 2</div>
+                  <div class="ct-revolving-slide">Slide 3</div>
+                  <div class="ct-revolving-slide">Slide 4</div>
+                  <div class="ct-revolving-slide">Slide 5</div>
+                  <div class="ct-revolving-slide">Slide 6</div>
+                  <div class="ct-revolving-slide">Slide 7</div>
+                  <div class="ct-revolving-slide">Slide 8</div>
+                  <div class="ct-revolving-slide">Slide 9</div>
+                  <div class="ct-revolving-slide">Slide 10</div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+          <dl>
+            <dt>api控制</dt>
+            <dd>
+              <div class="ct-revolving" id="ct-revolving-api">
+                <div class="ct-revolving-wrapper">
+                  <div class="ct-revolving-slide">Slide 1</div>
+                  <div class="ct-revolving-slide">Slide 2</div>
+                  <div class="ct-revolving-slide">Slide 3</div>
+                  <div class="ct-revolving-slide">Slide 4</div>
+                  <div class="ct-revolving-slide">Slide 5</div>
+                  <div class="ct-revolving-slide">Slide 6</div>
+                  <div class="ct-revolving-slide">Slide 7</div>
+                  <div class="ct-revolving-slide">Slide 8</div>
+                  <div class="ct-revolving-slide">Slide 9</div>
+                  <div class="ct-revolving-slide">Slide 10</div>
+                </div>
+              </div>
+
+              <div>
+                <a class="ctmobile-ui-demo-button" id="startRevolving">start</a>
+                <a class="ctmobile-ui-demo-button" id="stopRevolving">stop</a>
+              </div>
+            </dd>
+          </dl>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--方法-->
+  <h2 id="revolving-methods">方法</h2>
+  <div class="method-wrap">
+    <p>start - 播放</p>
+  </div>
+
+  <div class="method-wrap">
+    <p>stop - 暂停播放</p>
+  </div>
+
+  <div class="method-wrap">
+    <p>isRunning - 是否进行播放</p>
+  </div>
+
+  <div class="method-wrap">
+    <p>on(
+      <span class="parameter">type</span>,
+      <span class="parameter">handler</span>,
+      ) - 注册事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span>
+        事件类型
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span>
+        事件句柄
+      </li>
+    </ul>
+  </div>
+
+
+  <!--事件-->
+  <h2 id="revolving-events">事件</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="revolving-events-autoplayStart">
+      <td>autoplayStart</td>
+      <td>自动播放开始时将触发事件</td>
+    </tr>
+    <tr id="revolving-events-autoplayStopEvent">
+      <td>autoplayStopEvent</td>
+      <td>自动播放停止时将触发事件</td>
+    </tr>
+    <tr id="revolving-events-autoplay">
+      <td>autoplay</td>
+      <td>使用自动播放更改幻灯片时将触发事件</td>
+    </tr>
+    </tbody>
+  </table>
+  <pre>
+  <code class="javascript">
+import Revolving from '@ctmobile/ui-revolving';
+import '@ctmobile/ui-revolving/lib/revolving.less';
+
+const revolving = new Revolving(
+  document.getElementById('ct-revolving'), {
+    delay: 3000,
+    direction: 'top',
+  }
+);
+
+revolving.on('autoplayStart', () => { console.log('autoplayStart'); });
+revolving.on('autoplayStopEvent', () => { console.log('autoplayStopEvent'); });
+revolving.on('autoplay', () => { console.log('autoplay'); });
+  </code>
+  </pre>
+</div>
+
+</body>
+</html>
