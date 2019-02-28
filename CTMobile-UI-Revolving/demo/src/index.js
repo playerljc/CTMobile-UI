@@ -4,43 +4,43 @@ import './index.less';
 
 DemoUtil.initial();
 
-const leftRevolving = new Revolving(
+const leftRevolving = Revolving(
   document.getElementById('ct-revolving-left'), {
     direction: 'left',
   }
 );
 
-const rightRevolving = new Revolving(
+const rightRevolving = Revolving(
   document.getElementById('ct-revolving-right'), {
     direction: 'right',
   }
 );
 
-const topRevolving = new Revolving(
+const topRevolving = Revolving(
   document.getElementById('ct-revolving-top'), {
     direction: 'top',
   }
 );
 
-const bottomRevolving = new Revolving(
+const bottomRevolving = Revolving(
   document.getElementById('ct-revolving-bottom'), {
     direction: 'bottom',
   }
 );
 
-const speedRevolving = new Revolving(
+const speedRevolving = Revolving(
   document.getElementById('ct-revolving-speed'), {
     speed: 1000 * 3,
   }
 );
 
-const delayRevolving = new Revolving(
+const delayRevolving = Revolving(
   document.getElementById('ct-revolving-delay'), {
     delay: 1000 * 3,
   }
 );
 
-const apiRevolving = new Revolving(
+const apiRevolving = Revolving(
   document.getElementById('ct-revolving-api')
 );
 

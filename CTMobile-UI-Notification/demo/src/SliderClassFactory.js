@@ -41,7 +41,7 @@ class MeTopClosedCustomClass extends Base {
   onInit() {
     console.log('MeTopClosedCustomClass:onInit');
 
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-me-top-closed-custom-wrap'),
       {
         style: 'material',
@@ -70,7 +70,7 @@ class MeTopClosedStandardClass extends Base {
   onInit() {
     console.log('MeTopClosedStandardClass:onInit');
 
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-me-top-closed-standard-wrap'),
       {
         style: 'material',
@@ -96,7 +96,7 @@ class MeTopUnClosedCustomClass extends Base {
   onInit() {
     console.log('MeTopUnClosedCustomClass:onInit');
 
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-me-top-unclosed-custom-wrap'),
       {
         style: 'material',
@@ -127,7 +127,7 @@ class MeTopUnClosedStandardClass extends Base {
 
   onInit() {
     console.log('MeTopUnClosedStandardClass:onInit');
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-me-top-unclosed-standard-wrap'),
       {
         style: 'material',
@@ -156,7 +156,7 @@ class MeBottomClosedCustomClass extends Base {
 
   onInit() {
     console.log('MeBottomClosedCustomClass:onInit');
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-me-bottom-closed-custom-wrap'),
       {
         style: 'material',
@@ -185,7 +185,7 @@ class MeBottomClosedStandardClass extends Base {
   onInit() {
     console.log('MeBottomClosedStandardClass:onInit');
 
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-me-bottom-closed-standard-wrap'),
       {
         style: 'material',
@@ -210,7 +210,7 @@ class MeBottomUnClosedCustomClass extends Base {
 
   onInit() {
     console.log('MeBottomUnClosedCustomClass:onInit');
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-me-bottom-unclosed-custom-wrap'),
       {
         style: 'material',
@@ -242,7 +242,7 @@ class MeBottomUnClosedStandardClass extends Base {
   onInit() {
     console.log('MeBottomUnClosedStandardClass:onInit');
 
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-me-bottom-unclosed-standard-wrap'),
       {
         style: 'material',
@@ -272,7 +272,7 @@ class iOSTopClosedCustomClass extends Base {
   onInit() {
     console.log('iOSTopClosedCustomClass:onInit');
 
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-ios-top-closed-custom-wrap'),
       {
         style: 'ios',
@@ -301,7 +301,7 @@ class iOSTopClosedStandardClass extends Base {
   onInit() {
     console.log('iOSTopClosedStandardClass:onInit');
 
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-ios-top-closed-standard-wrap'),
       {
         style: 'ios',
@@ -327,7 +327,7 @@ class iOSTopUnClosedCustomClass extends Base {
   onInit() {
     console.log('iOSTopUnClosedCustomClass:onInit');
 
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-ios-top-unclosed-custom-wrap'),
       {
         style: 'ios',
@@ -359,7 +359,7 @@ class iOSTopUnClosedStandardClass extends Base {
   onInit() {
     console.log('iOSTopUnClosedStandardClass:onInit');
 
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-ios-top-unclosed-standard-wrap'),
       {
         style: 'ios',
@@ -389,7 +389,7 @@ class iOSBottomClosedCustomClass extends Base {
   onInit() {
     console.log('iOSBottomClosedCustomClass:onInit');
 
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-ios-bottom-closed-custom-wrap'),
       {
         style: 'ios',
@@ -418,7 +418,7 @@ class iOSBottomClosedStandardClass extends Base {
   onInit() {
     console.log('iOSBottomClosedStandardClass:onInit');
 
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-ios-bottom-closed-standard-wrap'),
       {
         style: 'ios',
@@ -444,7 +444,7 @@ class iOSBottomUnClosedCustomClass extends Base {
   onInit() {
     console.log('iOSBottomUnClosedCustomClass:onInit');
 
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-ios-bottom-unclosed-custom-wrap'),
       {
         style: 'ios',
@@ -476,7 +476,7 @@ class iOSBottomUnClosedStandardClass extends Base {
   onInit() {
     console.log('iOSBottomUnClosedStandardClass:onInit');
 
-    this.n = new Notification(
+    this.n = Notification(
       document.getElementById('style-ios-bottom-unclosed-standard-wrap'),
       {
         style: 'ios',

@@ -79,7 +79,7 @@ const scrollEl = document.getElementById('content');
 const scrollInnerEl = document.getElementById('list');
 const pullEl = document.getElementById('ct-pullrefresh');
 
-const pullRefresh = new PullRefresh({
+const pullRefresh = PullRefresh({
   scrollEl, scrollInnerEl, pullEl,
 });
 
@@ -283,7 +283,7 @@ pullRefreshApiButton.addEventListener('click', () => {
   pullRefresh.refresh();
 });
 
-const pullRefresh = new PullRefresh({
+const pullRefresh = PullRefresh({
   scrollEl, scrollInnerEl, pullEl,
 });
 
@@ -510,7 +510,7 @@ pullRefreshApiButton.addEventListener('click', () => {
   pullRefresh.refresh();
 });
 
-const pullRefresh = new PullRefresh({
+const pullRefresh = PullRefresh({
   scrollEl, scrollInnerEl, pullEl,
 });
 

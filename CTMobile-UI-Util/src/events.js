@@ -29,6 +29,15 @@ class Events {
   }
 
   /**
+   * hasType
+   * @param {string} type
+   * @return {boolean}
+   */
+  hasType(type) {
+    return Object.keys(this.events).indexOf(type) !== -1;
+  }
+
+  /**
    * clear 清除一个type下的所有handler
    * @param {string} type
    */

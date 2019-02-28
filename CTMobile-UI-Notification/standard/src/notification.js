@@ -259,4 +259,12 @@ class Notification {
   }
 }
 
-export default Notification;
+/**
+ * Notification
+ * @param {HtmlElement} el
+ * @param {object} config
+ * @return {Notification}
+ */
+export default function (el, config) {
+  return new Notification(el, config);
+}

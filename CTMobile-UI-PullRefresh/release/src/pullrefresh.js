@@ -403,4 +403,11 @@ class PullRefresh {
   }
 }
 
-export default PullRefresh;
+/**
+ * PullRefresh
+ * @param {Object} config
+ * @return {PullRefresh}
+ */
+export default function (config) {
+  return new PullRefresh(config);
+}

@@ -13,7 +13,7 @@ pullRefreshApiButton.addEventListener('click', () => {
   pullRefresh.refresh();
 });
 
-const pullRefresh = new PullRefresh({
+const pullRefresh = PullRefresh({
   scrollEl,
   scrollInnerEl,
   pullEl,
@@ -30,5 +30,5 @@ pullRefresh.on('pullBottom', () => { console.log('pullBottom'); });
 pullRefresh.on('pullRefresh', (ins) => {
   setTimeout(() => {
     ins.reset();
-  }, 1000 * 20);
+  }, 1000 * 3);
 });

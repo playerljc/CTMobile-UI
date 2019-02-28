@@ -123,4 +123,12 @@ class Revolving {
   }
 }
 
-export default Revolving;
+/**
+ * Revolving
+ * @param {HtmlElement} el
+ * @param {Object} config
+ * @return {Revolving}
+ */
+export default function (el, config) {
+  return new Revolving(el, config);
+}
