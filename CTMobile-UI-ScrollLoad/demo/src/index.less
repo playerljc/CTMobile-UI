@@ -1,0 +1,61 @@
+@import "../node_modules/@ctmobile/ui-demo-util/lib/index.less";
+@import '../node_modules/@ctmobile/ui-scrollload/lib/themes/default/scrollload.less';
+@import '../node_modules/@ctmobile/ui-scrollload/lib/scrollload.less';
+
+#ctmobile-ui-doc-demo-device {
+  position: relative;
+  //width: 100%;
+  //height: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+header, footer, .ct-scrolload-content {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+header, footer {
+  height: 44px;
+  line-height: 44px;
+  background-color: #00a0df;
+  text-align: center;
+  color: #fff;
+}
+
+header {
+  top: 0;
+}
+
+footer {
+  bottom: 0;
+}
+
+.ct-scrolload-content {
+  top: 44px;
+  bottom: 44px;
+  padding: 10px;
+}
+
+#listView {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  > li {
+    padding: 5px 10px;
+    box-sizing: border-box;
+    &:not(:last-of-type):after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      height: 1px;
+      background-color: rgba(0, 0, 0, .1);
+    }
+    &:before,&:after {
+      width: 0;
+      height: 0;
+    }
+  }
+}

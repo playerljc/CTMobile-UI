@@ -1,0 +1,28 @@
+@import "./mixins.less";
+
+.ct {
+  &-scrolload {
+    &-content {
+      overflow-x: hidden;
+      overflow-y: auto;
+      overflow-scrolling: touch;
+    }
+
+    &-load, &-empty, &-error {
+      height: @tipheight;
+      line-height: @tipheight;
+      text-align: center;
+      padding: 5px;
+      display: none;
+    }
+
+    &-load.standard {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:before {
+        .ct-scroll-load-animation-standard;
+      }
+    }
+  }
+}

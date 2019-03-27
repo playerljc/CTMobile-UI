@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-scrollload-demo</title>
+  <style>
+    body, html {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    header, footer, .ct-scrolload-content {
+      position: absolute;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    header, footer {
+      height: 44px;
+      line-height: 44px;
+      background-color: #00a0df;
+      text-align: center;
+      color: #fff;
+    }
+
+    header {
+      top: 0;
+    }
+
+    footer {
+      bottom: 0;
+    }
+
+    .ct-scrolload-content {
+      top: 44px;
+      bottom: 44px;
+      padding: 10px;
+    }
+
+    #listView {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #listView > li {
+      padding: 5px 10px;
+      box-sizing: border-box;
+    }
+
+    #listView > li:not(:last-of-type):after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      height: 1px;
+      background-color: rgba(0, 0, 0, .1);
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="ct-scrolload" id="container">
+  <header>scrollappend</header>
+  <div class="ct-scrolload-content" id="content">
+    <ul id="listView"></ul>
+    <div class='ct-scrolload-load standard'>数据加载中</div>
+    <div class='ct-scrolload-empty'>~没有更多</div>
+    <div class='ct-scrolload-error'>出现错误</div>
+  </div>
+  <footer></footer>
+</div>
+
+</body>
+
+</html>

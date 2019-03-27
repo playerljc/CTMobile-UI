@@ -5,78 +5,363 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
   <title>ctmobile-ui-scrollload-demo</title>
-  <style>
-    body, html {
-      width: 100%;
-      height: 100%;
-      padding: 0;
-      margin: 0;
-      overflow: hidden;
-    }
-
-    header, footer, .ct-scrolload-content {
-      position: absolute;
-      box-sizing: border-box;
-      width: 100%;
-    }
-
-    header, footer {
-      height: 44px;
-      line-height: 44px;
-      background-color: #00a0df;
-      text-align: center;
-      color: #fff;
-    }
-
-    header {
-      top: 0;
-    }
-
-    footer {
-      bottom: 0;
-    }
-
-    .ct-scrolload-content {
-      top: 44px;
-      bottom: 44px;
-      padding: 10px;
-    }
-
-    #listView {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    #listView > li {
-      padding: 5px 10px;
-      box-sizing: border-box;
-    }
-
-    #listView > li:not(:last-of-type):after {
-      content: '';
-      display: inline-block;
-      width: 100%;
-      height: 1px;
-      background-color: rgba(0, 0, 0, .1);
-    }
-
-  </style>
 </head>
 
 <body>
 
-<div class="ct-scrolload" id="container">
-  <header>scrollappend</header>
-  <div class="ct-scrolload-content" id="content">
-    <ul id="listView"></ul>
+<div class="ctmobile-ui-doc">
+
+  <!-- ScrollLoad -->
+
+  <!--菜单-->
+  <h1>ScrollLoad</h1>
+  <ul>
+    <li><a href="#scrollload-layout">基本布局</a></li>
+    <li><a href="#scrollload-initial">初始化</a></li>
+    <li><a href="#scrollload-demo">例子</a></li>
+    <li><a href="#scrollload-methods">方法</a></li>
+    <li>
+      <a href="#scrollload-events">事件</a>
+      <ul>
+        <li><a href="#scrollload-events-scrollbottom">scrollbottom</a></li>
+        <li><a href="#scrollload-events-emptyclick">emptyclick</a></li>
+        <li><a href="#scrollload-events-errorclick">errorclick</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--基本布局-->
+  <h2 id="scrollload-layout">基本布局</h2>
+  <dl>
+    <dt>
+      <pre>
+        <code class="html">
+<div class="ct-scrolload">
+  <header>header</header>
+  <div class="ct-scrolload-content">
+    <ul id="listView">
+      ...
+    </ul>
     <div class='ct-scrolload-load standard'>数据加载中</div>
     <div class='ct-scrolload-empty'>~没有更多</div>
     <div class='ct-scrolload-error'>出现错误</div>
   </div>
-  <footer></footer>
+  <footer>footer</footer>
+</div>
+        </code>
+      </pre>
+    </dt>
+    <dd>
+      <ul>
+        <li>
+          ct-scrolload - 整体容器
+          <ul>
+            <li>头元素(header) - 用来遮罩下拉刷新</li>
+            <li>
+              ct-scrolload-content - 可滚动容器
+              <ul>
+                <li>任意一个元素(listView) - 用来显示滚动数据</li>
+                <li>ct-scrolload-load - 加载tip</li>
+                <li>ct-scrolload-empty - 没有数据的tip</li>
+                <li>ct-scrolload-error - 错误tip</li>
+              </ul>
+            </li>
+            <li>底部元素(footer)</li>
+          </ul>
+        </li>
+      </ul>
+    </dd>
+  </dl>
+
+  <!--初始化-->
+  <h2 id="scrollload-initial">初始化</h2>
+  <pre>
+    <code class="javascript">
+import ScrollLoad, { CONSTANT } from '@ctmobile/ui-scrollload';
+import '@ctmobile/ui-scrollload/lib/themes/default/scrollload.less';
+import '@ctmobile/ui-scrollload/lib/scrollload.less';
+
+function appendData() {
+  const df = document.createDocumentFragment();
+
+  for (let i = 0; i &lt; 30; i++) {
+    df.appendChild($(<pre><code class="html">'<li>CTMobileUI移动框架中的ScrollLoad组件</li>'</code></pre>)[0]);
+  }
+
+  listViewEl.appendChild(df);
+}
+
+const listViewEl = $('#listView')[0];
+let count = 0;
+
+appendData();
+
+const scrollLoad = ScrollLoad(document.getElementById('container'));
+
+scrollLoad.on('scrollbottom', (config) => {
+  if (count === 3) {
+    config.done(CONSTANT.EMPTY);
+  } else {
+    setTimeout(() => {
+      appendData();
+      config.done(CONSTANT.NORMAL);
+      count++;
+    }, 1000 * 3);
+  }
+});
+
+scrollLoad.on('emptyclick', () => {
+  console.log('emptyclick');
+});
+
+scrollLoad.on('errorclick', () => {
+  console.log('errorclick');
+});
+    </code>
+  </pre>
+
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{HtmlElement} - el</td>
+      <td>整体元素</td>
+    </tr>
+    <tr>
+      <td>{object} - config</td>
+      <td>
+        <p>配置</p>
+        <div class="method-wrap">
+          <p>distance {number} - 属性允许配置距页面底部（以px为单位）的距离以触发无限滚动事件。默认情况下，如果未指定，则为50（px）</p>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--例子-->
+  <h2 id="scrollload-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+        <pre>
+<code class="html">
+  <div class="ct-scrolload" id="container">
+    <header>ScrollLoad</header>
+    <div class="ct-scrolload-content" id="content">
+      <ul id="listView"></ul>
+      <div class='ct-scrolload-load standard'>数据加载中</div>
+      <div class='ct-scrolload-empty'>~没有更多</div>
+      <div class='ct-scrolload-error'>出现错误</div>
+    </div>
+    <footer></footer>
+  </div>
+</code>
+        </pre>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+        <pre>
+<code class="javascript">
+import ScrollLoad, { CONSTANT } from '@ctmobile/ui-scrollload';
+import '@ctmobile/ui-scrollload/lib/themes/default/scrollload.less';
+import '@ctmobile/ui-scrollload/lib/scrollload.less';
+
+function appendData() {
+  const df = document.createDocumentFragment();
+
+  for (let i = 0; i &lt; 30; i++) {
+    df.appendChild($(<pre><code class="html">'<li>CTMobileUI移动框架中的ScrollLoad组件</li>'</code></pre>)[0]);
+  }
+
+  listViewEl.appendChild(df);
+}
+
+const listViewEl = $('#listView')[0];
+let count = 0;
+
+appendData();
+
+const scrollLoad = ScrollLoad(document.getElementById('container'));
+
+scrollLoad.on('scrollbottom', (config) => {
+  if (count === 3) {
+    config.done(CONSTANT.EMPTY);
+  } else {
+    setTimeout(() => {
+      appendData();
+      config.done(CONSTANT.NORMAL);
+      count++;
+    }, 1000 * 3);
+  }
+});
+
+scrollLoad.on('emptyclick', () => {
+  console.log('emptyclick');
+});
+
+scrollLoad.on('errorclick', () => {
+  console.log('errorclick');
+});
+</code>
+        </pre>
+        </dd>
+      </dl>
+    </div>
+
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner" id="ctmobile-ui-doc-demo-device">
+
+          <div class="ct-scrolload" id="container">
+            <header>ScrollLoad</header>
+            <div class="ct-scrolload-content" id="content">
+              <ul id="listView"></ul>
+              <div class='ct-scrolload-load standard'>数据加载中</div>
+              <div class='ct-scrolload-empty'>~没有更多</div>
+              <div class='ct-scrolload-error'>出现错误</div>
+            </div>
+            <footer></footer>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--方法-->
+  <h2 id="scrollload-methods">方法</h2>
+  <div class="method-wrap">
+    <p>getLoadEl - 获取.ct-scrolload-load元素</p>
+  </div>
+
+  <div class="method-wrap">
+    <p>getEmptyEl - 获取.ct-scrolload-empty元素</p>
+  </div>
+
+  <div class="method-wrap">
+    <p>getErrorEl - 获取.ct-scrolload-error元素</p>
+  </div>
+
+  <div class="method-wrap">
+    <p>hideAll - 隐藏所有.ct-scrolload-元素</p>
+  </div>
+
+  <div class="method-wrap">
+    <p>on(
+      <span class="parameter">type</span>,
+      <span class="parameter">handler</span>,
+      ) - 注册事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span>
+        事件类型
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span>
+        事件句柄
+      </li>
+    </ul>
+  </div>
+
+  <div class="method-wrap">
+    <p>off(
+      <span class="parameter">type</span>,
+      <span class="parameter">handler</span>,
+      ) - 注销事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span>
+        事件类型
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span>
+        事件句柄
+      </li>
+    </ul>
+  </div>
+
+  <!--事件-->
+  <h2 id="scrollload-events">事件</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="scrollload-events-scrollbottom">
+      <td>scrollbottom</td>
+      <td>滚动到了底部</td>
+    </tr>
+    <tr id="scrollload-events-emptyclick">
+      <td>emptyclick</td>
+      <td>点击了没有数据</td>
+    </tr>
+    <tr id="scrollload-events-errorclick">
+      <td>errorclick</td>
+      <td>点击了错误</td>
+    </tr>
+    </tbody>
+  </table>
+  <pre>
+  <code class="javascript">
+import ScrollLoad, { CONSTANT } from '@ctmobile/ui-scrollload';
+import '@ctmobile/ui-scrollload/themes/default/scrollload.less';
+import '@ctmobile/ui-scrollload/scrollload.less';
+
+function appendData() {
+  const df = document.createDocumentFragment();
+
+  for (let i = 0; i &lt; 30; i++) {
+    df.appendChild($(<pre><code class="html">'<li>CTMobileUI移动框架中的ScrollLoad组件</li>'</code></pre>)[0]);
+  }
+
+  listViewEl.appendChild(df);
+}
+
+const listViewEl = $('#listView')[0];
+let count = 0;
+
+appendData();
+
+const scrollLoad = ScrollLoad(document.getElementById('container'));
+
+scrollLoad.on('scrollbottom', (config) => {
+  if (count === 3) {
+    config.done(CONSTANT.EMPTY);
+  } else {
+    setTimeout(() => {
+      appendData();
+      config.done(CONSTANT.NORMAL);
+      count++;
+    }, 1000 * 3);
+  }
+});
+
+scrollLoad.on('emptyclick', () => {
+  console.log('emptyclick');
+});
+
+scrollLoad.on('errorclick', () => {
+  console.log('errorclick');
+});
+  </code>
+  </pre>
 </div>
 
 </body>
-
 </html>

@@ -1,20 +1,21 @@
 {
-  "name": "@ctmobile/ui-cascadecompared-sd",
+  "name": "@ctmobile/ui-scrollload",
   "version": "1.0.0",
-  "description": "支持移动端的UI组件-CascadeCompared",
-  "main": "lib/cascadecompared.js",
+  "description": "支持移动端的UI组件-scrollload",
+  "main": "lib/scrollload.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
     "buildpackage": "ctcopy ../src src && ctbuild --type buildpackage",
-    "link":"npm link @ctmobile/ui-stickuplayout && npm link @ct/build"
+    "buildumd": "ctcopy ../src src && ctbuild --type buildumd --packagename scrollload",
+    "link": "npm link @ct/build && npm link @ctmobile/ui-util"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/playerljc/CTMobile-UI.git"
   },
   "keywords": [
-    "CascadeCompared",
+    "scrollload",
     "CtMobile",
     "CTMibole-UI",
     "mobile",
@@ -35,12 +36,10 @@
   },
   "homepage": "https://github.com/playerljc/CTMobile-UI#readme",
   "dependencies": {
-    "@babel/runtime": "^7.2.0"
+    "@babel/runtime": "^7.2.0",
+    "@ctmobile/ui-util": "^1.0.0"
   },
   "devDependencies": {
-    "@ct/build": "^1.0.0",
-    "jquery": "^3.3.1",
-    "iscroll": "^5.2.0",
-    "@ctmobile/ui-stickuplayout": "^1.0.0"
+    "@ct/build": "^1.0.0"
   }
 }

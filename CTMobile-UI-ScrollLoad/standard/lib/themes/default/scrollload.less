@@ -1,0 +1,26 @@
+@import "../../mixins.less";
+
+.ct {
+  &-scrolload {
+
+    &-load, &-empty, &-error {
+      font-size: @tipfont;
+    }
+
+    &-load.standard {
+      color: #000;
+      &:before {
+        background: url(./loading.svg) no-repeat center;
+        background-size: 100% 100%;
+      }
+    }
+
+    &-empty {
+      color: @tipcolor;
+    }
+
+    &-error {
+      color: @tipcolor;
+    }
+  }
+}

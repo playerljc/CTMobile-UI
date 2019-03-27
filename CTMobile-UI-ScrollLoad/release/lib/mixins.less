@@ -1,0 +1,22 @@
+@tipheight: 30px;
+@tipcolor: #8e8e93;
+@tipfont: 14px;
+
+
+.ct-scroll-load-animation-standard {
+  content: '';
+  width: 20px;
+  height: 20px;
+  animation: ct-scroll-load-animation-standard 1s linear infinite;
+  margin-right: 5px;
+}
+
+@-webkit-keyframes ct-scroll-load-animation-standard {
+  form {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}

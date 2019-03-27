@@ -1,12 +1,17 @@
-import ScrollLoad from '@ctmobile/ui-scrollload/scrollload';
-import '@ctmobile/ui-scrollload/themes/default/scrollload.less';
-import '@ctmobile/ui-scrollload/scrollload.less';
+import DemoUtil from '@ctmobile/ui-demo-util';
+import ScrollLoad, { CONSTANT } from '@ctmobile/ui-scrollload';
+// import '@ctmobile/ui-scrollload/themes/default/scrollload.less';
+// import '@ctmobile/ui-scrollload/scrollload.less';
+
+import './index.less';
+
+DemoUtil.initial();
 
 function appendData() {
   const df = document.createDocumentFragment();
 
   for (let i = 0; i < 30; i++) {
-    df.appendChild($('<li>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</li>')[0]);
+    df.appendChild($('<li>CTMobileUI移动框架中的ScrollLoad组件</li>')[0]);
   }
 
   listViewEl.appendChild(df);
@@ -17,15 +22,15 @@ let count = 0;
 
 appendData();
 
-const scrollLoad = new ScrollLoad(document.getElementById('container'));
+const scrollLoad = ScrollLoad(document.getElementById('container'));
 
 scrollLoad.on('scrollbottom', (config) => {
   if (count === 3) {
-    config.done(ScrollLoad.EMPTY);
+    config.done(CONSTANT.EMPTY);
   } else {
     setTimeout(() => {
       appendData();
-      config.done(ScrollLoad.NORMAL);
+      config.done(CONSTANT.NORMAL);
       count++;
     }, 1000 * 3);
   }
