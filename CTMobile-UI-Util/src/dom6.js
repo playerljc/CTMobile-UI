@@ -28,7 +28,15 @@ export default {
       return null;
     }
   },
+  off() {
 
+  },
+  on() {
+
+  },
+  once() {
+
+  },
   /**
    * DOM没有提供insertAfter()方法
    * @param {HtmlElement} newElement

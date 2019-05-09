@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-backtopanimation-demo</title>
+</head>
+
+<body>
+
+<div class="ctmobile-ui-doc">
+
+  <!-- BackTopAnimation -->
+
+  <!--菜单-->
+  <h1>BackTopAnimation</h1>
+  <ul>
+    <li><a href="#scrollload-initial">初始化</a></li>
+    <li><a href="#scrollload-demo">例子</a></li>
+    <li><a href="#scrollload-methods">方法</a></li>
+    <li>
+      <a href="#scrollload-events">事件</a>
+      <ul>
+        <li><a href="#scrollload-events-scrollTop">scrollTop</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--初始化-->
+  <h2 id="scrollload-initial">初始化</h2>
+  <dl>
+    <dt>html</dt>
+    <dd>
+<pre>
+<code class="html">
+  <div class="ct-list ios simple-list">
+    <ul id="ct-list"></ul>
+  </div>
+</code>
+</pre>
+    </dd>
+  </dl>
+
+
+  <dl>
+    <dt>js</dt>
+    <dd>
+<pre>
+<code class="javascript">
+import BackTopAnimation from '@ctmobile/ui-backtopanimation';
+
+const listEl = document.getElementById('ct-list');
+const f = document.createDocumentFragment();
+for (let i = 0; i &gt; 50; i++) {
+  f.appendChild(Dom6.createElement(<pre><code class="html">'<li>CTMobileUI中的BackTopAnimation组件</li>'</code></pre>));
+}
+listEl.appendChild(f);
+
+const parent = document.getElementById('ctmobile-ui-doc-demo-device');
+const scrollEl = document.querySelector('.ct-list');
+const BackTop = BackTopAnimation(parent, scrollEl);
+BackTop.on('scrollTop', () => {
+  console.log('scrollTop');
+});
+</code>
+</pre>
+    </dd>
+  </dl>
+
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{HtmlElement} - el</td>
+      <td>父元素</td>
+    </tr>
+    <tr>
+      <td>{HtmlElement} - el</td>
+      <td>滚动元素</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--例子-->
+  <h2 id="scrollload-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+        <pre>
+<code class="html">
+<div class="ct-list ios simple-list">
+  <ul id="ct-list"></ul>
+</div>
+</code>
+        </pre>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+        <pre>
+<code class="javascript">
+import BackTopAnimation from '@ctmobile/ui-backtopanimation';
+
+const listEl = document.getElementById('ct-list');
+const f = document.createDocumentFragment();
+for (let i = 0; i &gt; 50; i++) {
+  f.appendChild(Dom6.createElement(<pre><code class="html">'<li>CTMobileUI中的BackTopAnimation组件</li>'</code></pre>));
+}
+listEl.appendChild(f);
+
+const parent = document.getElementById('ctmobile-ui-doc-demo-device');
+const scrollEl = document.querySelector('.ct-list');
+const BackTop = BackTopAnimation(parent, scrollEl);
+BackTop.on('scrollTop', () => {
+  console.log('scrollTop');
+});
+</code>
+        </pre>
+        </dd>
+      </dl>
+    </div>
+
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner" id="ctmobile-ui-doc-demo-device">
+
+          <div class="ct-list ios simple-list">
+            <ul id="ct-list"></ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--方法-->
+  <h2 id="scrollload-methods">方法</h2>
+
+  <div class="method-wrap">
+    <p>on(
+      <span class="parameter">type</span>,
+      <span class="parameter">handler</span>,
+      ) - 注册事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span>
+        事件类型
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span>
+        事件句柄
+      </li>
+    </ul>
+  </div>
+
+  <div class="method-wrap">
+    <p>off(
+      <span class="parameter">type</span>,
+      <span class="parameter">handler</span>,
+      ) - 注销事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span>
+        事件类型
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span>
+        事件句柄
+      </li>
+    </ul>
+  </div>
+
+  <!--事件-->
+  <h2 id="scrollload-events">事件</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="scrollload-events-scrollTop">
+      <td>scrollTop</td>
+      <td>滚动到了顶部</td>
+    </tr>
+    </tbody>
+  </table>
+  <pre>
+  <code class="javascript">
+
+  </code>
+  </pre>
+</div>
+
+</body>
+</html>
