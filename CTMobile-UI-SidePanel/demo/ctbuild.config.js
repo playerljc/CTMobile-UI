@@ -1,5 +1,5 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const path = require('path');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const runtimePath = 'D:\\frameworker\\frameworks\\ctmobile\\CTMobile-UI\\CTMobile-UI-SidePanel\\demo\\';
@@ -35,11 +35,11 @@ module.exports = {
           },
         ]),
       ],
-      resolve: {
-        alias: {
-          '@ctmobile/ui-sidepanel': path.resolve(__dirname, 'src/ctmobile-ui-sidepanel'),
-        },
-      },
+      // resolve: {
+      //   alias: {
+      //     '@ctmobile/ui-sidepanel': path.resolve(__dirname, 'src/ctmobile-ui-sidepanel'),
+      //   },
+      // },
     };
   },
 };
