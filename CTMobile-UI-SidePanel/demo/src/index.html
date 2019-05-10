@@ -8,19 +8,301 @@
 </head>
 
 <body>
-  <!--index-->
-  <div ct-data-role="page" id="index" opt="index">
-    <header>
-      <p class="ct-header-title">SidePanelDemo</p>
-    </header>
-    <div class="ct-content" style="top:3rem;bottom:0;">
+
+<div class="ctmobile-ui-doc">
+
+  <!-- SidePanel -->
+
+  <!--菜单-->
+  <h1>SidePanel</h1>
+  <ul>
+    <li>
+      <a href="#sidepanel-layout">基本布局</a>
       <ul>
-        <li><a class="link" ct-pageId="overlay">overlay(覆盖)</a></li>
-        <li><a class="link" ct-pageId="push">push(推动)</a></li>
-        <li><a class="link" ct-pageId="reveal">reveal(揭示)</a></li>
+        <li><a href="#sidepanel-layout-overlay">Overlay</a></li>
+        <li><a href="#sidepanel-layout-push">Push</a></li>
+        <li><a href="#sidepanel-layout-reveal">Reveal</a></li>
       </ul>
+    </li>
+
+    <li>
+      <a href="#sidepanel-initial">初始化</a>
+    </li>
+
+    <li><a href="#sidepanel-demo">例子</a></li>
+    <li><a href="#sidepanel-methods">方法</a></li>
+    <li>
+      <a href="#sidepanel-events">事件</a>
+      <ul>
+        <li><a href="#sidepanel-events-aftershow">afterShow</a></li>
+        <li><a href="#sidepanel-events-afterclose">afterClose</a></li>
+        <li><a href="#sidepanel-events-create">create</a></li>
+        <li><a href="#sidepanel-events-beforeshow">beforeShow</a></li>
+        <li><a href="#sidepanel-events-beforeclose">beforeClose</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--基本布局-->
+  <h2 id="sidepanel-layout">基本布局</h2>
+
+  <h3 id="sidepanel-layout-overlay">overlay</h3>
+  <dl>
+    <dt>
+      <pre>
+<code class="html">
+  <div style="position: relative;">
+    <div class="ct-sidepanel-overlay"></div>
+  </div>
+</code>
+      </pre>
+    </dt>
+    <dd>
+      <ul>
+        <li>ct-sidepanel-overlay - 整体容器</li>
+      </ul>
+    </dd>
+  </dl>
+
+  <h3 id="sidepanel-layout-push">push</h3>
+  <dl>
+    <dt>
+      <pre>
+<code class="html">
+  <div class="ct-sidepanel-push-master">
+    <!-- 面板 -->
+    <div class="ct-sidepanel-push"></div>
+    <!-- 主面板 -->
+    <div class="ct-sidepanel-push-slave"></div>
+  </div>
+</code>
+      </pre>
+    </dt>
+    <dd>
+      <ul>
+        <li>
+          ct-sidepanel-push-master - 整体容器
+          <ul>
+            <li>ct-sidepanel-push - 滑动的面板</li>
+            <li>ct-sidepanel-push-slave - 主面板</li>
+          </ul>
+        </li>
+      </ul>
+    </dd>
+  </dl>
+
+  <h3 id="sidepanel-layout-reveal">reveal</h3>
+  <dl>
+    <dt>
+      <pre>
+<code class="html">
+  <!-- 面板 -->
+  <div class="ct-sidepanel-reveal"></div>
+
+  <!-- 主面板 -->
+  <div class="ct-sidepanel-reveal-master"></div>
+</code>
+      </pre>
+    </dt>
+    <dd>
+      <ul>
+        <li>ct-sidepanel-reveal - 滑动面板</li>
+        <li>ct-sidepanel-reveal-master - 主面板</li>
+      </ul>
+    </dd>
+  </dl>
+
+  <!--初始化-->
+  <h2 id="sidepanel-initial">初始化</h2>
+  <pre>
+    <code class="javascript">
+      import SidePanel from '@ctmobile/ui-sidepanel/sidepanel';
+      import '@ctmobile/ui-sidepanel/sidepanel.less';
+
+      this.leftSideDom = document.querySelector('.ct-sidepanel-overlay-left');
+
+      this.leftPanel = SidePanel(this.leftSideDom, {
+        mask: true,
+        width: '80%',
+        type: 'overlay',
+        direction: 'left',
+      });
+
+      this.leftPanel.show();
+    </code>
+  </pre>
+
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{HtmlElement} - el</td>
+      <td>面板的el元素</td>
+    </tr>
+    <tr>
+      <td>{object} - config</td>
+      <td>
+        <p>配置</p>
+        <div class="method-wrap">
+          <p>width {String} - 宽度</p>
+        </div>
+        <div class="method-wrap">
+          <p>height {String} - 高度</p>
+        </div>
+        <div class="method-wrap">
+          <p>mask {boolean} - 是否有遮罩</p>
+        </div>
+        <div class="method-wrap">
+          <p>zIndex {String} - 层级</p>
+        </div>
+        <div class="method-wrap">
+          <p>type {String} - [overlay(覆盖) | reveal(揭示) | push(推动)]</p>
+        </div>
+
+        <div class="method-wrap">
+          <p>time {String} - 滑动的时间 300ms</p>
+        </div>
+        <div class="method-wrap">
+          <p>direction {String} - <br />
+            overlay : [left | right | top | bottom] <br />
+            reveal :  [left | right] <br />
+            push :    [left | right]
+          </p>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--例子-->
+  <h2 id="sidepanel-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+        <pre>
+<code class="html">
+
+</code>
+        </pre>
+        </dd>
+      </dl>
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+        <pre>
+<code class="javascript">
+
+</code>
+        </pre>
+        </dd>
+      </dl>
+    </div>
+
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner" id="ctmobile-ui-doc-demo-device">
+          <iframe src="/mobile.html"></iframe>
+        </div>
+      </div>
     </div>
   </div>
-</body>
 
+  <!--方法-->
+  <h2 id="sidepanel-methods">方法</h2>
+  <div class="method-wrap">
+    <p>show - 显示</p>
+  </div>
+
+  <div class="method-wrap">
+    <p>close - 关闭</p>
+  </div>
+
+  <div class="method-wrap">
+    <p>isCollapse - 是否显示</p>
+  </div>
+
+  <div class="method-wrap">
+    <p>on(
+      <span class="parameter">type</span>,
+      <span class="parameter">handler</span>,
+      ) - 注册事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span>
+        事件类型
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span>
+        事件句柄
+      </li>
+    </ul>
+  </div>
+
+  <div class="method-wrap">
+    <p>off(
+      <span class="parameter">type</span>,
+      <span class="parameter">handler</span>,
+      ) - 注销事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span>
+        事件类型
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span>
+        事件句柄
+      </li>
+    </ul>
+  </div>
+
+  <!--事件-->
+  <h2 id="sidepanel-events">事件</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr id="sidepanel-events-create">
+      <td>create</td>
+      <td>创建</td>
+    </tr>
+    <tr id="sidepanel-events-beforeshow">
+      <td>beforeShow</td>
+      <td>显示之前</td>
+    </tr>
+    <tr id="sidepanel-events-beforeclose">
+      <td>beforeClose</td>
+      <td>关闭之前</td>
+    </tr>
+    <tr id="sidepanel-events-aftershow">
+      <td>afterShow</td>
+      <td>显示之后</td>
+    </tr>
+    <tr id="sidepanel-events-afterclose">
+      <td>afterClose</td>
+      <td>关闭之后</td>
+    </tr>
+    </tbody>
+  </table>
+  <pre>
+  <code class="javascript">
+
+  </code>
+  </pre>
+</div>
+
+</body>
 </html>

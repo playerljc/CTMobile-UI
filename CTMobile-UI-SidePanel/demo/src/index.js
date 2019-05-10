@@ -1,4 +1,5 @@
-import App from './app';
+import DemoUtil from '@ctmobile/ui-demo-util';
+
 import './index.less';
 
-App.initial();
+DemoUtil.initial();
