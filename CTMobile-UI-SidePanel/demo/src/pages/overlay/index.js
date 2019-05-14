@@ -26,7 +26,6 @@ export default class extends CtMobile.Page {
     this.topSideDom = this.getPageDOM().querySelector('.ct-sidepanel-overlay-top');
     this.bottomSideDom = this.getPageDOM().querySelector('.ct-sidepanel-overlay-bottom');
 
-
     this.leftBtnDom.addEventListener('click', () => {
       if (this.leftPanel.isCollapse()) {
         this.leftPanel.close();
@@ -64,6 +63,28 @@ export default class extends CtMobile.Page {
       width: '80%',
       type: 'overlay',
       direction: 'left',
+      listeners: {
+        create: () => {
+          console.log('create');
+        },
+      },
+    });
+
+
+    this.leftPanel.on('beforeShow', () => {
+      console.log('beforeShow');
+    });
+
+    this.leftPanel.on('beforeClose', () => {
+      console.log('beforeClose');
+    });
+
+    this.leftPanel.on('afterShow', () => {
+      console.log('afterShow');
+    });
+
+    this.leftPanel.on('afterClose', () => {
+      console.log('afterClose');
     });
 
     this.rightPanel = SidePanel(this.rightSideDom, {

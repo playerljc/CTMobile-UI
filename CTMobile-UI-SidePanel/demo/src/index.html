@@ -163,7 +163,6 @@
         <div class="method-wrap">
           <p>type {String} - [overlay(覆盖) | reveal(揭示) | push(推动)]</p>
         </div>
-
         <div class="method-wrap">
           <p>time {String} - 滑动的时间 300ms</p>
         </div>
@@ -173,6 +172,9 @@
             reveal :  [left | right] <br />
             push :    [left | right]
           </p>
+        </div>
+        <div class="method-wrap">
+          <p>listeners {Object} - 事件注册</p>
         </div>
       </td>
     </tr>
@@ -299,7 +301,40 @@
   </table>
   <pre>
   <code class="javascript">
+import SidePanel from '@ctmobile/ui-sidepanel/sidepanel';
+import '@ctmobile/ui-sidepanel/sidepanel.less';
 
+this.leftSideDom = document.querySelector('.ct-sidepanel-overlay-left');
+
+this.leftPanel = SidePanel(this.leftSideDom, {
+  mask: true,
+  width: '80%',
+  type: 'overlay',
+  direction: 'left',
+  listeners: {
+    create: () => {
+      console.log('create');
+    },
+  },
+});
+
+this.leftPanel.on('beforeShow', () => {
+  console.log('beforeShow');
+});
+
+this.leftPanel.on('beforeClose', () => {
+  console.log('beforeClose');
+});
+
+this.leftPanel.on('afterShow', () => {
+  console.log('afterShow');
+});
+
+this.leftPanel.on('afterClose', () => {
+  console.log('afterClose');
+});
+
+this.leftPanel.show();
   </code>
   </pre>
 </div>
