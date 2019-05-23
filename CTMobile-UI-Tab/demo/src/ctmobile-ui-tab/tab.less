@@ -1,0 +1,149 @@
+@import "../../node_modules/swiper/dist/css/swiper.min.css";
+
+.ct-tab {
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  .ct-tab-indicator {
+    flex-shrink: 0;
+
+    .swiper-slide {
+      position: relative;
+      text-align: center;
+    }
+
+    .ct-tab-indicator-item-label {
+      text-align: center;
+    }
+  }
+
+  .ct-tab-content {
+    flex-grow: 1;
+    width: 100%;
+  }
+}
+
+.ct-tab.ct-tab-indicator-position-top {
+  flex-direction: column;
+}
+
+.ct-tab.ct-tab-indicator-position-bottom {
+  flex-direction: column-reverse;
+}
+
+.ct-tab.ct-tab-indicator-position-top,
+.ct-tab.ct-tab-indicator-position-bottom {
+  .ct-tab-indicator {
+    width: 100%;
+
+
+    .swiper-slide {
+      display: flex;
+      .ct-tab-indicator-item-label {
+        flex-grow: 1;
+        min-height: 0;
+        width: 100%;
+      }
+    }
+
+    .swiper-slide.active {
+      flex-direction: column;
+      &:after {
+        content: '';
+        flex-shrink: 0;
+        height: 5px;
+        background-color: red;
+        width: 100%;
+        transition: all .2s;
+      }
+    }
+  }
+
+  .ct-tab-content {
+    min-height: 0;
+  }
+}
+
+
+.ct-tab.ct-tab-indicator-position-left {
+  flex-direction: row;
+
+  .swiper-slide.active {
+    flex-direction: row;
+  }
+}
+
+.ct-tab.ct-tab-indicator-position-right {
+  flex-direction: row-reverse;
+
+  .swiper-slide.active {
+    flex-direction: row-reverse;
+  }
+}
+
+.ct-tab.ct-tab-indicator-position-left,
+.ct-tab.ct-tab-indicator-position-right {
+  .ct-tab-indicator {
+    height: 100%;
+
+    .swiper-slide {
+      display: flex;
+      .ct-tab-indicator-item-label {
+        flex-grow: 1;
+        min-width: 0;
+        width: 100%;
+      }
+    }
+
+    .swiper-slide.active {
+      &:after {
+        content: '';
+        flex-shrink: 0;
+        width: 5px;
+        background-color: red;
+        transition: all .2s;
+      }
+    }
+  }
+
+  .ct-tab-content {
+    min-width: 0;
+  }
+}
+
+
+.ct-tab.ct-tab-indicator-type-average {
+  .ct-tab-indicator {
+    .swiper-wrapper {
+      .swiper-slide {
+        flex-grow: 1;
+        word-wrap: break-word;
+        word-break: keep-all;
+      }
+    }
+  }
+}
+
+.ct-tab.ct-tab-indicator-type-average.ct-tab-indicator-position-top,
+.ct-tab.ct-tab-indicator-type-average.ct-tab-indicator-position-bottom {
+  .ct-tab-indicator {
+    .swiper-wrapper {
+      .swiper-slide {
+        width: auto !important;
+      }
+    }
+  }
+}
+
+.ct-tab.ct-tab-indicator-type-average.ct-tab-indicator-position-left,
+.ct-tab.ct-tab-indicator-type-average.ct-tab-indicator-position-right {
+  .ct-tab-indicator {
+    .swiper-wrapper {
+      .swiper-slide {
+        height: auto !important;
+      }
+    }
+  }
+}
+
