@@ -61,7 +61,7 @@ export default {
   createElement(html) {
     const dom = document.createElement('div');
     dom.innerHTML = html;
-    return dom.firstChild;
+    return dom.firstElementChild;
   },
 
   /**
@@ -144,5 +144,19 @@ export default {
 
     popup();
     return element;
+  },
+  /**
+   * children
+   * @param {HTMLElement} el
+   * @param {string} selector
+   */
+  children(el, selector) {
+    const elements = Array.prototype.filter.call(el.children, (t) => {
+      return t.nodeType === 1;
+    });
+
+    return elements.filter((t) => {
+      return t.classList.contains(selector);
+    });
   },
 };

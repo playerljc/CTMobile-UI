@@ -1,0 +1,1343 @@
+{
+  "WQR2006": {
+    "data": {
+      "data": [
+        {
+          "cid": "64754",
+          "level": 1,
+          "name": "热门分类",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/products/9987-653-655.html?PTAG=137886.1.61",
+              "cid": "65103",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "level": 2,
+              "name": "手机"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=耳机&PTAG=137886.1.64",
+              "cid": "73993",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t1/21233/40/7634/13890/5c6d039bE8a65d667/aef9581abcc85725.png",
+              "level": 2,
+              "name": "耳机"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=华为&PTAG=137886.1.74",
+              "cid": "72717",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t1/1446/14/631/8500/5b9237e5E0d1f9e16/b1a627b92323b5ed.png",
+              "level": 2,
+              "name": "华为"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=电饭煲&PTAG=137886.1.63",
+              "cid": "73987",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t1/29265/29/7571/29171/5c6d0389E251fe5f2/987962eb75bfe813.png",
+              "level": 2,
+              "name": "电饭煲"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=电磁炉&PTAG=137886.1.65",
+              "cid": "73994",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t1/26217/19/7605/22816/5c6d03a3E4f263c9d/d6fc27b51078358c.png",
+              "level": 2,
+              "name": "电磁炉"
+            },
+            {
+              "action": "https://so.m.jd.com/products/670-699-700.html?PTAG=137886.1.71&projectId=1715",
+              "cid": "68005",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t27400/283/1600620667/15106/a935e7bd/5be6f2e1Nfa8d9d6e.png",
+              "level": 2,
+              "name": "路由器"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=避孕套&PTAG=137886.1.62",
+              "cid": "74174",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t1/18974/35/9836/31220/5c82223eE5dcc61b8/4e93c1fbb777bfca.png",
+              "level": 2,
+              "name": "避孕套"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=口红&PTAG=137886.1.66",
+              "cid": "74175",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t1/19730/14/9859/10199/5c8225eeE5e925911/054ccd7992f86199.png",
+              "level": 2,
+              "name": "口红"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=吹风机&PTAG=137886.1.73",
+              "cid": "73683",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t1/25144/37/2370/7617/5c1cae45Ea0ec5a85/f7ba433b5d1e072f.png",
+              "level": 2,
+              "name": "吹风机"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=三只松鼠&PTAG=137886.1.75",
+              "cid": "74001",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t1/30718/32/2643/9923/5c6d03ecEabd2d664/aaee556800519e1f.png",
+              "level": 2,
+              "name": "三只松鼠"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=洗衣液&PTAG=137886.1.67",
+              "cid": "74176",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t1/23312/39/9884/7280/5c822292E65f3929b/78ba741d321954b0.png",
+              "level": 2,
+              "name": "洗衣液"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=保温杯&PTAG=137886.1.69",
+              "cid": "74177",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t1/11731/9/10730/9518/5c822298Eb50b3275/33f88663e1c0284e.png",
+              "level": 2,
+              "name": "保温杯"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=微波炉&PTAG=137886.1.68",
+              "cid": "73997",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t1/21353/14/7486/17896/5c6d03c0Eb9c58d49/9210736682f59e39.png",
+              "level": 2,
+              "name": "微波炉"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=洗发水&PTAG=137886.1.70",
+              "cid": "74178",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t1/25168/27/9848/15397/5c822507E35d2ad16/384983a98758f8f8.png",
+              "level": 2,
+              "name": "洗发水"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=卫生巾&PTAG=137886.1.72",
+              "cid": "74179",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t1/19562/14/9878/32183/5c8225f6E7c332db7/c886e52dc05b9ae4.png",
+              "level": 2,
+              "name": "卫生巾"
+            }
+          ]
+        },
+        {
+          "cid": "64753",
+          "level": 1,
+          "name": "家电热搜",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%86%B0%E7%AE%B1&PTAG=137886.1.37",
+              "cid": "68695",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t21115/83/225125274/13856/5473fb3f/5b0567c1N59d53b27.png",
+              "level": 2,
+              "name": "冰箱"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=洗衣机&PTAG=137886.1.32",
+              "cid": "69082",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t21664/15/237213959/24996/a3c6c7d6/5b0567c7N9cc1c355.png",
+              "level": 2,
+              "name": "洗衣机"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=电视&PTAG=137886.1.33",
+              "cid": "68817",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t18106/218/2672347202/29951/3618e960/5b0567cdN275fbcdd.png",
+              "level": 2,
+              "name": "电视"
+            }
+          ]
+        }
+      ],
+      "jshopUrl": {
+        "cmsPromotionsList": [
+          {
+            "imageUrl": "//img13.360buyimg.com/mcoss/jfs/t1/20167/38/5982/51492/5c46af5dE7736fc55/b27a8ed4e61b2291.png"
+          }
+        ],
+        "mPageAddress": [
+          "//s.m.jd.com/activemcenter/activemsite/m_welfare?ptag=138097.1.1&sceneval=2&logintag=#/main"
+        ]
+      }
+    },
+    "updateTime": 20190527
+  },
+  "WQ2046": {
+    "data": {
+      "data": [
+        {
+          "cid": "70099",
+          "level": 1,
+          "name": "畅销推荐",
+          "catelogyList": [
+            {
+              "action": "https://pro.m.jd.com/mall/active/NJ1kd1PJWhwvhtim73VPsD1HwY3/index.html?PTAG=137886.1.9002",
+              "cid": "70185",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t21343/109/200166835/32189/655b48ef/5b03c73fN69e0c2b7.jpg",
+              "level": 2,
+              "name": "个护馆"
+            },
+            {
+              "action": "https://pro.m.jd.com/mall/active/2Tjm6ay1ZbZ3v7UbriTj6kHy9dn6/index.html?PTAG=137886.1.9003",
+              "cid": "70527",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t22015/174/193799214/56285/64f190df/5b03bf93Na049c54e.jpg",
+              "level": 2,
+              "name": "清洁馆"
+            },
+            {
+              "action": "//poplist.m.jd.com/fh/list.html?sub=42081&fhc=fhyd&page=1&ps=10&stock=1&PTAG=137886.1.9004",
+              "cid": "70187",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t20482/61/128269126/48485/836a6d71/5afd574eNb1ad35ae.jpg",
+              "level": 2,
+              "name": "进口清洁"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=卫生棉条&PTAG=137886.1.9005",
+              "cid": "70188",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t18214/1/2613174758/15599/5ed2de47/5afd5747N2fc58c3e.jpg",
+              "level": 2,
+              "name": "卫生棉条"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=湿厕纸&PTAG=137886.1.9006",
+              "cid": "70189",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t20365/251/116787241/43845/fa0bc54d/5afd5740Na342fa77.jpg",
+              "level": 2,
+              "name": "湿厕纸"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?key=catid_str,,16790&PTAG=137886.1.9007",
+              "cid": "70190",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t18676/160/2579989694/9033/3c4632ba/5afd5735Nfd44dcdd.jpg",
+              "level": 2,
+              "name": "走珠/止汗露"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=花露水&PTAG=137886.1.9008",
+              "cid": "70191",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t22123/187/137040009/6892/6b0cbf68/5afd572dN7ed9c341.jpg",
+              "level": 2,
+              "name": "花露水"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=驱蚊用品&PTAG=137886.1.9009",
+              "cid": "70192",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t20293/233/118774843/46835/4e4eaf16/5afd5727N9f7271c7.jpg",
+              "level": 2,
+              "name": "驱蚊用品"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=本色纸&PTAG=137886.1.9010",
+              "cid": "70193",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t17062/178/2600012755/33321/1ad5ca0b/5afd571fN18ed0cd5.jpg",
+              "level": 2,
+              "name": "本色纸"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=免洗洗手液&PTAG=137886.1.9011",
+              "cid": "70194",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t16840/96/2521969144/9603/65ca0871/5afd571aN43e80da5.jpg",
+              "level": 2,
+              "name": "免洗洗手液"
+            }
+          ]
+        },
+        {
+          "cid": "70100",
+          "level": 1,
+          "name": "明星品牌",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=得宝&PTAG=137886.1.9013",
+              "cid": "70173",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t19159/296/2561042023/49706/b5b9a38c/5afd5700N355dfa7d.jpg",
+              "level": 2,
+              "name": "得宝"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=施华蔻专业&PTAG=137886.1.9014",
+              "cid": "70174",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t19489/212/2660233176/26301/ba832bb4/5b03ca93Nb4f64094.jpg",
+              "level": 2,
+              "name": "施华蔻专业"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=舒洁&PTAG=137886.1.9015",
+              "cid": "70175",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t19819/28/553421672/50589/7cfc13ea/5afd56f2Nf2b8ca84.jpg",
+              "level": 2,
+              "name": "舒洁"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=馥绿德雅&PTAG=137886.1.9016",
+              "cid": "70176",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t17248/264/2595778521/6813/3309b403/5afd56ecN8257b620.jpg",
+              "level": 2,
+              "name": "馥绿德雅"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=3M&PTAG=137886.1.9017",
+              "cid": "70177",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t18997/159/2614761718/41736/d0533a04/5afd56e7N9961fe19.jpg",
+              "level": 2,
+              "name": "3M"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=吕&PTAG=137886.1.9018",
+              "cid": "70178",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t19420/348/2539781815/6961/35348d70/5afd56e1N98a273a3.jpg",
+              "level": 2,
+              "name": "吕"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=当妮&PTAG=137886.1.9019",
+              "cid": "70179",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t18196/253/2567807998/53005/61c50fea/5afd56dcNc16970a8.jpg",
+              "level": 2,
+              "name": "当妮"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=睿嫣&PTAG=137886.1.9020",
+              "cid": "70180",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t21079/224/118757583/10390/664c2986/5afd56d5N4a00680d.jpg",
+              "level": 2,
+              "name": "LG"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=橘子工坊&PTAG=137886.1.9021",
+              "cid": "70181",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t21721/134/120751456/39440/5d9584de/5afd56cfNaabd3f8c.jpg",
+              "level": 2,
+              "name": "橘子工坊"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=花王卫生巾&PTAG=137886.1.9022",
+              "cid": "70182",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t20101/223/562289297/12695/938bfb8/5afd56caNdb42ae94.jpg",
+              "level": 2,
+              "name": "花王"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=汉高&PTAG=137886.1.9023",
+              "cid": "70183",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t19918/356/561154349/62704/6ca0c356/5afd56b8N1bd6906e.jpg",
+              "level": 2,
+              "name": "汉高"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=玛尔斯&PTAG=137886.1.9024",
+              "cid": "70184",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t19318/209/2602710979/6648/57bd4e7c/5afd56afN495321fb.jpg",
+              "level": 2,
+              "name": "玛尔斯"
+            }
+          ]
+        },
+        {
+          "cid": "70101",
+          "level": 1,
+          "name": "纸品湿巾",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=抽纸&PTAG=137886.1.9026",
+              "cid": "70168",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t21769/101/124948952/48248/832ede7b/5afd568bN971e6358.jpg",
+              "level": 2,
+              "name": "抽纸"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=卷纸&PTAG=137886.1.9027",
+              "cid": "70169",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t22387/82/128171200/41534/fde69788/5afd5686N67808fa9.jpg",
+              "level": 2,
+              "name": "卷纸"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=手帕纸&PTAG=137886.1.9028",
+              "cid": "70170",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t18637/64/2549852710/37258/79908eff/5afd5681N00604b0d.jpg",
+              "level": 2,
+              "name": "手帕纸"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=湿巾&PTAG=137886.1.9029",
+              "cid": "70171",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t22297/74/124765074/42169/447f046a/5afd567cNfc430327.jpg",
+              "level": 2,
+              "name": "湿巾"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=厨房纸巾&PTAG=137886.1.9030",
+              "cid": "70172",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t19225/80/2534738713/47306/263604a4/5afd5678N54ce98af.jpg",
+              "level": 2,
+              "name": "厨房纸巾"
+            }
+          ]
+        },
+        {
+          "cid": "70102",
+          "level": 1,
+          "name": "女性护理",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E8%BF%9B%E5%8F%A3%E5%8D%AB%E7%94%9F%E5%B7%BE&searchFrom=home&projectId=1715",
+              "cid": "70528",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t19702/170/2637035856/53602/b3d52749/5b03c41bN72fa8f49.jpg",
+              "level": 2,
+              "name": "进口卫生巾"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=卫生巾&PTAG=137886.1.9032",
+              "cid": "70165",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t19681/290/2527845655/17373/8fa138c2/5afd563eNd9dfefa2.jpg",
+              "level": 2,
+              "name": "卫生巾"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=卫生护垫&PTAG=137886.1.9033",
+              "cid": "70166",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t18127/332/2572577399/15408/6055b08/5afd563aNa79b47b4.jpg",
+              "level": 2,
+              "name": "卫生护垫"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=私处护理&PTAG=137886.1.9034",
+              "cid": "70167",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t18943/294/2522212188/10711/74553b18/5afd5635N4c315dce.jpg",
+              "level": 2,
+              "name": "私处护理"
+            }
+          ]
+        },
+        {
+          "cid": "70103",
+          "level": 1,
+          "name": "衣物清洁",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=洗衣液&PTAG=137886.1.9036",
+              "cid": "70159",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t19987/98/558215522/32047/351256ff/5afd562dN5db3a834.jpg",
+              "level": 2,
+              "name": "洗衣液"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=洗衣粉&PTAG=137886.1.9037",
+              "cid": "70160",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t19462/104/2571598475/45478/9f7da5fa/5afd5627Ne5de5630.jpg",
+              "level": 2,
+              "name": "洗衣粉"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=洗衣皂&PTAG=137886.1.9038",
+              "cid": "70161",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t21628/34/123674554/43500/dd39a8fa/5afd5622N45d600ba.jpg",
+              "level": 2,
+              "name": "洗衣皂"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=柔顺剂&PTAG=137886.1.9039",
+              "cid": "70162",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t18544/152/2609888412/32404/c9527c0f/5afd55faNa530f00e.jpg",
+              "level": 2,
+              "name": "柔顺剂"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=凝珠&PTAG=137886.1.9040",
+              "cid": "70163",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t20965/49/131053014/59271/c0533e1f/5afd55f4Na480a545.jpg",
+              "level": 2,
+              "name": "凝珠"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=除菌液&PTAG=137886.1.9041",
+              "cid": "70164",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t18367/201/2501678110/38390/7617d219/5afd55efN699a9345.jpg",
+              "level": 2,
+              "name": "除菌液"
+            }
+          ]
+        },
+        {
+          "cid": "70104",
+          "level": 1,
+          "name": "家庭清洁",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=洗洁精&PTAG=137886.1.9043",
+              "cid": "70153",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t18433/53/2532228382/29889/e1387b5c/5afd5586N7f9ba945.jpg",
+              "level": 2,
+              "name": "洗洁精"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=消毒液&PTAG=137886.1.9044",
+              "cid": "70154",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t19027/97/2581588567/48688/665a7663/5afd5581Nd2eeec39.jpg",
+              "level": 2,
+              "name": "消毒液"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=油污净&PTAG=137886.1.9045",
+              "cid": "70155",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t18658/258/2480489533/11269/7da282ac/5afd5b63Na1183476.jpg",
+              "level": 2,
+              "name": "油污净"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=洁厕剂&PTAG=137886.1.9046",
+              "cid": "70156",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t19114/59/2604474272/45896/7b35bd96/5afd556bNa5eec222.jpg",
+              "level": 2,
+              "name": "洁厕剂"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=除湿干燥剂&PTAG=137886.1.9047",
+              "cid": "70157",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t16765/283/2561851137/36053/8350e507/5afd5565Nf00ec7be.jpg",
+              "level": 2,
+              "name": "除湿干燥剂"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=地板清洁剂&PTAG=137886.1.9048",
+              "cid": "70158",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t22144/263/124138313/29087/e875ba8e/5afd5560N0f9e36e5.jpg",
+              "level": 2,
+              "name": "地板清洁剂"
+            }
+          ]
+        },
+        {
+          "cid": "70105",
+          "level": 1,
+          "name": "洗发护发",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E8%BF%9B%E5%8F%A3%E6%B4%97%E5%8F%91%E6%B0%B4&searchFrom=home",
+              "cid": "70529",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t21517/44/203247372/26977/b52d91d0/5b03c48bNe06feb68.jpg",
+              "level": 2,
+              "name": "进口洗发水"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=洗发水&PTAG=137886.1.9050",
+              "cid": "70148",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t16846/245/2583886575/9376/d24e63cb/5afd554eN8fc3776a.jpg",
+              "level": 2,
+              "name": "洗发水"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=护发素&PTAG=137886.1.9051",
+              "cid": "70149",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t17701/31/2532797830/12007/a4af1c3e/5afd5548Ncdf39713.jpg",
+              "level": 2,
+              "name": "护发素"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=发膜&PTAG=137886.1.9052",
+              "cid": "70150",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t17350/26/2574061368/8918/fe462b16/5afd5541Nd0d2a089.jpg",
+              "level": 2,
+              "name": "发膜/精油"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=洗护套装&PTAG=137886.1.9053",
+              "cid": "70151",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t21418/329/136024742/20093/cd707128/5afd553bN8075c11b.jpg",
+              "level": 2,
+              "name": "洗护套装"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=旅行套装%20洗发护发&PTAG=137886.1.9054",
+              "cid": "70152",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t20776/109/131863332/17080/d56a0194/5afd5536Ne0c20616.jpg",
+              "level": 2,
+              "name": "旅行套装"
+            }
+          ]
+        },
+        {
+          "cid": "70106",
+          "level": 1,
+          "name": "发型设计",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E8%BF%9B%E5%8F%A3%E6%9F%93%E5%8F%91&searchFrom=home&projectId=1715",
+              "cid": "70530",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t19921/283/641055923/30819/17816fc8/5b03c4edN0293de4d.jpg",
+              "level": 2,
+              "name": "进口染发"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=造型&PTAG=137886.1.9056",
+              "cid": "70143",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t19723/106/2560766009/6347/6080ffc3/5afd552aNd7d0b91f.jpg",
+              "level": 2,
+              "name": "造型"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=染发&PTAG=137886.1.9057",
+              "cid": "70144",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t21934/229/123334440/15585/ca009d11/5afd5522Nd55c3db9.jpg",
+              "level": 2,
+              "name": "染发"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=烫发&PTAG=137886.1.9058",
+              "cid": "70145",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t17062/210/2612623125/8453/6e50eb1/5afd551eN93e59df8.jpg",
+              "level": 2,
+              "name": "烫发"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=假发&PTAG=137886.1.9059",
+              "cid": "70146",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t18463/295/2549595995/8360/4faa89b7/5afd5518N3ca7a401.jpg",
+              "level": 2,
+              "name": "假发"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=美发工具&PTAG=137886.1.9060",
+              "cid": "70147",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t20440/47/128875611/17639/84bdc840/5afd5513N63fb05bb.jpg",
+              "level": 2,
+              "name": "美发工具"
+            }
+          ]
+        },
+        {
+          "cid": "70107",
+          "level": 1,
+          "name": "身体护理",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E8%BF%9B%E5%8F%A3%E6%B2%90%E6%B5%B4%E9%9C%B2&searchFrom=home",
+              "cid": "70531",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t21892/274/217406252/26431/5fd60e42/5b03c653Nde350f5a.jpg",
+              "level": 2,
+              "name": "进口沐浴露"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=沐浴露&PTAG=137886.1.9062",
+              "cid": "70131",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t20701/96/209105998/23881/dd74771e/5b03c72eNb5aacdaf.jpg",
+              "level": 2,
+              "name": "沐浴露"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=香皂&PTAG=137886.1.9063",
+              "cid": "70132",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t17215/352/2622299547/16734/bac5a131/5afd5502Nf40a3adf.jpg",
+              "level": 2,
+              "name": "香皂"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=浴盐&PTAG=137886.1.9064",
+              "cid": "70133",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t21718/198/117863030/9195/74c5a809/5afd54faNf1fe657c.jpg",
+              "level": 2,
+              "name": "浴盐"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=护手霜&PTAG=137886.1.9065",
+              "cid": "70134",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t21244/264/114225784/15357/3ba45a5c/5afd54f3N449f5147.jpg",
+              "level": 2,
+              "name": "护手霜"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=脱毛膏&PTAG=137886.1.9066",
+              "cid": "70135",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t16750/97/2578880190/4870/7e7841c7/5afd54edN440c4f1c.jpg",
+              "level": 2,
+              "name": "脱毛膏/工具"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=男士洗液&PTAG=137886.1.9067",
+              "cid": "70136",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t19468/145/2579322903/5560/3273faf7/5afd54e4N628b3a7f.jpg",
+              "level": 2,
+              "name": "男士洗液"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=润肤&PTAG=137886.1.9068",
+              "cid": "70137",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t21691/178/119690497/7769/f72006f8/5afd54d5N68aa22d0.jpg",
+              "level": 2,
+              "name": "润肤"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=精油&PTAG=137886.1.9069",
+              "cid": "70138",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t22270/158/129352763/7887/d556f009/5afd54c6N469e8a8d.jpg",
+              "level": 2,
+              "name": "精油"
+            },
+            {
+              "action": "https://wqs.jd.com/portal/fh_list.html?sub=42367&PTAG=137886.1.9070",
+              "cid": "70139",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t22399/146/123296437/15657/faedbfbf/5afd54bfNc34196f9.jpg",
+              "level": 2,
+              "name": "手膜/足膜"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=颈部护理&PTAG=137886.1.9071",
+              "cid": "70140",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t17494/3/2556643261/9278/1f1db232/5afd54b1N529ab54e.jpg",
+              "level": 2,
+              "name": "美颈"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=美胸&PTAG=137886.1.9072",
+              "cid": "70141",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t18124/272/2527140035/5820/25843950/5afd54abN71ee4bcf.jpg",
+              "level": 2,
+              "name": "美胸"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=身体护理套装&PTAG=137886.1.9073",
+              "cid": "70142",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t19486/77/2530339313/13232/958fce1d/5afd54a6Nca72e456.jpg",
+              "level": 2,
+              "name": "身体护理套装"
+            }
+          ]
+        },
+        {
+          "cid": "70108",
+          "level": 1,
+          "name": "口腔护理",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E8%BF%9B%E5%8F%A3%E7%89%99%E8%86%8F&searchFrom=home",
+              "cid": "70532",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t19876/2/637557546/23939/63bf594c/5b03c6f3N208f158d.jpg",
+              "level": 2,
+              "name": "进口牙膏"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=牙膏&PTAG=137886.1.9075",
+              "cid": "70123",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t21709/123/122452202/11282/d3edbcd9/5afd5488N55584ee6.jpg",
+              "level": 2,
+              "name": "牙膏"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=牙刷&PTAG=137886.1.9076",
+              "cid": "70124",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t20131/362/126324506/7570/25c9cf01/5afd5480Ne350e657.jpg",
+              "level": 2,
+              "name": "牙刷"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=牙线&PTAG=137886.1.9077",
+              "cid": "70125",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t21859/125/124128973/13401/bc1d5345/5afd547bN1a1fc36f.jpg",
+              "level": 2,
+              "name": "牙线/牙线棒"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=牙贴&PTAG=137886.1.9078",
+              "cid": "70126",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t22117/98/133319209/19987/c1187729/5afd5474Nc701fb7b.jpg",
+              "level": 2,
+              "name": "牙贴"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=牙粉&PTAG=137886.1.9079",
+              "cid": "70127",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t16819/126/2534285097/11610/55ac454e/5afd546bN27c05a25.jpg",
+              "level": 2,
+              "name": "牙粉"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=假牙清洁&PTAG=137886.1.9080",
+              "cid": "70128",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t18814/256/2629829638/22748/9c4777f8/5afd5464N404defd5.jpg",
+              "level": 2,
+              "name": "假牙清洁"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=漱口水&PTAG=137886.1.9081",
+              "cid": "70129",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t18268/223/2565676410/10145/6887ef16/5afd545eNdbaea1e6.jpg",
+              "level": 2,
+              "name": "漱口水"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=口喷&PTAG=137886.1.9082",
+              "cid": "70130",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t22102/77/122022394/8918/37f7713c/5afd5454N092841af.jpg",
+              "level": 2,
+              "name": "口喷"
+            }
+          ]
+        },
+        {
+          "cid": "70109",
+          "level": 1,
+          "name": "清洁工具",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=拖把&PTAG=137886.1.9084",
+              "cid": "70114",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t17941/2/2535332698/24917/14a0feee/5afd5421Nd372f042.jpg",
+              "level": 2,
+              "name": "拖把"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=垃圾袋&PTAG=137886.1.9085",
+              "cid": "70115",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t18769/229/2589911314/45558/4c81e6d8/5afd5419Nb94c25df.jpg",
+              "level": 2,
+              "name": "垃圾袋"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=垃圾桶&PTAG=137886.1.9086",
+              "cid": "70116",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t19255/280/2541925874/45344/9e64db12/5afd5414Nb7959be9.jpg",
+              "level": 2,
+              "name": "垃圾桶"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=扫把&PTAG=137886.1.9087",
+              "cid": "70117",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t22141/30/129055155/25348/7d3d6880/5afd540fN9e8ce7ca.jpg",
+              "level": 2,
+              "name": "扫把"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?key=catid_str,,15918&PTAG=137886.1.9088",
+              "cid": "70118",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t20311/84/130146107/23953/34191d35/5afd540aNe43c3b40.jpg",
+              "level": 2,
+              "name": "脸盆/水桶"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=抹布&PTAG=137886.1.9089",
+              "cid": "70119",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t19468/364/2568165364/41541/68bf2b38/5afd5404N063a997a.jpg",
+              "level": 2,
+              "name": "抹布/百洁布"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?key=catid_str,,15920&PTAG=137886.1.9090",
+              "cid": "70120",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t21556/83/125761257/39986/6c21f126/5afd53ffN669c9d7b.jpg",
+              "level": 2,
+              "name": "手套/鞋套/围裙"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=清洁刷具&PTAG=137886.1.9091",
+              "cid": "70121",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t21106/103/143965304/25758/19e2ee6d/5afd53faN71843d91.jpg",
+              "level": 2,
+              "name": "清洁刷具"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=一次性清洁用品&PTAG=137886.1.9092",
+              "cid": "70122",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t21568/70/121334743/40181/1541ac83/5afd53eaN07f163e9.jpg",
+              "level": 2,
+              "name": "一次性清洁用品"
+            }
+          ]
+        },
+        {
+          "cid": "70110",
+          "level": 1,
+          "name": "驱蚊驱虫",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=蟑螂药&PTAG=137886.1.9094",
+              "cid": "70111",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t17407/139/2630394382/46387/c7a93f9a/5afd53e3N37baa82d.jpg",
+              "level": 2,
+              "name": "杀蟑"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=老鼠药&PTAG=137886.1.9095",
+              "cid": "70112",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t20968/63/126209561/70712/37832654/5afd53ddN777c317a.jpg",
+              "level": 2,
+              "name": "驱鼠"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=灭蚁&PTAG=137886.1.9096",
+              "cid": "70113",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t20971/59/120673409/42910/dd224b8a/5afd53d7Nf05b1a34.jpg",
+              "level": 2,
+              "name": "灭蚁"
+            }
+          ]
+        }
+      ],
+      "jshopUrl": {
+        "cmsPromotionsList": [],
+        "mPageAddress": []
+      }
+    },
+    "updateTime": 20190527
+  },
+  "WQ1988": {
+    "data": {
+      "data": [
+        {
+          "cid": "66451",
+          "level": 1,
+          "name": "热卖产品",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E9%81%BF%E5%AD%95%E5%A5%97&PTAG=137886.1.4103",
+              "cid": "66850",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t12967/337/1391919620/4957/c230e379/5a1fa4dfN13635e0b.jpg",
+              "level": 2,
+              "name": "避孕套"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E9%A3%9E%E6%9C%BA%E6%9D%AF&PTAG=137886.1.4104",
+              "cid": "66851",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t12577/223/1408990949/3151/b6d3f3c2/5a1fa4c9N1722220b.jpg",
+              "level": 2,
+              "name": "飞机杯"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E6%B6%A6%E6%BB%91%E6%B6%B2&PTAG=137886.1.4108",
+              "cid": "67606",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t16204/157/99115190/1594/56b918ba/5a27dd39Nb291d7b4.jpg",
+              "level": 2,
+              "name": "润滑液"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E6%8C%AF%E5%8A%A8%E6%A3%92&PTAG=137886.1.4105",
+              "cid": "66852",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t7711/193/4061075422/3307/ca2e16f0/5a1fa4d3N73ba4e26.jpg",
+              "level": 2,
+              "name": "振动棒"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E6%83%85%E8%B6%A3%E5%86%85%E8%A1%A3&PTAG=137886.1.4107",
+              "cid": "67605",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t12031/188/1751903538/3665/5002167a/5a27dd3dN8c2a767c.jpg",
+              "level": 2,
+              "name": "情趣内衣"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%85%85%E6%B0%94%E5%A8%83%E5%A8%83&PTAG=137886.1.4106",
+              "cid": "67604",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t13879/252/1741535676/2857/17a878cc/5a27dd43N3f71897a.jpg",
+              "level": 2,
+              "name": "充气娃娃"
+            }
+          ]
+        },
+        {
+          "cid": "66454",
+          "level": 1,
+          "name": "男用器具",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E7%8B%BC%E7%89%99%E5%A5%97&PTAG=137886.1.4127",
+              "cid": "67598",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t15697/270/117263048/3424/d9ac82b4/5a27dd0fNe2bc9933.jpg",
+              "level": 2,
+              "name": "狼牙套"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%BB%B6%E6%97%B6%E7%8E%AF&PTAG=137886.1.4126",
+              "cid": "67597",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t12844/238/1716863106/4896/66ecb649/5a27dd15N3c319e6e.jpg",
+              "level": 2,
+              "name": "延时环"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%90%8D%E5%99%A8&PTAG=137886.1.4122",
+              "cid": "66842",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t13363/207/1378105912/4445/5d6a8da8/5a1fa4a4Nbe0dd20a.jpg",
+              "level": 2,
+              "name": "名器"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%AE%9E%E4%BD%93%E5%A8%83%E5%A8%83&PTAG=137886.1.4125",
+              "cid": "67596",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t13633/192/1750068170/3097/be361c7f/5a27dd19Na55905bf.jpg",
+              "level": 2,
+              "name": "实体娃娃"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E9%A3%9E%E6%9C%BA%E6%9D%AF&PTAG=137886.1.4121",
+              "cid": "66840",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t13069/337/1417186237/3300/4269f51f/5a1fa4aaN5c41ddec.jpg",
+              "level": 2,
+              "name": "飞机杯"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%80%92%E6%A8%A1&PTAG=137886.1.4123",
+              "cid": "66843",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t12874/255/15949646/3234/2ac08cca/5a1fa480Nb25ec042.jpg",
+              "level": 2,
+              "name": "倒模"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%90%8E%E5%BA%AD&PTAG=137886.1.4128",
+              "cid": "67599",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t15187/337/235838504/2416/5831d5d6/5a27dd09N6e341de3.jpg",
+              "level": 2,
+              "name": "后庭"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=sm&PTAG=137886.1.4129",
+              "cid": "67600",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t15517/83/118691147/2248/2ab34c4f/5a27dcf3Nc3c95962.jpg",
+              "level": 2,
+              "name": "情趣游戏"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%85%85%E6%B0%94%E5%A8%83%E5%A8%83&PTAG=137886.1.4124",
+              "cid": "67595",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t14548/326/252090716/3444/d65a0e4/5a27dd0eN06ceb604.jpg",
+              "level": 2,
+              "name": "充气娃娃"
+            }
+          ]
+        },
+        {
+          "cid": "66455",
+          "level": 1,
+          "name": "女用器具",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E4%BB%BF%E7%9C%9F%E9%98%B3%E5%85%B7&PTAG=137886.1.4136",
+              "cid": "67594",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t13318/170/1764615288/2475/ca6d7d29/5a27dce0N331f1af8.jpg",
+              "level": 2,
+              "name": "女用仿真"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E8%B7%B3%E8%9B%8B&PTAG=137886.1.4134",
+              "cid": "67592",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t14818/268/246244527/4366/81e2bb91/5a27dcfcN951395bc.jpg",
+              "level": 2,
+              "name": "跳蛋"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E9%9C%87%E5%8A%A8%E6%A3%92&PTAG=137886.1.4131",
+              "cid": "66837",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t13447/120/1378820595/3256/d14fff5c/5a1fa47bN410ff8f0.jpg",
+              "level": 2,
+              "name": "震动棒"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=AV%E6%A3%92&PTAG=137886.1.4132",
+              "cid": "66838",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t13561/174/1403466955/2709/7007279e/5a1fa475Nff6e6f2b.jpg",
+              "level": 2,
+              "name": "AV棒"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E8%BD%AC%E7%8F%A0%E6%A3%92&PTAG=137886.1.4133",
+              "cid": "66839",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t12757/80/1430224086/2761/6ec2c43c/5a1fa46eNad190bd4.jpg",
+              "level": 2,
+              "name": "转珠棒"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E7%BC%A9%E9%98%B4%E7%90%83&PTAG=137886.1.4135",
+              "cid": "67593",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t12061/150/1769987244/2461/fe21b911/5a27dcf6Neba3a5aa.jpg",
+              "level": 2,
+              "name": "缩阴球"
+            }
+          ]
+        },
+        {
+          "cid": "66452",
+          "level": 1,
+          "name": "安全避孕",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E9%81%BF%E5%AD%95%E5%A5%97%E6%8C%81%E4%B9%85&PTAG=137886.1.4111",
+              "cid": "66848",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t13933/210/1410924086/3957/42cc304e/5a1fa4c8N0f80c1fb.jpg",
+              "level": 2,
+              "name": "持久"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E8%9E%BA%E7%BA%B9%E9%81%BF%E5%AD%95%E5%A5%97&PTAG=137886.1.4113",
+              "cid": "67601",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t13078/353/1717825065/4142/97fbebf8/5a27dd32N1d77da60.jpg",
+              "level": 2,
+              "name": "螺纹"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%B0%8F%E5%8F%B7%E9%81%BF%E5%AD%95%E5%A5%97&PTAG=137886.1.4112",
+              "cid": "66849",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t12622/231/1401817510/4931/92f3c65d/5a1fa4c5N7359bdad.jpg",
+              "level": 2,
+              "name": "小号"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%A4%A7%E9%A2%97%E7%B2%92%E9%81%BF%E5%AD%95%E5%A5%97&PTAG=137886.1.4115",
+              "cid": "67603",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t12352/86/1714098677/3940/60bcbae5/5a27dd29N905e2a40.jpg",
+              "level": 2,
+              "name": "大颗粒"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E8%B6%85%E8%96%84%E9%81%BF%E5%AD%95%E5%A5%97&PTAG=137886.1.4110",
+              "cid": "66847",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t13741/289/1434835121/3104/5d32e3a8/5a1fa4cfNdd959c7e.jpg",
+              "level": 2,
+              "name": "超薄"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E6%9E%9C%E5%91%B3%E9%81%BF%E5%AD%95%E5%A5%97&PTAG=137886.1.4114",
+              "cid": "67602",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t15784/149/139647847/4404/43e8c886/5a27dd2aN8e3e10aa.jpg",
+              "level": 2,
+              "name": "果味"
+            }
+          ]
+        },
+        {
+          "cid": "66457",
+          "level": 1,
+          "name": "情趣内衣",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E6%83%85%E8%B6%A3%E4%B8%81%E5%AD%97%E8%A3%A4&PTAG=137886.1.4145",
+              "cid": "67589",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t15343/230/241003281/2370/8cb3cfe4/5a27dce5Nea24d0cc.jpg",
+              "level": 2,
+              "name": "丁字裤"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E6%83%85%E8%B6%A3%E5%86%85%E8%A1%A3%20%E4%B8%9D%E8%A2%9C&PTAG=137886.1.4146",
+              "cid": "67590",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t14395/354/259612669/1770/f56488ac/5a27dce0N44b9f566.jpg",
+              "level": 2,
+              "name": "丝袜"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E6%83%85%E8%B6%A3%E5%86%85%E8%A1%A3%20%E5%90%8A%E5%B8%A6&PTAG=137886.1.4143",
+              "cid": "66832",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t13093/106/1363704455/2758/4eeefa03/5a1fa454Nb358db45.jpg",
+              "level": 2,
+              "name": "吊带"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E6%83%85%E8%B6%A3%E5%86%85%E8%A1%A3%E5%A5%97%E8%A3%85&PTAG=137886.1.4142",
+              "cid": "66831",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t13906/316/1397593655/2538/61cedbb8/5a1fa458N3ffeb9c4.jpg",
+              "level": 2,
+              "name": "套装"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E8%BF%9E%E4%BD%93%E6%83%85%E8%B6%A3%E5%86%85%E8%A1%A3&PTAG=137886.1.4144",
+              "cid": "66833",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t13237/168/158030664/2656/84d2ef0e/5a1fa44fN91da46b1.jpg",
+              "level": 2,
+              "name": "连体衣"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E8%A7%92%E8%89%B2%E6%89%AE%E6%BC%94&PTAG=137886.1.4147",
+              "cid": "67591",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t15868/220/74852790/2131/fa670754/5a27dccaNc1e88220.jpg",
+              "level": 2,
+              "name": "角色扮演"
+            }
+          ]
+        },
+        {
+          "cid": "66456",
+          "level": 1,
+          "name": "人体润滑",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E7%83%AD%E6%84%9F%E4%BA%BA%E4%BD%93%E6%B6%A6%E6%BB%91&PTAG=137886.1.4138",
+              "cid": "66834",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t12724/214/13395297/1975/3bf166fb/5a1fa467N94ec8de7.jpg",
+              "level": 2,
+              "name": "热感"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%86%B0%E6%84%9F%E4%BA%BA%E4%BD%93%E6%B6%A6%E6%BB%91&PTAG=137886.1.4139",
+              "cid": "66835",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t12097/115/1383442349/1935/49fa3fb5/5a1fa465Ne77f16a8.jpg",
+              "level": 2,
+              "name": "冰感"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E6%B0%B4%E6%BA%B6%E4%BA%BA%E4%BD%93%E6%B6%A6%E6%BB%91&PTAG=137886.1.4140",
+              "cid": "66836",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t13723/40/1412553123/1994/f64e50f8/5a1fa45eN211bc3c5.jpg",
+              "level": 2,
+              "name": "水溶"
+            }
+          ]
+        },
+        {
+          "cid": "66458",
+          "level": 1,
+          "name": "热卖品牌",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E6%9D%9C%E8%95%BE%E6%96%AF&PTAG=137886.1.4149",
+              "cid": "66828",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t13867/316/1359002497/5091/a1bfd47d/5a1fa448N8f69b04b.jpg",
+              "level": 2,
+              "name": "杜蕾斯"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%80%8D%E5%8A%9B%E4%B9%90&PTAG=137886.1.4155",
+              "cid": "67574",
+              "icon": "//img12.360buyimg.com/focus/s140x140_jfs/t15502/296/128883836/4395/59a0f7df/5a27dc92N2270a744.jpg",
+              "level": 2,
+              "name": "倍力乐"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%86%88%E6%9C%AC&PTAG=137886.1.4150",
+              "cid": "66829",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t12346/211/1438533254/3826/f830ddc6/5a1fa441N37594aae.jpg",
+              "level": 2,
+              "name": "冈本"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E7%AC%AC%E5%85%AD%E6%84%9F&PTAG=137886.1.4152",
+              "cid": "67571",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t12592/2/1748048040/3391/4783dc1a/5a27dcd3N89109f71.jpg",
+              "level": 2,
+              "name": "第六感"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%A4%A7%E8%B1%A1%E9%81%BF%E5%AD%95%E5%A5%97&PTAG=137886.1.4153",
+              "cid": "67572",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t13255/256/1769772962/2653/fb1fb069/5a27dccdN4154b91b.jpg",
+              "level": 2,
+              "name": "大象"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=SUEKISS&PTAG=137886.1.4162",
+              "cid": "67581",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t12385/104/343845037/3134/f1273fb5/5a27dc9fN533d88b9.jpg",
+              "level": 2,
+              "name": "SUEKISS"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%AF%B9%E5%AD%90%E5%93%88%E7%89%B9&PTAG=137886.1.4158",
+              "cid": "67577",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t15142/64/265824598/2764/cc2a455e/5a27dcb1N160235b1.jpg",
+              "level": 2,
+              "name": "对子哈特"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E6%9D%B0%E5%A3%AB%E9%82%A6&PTAG=137886.1.4151",
+              "cid": "66830",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t13078/114/1386231360/6952/30e9d70d/5a1fa43aN0356a51f.jpg",
+              "level": 2,
+              "name": "杰士邦"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E8%B0%9C%E5%A7%AC&PTAG=137886.1.4159",
+              "cid": "67578",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t14728/164/249829283/2393/1c045563/5a27dca9N211d6734.jpg",
+              "level": 2,
+              "name": "谜姬"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E9%9B%B7%E9%9C%86%E6%88%90%E4%BA%BA%E7%94%A8%E5%93%81&PTAG=137886.1.4160",
+              "cid": "67579",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t13837/221/1717232160/2739/2d380a40/5a27dc91N0c6f8a07.jpg",
+              "level": 2,
+              "name": "雷霆"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%8F%96%E6%82%A6&PTAG=137886.1.4161",
+              "cid": "67580",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t13636/129/1727265589/2435/46f92585/5a27dc9dN1983f1b9.jpg",
+              "level": 2,
+              "name": "取悦"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E8%AF%BA%E5%85%B0%E6%83%85%E8%B6%A3%E7%94%A8%E5%93%81&PTAG=137886.1.4164",
+              "cid": "67583",
+              "icon": "//img13.360buyimg.com/focus/s140x140_jfs/t16237/39/100336163/1854/dea39a3d/5a27dc8dN57d1dc50.jpg",
+              "level": 2,
+              "name": "诺兰"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E4%B8%BD%E6%B3%A2&PTAG=137886.1.4165",
+              "cid": "67584",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t14440/266/254119402/2173/1f26e52b/5a27dc82Na463de6f.jpg",
+              "level": 2,
+              "name": "丽波"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E9%9C%8F%E6%85%95&PTAG=137886.1.4166",
+              "cid": "67585",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t15061/213/259146749/1957/3c888f97/5a27dc81Nc480e2fb.jpg",
+              "level": 2,
+              "name": "霏幕"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%A4%A7%E5%8D%AB&PTAG=137886.1.4168",
+              "cid": "67587",
+              "icon": "//img20.360buyimg.com/focus/s140x140_jfs/t13051/71/1706137110/2470/d3ef0070/5a27dc70N31d7cfa6.jpg",
+              "level": 2,
+              "name": "大卫"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E6%A0%B9%E6%B2%90&PTAG=137886.1.4157",
+              "cid": "67576",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t12301/35/1715134143/1797/29e5e975/5a27dcbbN61005308.jpg",
+              "level": 2,
+              "name": "根沐"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E5%90%8D%E6%B5%81&PTAG=137886.1.4154",
+              "cid": "67573",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t15919/214/124358419/4244/78e8abb2/5a27dcafN07a0af95.jpg",
+              "level": 2,
+              "name": "名流"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E6%AF%93%E5%A9%B7&PTAG=137886.1.4169",
+              "cid": "67588",
+              "icon": "//img30.360buyimg.com/focus/s140x140_jfs/t12400/240/1705939575/3134/ae0d220c/5a27dc6bN033b2f27.jpg",
+              "level": 2,
+              "name": "毓婷"
+            }
+          ]
+        },
+        {
+          "cid": "66453",
+          "level": 1,
+          "name": "验孕测孕",
+          "catelogyList": [
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E6%97%A9%E5%AD%95%E8%AF%95%E7%BA%B8&PTAG=137886.1.4118",
+              "cid": "66845",
+              "icon": "//img14.360buyimg.com/focus/s140x140_jfs/t13486/227/1441064146/1670/3cb5d1d0/5a1fa4b7Nba2853c5.jpg",
+              "level": 2,
+              "name": "早孕试纸"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E6%8E%92%E5%8D%B5%E8%AF%95%E7%BA%B8&PTAG=137886.1.4117",
+              "cid": "66844",
+              "icon": "//img11.360buyimg.com/focus/s140x140_jfs/t13174/48/13420067/3502/2e5192af/5a1fa4bcNd8c753c4.jpg",
+              "level": 2,
+              "name": "排卵试纸"
+            },
+            {
+              "action": "https://so.m.jd.com/ware/search.action?keyword=%E7%94%B5%E5%AD%90%E9%AA%8C%E5%AD%95%E6%A3%92&PTAG=137886.1.4119",
+              "cid": "66846",
+              "icon": "//img10.360buyimg.com/focus/s140x140_jfs/t13987/267/1405199022/2943/1d24f93a/5a1fa4a1N23737107.jpg",
+              "level": 2,
+              "name": "电子验孕棒"
+            }
+          ]
+        }
+      ],
+      "jshopUrl": {
+        "cmsPromotionsList": [],
+        "mPageAddress": []
+      }
+    },
+    "updateTime": 20190527
+  }
+}

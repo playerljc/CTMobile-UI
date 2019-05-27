@@ -17,7 +17,8 @@ startrange
 sortable
 upload
 
-flowdesign
+// 独立
+flowdesign,chat
 epub
 wechat(websocket)
 webvr

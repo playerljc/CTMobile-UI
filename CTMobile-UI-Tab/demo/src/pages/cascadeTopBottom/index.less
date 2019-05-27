@@ -1,0 +1,20 @@
+div[opt="cascadeTopBottom"] {
+  .ct-tab-indicator {
+    .swiper-slide {
+      .ct-tab-indicator-item-label {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .swiper-slide.active {
+      color: red;
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
