@@ -28,11 +28,11 @@ module.exports = {
           },
         ]),
       ],
-      resolve: {
-        alias: {
-          '@ctmobile/ui-tab': path.resolve(__dirname, 'src/ctmobile-ui-tab'),
-        },
-      },
+      // resolve: {
+      //   alias: {
+      //     '@ctmobile/ui-tab': path.resolve(__dirname, 'src/ctmobile-ui-tab'),
+      //   },
+      // },
     };
   },
 };

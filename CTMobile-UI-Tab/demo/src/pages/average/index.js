@@ -1,6 +1,5 @@
 import CtMobile from 'ctmobile';
-import Tab, { TabItem } from '@ctmobile/ui-tab/tab';
-import '@ctmobile/ui-tab/tab.less';
+import Tab, { TabItem } from '@ctmobile/ui-tab';
 
 class MyTabItem extends TabItem {
   constructor(index) {

@@ -59,16 +59,15 @@ function renderIndicator() {
 
   /**
    *  slidesPerView: 'auto',
-      freeMode: true,
-      scrollbar: {
+   freeMode: true,
+   scrollbar: {
         el: '.swiper-scrollbar',
       },
-      mousewheel: true,
+   mousewheel: true,
    */
   if (type === 'dynamic') {
     swiperIndicatorConfig.slidesPerView = slidesPerView;
   } else {
-    // swiperIndicatorConfig.slidesPerView = this.indicatorEl.querySelectorAll('> .swiper-wrapper > .swiper-slide').length;
     swiperIndicatorConfig.slidesPerView = dom6.children(this.indicatorEl.firstElementChild, 'swiper-slide').length;
   }
 
@@ -160,7 +159,6 @@ function createContentInstace(index) {
   let entry = this.contentClassInstances.get(index);
   if (!entry) {
     const tabInstance = tabInstances[index] || {};
-    // const contentDoms = this.contentEl.querySelectorAll('> .swiper-wrapper > .ct-tab-content-item');
     const contentDoms = dom6.children(this.contentEl.firstElementChild, 'ct-tab-content-item');
     entry = tabInstance;// new Class(index, contentDoms[index]);
     if (entry.setEl) {
@@ -199,7 +197,6 @@ function triggerContent({ instance, type, params }) {
  * @param index
  */
 function activeIndicatorItem(index) {
-  // const els = this.indicatorEl.querySelectorAll('> .swiper-wrapper > .swiper-slide');
   const els = dom6.children(this.indicatorEl.firstElementChild, 'swiper-slide');
   for (let i = 0; i < els.length; i++) {
     const el = els[i];

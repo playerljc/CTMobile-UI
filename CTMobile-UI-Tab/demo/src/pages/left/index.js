@@ -1,8 +1,6 @@
 import CtMobile from 'ctmobile';
-import Tab, { TabItem } from '@ctmobile/ui-tab/tab';
+import Tab, { TabItem } from '@ctmobile/ui-tab';
 import { Dom6 } from '@ctmobile/ui-util';
-
-import '@ctmobile/ui-tab/tab.less';
 import './index.less';
 import config from './config.json';
 
