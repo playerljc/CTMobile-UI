@@ -38,6 +38,46 @@ export default {
 
   },
   /**
+   * addClass
+   * @param {HTMLElement} el
+   * @param {String} classes
+   */
+  addClass(el, classes = '') {
+    const classNames = classes.split(' ');
+    for (let i = 0; i < classNames.length; i++) {
+      el.classList.add(classNames[i]);
+    }
+  },
+  /**
+   * removeClass
+   * @param {HTMLElement} el
+   * @param {String} classes
+   */
+  removeClass(el, classes = '') {
+    const classNames = classes.split(' ');
+    for (let i = 0; i < classNames.length; i++) {
+      el.classList.remove(classNames[i]);
+    }
+  },
+  /**
+   * hasClass
+   * @param {HTMLElement} el
+   * @param {String} className
+   * @return {Boolean}
+   */
+  hasClass(el, className) {
+    return el.classList.contains(className);
+  },
+  /**
+   * attr
+   * @param {HTMLElement} el
+   * @param {Object} property
+   * @param {Object} value
+   */
+  attr(el, property, value) {
+
+  },
+  /**
    * DOM没有提供insertAfter()方法
    * @param {HtmlElement} newElement
    * @param {HtmlElement} targetElement

@@ -1,7 +1,7 @@
 {
   "name": "@ctmobile/ui-sidepanel",
   "version": "1.0.0",
-  "description": "支持移动端的UI组件-sidepanel",
+  "description": "支持移动端的UI组件-SidePanel",
   "main": "lib/sidepanel.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

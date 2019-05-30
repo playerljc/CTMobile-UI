@@ -1,6 +1,5 @@
 import Swiper from 'swiper';
 import { Dom6 } from '@ctmobile/ui-util';
-import dom6 from '@ctmobile/ui-util/src/dom6';
 
 const selectorPrefix = 'ct-tab-';
 
@@ -69,7 +68,7 @@ function renderIndicator() {
     swiperIndicatorConfig.slidesPerView = slidesPerView;
   } else {
     // swiperIndicatorConfig.slidesPerView = this.indicatorEl.querySelectorAll('> .swiper-wrapper > .swiper-slide').length;
-    swiperIndicatorConfig.slidesPerView = dom6.children(this.indicatorEl.firstElementChild, 'swiper-slide').length;
+    swiperIndicatorConfig.slidesPerView = Dom6.children(this.indicatorEl.firstElementChild, 'swiper-slide').length;
   }
 
   this.swiperIndicator = new Swiper(this.indicatorEl, swiperIndicatorConfig);
@@ -139,7 +138,7 @@ function initEvent() {
 
 function findIndicatorIndex(el) {
   // const els = this.indicatorEl.querySelectorAll('> .swiper-wrapper > .swiper-slide');
-  const els = dom6.children(this.indicatorEl.firstElementChild, 'swiper-slide');
+  const els = Dom6.children(this.indicatorEl.firstElementChild, 'swiper-slide');
   let index = -1;
   for (let i = 0; i < els.length; i++) {
     if (el === els[i]) {
@@ -161,7 +160,7 @@ function createContentInstace(index) {
   if (!entry) {
     const tabInstance = tabInstances[index] || {};
     // const contentDoms = this.contentEl.querySelectorAll('> .swiper-wrapper > .ct-tab-content-item');
-    const contentDoms = dom6.children(this.contentEl.firstElementChild, 'ct-tab-content-item');
+    const contentDoms = Dom6.children(this.contentEl.firstElementChild, 'ct-tab-content-item');
     entry = tabInstance;// new Class(index, contentDoms[index]);
     if (entry.setEl) {
       entry.setEl(contentDoms[index]);
@@ -200,7 +199,7 @@ function triggerContent({ instance, type, params }) {
  */
 function activeIndicatorItem(index) {
   // const els = this.indicatorEl.querySelectorAll('> .swiper-wrapper > .swiper-slide');
-  const els = dom6.children(this.indicatorEl.firstElementChild, 'swiper-slide');
+  const els = Dom6.children(this.indicatorEl.firstElementChild, 'swiper-slide');
   for (let i = 0; i < els.length; i++) {
     const el = els[i];
     if (i == index) {
@@ -275,7 +274,7 @@ class Tab {
     this.el = this.tel.content.querySelector('.ct-tab').cloneNode(true);
     this.indicatorEl = this.el.querySelector(`.${selectorPrefix}indicator`);
     this.contentEl = this.el.querySelector(`.${selectorPrefix}content`);
-    this.maskEl = dom6.createElement(`<div class="${selectorPrefix}mask"></div>`);
+    this.maskEl = Dom6.createElement(`<div class="${selectorPrefix}mask"></div>`);
     this.el.appendChild(this.maskEl);
 
     renderIndicator.call(this);
@@ -404,7 +403,7 @@ class Tab {
    * @return {number}
    */
   getCount() {
-    return dom6.children(this.indicatorEl.firstElementChild, 'swiper-slide').length;
+    return Dom6.children(this.indicatorEl.firstElementChild, 'swiper-slide').length;
   }
 }
 
