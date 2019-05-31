@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-sliderscale-demo</title>
+</head>
+<body>
+
+<!--<div class="ctmobile-ui-doc">-->
+<!--&lt;!&ndash; SliderScale &ndash;&gt;-->
+
+<!--&lt;!&ndash;菜单&ndash;&gt;-->
+<!--<h1>SliderScale</h1>-->
+<!--<ul>-->
+<!--<li><a href="#sliderscale-layout">基本布局</a></li>-->
+<!--<li><a href="#sliderscale-initial">初始化</a></li>-->
+<!--<li><a href="#sliderscale-demo">例子</a></li>-->
+<!--<li><a href="#sliderscale-methods">方法</a></li>-->
+<!--<li>-->
+<!--<a href="#sliderscale-events">事件</a>-->
+<!--<ul>-->
+<!--<li><a href="#sliderscale-events-change">change</a></li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--</ul>-->
+
+<!--&lt;!&ndash;基本布局&ndash;&gt;-->
+<!--<h2 id="sliderscale-layout">基本布局</h2>-->
+<!--<dl>-->
+<!--<dt>-->
+<!--<pre>-->
+<!--<code class="html">-->
+<!--<div class="ct-sliderscale">-->
+<!--<div class="scale"></div>-->
+<!--<input type="range">-->
+<!--</div>-->
+<!--</code>-->
+<!--</pre>-->
+<!--</dt>-->
+<!--<dd>-->
+<!--<ul>-->
+<!--<li>-->
+<!--ct-sliderscale - 整体容器-->
+<!--<ul>-->
+<!--<li>.scale - 刻度</li>-->
+<!--<li>type="range" - 刻度控件</li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</dd>-->
+<!--</dl>-->
+
+<!--&lt;!&ndash;初始化&ndash;&gt;-->
+<!--<h2 id="sliderscale-initial">初始化</h2>-->
+<!--<pre>-->
+<!--<code class="javascript">-->
+<!--import SliderScaleFactory from '@ctmobile/ui-sliderscale/sliderscale';-->
+<!--import '@ctmobile/ui-sliderscale/sliderscale.less';-->
+
+<!--const s1 = SliderScaleFactory.create(document.getElementById('s1'), {-->
+<!--min: 0,-->
+<!--max: 10,-->
+<!--value: 0,-->
+<!--step: 1,-->
+<!--interval: 2,-->
+<!--});-->
+<!--</code>-->
+<!--</pre>-->
+
+<!--<table class="events-table" cellpadding="0" cellspacing="0">-->
+<!--<thead>-->
+<!--<tr>-->
+<!--<th>名称</th>-->
+<!--<th>说明</th>-->
+<!--</tr>-->
+<!--</thead>-->
+<!--<tbody>-->
+<!--<tr>-->
+<!--<td>{HtmlElement} - el</td>-->
+<!--<td>整体元素</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>{object} - config</td>-->
+<!--<td>-->
+<!--<p>配置</p>-->
+<!--<div class="method-wrap">-->
+<!--<p>min {String} - 最小值</p>-->
+<!--</div>-->
+<!--<div class="method-wrap">-->
+<!--<p>max {String} - 最大值</p>-->
+<!--</div>-->
+<!--<div class="method-wrap">-->
+<!--<p>value {String} - 当前值</p>-->
+<!--</div>-->
+<!--<div class="method-wrap">-->
+<!--<p>step {String} - 步进,一次滑动距离</p>-->
+<!--</div>-->
+<!--<div class="method-wrap">-->
+<!--<p>interval {String} - 每隔interval标识一个刻度</p>-->
+<!--</div>-->
+<!--</td>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
+
+<!--&lt;!&ndash;例子&ndash;&gt;-->
+<!--<h2 id="sliderscale-demo">例子</h2>-->
+<!--<div class="with-device">-->
+<!--&lt;!&ndash;demo code&ndash;&gt;-->
+<!--<div class="with-device-code">-->
+<!--<dl>-->
+<!--<dt><h4>html</h4></dt>-->
+<!--<dd>-->
+<!--<pre>-->
+<!--<code class="html">-->
+<!--<dl>-->
+<!--<dt>基本</dt>-->
+<!--<dd>-->
+<!--<div class="ct-sliderscale" id="s1">-->
+<!--<div class="scale"></div>-->
+<!--<input type="range">-->
+<!--</div>-->
+
+<!--<div class="ct-sliderscale" id="s2">-->
+<!--<div class="scale"></div>-->
+<!--<input type="range">-->
+<!--</div>-->
+<!--</dd>-->
+<!--</dl>-->
+<!--<dl>-->
+<!--<dt>动态设置</dt>-->
+<!--<dd>-->
+<!--<div class="controlBlock">-->
+<!--<input type="range" id="controlS3" min="0" max="50" setp="1" value="0">-->
+<!--</div>-->
+
+<!--<div class="ct-sliderscale" id="s3">-->
+<!--<div class="scale"></div>-->
+<!--<input type="range">-->
+<!--</div>-->
+<!--</dd>-->
+<!--</dl>-->
+<!--</code>-->
+<!--</pre>-->
+<!--</dd>-->
+<!--</dl>-->
+
+<!--<dl>-->
+<!--<dt><h4>js</h4></dt>-->
+<!--<dd>-->
+<!--<pre>-->
+<!--<code class="javascript">-->
+<!--import SliderScaleFactory from '@ctmobile/ui-sliderscale';-->
+<!--import '@ctmobile/ui-sliderscale/lib/sliderscale.less';-->
+<!--const s1 = SliderScaleFactory.create(document.getElementById('s1'), {-->
+<!--min: 0,-->
+<!--max: 10,-->
+<!--value: 0,-->
+<!--step: 1,-->
+<!--interval: 2,-->
+<!--});-->
+
+<!--const s2 = SliderScaleFactory.create(document.getElementById('s2'), {-->
+<!--min: 0,-->
+<!--max: 60,-->
+<!--value: 0,-->
+<!--step: 1,-->
+<!--interval: 5,-->
+<!--});-->
+
+<!--const s3 = SliderScaleFactory.create(document.getElementById('s3'), {-->
+<!--min: 0,-->
+<!--max: 50,-->
+<!--value: 0,-->
+<!--step: 1,-->
+<!--interval: 5,-->
+<!--});-->
+
+<!--document.getElementById('controlS3').addEventListener('change', (e) => {-->
+<!--s3.setValue(e.target.value);-->
+<!--});-->
+<!--</code>-->
+<!--</pre>-->
+<!--</dd>-->
+<!--</dl>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;demo view&ndash;&gt;-->
+<!--<div class="with-device-view">-->
+<!--<div class="ctmobile-ui-doc-demo-device">-->
+<!--<div class="ctmobile-ui-doc-demo-device-inner" id="ctmobile-ui-doc-demo-device">-->
+<!--<div class="demo-inner">-->
+<!--<dl>-->
+<!--<dt>基本</dt>-->
+<!--<dd>-->
+<!--<div class="ct-sliderscale" id="s1">-->
+<!--<div class="scale"></div>-->
+<!--<input type="range">-->
+<!--</div>-->
+
+<!--<div class="ct-sliderscale" id="s2">-->
+<!--<div class="scale"></div>-->
+<!--<input type="range">-->
+<!--</div>-->
+<!--</dd>-->
+<!--</dl>-->
+<!--<dl>-->
+<!--<dt>动态设置</dt>-->
+<!--<dd>-->
+<!--<div class="controlBlock">-->
+<!--<input type="range" id="controlS3" min="0" max="50" setp="1" value="0">-->
+<!--</div>-->
+
+<!--<div class="ct-sliderscale" id="s3">-->
+<!--<div class="scale"></div>-->
+<!--<input type="range">-->
+<!--</div>-->
+<!--</dd>-->
+<!--</dl>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;方法&ndash;&gt;-->
+<!--<h2 id="sliderscale-methods">方法</h2>-->
+<!--<div class="method-wrap">-->
+<!--<p>setValue(-->
+<!--<span class="parameter">value</span>-->
+<!--) - 设置当前值</p>-->
+<!--<ul class="method-parameters">-->
+<!--<li>-->
+<!--<span class="parameter">value</span>-<span class="parameterType">string</span>-->
+<!--当前值-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+
+<!--<div class="method-wrap">-->
+<!--<p>getValue - 获取当前值</p>-->
+<!--</div>-->
+
+<!--<div class="method-wrap">-->
+<!--<p>on(-->
+<!--<span class="parameter">type</span>,-->
+<!--<span class="parameter">handler</span>,-->
+<!--) - 注册事件</p>-->
+<!--<ul class="method-parameters">-->
+<!--<li>-->
+<!--<span class="parameter">type</span>-<span class="parameterType">string</span>-->
+<!--事件类型-->
+<!--</li>-->
+<!--<li>-->
+<!--<span class="parameter">handler</span>-<span class="parameterType">Function</span>-->
+<!--事件句柄-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+
+<!--<div class="method-wrap">-->
+<!--<p>off(-->
+<!--<span class="parameter">type</span>,-->
+<!--<span class="parameter">handler</span>,-->
+<!--) - 注销事件</p>-->
+<!--<ul class="method-parameters">-->
+<!--<li>-->
+<!--<span class="parameter">type</span>-<span class="parameterType">string</span>-->
+<!--事件类型-->
+<!--</li>-->
+<!--<li>-->
+<!--<span class="parameter">handler</span>-<span class="parameterType">Function</span>-->
+<!--事件句柄-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;事件&ndash;&gt;-->
+<!--<h2 id="sliderscale-events">事件</h2>-->
+<!--<table class="events-table" cellpadding="0" cellspacing="0">-->
+<!--<thead>-->
+<!--<tr>-->
+<!--<th>名称</th>-->
+<!--<th>说明</th>-->
+<!--</tr>-->
+<!--</thead>-->
+<!--<tbody>-->
+<!--<tr id="sliderscale-events-change">-->
+<!--<td>change</td>-->
+<!--<td>值发生变化</td>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
+<!--<pre>-->
+<!--<code class="javascript">-->
+<!--import SliderScaleFactory from '@ctmobile/ui-sliderscale';-->
+<!--import '@ctmobile/ui-sliderscale/lib/sliderscale.less';-->
+<!--const s3 = SliderScaleFactory.create(document.getElementById('s3'), {-->
+<!--min: 0,-->
+<!--max: 50,-->
+<!--value: 0,-->
+<!--step: 1,-->
+<!--interval: 5,-->
+<!--});-->
+
+<!--document.getElementById('controlS3').addEventListener('change', (e) => {-->
+<!--s3.setValue(e.target.value);-->
+<!--});-->
+<!--</code>-->
+<!--</pre>-->
+<!--</div>-->
+
+<div class="ct-surnames" id="surnames">
+  <div class="ct-surnames-highlighted"></div>
+  <div class="ct-surnames-content"></div>
+  <div class="ct-surnames-index"></div>
+</div>
+
+</body>
+</html>
