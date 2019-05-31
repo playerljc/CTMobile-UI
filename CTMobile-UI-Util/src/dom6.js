@@ -199,4 +199,11 @@ export default {
       return t.classList.contains(selector);
     });
   },
+  /**
+   * isTouch
+   * @return {boolean}
+   */
+  isTouch() {
+    return 'ontouchend' in document;
+  },
 };
