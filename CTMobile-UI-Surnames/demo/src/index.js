@@ -1,49 +1,18 @@
-// import DemoUtil from '@ctmobile/ui-demo-util';
-// import SliderScaleFactory from '@ctmobile/ui-sliderscale';
-//
-// import './index.less';
-//
-// DemoUtil.initial();
-//
-// const s1 = SliderScaleFactory.create(document.getElementById('s1'), {
-//   min: 0,
-//   max: 10,
-//   value: 0,
-//   step: 1,
-//   interval: 2,
-// });
-//
-// const s2 = SliderScaleFactory.create(document.getElementById('s2'), {
-//   min: 0,
-//   max: 60,
-//   value: 0,
-//   step: 1,
-//   interval: 5,
-// });
-//
-// const s3 = SliderScaleFactory.create(document.getElementById('s3'), {
-//   min: 0,
-//   max: 50,
-//   value: 0,
-//   step: 1,
-//   interval: 5,
-// });
-//
-// document.getElementById('controlS3').addEventListener('change', (e) => {
-//   s3.setValue(e.target.value);
-// });
-
+import DemoUtil from '@ctmobile/ui-demo-util';
 import { Dom6 } from '@ctmobile/ui-util';
 import SurnamesFactory from '@ctmobile/ui-surnames/surnames';
-import './index.less';
 import '@ctmobile/ui-surnames/surnames.less';
 import '@ctmobile/ui-surnames/themes/default/surnames.less';
+import './index.less';
 
-const el = document.getElementById('surnames');
+DemoUtil.initial();
+
+const el = document.getElementById('normal');
 
 function createSurnames() {
   const contentEl = el.querySelector('.ct-surnames-content');
-  const indexNames = ['A',
+  const indexNames = [
+    'A',
     'B',
     'C',
     'D',
@@ -69,7 +38,8 @@ function createSurnames() {
     'X',
     'Y',
     'Z',
-    '#'];
+    '#',
+  ];
   const df = document.createDocumentFragment();
   for (let i = 0; i < indexNames.length; i++) {
     const index = indexNames[i];
@@ -96,4 +66,9 @@ function createSurnames() {
 
 createSurnames();
 
-SurnamesFactory.create(el);
+const surnames = SurnamesFactory.create(el, { position: 'right' });
+
+setTimeout(() => {
+  // surnames.scrollToAnimation('#');
+}, 3000);
+

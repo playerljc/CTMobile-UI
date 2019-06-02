@@ -4,318 +4,376 @@
   <meta charset="utf-8">
   <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
-  <title>ctmobile-ui-sliderscale-demo</title>
+  <title>ctmobile-ui-surnames-demo</title>
 </head>
 <body>
 
-<!--<div class="ctmobile-ui-doc">-->
-<!--&lt;!&ndash; SliderScale &ndash;&gt;-->
+<div class="ctmobile-ui-doc">
+  <!-- Surnames -->
 
-<!--&lt;!&ndash;菜单&ndash;&gt;-->
-<!--<h1>SliderScale</h1>-->
-<!--<ul>-->
-<!--<li><a href="#sliderscale-layout">基本布局</a></li>-->
-<!--<li><a href="#sliderscale-initial">初始化</a></li>-->
-<!--<li><a href="#sliderscale-demo">例子</a></li>-->
-<!--<li><a href="#sliderscale-methods">方法</a></li>-->
-<!--<li>-->
-<!--<a href="#sliderscale-events">事件</a>-->
-<!--<ul>-->
-<!--<li><a href="#sliderscale-events-change">change</a></li>-->
-<!--</ul>-->
-<!--</li>-->
-<!--</ul>-->
+  <!--菜单-->
+  <h1>Surnames</h1>
+  <ul>
+    <li><a href="#surnames-layout">基本布局</a></li>
+    <li><a href="#surnames-initial">初始化</a></li>
+    <li><a href="#surnames-demo">例子</a></li>
+    <li><a href="#surnames-methods">方法</a></li>
+    <li>
+      <a href="#surnames-events">事件</a>
+      <ul>
+        <li><a href="#surnames-events-scrollbefore">scrollbefore</a></li>
+        <li><a href="#surnames-events-scroll">scroll</a></li>
+      </ul>
+    </li>
+  </ul>
 
-<!--&lt;!&ndash;基本布局&ndash;&gt;-->
-<!--<h2 id="sliderscale-layout">基本布局</h2>-->
-<!--<dl>-->
-<!--<dt>-->
-<!--<pre>-->
-<!--<code class="html">-->
-<!--<div class="ct-sliderscale">-->
-<!--<div class="scale"></div>-->
-<!--<input type="range">-->
-<!--</div>-->
-<!--</code>-->
-<!--</pre>-->
-<!--</dt>-->
-<!--<dd>-->
-<!--<ul>-->
-<!--<li>-->
-<!--ct-sliderscale - 整体容器-->
-<!--<ul>-->
-<!--<li>.scale - 刻度</li>-->
-<!--<li>type="range" - 刻度控件</li>-->
-<!--</ul>-->
-<!--</li>-->
-<!--</ul>-->
-<!--</dd>-->
-<!--</dl>-->
-
-<!--&lt;!&ndash;初始化&ndash;&gt;-->
-<!--<h2 id="sliderscale-initial">初始化</h2>-->
-<!--<pre>-->
-<!--<code class="javascript">-->
-<!--import SliderScaleFactory from '@ctmobile/ui-sliderscale/sliderscale';-->
-<!--import '@ctmobile/ui-sliderscale/sliderscale.less';-->
-
-<!--const s1 = SliderScaleFactory.create(document.getElementById('s1'), {-->
-<!--min: 0,-->
-<!--max: 10,-->
-<!--value: 0,-->
-<!--step: 1,-->
-<!--interval: 2,-->
-<!--});-->
-<!--</code>-->
-<!--</pre>-->
-
-<!--<table class="events-table" cellpadding="0" cellspacing="0">-->
-<!--<thead>-->
-<!--<tr>-->
-<!--<th>名称</th>-->
-<!--<th>说明</th>-->
-<!--</tr>-->
-<!--</thead>-->
-<!--<tbody>-->
-<!--<tr>-->
-<!--<td>{HtmlElement} - el</td>-->
-<!--<td>整体元素</td>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--<td>{object} - config</td>-->
-<!--<td>-->
-<!--<p>配置</p>-->
-<!--<div class="method-wrap">-->
-<!--<p>min {String} - 最小值</p>-->
-<!--</div>-->
-<!--<div class="method-wrap">-->
-<!--<p>max {String} - 最大值</p>-->
-<!--</div>-->
-<!--<div class="method-wrap">-->
-<!--<p>value {String} - 当前值</p>-->
-<!--</div>-->
-<!--<div class="method-wrap">-->
-<!--<p>step {String} - 步进,一次滑动距离</p>-->
-<!--</div>-->
-<!--<div class="method-wrap">-->
-<!--<p>interval {String} - 每隔interval标识一个刻度</p>-->
-<!--</div>-->
-<!--</td>-->
-<!--</tr>-->
-<!--</tbody>-->
-<!--</table>-->
-
-<!--&lt;!&ndash;例子&ndash;&gt;-->
-<!--<h2 id="sliderscale-demo">例子</h2>-->
-<!--<div class="with-device">-->
-<!--&lt;!&ndash;demo code&ndash;&gt;-->
-<!--<div class="with-device-code">-->
-<!--<dl>-->
-<!--<dt><h4>html</h4></dt>-->
-<!--<dd>-->
-<!--<pre>-->
-<!--<code class="html">-->
-<!--<dl>-->
-<!--<dt>基本</dt>-->
-<!--<dd>-->
-<!--<div class="ct-sliderscale" id="s1">-->
-<!--<div class="scale"></div>-->
-<!--<input type="range">-->
-<!--</div>-->
-
-<!--<div class="ct-sliderscale" id="s2">-->
-<!--<div class="scale"></div>-->
-<!--<input type="range">-->
-<!--</div>-->
-<!--</dd>-->
-<!--</dl>-->
-<!--<dl>-->
-<!--<dt>动态设置</dt>-->
-<!--<dd>-->
-<!--<div class="controlBlock">-->
-<!--<input type="range" id="controlS3" min="0" max="50" setp="1" value="0">-->
-<!--</div>-->
-
-<!--<div class="ct-sliderscale" id="s3">-->
-<!--<div class="scale"></div>-->
-<!--<input type="range">-->
-<!--</div>-->
-<!--</dd>-->
-<!--</dl>-->
-<!--</code>-->
-<!--</pre>-->
-<!--</dd>-->
-<!--</dl>-->
-
-<!--<dl>-->
-<!--<dt><h4>js</h4></dt>-->
-<!--<dd>-->
-<!--<pre>-->
-<!--<code class="javascript">-->
-<!--import SliderScaleFactory from '@ctmobile/ui-sliderscale';-->
-<!--import '@ctmobile/ui-sliderscale/lib/sliderscale.less';-->
-<!--const s1 = SliderScaleFactory.create(document.getElementById('s1'), {-->
-<!--min: 0,-->
-<!--max: 10,-->
-<!--value: 0,-->
-<!--step: 1,-->
-<!--interval: 2,-->
-<!--});-->
-
-<!--const s2 = SliderScaleFactory.create(document.getElementById('s2'), {-->
-<!--min: 0,-->
-<!--max: 60,-->
-<!--value: 0,-->
-<!--step: 1,-->
-<!--interval: 5,-->
-<!--});-->
-
-<!--const s3 = SliderScaleFactory.create(document.getElementById('s3'), {-->
-<!--min: 0,-->
-<!--max: 50,-->
-<!--value: 0,-->
-<!--step: 1,-->
-<!--interval: 5,-->
-<!--});-->
-
-<!--document.getElementById('controlS3').addEventListener('change', (e) => {-->
-<!--s3.setValue(e.target.value);-->
-<!--});-->
-<!--</code>-->
-<!--</pre>-->
-<!--</dd>-->
-<!--</dl>-->
-<!--</div>-->
-
-<!--&lt;!&ndash;demo view&ndash;&gt;-->
-<!--<div class="with-device-view">-->
-<!--<div class="ctmobile-ui-doc-demo-device">-->
-<!--<div class="ctmobile-ui-doc-demo-device-inner" id="ctmobile-ui-doc-demo-device">-->
-<!--<div class="demo-inner">-->
-<!--<dl>-->
-<!--<dt>基本</dt>-->
-<!--<dd>-->
-<!--<div class="ct-sliderscale" id="s1">-->
-<!--<div class="scale"></div>-->
-<!--<input type="range">-->
-<!--</div>-->
-
-<!--<div class="ct-sliderscale" id="s2">-->
-<!--<div class="scale"></div>-->
-<!--<input type="range">-->
-<!--</div>-->
-<!--</dd>-->
-<!--</dl>-->
-<!--<dl>-->
-<!--<dt>动态设置</dt>-->
-<!--<dd>-->
-<!--<div class="controlBlock">-->
-<!--<input type="range" id="controlS3" min="0" max="50" setp="1" value="0">-->
-<!--</div>-->
-
-<!--<div class="ct-sliderscale" id="s3">-->
-<!--<div class="scale"></div>-->
-<!--<input type="range">-->
-<!--</div>-->
-<!--</dd>-->
-<!--</dl>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--&lt;!&ndash;方法&ndash;&gt;-->
-<!--<h2 id="sliderscale-methods">方法</h2>-->
-<!--<div class="method-wrap">-->
-<!--<p>setValue(-->
-<!--<span class="parameter">value</span>-->
-<!--) - 设置当前值</p>-->
-<!--<ul class="method-parameters">-->
-<!--<li>-->
-<!--<span class="parameter">value</span>-<span class="parameterType">string</span>-->
-<!--当前值-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
-
-<!--<div class="method-wrap">-->
-<!--<p>getValue - 获取当前值</p>-->
-<!--</div>-->
-
-<!--<div class="method-wrap">-->
-<!--<p>on(-->
-<!--<span class="parameter">type</span>,-->
-<!--<span class="parameter">handler</span>,-->
-<!--) - 注册事件</p>-->
-<!--<ul class="method-parameters">-->
-<!--<li>-->
-<!--<span class="parameter">type</span>-<span class="parameterType">string</span>-->
-<!--事件类型-->
-<!--</li>-->
-<!--<li>-->
-<!--<span class="parameter">handler</span>-<span class="parameterType">Function</span>-->
-<!--事件句柄-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
-
-<!--<div class="method-wrap">-->
-<!--<p>off(-->
-<!--<span class="parameter">type</span>,-->
-<!--<span class="parameter">handler</span>,-->
-<!--) - 注销事件</p>-->
-<!--<ul class="method-parameters">-->
-<!--<li>-->
-<!--<span class="parameter">type</span>-<span class="parameterType">string</span>-->
-<!--事件类型-->
-<!--</li>-->
-<!--<li>-->
-<!--<span class="parameter">handler</span>-<span class="parameterType">Function</span>-->
-<!--事件句柄-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
-
-<!--&lt;!&ndash;事件&ndash;&gt;-->
-<!--<h2 id="sliderscale-events">事件</h2>-->
-<!--<table class="events-table" cellpadding="0" cellspacing="0">-->
-<!--<thead>-->
-<!--<tr>-->
-<!--<th>名称</th>-->
-<!--<th>说明</th>-->
-<!--</tr>-->
-<!--</thead>-->
-<!--<tbody>-->
-<!--<tr id="sliderscale-events-change">-->
-<!--<td>change</td>-->
-<!--<td>值发生变化</td>-->
-<!--</tr>-->
-<!--</tbody>-->
-<!--</table>-->
-<!--<pre>-->
-<!--<code class="javascript">-->
-<!--import SliderScaleFactory from '@ctmobile/ui-sliderscale';-->
-<!--import '@ctmobile/ui-sliderscale/lib/sliderscale.less';-->
-<!--const s3 = SliderScaleFactory.create(document.getElementById('s3'), {-->
-<!--min: 0,-->
-<!--max: 50,-->
-<!--value: 0,-->
-<!--step: 1,-->
-<!--interval: 5,-->
-<!--});-->
-
-<!--document.getElementById('controlS3').addEventListener('change', (e) => {-->
-<!--s3.setValue(e.target.value);-->
-<!--});-->
-<!--</code>-->
-<!--</pre>-->
-<!--</div>-->
-
+  <!--基本布局-->
+  <h2 id="surnames-layout">基本布局</h2>
+  <dl>
+    <dt>
+<pre>
+<code class="html">
 <div class="ct-surnames" id="surnames">
+  <div class="ct-surnames-highlighted"></div>
+  <div class="ct-surnames-content">
+    <div class="ct-surnames-group">
+      <a class="ct-surnames-group-title" data-name="A">A</a>
+      <div class="ct-surnames-group-inner">
+        <ul>
+          <li>A1</li>
+          ...
+        </ul>
+      </div>
+    </div>
+    ...
+  </div>
+  <div class="ct-surnames-index"></div>
+</div>
+</code>
+</pre>
+    </dt>
+    <dd>
+      <ul>
+        <li>
+          ct-surnames - 整体容器
+          <ul>
+            <li>ct-surnames-highlighted - 高亮指示器</li>
+            <li>ct-surnames-index - 索引</li>
+            <li>
+              ct-surnames-content - 内容
+              <ul>
+                <li>
+                  ct-surnames-group - 内容项
+                  <ul>
+                    <li>ct-surnames-group-title - 索引名称 data-name - 索引名</li>
+                    <li>ct-surnames-group-inner - 内容项容器</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </dd>
+  </dl>
+
+  <!--初始化-->
+  <h2 id="surnames-initial">初始化</h2>
+  <pre>
+<code class="javascript">
+ import { Dom6 } from '@ctmobile/ui-util';
+ import SurnamesFactory from '@ctmobile/ui-surnames/surnames';
+ import '@ctmobile/ui-surnames/surnames.less';
+ import '@ctmobile/ui-surnames/themes/default/surnames.less';
+
+ const el = document.getElementById('surnames');
+
+ function createSurnames() {
+   const contentEl = el.querySelector('.ct-surnames-content');
+   const indexNames = [
+     'A',
+     'B',
+     'C',
+     'D',
+     'E',
+     'F',
+     'G',
+     'H',
+     'I',
+     'J',
+     'K',
+     'L',
+     'M',
+     'N',
+     'O',
+     'P',
+     'Q',
+     'R',
+     'S',
+     'T',
+     'U',
+     'V',
+     'W',
+     'X',
+     'Y',
+     'Z',
+     '#',
+   ];
+   const df = document.createDocumentFragment();
+   for (let i = 0; i &lt; indexNames.length; i++) {
+     const index = indexNames[i];
+     let str = `
+         &lt;div class="ct-surnames-group"&gt;
+           &lt;a class="ct-surnames-group-title" data-name="${index}"&gt;${index}&lt;/a&gt;
+           &lt;div class="ct-surnames-group-inner"&gt;
+             &lt;ul&gt;`;
+
+     for (let j = 0; j &lt; 10; j++) {
+       str += `&lt;li&gt;${index}${j + 1}&lt;/li&gt;`;
+     }
+
+     str += `    &lt;/ul&gt;
+           &lt;/div&gt;
+         &lt;/div&gt;`;
+
+     const groupEl = Dom6.createElement(str);
+     df.appendChild(groupEl);
+   }
+   contentEl.appendChild(df);
+ }
+
+
+ createSurnames();
+
+ const surnames = SurnamesFactory.create(el, { position: 'right' });
+</code>
+</pre>
+
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{HtmlElement} - el</td>
+      <td>整体元素</td>
+    </tr>
+    <tr>
+      <td>{object} - config</td>
+      <td>
+        <p>配置</p>
+        <div class="method-wrap">
+          <p>position {String} - 索引位置 [left | right | top | bottom] 默认是right</p>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--例子-->
+  <h2 id="surnames-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+<pre>
+<code class="html">
+<div class="ct-surnames" id="normal">
   <div class="ct-surnames-highlighted"></div>
   <div class="ct-surnames-content"></div>
   <div class="ct-surnames-index"></div>
+</div>
+</code>
+</pre>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+<pre>
+<code class="javascript">
+ import { Dom6 } from '@ctmobile/ui-util';
+ import SurnamesFactory from '@ctmobile/ui-surnames/surnames';
+ import '@ctmobile/ui-surnames/surnames.less';
+ import '@ctmobile/ui-surnames/themes/default/surnames.less';
+
+ const el = document.getElementById('surnames');
+
+ function createSurnames() {
+   const contentEl = el.querySelector('.ct-surnames-content');
+   const indexNames = [
+     'A',
+     'B',
+     'C',
+     'D',
+     'E',
+     'F',
+     'G',
+     'H',
+     'I',
+     'J',
+     'K',
+     'L',
+     'M',
+     'N',
+     'O',
+     'P',
+     'Q',
+     'R',
+     'S',
+     'T',
+     'U',
+     'V',
+     'W',
+     'X',
+     'Y',
+     'Z',
+     '#',
+   ];
+   const df = document.createDocumentFragment();
+   for (let i = 0; i &lt; indexNames.length; i++) {
+     const index = indexNames[i];
+     let str = `
+         &lt;div class="ct-surnames-group"&gt;
+           &lt;a class="ct-surnames-group-title" data-name="${index}"&gt;${index}&lt;/a&gt;
+           &lt;div class="ct-surnames-group-inner"&gt;
+             &lt;ul&gt;`;
+
+     for (let j = 0; j &lt; 10; j++) {
+       str += `&lt;li&gt;${index}${j + 1}&lt;/li&gt;`;
+     }
+
+     str += `    &lt;/ul&gt;
+           &lt;/div&gt;
+         &lt;/div&gt;`;
+
+     const groupEl = Dom6.createElement(str);
+     df.appendChild(groupEl);
+   }
+   contentEl.appendChild(df);
+ }
+
+
+ createSurnames();
+
+ const surnames = SurnamesFactory.create(el, { position: 'right' });
+</code>
+</pre>
+        </dd>
+      </dl>
+    </div>
+
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner" id="ctmobile-ui-doc-demo-device">
+          <div class="demo-inner">
+            <div class="ct-surnames" id="normal">
+              <div class="ct-surnames-highlighted"></div>
+              <div class="ct-surnames-content"></div>
+              <div class="ct-surnames-index"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--方法-->
+  <h2 id="surnames-methods">方法</h2>
+  <div class="method-wrap">
+    <p>scrollToAnimation(
+      <span class="parameter">indexName</span>
+      ) - 动画滚动到指定索引位置</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">indexName</span>-<span class="parameterType">string</span>
+        索引名称
+      </li>
+    </ul>
+  </div>
+
+  <div class="method-wrap">
+    <p>scrollTo(
+      <span class="parameter">indexName</span>
+      ) - 滚动到指定索引位置</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">indexName</span>-<span class="parameterType">string</span>
+        索引名称
+      </li>
+    </ul>
+  </div>
+
+  <div class="method-wrap">
+    <p>update - 更新</p>
+  </div>
+
+  <div class="method-wrap">
+    <p>on(
+      <span class="parameter">type</span>,
+      <span class="parameter">handler</span>,
+      ) - 注册事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span>
+        事件类型
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span>
+        事件句柄
+      </li>
+    </ul>
+  </div>
+
+  <div class="method-wrap">
+    <p>off(
+      <span class="parameter">type</span>,
+      <span class="parameter">handler</span>,
+      ) - 注销事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span>
+        事件类型
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span>
+        事件句柄
+      </li>
+    </ul>
+  </div>
+
+  <!--事件-->
+  <h2 id="surnames-events">事件</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="surnames-events-scrollbefore">
+      <td>scrollBefore</td>
+      <td>滚动到指定索引之前</td>
+    </tr>
+    <tr id="surnames-events-scroll">
+      <td>scroll</td>
+      <td>滚动到指定索引</td>
+    </tr>
+    </tbody>
+  </table>
+  <pre>
+<code class="javascript">
+
+</code>
+</pre>
 </div>
 
 </body>

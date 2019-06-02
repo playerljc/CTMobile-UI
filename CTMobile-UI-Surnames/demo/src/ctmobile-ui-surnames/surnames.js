@@ -31,15 +31,24 @@ function clickDetail(e) {
 
 /**
  * moveDetail
+ * @param {number} x
  * @param {number} y
  */
-function moveDetail(y) {
-  const index = findIndex.call(this, y);
+function moveDetail(x, y) {
+  const index = findIndex.call(this, x, y);
   if (index) {
+    console.log(index.name);
     this.highlightedEl.innerText = index.name;
     this.highlightedEl.style.display = 'block';
-    const translateY = index.offsetTop - Math.floor(index.height / 2);
-    this.highlightedEl.style.transform = `translate3d(0,${translateY}px,0)`;
+
+    const direction = getDirection.call(this);
+    if (direction === 'vertical') {
+      const translateY = index.offsetTop - Math.floor(index.height / 2);
+      this.highlightedEl.style.transform = `translate3d(0,${translateY}px,0)`;
+    } else {
+      const translateX = index.offsetLeft - index.width;
+      this.highlightedEl.style.transform = `translate3d(${translateX}px,0,0)`;
+    }
 
     scrollTo.call(this, index.name);
   }
@@ -61,7 +70,8 @@ function initEvent() {
     this.indexEl.addEventListener('touchmove', (e) => {
       e.preventDefault();
       const y = e.changedTouches[0].clientY;
-      moveDetail.call(this, y);
+      const x = e.changedTouches[0].clientX;
+      moveDetail.call(this, x, y);
     });
 
     this.indexEl.addEventListener('touchend', () => {
@@ -73,6 +83,7 @@ function initEvent() {
     this.indexEl.addEventListener('mousedown', (e) => {
       e.preventDefault();
       this.startY = e.clientY;
+      this.startX = e.clientX;
       this.mouseClickFlag = true;
     });
 
@@ -82,7 +93,8 @@ function initEvent() {
       this.mouseMoveFlag = true;
       e.preventDefault();
       const y = e.clientY;
-      moveDetail.call(this, y);
+      const x = e.clientX;
+      moveDetail.call(this, x, y);
     });
 
     this.indexEl.addEventListener('mouseleave', () => {
@@ -107,6 +119,21 @@ function initEvent() {
       clickDetail.call(this, e);
     });
   }
+
+  window.addEventListener('resize', () => {
+    this.update();
+  });
+}
+
+/**
+ * render
+ * @access private
+ */
+function render() {
+  const { position = 'right' } = this.config;
+  Dom6.addClass(this.el, `${selectorPrefix}config-position-${position}`);
+  renderIndex.call(this);
+  createIndexPosition.call(this);
 }
 
 /**
@@ -125,7 +152,7 @@ function renderIndex() {
   this.indexEl.innerHTML = '';
   const df = document.createDocumentFragment();
   for (let i = 0; i < indexNames.length; i++) {
-    df.appendChild(Dom6.createElement(`<a class="ct-surnames-index-item" data-name="${indexNames[i]}">${indexNames[i]}</a>`));
+    df.appendChild(Dom6.createElement(`<a class="${selectorPrefix}index-item" data-name="${indexNames[i]}">${indexNames[i]}</a>`));
   }
   this.indexEl.appendChild(df);
 }
@@ -146,7 +173,11 @@ function createIndexPosition() {
       name: indexName,
       top: rect.top,
       bottom: rect.bottom,
+      left: rect.left,
+      right: rect.right,
       offsetTop: indexItemEl.offsetTop,
+      offsetLeft: indexItemEl.offsetLeft,
+      width: indexItemEl.offsetWidth,
       height: indexItemEl.offsetHeight,
     });
   }
@@ -168,9 +199,11 @@ function createMask() {
  */
 function scrollToAnimation(indexName) {
   const self = this;
+
+  const targetEl = self.contentEl.querySelector(`.${selectorPrefix}group-title[data-name='${indexName}']`);
   const srcTop = self.contentEl.scrollTop;
   let scrollVal = srcTop;
-  const targetTop = self.contentEl.querySelector(`.${selectorPrefix}group-title[data-name='${indexName}']`).offsetTop;
+  const targetTop = targetEl.offsetTop;
   const setp = self.el.scrollHeight / (duration / (screen.updateInterval || 16.7) + (duration % (screen.updateInterval || 16.7) !== 0 ? 1 : 0));
 
   /**
@@ -207,9 +240,11 @@ function scrollToAnimation(indexName) {
       self.key = false;
       self.mouseClickFlag = false;
       self.maskEl.style.display = 'none';
+      self.events.trigger('scroll', indexName);
     }
   }
 
+  this.events.trigger('scrollBefore', indexName);
   window.requestAnimationFrame(scrollAnimation);
 }
 
@@ -222,16 +257,19 @@ function scrollTo(indexName) {
   const self = this;
   const targetTop = self.contentEl.querySelector(`.${selectorPrefix}group-title[data-name='${indexName}']`).offsetTop;
   self.contentEl.scrollTop = targetTop;
+  this.events.trigger('scroll', indexName);
 }
 
 /**
  * findIndex
+ * @param {number} x
  * @param {number} y
  * @return {String} - indexName
  * @access private
  */
-function findIndex(y) {
-  const val = y;
+function findIndex(x, y) {
+  const direction = getDirection.call(this);
+  const val = direction === 'vertical' ? y : x;
   let low = 0;
   let high = this.indexPositionMap.length - 1;
   let middle;
@@ -241,10 +279,21 @@ function findIndex(y) {
   (high <= this.indexPositionMap.length - 1)) {
     middle = (high + low) >> 1;
     const targetVal = this.indexPositionMap[middle];
-    if (val >= targetVal.top && val < targetVal.bottom) {
+
+    let t1;
+    let t2;
+    if (direction === 'vertical') {
+      t1 = targetVal.top;
+      t2 = targetVal.bottom;
+    } else {
+      t1 = targetVal.left;
+      t2 = targetVal.right;
+    }
+
+    if (val >= t1 && val < t2) {
       target = targetVal;
       break;
-    } else if (val < targetVal.top) {
+    } else if (val < t1) {
       high = middle - 1;
     } else {
       low = middle + 1;
@@ -259,6 +308,16 @@ function findIndex(y) {
 }
 
 /**
+ * getDirection
+ * @return {string}
+ */
+function getDirection() {
+  const { position } = this.config;
+
+  return position === 'left' || position === 'right' ? 'vertical' : 'horizontal';
+}
+
+/**
  * Surnames
  * @class Surnames
  * @classdesc Surnames
@@ -269,8 +328,11 @@ class Surnames {
    * @constructor
    * @param {HTMLElement} el
    */
-  constructor(el) {
+  constructor(el, config) {
     this.el = el;
+    this.config = Object.assign({
+      position: 'right',
+    }, config);
     this.key = false;
     this.mouseClickFlag = false;
     this.mouseMoveFlag = false;
@@ -279,8 +341,23 @@ class Surnames {
     initVar.call(this);
     initEvent.call(this);
     createMask.call(this);
-    renderIndex.call(this);
-    createIndexPosition.call(this);
+    render.call(this);
+  }
+
+  /**
+   * scrollToAnimation
+   * @param {String} - indexName
+   */
+  scrollToAnimation(indexName) {
+    scrollToAnimation.call(this, indexName);
+  }
+
+  /**
+   * scrollTo
+   * @param {String} - ndexName
+   */
+  scrollTo(indexName) {
+    scrollTo.call(this, indexName);
   }
 
   /**
@@ -289,6 +366,32 @@ class Surnames {
   update() {
     renderIndex.call(this);
     createIndexPosition.call(this);
+  }
+
+  /**
+   * on 注册事件
+   * @param {string} type
+   * @param {Function} handler
+   */
+  on(type, handler) {
+    this.events.on(type, handler);
+  }
+
+  /**
+   * 删除指定type下的事件或清除所有
+   * @param {string} type
+   * @param {Function} handler
+   */
+  off(type, handler) {
+    if (type) {
+      if (handler) {
+        this.events.remove(type, handler);
+      } else {
+        this.events.clear(type);
+      }
+    } else {
+      this.events.clearAll();
+    }
   }
 }
 
@@ -299,10 +402,11 @@ const SurnamesFactory = {
   /**
    * 创建一个Surnames
    * @param {HtmlElement} - el
+   * @param {Object} - config
    * @return {Surnames} - Surnames
    */
-  create(el) {
-    return new Surnames(el);
+  create(el, config) {
+    return new Surnames(el, config);
   },
 };
 

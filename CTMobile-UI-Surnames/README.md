@@ -1,5 +1,5 @@
-# CTMobile-UI-Tab
-支持移动端的UI组件-Tab
+# CTMobile-UI-Surnames
+支持移动端的UI组件-Surnames
 
 
 
@@ -13,7 +13,7 @@
 配置:
 el
 {
-  
+  position: [left | right | top | bottom] 默认是right
 }
 
 布局:
@@ -32,7 +32,6 @@ el
   
   <div class="ct-surnames-index">
       <!-- <a class="ct-surnames-index-item" data-name="A">A</a> -->
-    </div>
-  
+  </div>
   
 </div>
