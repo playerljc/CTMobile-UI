@@ -1,0 +1,58 @@
+.ct-surnames {
+  > .ct-surnames-highlighted {
+    background-color: rgb(0, 122, 255);
+    color: #fff;
+  }
+
+  > .ct-surnames-index {
+    > .ct-surnames-index-item {
+      color: rgb(0, 122, 255);
+
+      &:active {
+        border-radius: 50%;
+        background-color: #0bc2b4;
+      }
+    }
+  }
+
+  > .ct-surnames-content {
+    > .ct-surnames-group {
+      > .ct-surnames-group-title {
+        background: rgb(247, 247, 247);
+        color: #9c9c9c;
+      }
+    }
+  }
+}
+
+.ct-surnames.ct-surnames-config-position-right {
+  > .ct-surnames-highlighted {
+    &:after {
+      border-color: transparent transparent transparent #007aff;
+    }
+  }
+}
+
+.ct-surnames.ct-surnames-config-position-left {
+  > .ct-surnames-highlighted {
+    &:after {
+      border-color: transparent #007aff transparent transparent;
+    }
+  }
+}
+
+.ct-surnames.ct-surnames-config-position-top {
+  > .ct-surnames-highlighted {
+    &:after {
+      border-color: transparent transparent #007aff transparent;
+    }
+  }
+}
+
+.ct-surnames.ct-surnames-config-position-bottom {
+  > .ct-surnames-highlighted {
+    &:after {
+      border-color: #007aff transparent transparent transparent;
+    }
+  }
+}

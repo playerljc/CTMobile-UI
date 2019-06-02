@@ -1,0 +1,196 @@
+.ct-surnames {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+
+  > .ct-surnames-highlighted {
+    position: absolute;
+    z-index: 9998;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 14px;
+    transform: translate3d(0, 0, 0);
+    display: none;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+  }
+
+  > .ct-surnames-index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+
+    > .ct-surnames-index-item {
+      width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+
+  > .ct-surnames-content {
+    flex-grow: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-scrolling: touch;
+    position: relative;
+
+    > .ct-surnames-group {
+      > .ct-surnames-group-title {
+        display: block;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        text-indent: 1rem;
+      }
+
+      > .ct-surnames-group-inner {
+
+      }
+    }
+  }
+}
+
+.ct-surnames.ct-surnames-config-position-right,
+.ct-surnames.ct-surnames-config-position-left {
+  flex-direction: row;
+
+  > .ct-surnames-highlighted {
+    &:after {
+      top: 4px;
+    }
+  }
+
+  > .ct-surnames-index {
+    flex-direction: column;
+    width: 1rem;
+  }
+
+  > .ct-surnames-content {
+    min-width: 0;
+  }
+}
+
+.ct-surnames.ct-surnames-config-position-right {
+  > .ct-surnames-highlighted {
+    right: 1.5rem;
+
+    &:after {
+      border-width: 18px 0 18px 18px;
+      right: -9px;
+    }
+  }
+
+  > .ct-surnames-index {
+    order: 1;
+  }
+
+  > .ct-surnames-content {
+    order: 0;
+  }
+}
+
+.ct-surnames.ct-surnames-config-position-left {
+  > .ct-surnames-highlighted {
+    left: 1.5rem;
+
+    &:after {
+      border-width: 18px 18px 18px 0;
+      left: -9px;
+    }
+  }
+
+  > .ct-surnames-index {
+    order: 0;
+  }
+
+  > .ct-surnames-content {
+    order: 1;
+  }
+}
+
+
+.ct-surnames.ct-surnames-config-position-top,
+.ct-surnames.ct-surnames-config-position-bottom {
+  flex-direction: column;
+
+  > .ct-surnames-highlighted {
+    &:after {
+      left: 4px;
+    }
+  }
+
+  > .ct-surnames-index {
+    flex-direction: row;
+    height: 1rem;
+  }
+
+  > .ct-surnames-content {
+    min-height: 0;
+  }
+}
+
+.ct-surnames.ct-surnames-config-position-top {
+  > .ct-surnames-highlighted {
+    top: 1.5rem;
+
+    &:after {
+      border-width: 0 18px 18px 18px;
+      top: -9px;
+    }
+  }
+
+  > .ct-surnames-index {
+    order: 0;
+  }
+
+  > .ct-surnames-content {
+    order: 1;
+  }
+}
+
+.ct-surnames.ct-surnames-config-position-bottom {
+  > .ct-surnames-highlighted {
+    bottom: 1.5rem;
+
+    &:after {
+      border-width: 18px 18px 0 18px;
+      bottom: -9px;
+    }
+  }
+
+  > .ct-surnames-index {
+    order: 1;
+  }
+
+  > .ct-surnames-content {
+    order: 0;
+  }
+}
+
+/*用于切换时的遮罩*/
+.ct-surnames-mask {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 9999;
+}
