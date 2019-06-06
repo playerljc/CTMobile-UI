@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-tree-demo</title>
+</head>
+<body>
+
+<!--<div class="ctmobile-ui-doc">-->
+  <!--&lt;!&ndash; Surnames &ndash;&gt;-->
+
+  <!--&lt;!&ndash;菜单&ndash;&gt;-->
+  <!--<h1>Surnames</h1>-->
+  <!--<ul>-->
+    <!--<li><a href="#tree-layout">基本布局</a></li>-->
+    <!--<li><a href="#tree-initial">初始化</a></li>-->
+    <!--<li><a href="#tree-demo">例子</a></li>-->
+    <!--<li><a href="#tree-methods">方法</a></li>-->
+    <!--<li>-->
+      <!--<a href="#tree-events">事件</a>-->
+      <!--<ul>-->
+        <!--<li><a href="#tree-events-scrollbefore">scrollbefore</a></li>-->
+        <!--<li><a href="#tree-events-scroll">scroll</a></li>-->
+      <!--</ul>-->
+    <!--</li>-->
+  <!--</ul>-->
+
+  <!--&lt;!&ndash;基本布局&ndash;&gt;-->
+  <!--<h2 id="tree-layout">基本布局</h2>-->
+  <!--<dl>-->
+    <!--<dt>-->
+<!--<pre>-->
+<!--<code class="html">-->
+<!--<div class="ct-tree" id="tree">-->
+  <!--<div class="ct-tree-highlighted"></div>-->
+  <!--<div class="ct-tree-content">-->
+    <!--<div class="ct-tree-group">-->
+      <!--<a class="ct-tree-group-title" data-name="A">A</a>-->
+      <!--<div class="ct-tree-group-inner">-->
+        <!--<ul>-->
+          <!--<li>A1</li>-->
+          <!--...-->
+        <!--</ul>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--...-->
+  <!--</div>-->
+  <!--<div class="ct-tree-index"></div>-->
+<!--</div>-->
+<!--</code>-->
+<!--</pre>-->
+    <!--</dt>-->
+    <!--<dd>-->
+      <!--<ul>-->
+        <!--<li>-->
+          <!--ct-tree - 整体容器-->
+          <!--<ul>-->
+            <!--<li>ct-tree-highlighted - 高亮指示器</li>-->
+            <!--<li>ct-tree-index - 索引</li>-->
+            <!--<li>-->
+              <!--ct-tree-content - 内容-->
+              <!--<ul>-->
+                <!--<li>-->
+                  <!--ct-tree-group - 内容项-->
+                  <!--<ul>-->
+                    <!--<li>ct-tree-group-title - 索引名称 data-name - 索引名</li>-->
+                    <!--<li>ct-tree-group-inner - 内容项容器</li>-->
+                  <!--</ul>-->
+                <!--</li>-->
+              <!--</ul>-->
+            <!--</li>-->
+          <!--</ul>-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</dd>-->
+  <!--</dl>-->
+
+  <!--&lt;!&ndash;初始化&ndash;&gt;-->
+  <!--<h2 id="tree-initial">初始化</h2>-->
+  <!--<pre>-->
+<!--<code class="javascript">-->
+ <!--import { Dom6 } from '@ctmobile/ui-util';-->
+ <!--import SurnamesFactory from '@ctmobile/ui-tree/tree';-->
+ <!--import '@ctmobile/ui-tree/tree.less';-->
+ <!--import '@ctmobile/ui-tree/themes/default/tree.less';-->
+
+ <!--const el = document.getElementById('tree');-->
+
+ <!--function createSurnames() {-->
+   <!--const contentEl = el.querySelector('.ct-tree-content');-->
+   <!--const indexNames = [-->
+     <!--'A',-->
+     <!--'B',-->
+     <!--'C',-->
+     <!--'D',-->
+     <!--'E',-->
+     <!--'F',-->
+     <!--'G',-->
+     <!--'H',-->
+     <!--'I',-->
+     <!--'J',-->
+     <!--'K',-->
+     <!--'L',-->
+     <!--'M',-->
+     <!--'N',-->
+     <!--'O',-->
+     <!--'P',-->
+     <!--'Q',-->
+     <!--'R',-->
+     <!--'S',-->
+     <!--'T',-->
+     <!--'U',-->
+     <!--'V',-->
+     <!--'W',-->
+     <!--'X',-->
+     <!--'Y',-->
+     <!--'Z',-->
+     <!--'#',-->
+   <!--];-->
+   <!--const df = document.createDocumentFragment();-->
+   <!--for (let i = 0; i &lt; indexNames.length; i++) {-->
+     <!--const index = indexNames[i];-->
+     <!--let str = `-->
+         <!--&lt;div class="ct-tree-group"&gt;-->
+           <!--&lt;a class="ct-tree-group-title" data-name="${index}"&gt;${index}&lt;/a&gt;-->
+           <!--&lt;div class="ct-tree-group-inner"&gt;-->
+             <!--&lt;ul&gt;`;-->
+
+     <!--for (let j = 0; j &lt; 10; j++) {-->
+       <!--str += `&lt;li&gt;${index}${j + 1}&lt;/li&gt;`;-->
+     <!--}-->
+
+     <!--str += `    &lt;/ul&gt;-->
+           <!--&lt;/div&gt;-->
+         <!--&lt;/div&gt;`;-->
+
+     <!--const groupEl = Dom6.createElement(str);-->
+     <!--df.appendChild(groupEl);-->
+   <!--}-->
+   <!--contentEl.appendChild(df);-->
+ <!--}-->
+
+
+ <!--createSurnames();-->
+
+ <!--const tree = SurnamesFactory.create(el, { position: 'right' });-->
+<!--</code>-->
+<!--</pre>-->
+
+  <!--<table class="events-table" cellpadding="0" cellspacing="0">-->
+    <!--<thead>-->
+    <!--<tr>-->
+      <!--<th>名称</th>-->
+      <!--<th>说明</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr>-->
+      <!--<td>{HtmlElement} - el</td>-->
+      <!--<td>整体元素</td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td>{object} - config</td>-->
+      <!--<td>-->
+        <!--<p>配置</p>-->
+        <!--<div class="method-wrap">-->
+          <!--<p>position {String} - 索引位置 [left | right | top | bottom] 默认是right</p>-->
+        <!--</div>-->
+      <!--</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+  <!--</table>-->
+
+  <!--&lt;!&ndash;例子&ndash;&gt;-->
+  <!--<h2 id="tree-demo">例子</h2>-->
+  <!--<div class="with-device">-->
+    <!--&lt;!&ndash;demo code&ndash;&gt;-->
+    <!--<div class="with-device-code">-->
+      <!--<dl>-->
+        <!--<dt><h4>html</h4></dt>-->
+        <!--<dd>-->
+<!--<pre>-->
+<!--<code class="html">-->
+<!--<div class="ct-tree" id="normal">-->
+  <!--<div class="ct-tree-highlighted"></div>-->
+  <!--<div class="ct-tree-content"></div>-->
+  <!--<div class="ct-tree-index"></div>-->
+<!--</div>-->
+<!--</code>-->
+<!--</pre>-->
+        <!--</dd>-->
+      <!--</dl>-->
+
+      <!--<dl>-->
+        <!--<dt><h4>js</h4></dt>-->
+        <!--<dd>-->
+<!--<pre>-->
+<!--<code class="javascript">-->
+ <!--import { Dom6 } from '@ctmobile/ui-util';-->
+ <!--import SurnamesFactory from '@ctmobile/ui-tree/tree';-->
+ <!--import '@ctmobile/ui-tree/tree.less';-->
+ <!--import '@ctmobile/ui-tree/themes/default/tree.less';-->
+
+ <!--const el = document.getElementById('tree');-->
+
+ <!--function createSurnames() {-->
+   <!--const contentEl = el.querySelector('.ct-tree-content');-->
+   <!--const indexNames = [-->
+     <!--'A',-->
+     <!--'B',-->
+     <!--'C',-->
+     <!--'D',-->
+     <!--'E',-->
+     <!--'F',-->
+     <!--'G',-->
+     <!--'H',-->
+     <!--'I',-->
+     <!--'J',-->
+     <!--'K',-->
+     <!--'L',-->
+     <!--'M',-->
+     <!--'N',-->
+     <!--'O',-->
+     <!--'P',-->
+     <!--'Q',-->
+     <!--'R',-->
+     <!--'S',-->
+     <!--'T',-->
+     <!--'U',-->
+     <!--'V',-->
+     <!--'W',-->
+     <!--'X',-->
+     <!--'Y',-->
+     <!--'Z',-->
+     <!--'#',-->
+   <!--];-->
+   <!--const df = document.createDocumentFragment();-->
+   <!--for (let i = 0; i &lt; indexNames.length; i++) {-->
+     <!--const index = indexNames[i];-->
+     <!--let str = `-->
+         <!--&lt;div class="ct-tree-group"&gt;-->
+           <!--&lt;a class="ct-tree-group-title" data-name="${index}"&gt;${index}&lt;/a&gt;-->
+           <!--&lt;div class="ct-tree-group-inner"&gt;-->
+             <!--&lt;ul&gt;`;-->
+
+     <!--for (let j = 0; j &lt; 10; j++) {-->
+       <!--str += `&lt;li&gt;${index}${j + 1}&lt;/li&gt;`;-->
+     <!--}-->
+
+     <!--str += `    &lt;/ul&gt;-->
+           <!--&lt;/div&gt;-->
+         <!--&lt;/div&gt;`;-->
+
+     <!--const groupEl = Dom6.createElement(str);-->
+     <!--df.appendChild(groupEl);-->
+   <!--}-->
+   <!--contentEl.appendChild(df);-->
+ <!--}-->
+
+
+ <!--createSurnames();-->
+
+ <!--const tree = SurnamesFactory.create(el, { position: 'right' });-->
+<!--</code>-->
+<!--</pre>-->
+        <!--</dd>-->
+      <!--</dl>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;demo view&ndash;&gt;-->
+    <!--<div class="with-device-view">-->
+      <!--<div class="ctmobile-ui-doc-demo-device">-->
+        <!--<div class="ctmobile-ui-doc-demo-device-inner" id="ctmobile-ui-doc-demo-device">-->
+          <!--<div class="demo-inner">-->
+            <!--<div class="ct-tree" id="normal">-->
+              <!--<div class="ct-tree-highlighted"></div>-->
+              <!--<div class="ct-tree-content"></div>-->
+              <!--<div class="ct-tree-index"></div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--&lt;!&ndash;方法&ndash;&gt;-->
+  <!--<h2 id="tree-methods">方法</h2>-->
+  <!--<div class="method-wrap">-->
+    <!--<p>scrollToAnimation(-->
+      <!--<span class="parameter">indexName</span>-->
+      <!--) - 动画滚动到指定索引位置</p>-->
+    <!--<ul class="method-parameters">-->
+      <!--<li>-->
+        <!--<span class="parameter">indexName</span>-<span class="parameterType">string</span>-->
+        <!--索引名称-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+
+  <!--<div class="method-wrap">-->
+    <!--<p>scrollTo(-->
+      <!--<span class="parameter">indexName</span>-->
+      <!--) - 滚动到指定索引位置</p>-->
+    <!--<ul class="method-parameters">-->
+      <!--<li>-->
+        <!--<span class="parameter">indexName</span>-<span class="parameterType">string</span>-->
+        <!--索引名称-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+
+  <!--<div class="method-wrap">-->
+    <!--<p>update - 更新</p>-->
+  <!--</div>-->
+
+  <!--<div class="method-wrap">-->
+    <!--<p>on(-->
+      <!--<span class="parameter">type</span>,-->
+      <!--<span class="parameter">handler</span>,-->
+      <!--) - 注册事件</p>-->
+    <!--<ul class="method-parameters">-->
+      <!--<li>-->
+        <!--<span class="parameter">type</span>-<span class="parameterType">string</span>-->
+        <!--事件类型-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<span class="parameter">handler</span>-<span class="parameterType">Function</span>-->
+        <!--事件句柄-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+
+  <!--<div class="method-wrap">-->
+    <!--<p>off(-->
+      <!--<span class="parameter">type</span>,-->
+      <!--<span class="parameter">handler</span>,-->
+      <!--) - 注销事件</p>-->
+    <!--<ul class="method-parameters">-->
+      <!--<li>-->
+        <!--<span class="parameter">type</span>-<span class="parameterType">string</span>-->
+        <!--事件类型-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<span class="parameter">handler</span>-<span class="parameterType">Function</span>-->
+        <!--事件句柄-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+
+  <!--&lt;!&ndash;事件&ndash;&gt;-->
+  <!--<h2 id="tree-events">事件</h2>-->
+  <!--<table class="events-table" cellpadding="0" cellspacing="0">-->
+    <!--<thead>-->
+    <!--<tr>-->
+      <!--<th>名称</th>-->
+      <!--<th>说明</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr id="tree-events-scrollbefore">-->
+      <!--<td>scrollBefore</td>-->
+      <!--<td>滚动到指定索引之前</td>-->
+    <!--</tr>-->
+    <!--<tr id="tree-events-scroll">-->
+      <!--<td>scroll</td>-->
+      <!--<td>滚动到指定索引</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+  <!--</table>-->
+  <!--<pre>-->
+<!--<code class="javascript">-->
+
+<!--</code>-->
+<!--</pre>-->
+<!--</div>-->
+
+<div class="ct-tree" id="tree"></div>
+</body>
+</html>

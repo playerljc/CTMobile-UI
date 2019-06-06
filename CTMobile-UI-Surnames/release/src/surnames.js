@@ -326,7 +326,8 @@ class Surnames {
   /**
    * constructor
    * @constructor
-   * @param {HTMLElement} el
+   * @param {HTMLElement} - el
+   * @param {Object} - config
    */
   constructor(el, config) {
     this.el = el;

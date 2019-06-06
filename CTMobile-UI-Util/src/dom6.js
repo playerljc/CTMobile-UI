@@ -1,3 +1,5 @@
+const eventListenerHandlers = new Map();
+
 /**
  * dom6
  */
@@ -92,7 +94,43 @@ export default {
       // 如果不是，则插入在目标元素的下一个兄弟节点 的前面。也就是目标元素的后面
     }
   },
+  /**
+   * append
+   * @param {HTMLElement} - el
+   * @param {HTMLElement | String} - children
+   */
+  append(el, children) {
+    let childrenEl;
+    if (children instanceof String) {
+      childrenEl = this.createElement(children);
+    } else {
+      childrenEl = children;
+    }
+    el.appendChild(childrenEl);
+  },
+  /**
+   * prepend
+   * @param {HTMLElement} - el
+   * @param {HTMLElement | String} - children
+   */
+  prepend(el, children) {
+    let childrenEl;
+    if (children instanceof String) {
+      childrenEl = this.createElement(children);
+    } else {
+      childrenEl = children;
+    }
 
+    const firstEl = el.firstChild;
+    el.insertBefore(childrenEl, firstEl);
+  },
+  /**
+   * remove
+   * @param {HTMLElement} - el
+   */
+  remove(el) {
+    el.parentNode.removeChild(el);
+  },
   /**
    * createElement
    * @param {string} html
@@ -103,7 +141,6 @@ export default {
     dom.innerHTML = html;
     return dom.firstElementChild;
   },
-
   /**
    * prevSibling
    * @param {HtmlElement} dom
@@ -131,7 +168,6 @@ export default {
     }
     return result;
   },
-
   /**
    * nextSibling
    * @param {HtmlElement} dom
@@ -205,5 +241,27 @@ export default {
    */
   isTouch() {
     return 'ontouchend' in document;
+  },
+  /**
+   * objToDataset
+   * @param {Object} - obj
+   * @param {HTMLElement} - dom
+   */
+  objectToDataSet(obj, dom) {
+    for (const p in obj) {
+      dom.dataset[p] = obj[p];
+    }
+  },
+  /**
+   * dataSetToObj
+   * @param {HTMLElement} - dom
+   * @returns {Object}
+   */
+  dataSetToObject(dom) {
+    const obj = {};
+    for (const p in dom.dataset) {
+      obj[p] = dom.dataset[p];
+    }
+    return obj;
   },
 };
