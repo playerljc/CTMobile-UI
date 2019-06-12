@@ -4,6 +4,17 @@ const selectorPrefix = 'ct-tree-';
 const normalTriggerIcon = 'fa fa-caret-right';
 const remoteTriggerIcon = 'fa fa-spinner';
 
+const checkboxIcon = {
+  checkall: 'check-square', // checkbox选中
+  uncheckall: 'minus-square', // checkbox减号
+  unchecked: 'square-o', // checkbox默认
+};
+
+const radioIcon = {
+  checked: 'circle', //  radio选中
+  unchecked: 'circle-o', // radio未选中
+};
+
 /**
  * initVar
  * @access private
@@ -11,9 +22,11 @@ const remoteTriggerIcon = 'fa fa-spinner';
 function initVar() {
   this.itemEl = this.el.querySelector(`.${selectorPrefix}item`);
   this.itemTriggerEl = this.itemEl.querySelector(`.${selectorPrefix}item-trigger`);
+  this.itemIconEl = this.itemEl.querySelector(`.${selectorPrefix}item-icon`);
   this.itemLabelEl = this.itemEl.querySelector(`.${selectorPrefix}item-label`);
-  this.itemIconEl = this.itemLabelEl.querySelector(`.${selectorPrefix}item-icon`);
   this.itemTextEl = this.itemLabelEl.querySelector(`.${selectorPrefix}item-text`);
+  this.itemInputEl = this.itemEl.querySelector(`.${selectorPrefix}item-input`);
+  this.itemInputFieldEl = this.itemEl.querySelector(`.${selectorPrefix}item-input-field`);
   this.childrenEl = this.el.querySelector(`.${selectorPrefix}children`);
 }
 
@@ -53,9 +66,25 @@ function initEvents() {
     });
   }
 
+  // 点击了label
   this.itemLabelEl.addEventListener('click', () => {
     this.events.trigger('click', this);
   });
+
+  // 点击了checkbox
+  if (this.itemInputEl) {
+    this.itemInputEl.addEventListener('click', () => {
+      if (this.isChecked()) {
+        if (this.getType() === 'checkbox') {
+          this.checked(false);
+          this.detailItemInputsRecursive();
+        }
+      } else if (this.getType() === 'checkbox') {
+        this.checked(true);
+        this.detailItemInputsRecursive();
+      }
+    });
+  }
 }
 
 /**
@@ -65,6 +94,35 @@ function initEvents() {
 function changeRemoteIcon() {
   Dom6.removeClass(this.itemTriggerEl, normalTriggerIcon);
   Dom6.addClass(this.itemTriggerEl, `${remoteTriggerIcon} animation`);
+}
+
+/**
+ * getChildrenPaddingLeft
+ * @access private
+ * @return {number}
+ */
+function getChildrenPaddingLeft() {
+  const { leaf, type, icon } = this.config;
+  let paddingLeft = 4;
+  if (!leaf) {
+    paddingLeft += 22;
+  }
+
+  if (type !== 'normal') {
+    if (icon) {
+      paddingLeft += 19;
+    } else {
+      paddingLeft += 22;
+    }
+  } else if (icon) {
+    paddingLeft += 19;
+  }
+
+  // item-trigger 22
+  // item-input 22
+  // item-icon 19
+  // 4
+  return paddingLeft;
 }
 
 /**
@@ -116,6 +174,7 @@ function onLoadRemoteSuccess(children) {
   expand.call(this, true);
   changeNormalIcon.call(this);
   this.isload = true;
+  this.refresh();
   this.lock = false;
 }
 
@@ -143,16 +202,100 @@ function onLoadRemoteComplete() {
  * @return {String}
  */
 function renderInput() {
-  const { type } = this.config;
+  const { type, checked = false, leaf } = this.config;
+  // 普通的节点
   if (type === 'normal') {
     return '';
   } else if (type === 'checkbox') {
-    return `<span class="${selectorPrefix}item-input fa fa-square-o" ></span>`;
+    // checkbox节点
+
+    // 选中
+    // if(isLeaf() && checked) {
+    //   渲染成选中
+    //   if(父节点的所有checkbox节点都选中) {
+    //     父节点渲染成选中状态 - 一直向上追溯
+    //   }
+    // }
+    // let str;
+    // // 叶子节点
+    // if (this.isLeaf()) {
+    //   if (checked) {
+    //     // 叶子节点且选中
+    //     str = `<span class="${selectorPrefix}item-input fa fa-${checkboxIcon.checkall}" >
+    //             <input class="${selectorPrefix}item-input-field" checked type="checkbox" />
+    //            </span>`;
+    //     //   if(父节点的所有checkbox节点都选中) {
+    //     //     父节点渲染成选中状态 - 一直向上追溯
+    //     //   }
+    //     // Drill up
+    //     if (this.parentNode) {
+    //       this.parentNode.checkboxDrillUp();
+    //     }
+    //   } else {
+    //     // 叶子节点非选中
+    //     str = `<span class="${selectorPrefix}item-input fa fa-${checkboxIcon.unchecked}" >
+    //             <input class="${selectorPrefix}item-input-field" type="checkbox" />
+    //            </span>`;
+    //   }
+    // } else {
+    //   // 非叶子节点
+    //   str = `<span class="${selectorPrefix}item-input fa fa-${checkboxIcon.unchecked}" >
+    //           <input class="${selectorPrefix}item-input-field" type="checkbox" />
+    //          </span>`;
+    // }
+    let str = '';
+    if (leaf) {
+      if (checked) {
+        str = `<span class="${selectorPrefix}item-input fa fa-${checkboxIcon.checkall}" >
+              <input class="${selectorPrefix}item-input-field" checked type="checkbox" />
+             </span>`;
+      } else {
+        str = `<span class="${selectorPrefix}item-input fa fa-${checkboxIcon.unchecked}" >
+              <input class="${selectorPrefix}item-input-field" type="checkbox" />
+             </span>`;
+      }
+    } else {
+      str = `<span class="${selectorPrefix}item-input fa fa-${checkboxIcon.unchecked}" >
+              <input class="${selectorPrefix}item-input-field" type="checkbox" />
+             </span>`;
+    }
+    return str;
   } else if (type === 'radio') {
-    return `<span class="${selectorPrefix}item-input fa fa-circle" ></span>`;
+    // radio节点
+    return `<span class="${selectorPrefix}item-input fa fa-${radioIcon.unchecked}" >
+             <input class="${selectorPrefix}item-input-field" type="checkbox" />
+            </span>`;
   } else {
+    // 没有匹配的类型
     return '';
   }
+}
+
+/**
+ * renderCheckboxCheckAll
+ * @access private
+ */
+function renderCheckboxCheckAll() {
+  Dom6.removeClass(this.itemInputEl, `fa-${checkboxIcon.uncheckall} fa-${checkboxIcon.unchecked}`);
+  Dom6.addClass(this.itemInputEl, `fa-${checkboxIcon.checkall}`);
+}
+
+/**
+ * renderCheckboxUncheckall
+ * @access private
+ */
+function renderCheckboxUncheckall() {
+  Dom6.removeClass(this.itemInputEl, `fa-${checkboxIcon.checkall} fa-${checkboxIcon.unchecked}`);
+  Dom6.addClass(this.itemInputEl, `fa-${checkboxIcon.uncheckall}`);
+}
+
+/**
+ * renderCheckboxUnchecked
+ * @access private
+ */
+function renderCheckboxUnchecked() {
+  Dom6.removeClass(this.itemInputEl, `fa-${checkboxIcon.checkall} fa-${checkboxIcon.uncheckall}`);
+  Dom6.addClass(this.itemInputEl, `fa-${checkboxIcon.unchecked}`);
 }
 
 /**
@@ -163,17 +306,15 @@ function render() {
   const { label, leaf, icon, iconColor, attr = {} } = this.config;
 
   this.el = Dom6.createElement(
-    `
-      <div class="${selectorPrefix}node ${this.isExpand ? 'expand' : ''}">
+    `<div class="${selectorPrefix}node ${this.isExpand ? 'expand' : ''}">
         <div class="${selectorPrefix}item">
-          ${!leaf ? `<span class="${selectorPrefix}item-trigger ${normalTriggerIcon}"></span>` : ''}
+          <span class="${selectorPrefix}item-trigger ${leaf ? 'invisible' : ''} ${normalTriggerIcon}"></span>
+          ${renderInput.call(this)}
+          <span class="${selectorPrefix}item-icon fa fa-${icon} ${!icon ? 'invisible' : ''}" style="color:${iconColor || ''}"></span>
           <span class="${selectorPrefix}item-label">
-            ${renderInput.call(this)}
-            ${icon ? `<span class="${selectorPrefix}item-icon fa fa-${icon}" style="color:${iconColor || ''}"></span>` : ''}
             <span class="${selectorPrefix}item-text">${label}</span>
           </span>
         </div>
-        <div class="${selectorPrefix}children"></div>
       </div>
     `
   );
@@ -183,6 +324,7 @@ function render() {
   initVar.call(this);
   initEvents.call(this);
 }
+
 
 /**
  * TreeNode
@@ -221,23 +363,32 @@ class TreeNode {
    * append
    * tree是一个完整的对象，已经调用完renderChildren
    * @param {TreeNode} - treeNode
+   * @param {boolean} - refresh
    */
-  append(treeNode) {
+  append(treeNode, refresh = false) {
     const { loadType } = this.config;
     if (this.isLeaf()) {
       this.childrenEl = Dom6.createElement('<div class="ct-tree-children"></div>');
+      const paddingLeft = getChildrenPaddingLeft.call(this);
+      this.childrenEl.style.paddingLeft = `${paddingLeft}px`;
       this.el.appendChild(this.childrenEl);
 
-      if (loadType !== 'remote') {
-        this.itemTriggerEl = Dom6.createElement(`<span class="${selectorPrefix}item-trigger ${normalTriggerIcon}"></span>`);
-        Dom6.prepend(this.itemEl, this.itemTriggerEl);
-      }
+      // if (loadType !== 'remote') {
+      //   this.itemTriggerEl = Dom6.createElement(`<span class="${selectorPrefix}item-trigger ${normalTriggerIcon}"></span>`);
+      //   Dom6.prepend(this.itemEl, this.itemTriggerEl);
+      // }
     }
     this.childrenEl.appendChild(treeNode.getEl());
     this.childrenNodes.push(treeNode);
 
+    Dom6.removeClass(this.itemTriggerEl, 'invisible');
+
     if (loadType === 'remote' && !this.isload) {
       this.isload = true;
+    }
+
+    if (refresh) {
+      this.refresh();
     }
   }
 
@@ -259,6 +410,7 @@ class TreeNode {
       config,
     });
     this.append(newNode);
+    this.refresh();
   }
 
   /**
@@ -269,6 +421,7 @@ class TreeNode {
     if (this.isLeaf()) this.append(treeNode);
     Dom6.prepend(this.childrenEl, treeNode.getEl());
     this.childrenNodes.unshift(treeNode);
+    this.refresh();
   }
 
   /**
@@ -302,6 +455,7 @@ class TreeNode {
 
     if (index === -1) {
       this.append(newNode);
+      this.refresh();
     } else if (index === 0) {
       this.prepend(newNode);
     } else {
@@ -309,6 +463,7 @@ class TreeNode {
       this.childrenEl.insertBefore(newNode.getEl(), treeNode.getEl());
       // array
       this.childrenNodes.splice(index, 0, newNode);
+      this.refresh();
     }
   }
 
@@ -344,6 +499,7 @@ class TreeNode {
 
     if (index === -1) {
       this.append(newNode);
+      this.refresh();
     } else if (index === this.childrenNodes.length - 1) {
       this.prepend(newNode);
     } else {
@@ -351,6 +507,7 @@ class TreeNode {
       Dom6.insertAfter(newNode.getEl(), treeNode.getEl());
       // array
       this.childrenNodes.splice(index + 1, 0, newNode);
+      this.refresh();
     }
   }
 
@@ -387,6 +544,7 @@ class TreeNode {
 
     this.childrenEl.replaceChild(newNode.getEl(), treeNode.getEl());
     this.childrenNodes.splice(index, 1, newNode);
+    this.refresh();
   }
 
   /**
@@ -422,6 +580,7 @@ class TreeNode {
 
     this.childrenNodes.splice(index, 1);
     Dom6.remove(treeNode.getEl());
+    this.refresh();
   }
 
   /**
@@ -581,6 +740,145 @@ class TreeNode {
    */
   getEl() {
     return this.el;
+  }
+
+  /**
+   * checked
+   * @return {boolean}
+   */
+  isChecked() {
+    if (this.isCheckboxType()) {
+      if (this.itemInputFieldEl) {
+        return this.itemInputFieldEl.checked;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * checked
+   * @param {boolean} - checked
+   */
+  checked(checked) {
+    if (this.isCheckboxType()) {
+      if (this.getType() === 'checkbox') {
+        this.itemInputFieldEl.checked = checked;
+        if (!this.isLeaf()) {
+          for (let i = 0; i < this.childrenNodes.length; i++) {
+            const treeNode = this.childrenNodes[i];
+            treeNode.checked(checked);
+          }
+        }
+      }
+    }
+  }
+
+  /**
+   * getType
+   * @return {string}
+   */
+  getType() {
+    return this.config.type;
+  }
+
+  /**
+   * getParentNode
+   * @return {TreeNode}
+   */
+  getParentNode() {
+    return this.parentNode;
+  }
+
+  /**
+   * isCheckboxType
+   * @return {boolean}
+   */
+  isCheckboxType() {
+    return ['checkbox', 'radio'].indexOf(this.config.type) !== -1;
+  }
+
+  /**
+   * checkboxDrillUp
+   */
+  checkboxDrillUp() {
+    //   if(父节点的所有checkbox节点都选中) {
+    //     父节点渲染成选中状态 - 一直向上追溯
+    //   }
+    const isCheckbox = this.isCheckboxType();
+    if (!isCheckbox) return false;
+
+    const checkboxNodes = [];
+    for (let i = 0; i < this.childrenNodes.length; i++) {
+      const treeNode = this.childrenNodes[i];
+      if (treeNode.itemInputFieldEl) {
+        checkboxNodes.push(treeNode);
+      }
+    }
+
+    const checkeds = checkboxNodes.filter((node) => {
+      return node.isChecked();
+    });
+
+    // 子元素都选中了
+    if (checkeds.length === checkboxNodes.length) {
+      this.itemInputFieldEl.checked = true;
+      renderCheckboxCheckAll.call(this);
+      if (this.parentNode) {
+        this.parentNode.checkboxDrillUp();
+      }
+    } else {
+      this.itemInputFieldEl.checked = false;
+
+      if (checkeds.length !== 0) {
+        // 子节点有选中的
+        renderCheckboxUncheckall.call(this);
+      } else {
+        renderCheckboxUnchecked.call(this);
+      }
+
+      if (this.parentNode) {
+        this.parentNode.checkboxDrillUp();
+      }
+    }
+  }
+
+  /**
+   * detailItemInputsRecursive
+   */
+  detailItemInputsRecursive() {
+    if (this.isLeaf()) {
+      if (this.getType() === 'checkbox') {
+        if (this.isChecked()) {
+          renderCheckboxCheckAll.call(this);
+        } else {
+          renderCheckboxUnchecked.call(this);
+        }
+        const parentNode = this.getParentNode();
+        if (parentNode) {
+          parentNode.checkboxDrillUp();
+        }
+      }
+    } else {
+      const children = this.childrens();
+      for (let i = 0; i < children.length; i++) {
+        children[i].detailItemInputsRecursive();
+      }
+    }
+  }
+
+  /**
+   * refresh
+   */
+  refresh() {
+    const parentNode = this.getParentNode();
+    if (parentNode) {
+      parentNode.detailItemInputsRecursive();
+    } else {
+      this.detailItemInputsRecursive();
+    }
   }
 }
 

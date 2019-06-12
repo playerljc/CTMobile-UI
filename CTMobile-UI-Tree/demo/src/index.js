@@ -94,20 +94,65 @@ const tree = TreeFactory.create(document.getElementById('tree'), {
       //   n.setIcon('folder-open');
       // }
 
-      // const globalConfig = {
-      //   loadType: 'local',
-      //   expand: true,
-      //   type: 'normal',
-      // };
-      //
-      // const config = {
-      //   label: '往前添加',
-      //   leaf: false,
-      //   expand: false,
-      //   loadType: 'remote',
-      //   icon: 'folder',
-      // };
-      //
+      const globalConfig = {
+        loadType: 'local',
+        expand: true,
+        type: 'normal',
+      };
+
+      const config = {
+        label: '往前添加1',
+        leaf: false,
+        expand: true,
+        // loadType: 'remote',
+        type: 'checkbox',
+        checked: true,
+        icon: 'folder',
+        children: [
+          {
+            label: '往前添加1.1',
+            leaf: false,
+            expand: true,
+            type: 'checkbox',
+            checked: false,
+            icon: 'folder',
+            children: [
+              {
+                label: '往前添加1.1.1',
+                leaf: true,
+                expand: true,
+                type: 'checkbox',
+                checked: false,
+                icon: 'folder',
+              },
+              {
+                label: '往前添加1.1.2',
+                leaf: true,
+                expand: true,
+                type: 'checkbox',
+                checked: false,
+                icon: 'folder',
+              },
+              {
+                label: '往前添加1.1.3',
+                leaf: true,
+                expand: true,
+                type: 'checkbox',
+                checked: false,
+                icon: 'folder',
+              }],
+          },
+          {
+            label: '往前添加1.2',
+            leaf: true,
+            expand: true,
+            type: 'checkbox',
+            checked: true,
+            icon: 'folder',
+          },
+        ],
+      };
+
       // const treeNode = new TreeNode({
       //   globalConfig,
       //   config,
@@ -118,15 +163,16 @@ const tree = TreeFactory.create(document.getElementById('tree'), {
       // tree.renderChildren({
       //   parentNode: treeNode, globalConfig, config,
       // });
-      //
+
       // tree.appendByConfig(config);
-      // n.append(treeNode);
+      // n.append(treeNode, true);
       // n.prepend(treeNode);
       // n.appendByConfig(config);
-      // n.prependByConfig(config);
+      n.prependByConfig(config);
       // if (n.isLeaf()) return false;
       // const childrens = n.childrens();
       // n.removeChildren(childrens[0]);
+
       // insertBeforeByConfig;
       // insertAfter;
       // insertAfterByConfig;
@@ -150,13 +196,17 @@ const tree = TreeFactory.create(document.getElementById('tree'), {
           iconColor: '#ccc',
           leaf: false,
           loadType: 'remote',
+          type: 'checkbox',
+          checked: false,
         },
-        {
-          label: '节点1.2',
-          icon: 'folder',
-          iconColor: '#ccc',
-          leaf: true,
-        }]);
+          {
+            label: '节点1.2',
+            icon: 'folder',
+            iconColor: '#ccc',
+            leaf: true,
+            type: 'checkbox',
+            checked: true,
+          }]);
       }, 2000);
     },
   },
@@ -166,41 +216,56 @@ const tree = TreeFactory.create(document.getElementById('tree'), {
       expand: true,
       type: 'normal',
     },
-    data: [{
-      label: '节点1',
-      leaf: false,
-      expand: false,
-      loadType: 'remote',
-      icon: 'folder',
-      type: 'checkbox',
-      attr: {
-        id: '1',
-      },
-      // children: [
-      //   {
-      //     label: '节点1.1',
-      //     icon: 'folder',
-      //     iconColor: '#ccc',
-      //     leaf: false,
-      //     children: [{
-      //       label: '节点1.1.1',
-      //       leaf: false,
-      //       children: [{
-      //         label: '节点1.1.1.1',
-      //         leaf: true,
-      //       }],
-      //     }],
-      //   }, {
-      //     label: '节点2',
-      //     leaf: true,
-      //   }],
-    }, {
-      label: '节点2',
-      leaf: true,
-      attr: {
-        id: '1',
-      },
-    }],
+    data: [
+      {
+        label: '节点1',
+        leaf: false,
+        expand: true,
+        // loadType: 'remote',
+        icon: 'folder',
+        type: 'checkbox',
+        attr: {
+          id: '1',
+        },
+        children: [
+          {
+            label: '节点1.1',
+            leaf: true,
+            expand: true,
+            loadType: 'local',
+            icon: 'folder',
+            type: 'checkbox',
+            checked: true,
+            // children: [
+            //   {
+            //     label: '节点1.1.1',
+            //     leaf: true,
+            //     expand: true,
+            //     loadType: 'local',
+            //     icon: 'folder',
+            //     type: 'checkbox',
+            //     checked: false,
+            //   },
+            //   {
+            //     label: '节点1.1.2',
+            //     leaf: true,
+            //     expand: true,
+            //     loadType: 'local',
+            //     icon: 'folder',
+            //     type: 'checkbox',
+            //     checked: true,
+            //   }],
+          },
+          {
+            label: '节点1.2',
+            leaf: true,
+            expand: true,
+            loadType: 'local',
+            icon: 'folder',
+            type: 'checkbox',
+            checked: true,
+          }],
+      }],
   },
 });
 

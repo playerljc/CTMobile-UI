@@ -18,8 +18,24 @@ function init() {
     this.nodes.push(treeNode);
     df.appendChild(treeNode.getEl());
   }
+
+  // 处理checkbox和radio的选中
+  detailItemInputs.call(this);
+
   this.el.appendChild(df);
 }
+
+/**
+ * detailItemInputs
+ * 处理inputItem的默认值，比如checkbox,radio的选中
+ * @access private
+ */
+function detailItemInputs() {
+  for (let i = 0; i < this.nodes.length; i++) {
+    this.nodes[i].detailItemInputsRecursive();
+  }
+}
+
 
 /**
  * createNode
@@ -137,6 +153,7 @@ class Tree {
   append(treeNode) {
     this.nodes.push(treeNode);
     this.el.appendChild(treeNode.getEl());
+    detailItemInputs.call(this);
   }
 
   /**
@@ -163,6 +180,7 @@ class Tree {
   prepend(treeNode) {
     this.nodes.unshift(treeNode);
     Dom6.prepend(this.el, treeNode.getEl());
+    detailItemInputs.call(this);
   }
 
   /**
@@ -203,6 +221,7 @@ class Tree {
       this.el.insertBefore(newNode.getEl(), treeNode.getEl());
       // array
       this.nodes.splice(index, 0, newNode);
+      detailItemInputs.call(this);
     }
   }
 
@@ -245,6 +264,7 @@ class Tree {
       Dom6.insertAfter(newNode.getEl(), treeNode.getEl());
       // array
       this.nodes.splice(index + 1, 0, newNode);
+      detailItemInputs.call(this);
     }
   }
 
@@ -281,6 +301,7 @@ class Tree {
 
     this.el.replaceChild(newNode.getEl(), treeNode.getEl());
     this.nodes.splice(index, 1, newNode);
+    detailItemInputs.call(this);
   }
 
   /**
@@ -315,6 +336,7 @@ class Tree {
 
     this.nodes.splice(index, 1);
     Dom6.remove(treeNode.getEl());
+    detailItemInputs.call(this);
   }
 
   /**

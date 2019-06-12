@@ -23,7 +23,6 @@ el
     config: { - 节点统一的配置
       loadType: [local | remote] 节点的数据类型 local本地数据，remote远程数据
       expand: boolean [true | false] true 展开, false 关闭 默认展开, 如果loadType为remote 则此值为false
-      type: [normal | checkbox | radio] 节点的UI类型 normal 不普通，checkbox, radio
     },
     data: [{
       // 有config中的所有配置，会覆盖全局配置
@@ -32,6 +31,7 @@ el
       attr: {Object} - 节点自定义属性
       label: {String} - 节点文本
       leaf: {Boolean} - [true | false] 是否是叶子节点
+      checked: {Boolean} - [true | false] 如果type是checkbox 是否选中
       children: {Array} - 子节点
     }]
   }
@@ -82,3 +82,20 @@ icons
  .fa fa-square-o checkbox默认
  .fa fa-circle  radio选中
  .fa fa-circle-o radio未选中
+ 
+checkbox
+ if(type === 'checkbox') {
+    都渲染成未选中状态
+    
+    // 选中
+    if(isLeaf() && checked) {
+       渲染成选中
+       if(父节点的所有checkbox节点都选中) {
+         父节点渲染成选中状态 - 一直向上追溯
+       }
+    }
+ }
+   
+ 
+ 叶子节点才renderInput,如果节点是check
+ 向上追溯,判断类型是checkbox类型 
