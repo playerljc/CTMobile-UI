@@ -8,374 +8,1240 @@
 </head>
 <body>
 
-<!--<div class="ctmobile-ui-doc">-->
-  <!--&lt;!&ndash; Surnames &ndash;&gt;-->
+<div class="ctmobile-ui-doc">
+  <!-- Tree -->
 
-  <!--&lt;!&ndash;菜单&ndash;&gt;-->
-  <!--<h1>Surnames</h1>-->
-  <!--<ul>-->
-    <!--<li><a href="#tree-layout">基本布局</a></li>-->
-    <!--<li><a href="#tree-initial">初始化</a></li>-->
-    <!--<li><a href="#tree-demo">例子</a></li>-->
-    <!--<li><a href="#tree-methods">方法</a></li>-->
-    <!--<li>-->
-      <!--<a href="#tree-events">事件</a>-->
-      <!--<ul>-->
-        <!--<li><a href="#tree-events-scrollbefore">scrollbefore</a></li>-->
-        <!--<li><a href="#tree-events-scroll">scroll</a></li>-->
-      <!--</ul>-->
-    <!--</li>-->
-  <!--</ul>-->
+  <!--菜单-->
+  <h1>Tree</h1>
+  <ul>
+    <li><a href="#tree-layout">基本布局</a></li>
+    <li><a href="#tree-initial">初始化</a></li>
+    <li><a href="#tree-demo">例子</a></li>
+    <li><a href="#tree-methods">方法</a></li>
+    <li>
+      <a href="#tree-events">事件</a>
+      <ul>
+        <li><a href="#tree-events-click">click</a></li>
+        <li><a href="#tree-events-expand">expand</a></li>
+        <li><a href="#tree-events-checked">checked</a></li>
+        <li><a href="#tree-events-loadremote">loadRemote</a></li>
+      </ul>
+    </li>
+  </ul>
 
-  <!--&lt;!&ndash;基本布局&ndash;&gt;-->
-  <!--<h2 id="tree-layout">基本布局</h2>-->
-  <!--<dl>-->
-    <!--<dt>-->
-<!--<pre>-->
-<!--<code class="html">-->
-<!--<div class="ct-tree" id="tree">-->
-  <!--<div class="ct-tree-highlighted"></div>-->
-  <!--<div class="ct-tree-content">-->
-    <!--<div class="ct-tree-group">-->
-      <!--<a class="ct-tree-group-title" data-name="A">A</a>-->
-      <!--<div class="ct-tree-group-inner">-->
-        <!--<ul>-->
-          <!--<li>A1</li>-->
-          <!--...-->
-        <!--</ul>-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--...-->
-  <!--</div>-->
-  <!--<div class="ct-tree-index"></div>-->
-<!--</div>-->
-<!--</code>-->
-<!--</pre>-->
-    <!--</dt>-->
-    <!--<dd>-->
-      <!--<ul>-->
-        <!--<li>-->
-          <!--ct-tree - 整体容器-->
-          <!--<ul>-->
-            <!--<li>ct-tree-highlighted - 高亮指示器</li>-->
-            <!--<li>ct-tree-index - 索引</li>-->
-            <!--<li>-->
-              <!--ct-tree-content - 内容-->
-              <!--<ul>-->
-                <!--<li>-->
-                  <!--ct-tree-group - 内容项-->
-                  <!--<ul>-->
-                    <!--<li>ct-tree-group-title - 索引名称 data-name - 索引名</li>-->
-                    <!--<li>ct-tree-group-inner - 内容项容器</li>-->
-                  <!--</ul>-->
-                <!--</li>-->
-              <!--</ul>-->
-            <!--</li>-->
-          <!--</ul>-->
-        <!--</li>-->
-      <!--</ul>-->
-    <!--</dd>-->
-  <!--</dl>-->
+  <!--基本布局-->
+  <h2 id="tree-layout">基本布局</h2>
+  <dl>
+    <dt>
+<pre>
+<code class="html">
+  <div class="ct-tree" id="tree"></div>
+</code>
+</pre>
+    </dt>
+    <dd>
+      <ul>
+        <li>
+          ct-tree - 整体容器
+        </li>
+      </ul>
+    </dd>
+  </dl>
 
-  <!--&lt;!&ndash;初始化&ndash;&gt;-->
-  <!--<h2 id="tree-initial">初始化</h2>-->
-  <!--<pre>-->
-<!--<code class="javascript">-->
- <!--import { Dom6 } from '@ctmobile/ui-util';-->
- <!--import SurnamesFactory from '@ctmobile/ui-tree/tree';-->
- <!--import '@ctmobile/ui-tree/tree.less';-->
- <!--import '@ctmobile/ui-tree/themes/default/tree.less';-->
+  <!--初始化-->
+  <h2 id="tree-initial">初始化</h2>
+  <pre>
+<code class="javascript">
+import TreeFactory from '@ctmobile/ui-tree';
+import '@ctmobile/ui-tree/lib/tree.less';
+import '@ctmobile/ui-tree/lib/themes/default/tree.less';
+TreeFactory.create(document.getElementById('tree'),{
+  nodeConfig: {
+    config: {
+      loadType: 'local',
+      expand: true,
+      type: 'normal',
+    },
+    data: [
+      {
+        label: '节点1',
+        leaf: false,
+        expand: true,
+        attr: {
+          id: '1',
+        },
+        children: [
+          {
+            label: '节点1.1',
+            leaf: true
+          },
+          {
+            label: '节点1.2',
+            leaf: true
+          }
+        ],
+      }
+    ]
+});
+</code>
+</pre>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{HtmlElement} - el</td>
+      <td>整体元素</td>
+    </tr>
+    <tr>
+      <td>{object} - config</td>
+      <td>
+        <p>配置</p>
+        <div class="method-wrap">
+          <p>listeners {Object} - 事件</p>
+        </div>
+        <div class="method-wrap">
+          <p>nodeConfig {Object} - 节点的配置</p>
+          <table class="events-table" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>{object} - config 节点的全局配置</td>
+              <td>
+                <div class="method-wrap">
+                  <p>label {String} - 节点文本</p>
+                </div>
+                <div class="method-wrap">
+                  <p>icon {String} - 节点的icon(font-awesome)</p>
+                </div>
+                <div class="method-wrap">
+                  <p>iconColor {String} - 节点icon颜色</p>
+                </div>
+                <div class="method-wrap">
+                  <p>attr {Object} - 节点的自定义属性</p>
+                </div>
+                <div class="method-wrap">
+                  <p>leaf {boolean} - [true | false] 是否是叶子节点</p>
+                </div>
+                <div class="method-wrap">
+                  <p>leaf {boolean} - [true | false] 是否是叶子节点</p>
+                </div>
+                <div class="method-wrap">
+                  <p>loadType {String} - [local | remote] 节点的数据类型 local本地数据，remote远程数据</p>
+                </div>
+                <div class="method-wrap">
+                  <p>expand {boolean} - [true | false] true 展开, false 关闭 默认展开, 如果loadType为remote</p>
+                </div>
+                <div class="method-wrap">
+                  <p>type {String} - [normal | checkbox | radio] 节点的input类型</p>
+                </div>
+                <div class="method-wrap">
+                  <p>checked {boolean} - [true | false] 如果type是checkbox 是否选中</p>
+                </div>
+                <div class="method-wrap">
+                  <p>children {Array} - 子节点</p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>{Array} - data 节点的配置</td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
- <!--const el = document.getElementById('tree');-->
+  <!--例子-->
+  <h2 id="tree-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
 
- <!--function createSurnames() {-->
-   <!--const contentEl = el.querySelector('.ct-tree-content');-->
-   <!--const indexNames = [-->
-     <!--'A',-->
-     <!--'B',-->
-     <!--'C',-->
-     <!--'D',-->
-     <!--'E',-->
-     <!--'F',-->
-     <!--'G',-->
-     <!--'H',-->
-     <!--'I',-->
-     <!--'J',-->
-     <!--'K',-->
-     <!--'L',-->
-     <!--'M',-->
-     <!--'N',-->
-     <!--'O',-->
-     <!--'P',-->
-     <!--'Q',-->
-     <!--'R',-->
-     <!--'S',-->
-     <!--'T',-->
-     <!--'U',-->
-     <!--'V',-->
-     <!--'W',-->
-     <!--'X',-->
-     <!--'Y',-->
-     <!--'Z',-->
-     <!--'#',-->
-   <!--];-->
-   <!--const df = document.createDocumentFragment();-->
-   <!--for (let i = 0; i &lt; indexNames.length; i++) {-->
-     <!--const index = indexNames[i];-->
-     <!--let str = `-->
-         <!--&lt;div class="ct-tree-group"&gt;-->
-           <!--&lt;a class="ct-tree-group-title" data-name="${index}"&gt;${index}&lt;/a&gt;-->
-           <!--&lt;div class="ct-tree-group-inner"&gt;-->
-             <!--&lt;ul&gt;`;-->
+          <h2>normal(普通)</h2>
+          <pre>
+<code class="javascript">
+TreeFactory.create(document.getElementById('tree-normal'), {
+  nodeConfig: {
+    config: Object.assign({}, globalConfig),
+    data: [{
+      label: '节点1',
+      expand: true,
+      leaf: false,
+      children: [{
+        label: '节点1.1',
+        expand: true,
+        leaf: true,
+      }, {
+        label: '节点1.2',
+        expand: true,
+        leaf: true,
+      }],
+    }, {
+      label: '节点2',
+      expand: true,
+      leaf: true,
+    }],
+  },
+});
+</code>
+</pre>
 
-     <!--for (let j = 0; j &lt; 10; j++) {-->
-       <!--str += `&lt;li&gt;${index}${j + 1}&lt;/li&gt;`;-->
-     <!--}-->
+          <h2>icon</h2>
+          <pre>
+<code class="javascript">
+TreeFactory.create(document.getElementById('tree-icon'), {
+  nodeConfig: {
+    config: Object.assign({}, globalConfig),
+    data: [{
+      label: '节点1',
+      icon: 'folder',
+      expand: true,
+      leaf: false,
+      children: [{
+        label: '节点1.1',
+        icon: 'folder',
+        expand: true,
+        leaf: true,
+      }, {
+        label: '节点1.2',
+        icon: 'folder',
+        expand: true,
+        leaf: true,
+      }],
+    }, {
+      label: '节点2',
+      icon: 'folder',
+      expand: true,
+      leaf: true,
+    }],
+  },
+});
+</code>
+</pre>
 
-     <!--str += `    &lt;/ul&gt;-->
-           <!--&lt;/div&gt;-->
-         <!--&lt;/div&gt;`;-->
+          <h2>iconColor</h2>
+          <pre>
+<code class="javascript">
+TreeFactory.create(document.getElementById('tree-iconColor'), {
+  nodeConfig: {
+    config: Object.assign({}, globalConfig),
+    data: [{
+      label: '节点1',
+      icon: 'folder',
+      iconColor: '#ccc',
+      expand: true,
+      leaf: false,
+      children: [{
+        label: '节点1.1',
+        icon: 'folder',
+        iconColor: '#ccc',
+        expand: true,
+        leaf: true,
+      }, {
+        label: '节点1.2',
+        icon: 'folder',
+        iconColor: '#ccc',
+        expand: true,
+        leaf: true,
+      }],
+    }, {
+      label: '节点2',
+      icon: 'folder',
+      iconColor: '#ccc',
+      expand: true,
+      leaf: true,
+    }],
+  },
+});
+</code>
+</pre>
 
-     <!--const groupEl = Dom6.createElement(str);-->
-     <!--df.appendChild(groupEl);-->
-   <!--}-->
-   <!--contentEl.appendChild(df);-->
- <!--}-->
+          <h2>remoteLoad</h2>
+          <pre>
+<code class="javascript">
+TreeFactory.create(document.getElementById('tree-remoteLoad'), {
+  listeners: {
+    loadRemote: (n, success, error, complete) => {
+      setTimeout(() => {
+        success([{
+          label: 'remote1',
+          icon: 'folder',
+          iconColor: '#ccc',
+          leaf: false,
+          loadType: 'remote',
+        },
+        {
+          label: 'remote2',
+          icon: 'folder',
+          iconColor: '#ccc',
+          loadType: 'remote',
+          leaf: false,
+        }]);
+      }, 2000);
+    },
+  },
+  nodeConfig: {
+    config: Object.assign({}, globalConfig),
+    data: [{
+      label: '节点1',
+      icon: 'folder',
+      iconColor: '#ccc',
+      loadType: 'remote',
+      expand: true,
+      leaf: false,
+    }, {
+      label: '节点2',
+      icon: 'folder',
+      iconColor: '#ccc',
+      expand: true,
+      leaf: true,
+    }],
+  },
+});
+</code>
+</pre>
+
+          <h2>checkbox</h2>
+          <pre>
+<code class="javascript">
+TreeFactory.create(document.getElementById('tree-checkbox'), {
+  nodeConfig: {
+    config: Object.assign({}, globalConfig),
+    data: [{
+      label: '节点1',
+      icon: 'folder',
+      iconColor: '#ccc',
+      type: 'checkbox',
+      expand: true,
+      leaf: false,
+      children: [{
+        label: '节点1.1',
+        icon: 'folder',
+        iconColor: '#ccc',
+        type: 'checkbox',
+        checked: true,
+        leaf: true,
+      }, {
+        label: '节点1.2',
+        icon: 'folder',
+        iconColor: '#ccc',
+        type: 'checkbox',
+        checked: false,
+        leaf: true,
+      }],
+    }, {
+      label: '节点2',
+      icon: 'folder',
+      iconColor: '#ccc',
+      expand: true,
+      type: 'checkbox',
+      checked: false,
+      leaf: true,
+    }],
+  },
+});
+</code>
+</pre>
+
+          <h2>checkbox-remote</h2>
+          <pre>
+<code class="javascript">
+TreeFactory.create(document.getElementById('tree-checkbox-remote'), {
+  listeners: {
+    loadRemote: (n, success, error, complete) => {
+      setTimeout(() => {
+        success([{
+          label: 'remote1',
+          icon: 'folder',
+          iconColor: '#ccc',
+          leaf: false,
+          loadType: 'remote',
+          type: 'checkbox',
+          checked: true,
+          expand: true,
+        },
+        {
+          label: 'remote2',
+          icon: 'folder',
+          iconColor: '#ccc',
+          loadType: 'remote',
+          leaf: false,
+          type: 'checkbox',
+          checked: false,
+          expand: true,
+        }]);
+      }, 2000);
+    },
+  },
+  nodeConfig: {
+    config: Object.assign({}, globalConfig),
+    data: [{
+      label: '节点1',
+      icon: 'folder',
+      iconColor: '#ccc',
+      loadType: 'remote',
+      type: 'checkbox',
+      expand: true,
+      leaf: false,
+    }, {
+      label: '节点2',
+      icon: 'folder',
+      iconColor: '#ccc',
+      expand: true,
+      type: 'checkbox',
+      checked: false,
+      leaf: true,
+    }],
+  },
+});
+</code>
+</pre>
+
+          <h2>appendChildren</h2>
+          <pre>
+<code class="javascript">
+TreeFactory.create(document.getElementById('tree-appendChildren'), {
+  listeners: {
+    click: (treeNode) => {
+      const config = {
+        label: 'newNode',
+        leaf: true,
+        expand: true,
+        icon: 'folder',
+        iconColor: '#ccc',
+      };
+      treeNode.appendByConfig(config);
+    },
+  },
+  nodeConfig: {
+    config: Object.assign({}, globalConfig),
+    data: [{
+      label: 'root',
+      icon: 'folder',
+      iconColor: '#ccc',
+      expand: true,
+      leaf: true,
+    }],
+  },
+});
+</code>
+</pre>
+
+          <h2>appendRoot</h2>
+          <pre>
+<code class="javascript">
+const appendRootTree = TreeFactory.create(document.getElementById('tree-appendRoot'), {
+  listeners: {
+    click: () => {
+      const config = {
+        label: 'newRootNode',
+        leaf: true,
+        expand: true,
+        icon: 'folder',
+        iconColor: '#ccc',
+      };
+      appendRootTree.appendByConfig(config);
+    },
+  },
+  nodeConfig: {
+    config: Object.assign({}, globalConfig),
+    data: [{
+      label: 'root',
+      icon: 'folder',
+      iconColor: '#ccc',
+      expand: true,
+      leaf: true,
+    }],
+  },
+});
+</code>
+</pre>
+
+          <h2>prependChildren</h2>
+          <pre>
+<code class="javascript">
+TreeFactory.create(document.getElementById('tree-prependChildren'), {
+  listeners: {
+    click: (treeNode) => {
+      const config = {
+        label: 'newNode',
+        leaf: true,
+        expand: true,
+        icon: 'folder',
+        iconColor: '#ccc',
+      };
+      treeNode.prependByConfig(config);
+    },
+  },
+  nodeConfig: {
+    config: Object.assign({}, globalConfig),
+    data: [{
+      label: 'root',
+      icon: 'folder',
+      iconColor: '#ccc',
+      expand: true,
+      leaf: true,
+    }],
+  },
+});
+</code>
+</pre>
+
+          <h2>prependRoot</h2>
+          <pre>
+<code class="javascript">
+const prependRootTree = TreeFactory.create(document.getElementById('tree-prependRoot'), {
+  listeners: {
+    click: () => {
+      const config = {
+        label: 'newRootNode',
+        leaf: true,
+        expand: true,
+        icon: 'folder',
+        iconColor: '#ccc',
+      };
+      prependRootTree.prependByConfig(config);
+    },
+  },
+  nodeConfig: {
+    config: Object.assign({}, globalConfig),
+    data: [{
+      label: 'root',
+      icon: 'folder',
+      iconColor: '#ccc',
+      expand: true,
+      leaf: true,
+    }],
+  },
+});
+</code>
+</pre>
+
+          <h2>insert</h2>
+          <pre>
+<code class="javascript">
+const insertChildrenTree = TreeFactory.create(document.getElementById('tree-insertChildren'), {
+  listeners: {
+    click: (treeNode) => {
+      const config = {
+        label: 'newRootNode',
+        leaf: true,
+        expand: true,
+        icon: 'folder',
+        iconColor: '#ccc',
+      };
+
+      const parentNode = treeNode.getParentNode();
+      if (parentNode) {
+        parentNode.insertBeforeByConfig(treeNode, config);
+      } else {
+        insertChildrenTree.insertBeforeByConfig(treeNode, config);
+      }
+    },
+  },
+  nodeConfig: {
+    config: Object.assign({}, globalConfig),
+    data: [{
+      label: 'root',
+      icon: 'folder',
+      iconColor: '#ccc',
+      expand: true,
+      leaf: false,
+      children: [{
+        label: 'node1',
+        icon: 'folder',
+        iconColor: '#ccc',
+        leaf: true,
+      }, {
+        label: 'node2',
+        icon: 'folder',
+        iconColor: '#ccc',
+        leaf: true,
+      }],
+    }],
+  },
+});
+</code>
+</pre>
+
+          <h2>remove</h2>
+          <pre>
+<code class="javascript">
+const removeChildrenTree = TreeFactory.create(document.getElementById('tree-remove'), {
+  listeners: {
+    click: (treeNode) => {
+      const parentNode = treeNode.getParentNode();
+      if (parentNode) {
+        parentNode.removeChildren(treeNode);
+      } else {
+        removeChildrenTree.removeChildren(treeNode);
+      }
+    },
+  },
+  nodeConfig: {
+    config: Object.assign({}, globalConfig),
+    data: [{
+      label: 'root',
+      icon: 'folder',
+      iconColor: '#ccc',
+      expand: true,
+      leaf: false,
+      children: [{
+        label: 'node1',
+        icon: 'folder',
+        iconColor: '#ccc',
+        leaf: true,
+      }, {
+        label: 'node2',
+        icon: 'folder',
+        iconColor: '#ccc',
+        leaf: true,
+      }],
+    }],
+  },
+});
+</code>
+</pre>
+
+          <h2>expand</h2>
+          <pre>
+<code class="javascript">
+TreeFactory.create(document.getElementById('tree-expand'), {
+  listeners: {
+    expand: (n, expand) => {
+      alert(expand);
+    },
+  },
+  nodeConfig: {
+    config: Object.assign({}, globalConfig),
+    data: [{
+      label: 'root',
+      icon: 'folder',
+      iconColor: '#ccc',
+      expand: true,
+      leaf: false,
+      children: [{
+        label: 'node1',
+        icon: 'folder',
+        iconColor: '#ccc',
+        leaf: true,
+      }, {
+        label: 'node2',
+        icon: 'folder',
+        iconColor: '#ccc',
+        leaf: true,
+      }],
+    }],
+  },
+});
+</code>
+</pre>
+
+          <h2>click</h2>
+          <pre>
+<code class="javascript">
+TreeFactory.create(document.getElementById('tree-click'), {
+  listeners: {
+    click: (n) => {
+      alert(n);
+    },
+  },
+  nodeConfig: {
+    config: Object.assign({}, globalConfig),
+    data: [{
+      label: 'root',
+      icon: 'folder',
+      iconColor: '#ccc',
+      expand: true,
+      leaf: false,
+      children: [{
+        label: 'node1',
+        icon: 'folder',
+        iconColor: '#ccc',
+        leaf: true,
+      }, {
+        label: 'node2',
+        icon: 'folder',
+        iconColor: '#ccc',
+        leaf: true,
+      }],
+    }],
+  },
+});
+</code>
+</pre>
+        </dd>
+      </dl>
+    </div>
+
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner" id="ctmobile-ui-doc-demo-device">
+          <div class="demo-inner">
+            <dl>
+              <dt><h3>normal(普通)</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-normal"></div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt><h3>icon</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-icon"></div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt><h3>iconColor</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-iconColor"></div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt><h3>remoteLoad</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-remoteLoad"></div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt><h3>checkbox</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-checkbox"></div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt><h3>checkbox-remote</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-checkbox-remote"></div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt><h3>appendChildren</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-appendChildren"></div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt><h3>appendRoot</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-appendRoot"></div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt><h3>prependChildren</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-prependChildren"></div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt><h3>prependRoot</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-prependRoot"></div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt><h3>insert</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-insertChildren"></div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt><h3>remove</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-remove"></div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt><h3>expand</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-expand"></div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt><h3>click</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-click"></div>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--方法-->
+  <h2 id="tree-methods">方法</h2>
+
+  <dl>
+    <dt><h2>.Tree</h2></dt>
+    <dd>
+      <div class="method-wrap">
+        <p>renderChildren(<span class="parameter">params</span>) - 渲染children</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">parentNode</span>-<span class="parameterType">TreeNode</span>parentNode</li>
+          <li><span class="parameter">globalConfig</span>-<span class="parameterType">Object</span>globalConfig</li>
+          <li><span class="parameter">config</span>-<span class="parameterType">Object</span>config</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>append(<span class="parameter">treeNode</span>) - 添加节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>节点对象</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>appendByConfig(<span class="parameter">config</span>) - 根据配置添加节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">config</span>-<span class="parameterType">Object</span>节点配置</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>prepend(<span class="parameter">treeNode</span>) - 向前添加节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>节点对象</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>prependByConfig(<span class="parameter">config</span>) - 根据配置向前添加节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">config</span>-<span class="parameterType">Object</span>节点配置</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>insertBefore(
+          <span class="parameter">treeNode</span>,
+          <span class="parameter">newNode</span>
+          ) - 在指定节点之前插入节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>节点对象</li>
+          <li><span class="parameter">newNode</span>-<span class="parameterType">TreeNode</span>新节点对象</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>insertBeforeByConfig(
+          <span class="parameter">treeNode</span>,
+          <span class="parameter">config</span>
+          ) - 根据配置在指定节点之前插入节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>节点对象</li>
+          <li><span class="parameter">config</span>-<span class="parameterType">Object</span>节点的配置</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>insertAfter(
+          <span class="parameter">treeNode</span>,
+          <span class="parameter">newNode</span>
+          ) - 在指定节点之后插入节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>节点对象</li>
+          <li><span class="parameter">newNode</span>-<span class="parameterType">TreeNode</span>新节点对象</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>insertAfterByConfig(
+          <span class="parameter">treeNode</span>,
+          <span class="parameter">config</span>
+          ) - 根据配置在指定节点之后插入节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>节点对象</li>
+          <li><span class="parameter">config</span>-<span class="parameterType">Object</span>节点的配置</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>replaceNode(
+          <span class="parameter">treeNode</span>,
+          <span class="parameter">newNode</span>
+          ) - 替换指定的节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>被替换节点</li>
+          <li><span class="parameter">newNode</span>-<span class="parameterType">TreeNode</span>新节点对象</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>replaceNodeByConfig(
+          <span class="parameter">treeNode</span>,
+          <span class="parameter">config</span>
+          ) - 根据配置替换指定节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>被替换节点</li>
+          <li><span class="parameter">config</span>-<span class="parameterType">Object</span>节点的配置</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>removeChildren(<span class="parameter">treeNode</span>) - 删除孩子节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>要删除的节点</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>childrens - 返回孩子节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">childrens</span>-<span class="parameterType">Array</span>返回的数据</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>getNodeByAttr(
+          <span class="parameter">key</span>,
+          <span class="parameter">value</span>
+          ) - 根据attr获取节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">key</span>-<span class="parameterType">String</span>属性</li>
+          <li><span class="parameter">value</span>-<span class="parameterType">String</span>值</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>on(<span class="parameter">type</span>,<span class="parameter">handler</span>) - 注册事件</p>
+        <ul class="method-parameters">
+          <li>
+            <span class="parameter">type</span>-<span class="parameterType">string</span>
+            事件类型
+          </li>
+          <li>
+            <span class="parameter">handler</span>-<span class="parameterType">Function</span>
+            事件句柄
+          </li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>off(<span class="parameter">type</span>,<span class="parameter">handler</span>) - 注销事件</p>
+        <ul class="method-parameters">
+          <li>
+            <span class="parameter">type</span>-<span class="parameterType">string</span>
+            事件类型
+          </li>
+          <li>
+            <span class="parameter">handler</span>-<span class="parameterType">Function</span>
+            事件句柄
+          </li>
+        </ul>
+      </div>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><h2>.TreeNode</h2></dt>
+    <dd>
+      <div class="method-wrap">
+        <p>append(
+          <span class="parameter">treeNode</span>,
+          <span class="parameter">refresh</span>
+          ) - 添加节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>节点对象</li>
+          <li><span class="parameter">refresh</span>-<span class="parameterType">boolean</span>是否刷新节点</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>appendByConfig(<span class="parameter">config</span>) - 根据配置添加节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">config</span>-<span class="parameterType">Object</span>节点配置</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>prepend(<span class="parameter">treeNode</span>) - 向前添加节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>节点对象</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>prependByConfig(<span class="parameter">config</span>) - 根据配置向前添加节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">config</span>-<span class="parameterType">Object</span>节点配置</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>insertBefore(
+          <span class="parameter">treeNode</span>,
+          <span class="parameter">newNode</span>
+          ) - 在指定节点之前插入节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>节点对象</li>
+          <li><span class="parameter">newNode</span>-<span class="parameterType">TreeNode</span>新节点对象</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>insertBeforeByConfig(
+          <span class="parameter">treeNode</span>,
+          <span class="parameter">config</span>
+          ) - 根据配置在指定节点之前插入节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>节点对象</li>
+          <li><span class="parameter">config</span>-<span class="parameterType">Object</span>节点的配置</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>insertAfter(
+          <span class="parameter">treeNode</span>,
+          <span class="parameter">newNode</span>
+          ) - 在指定节点之后插入节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>节点对象</li>
+          <li><span class="parameter">newNode</span>-<span class="parameterType">TreeNode</span>新节点对象</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>insertAfterByConfig(
+          <span class="parameter">treeNode</span>,
+          <span class="parameter">config</span>
+          ) - 根据配置在指定节点之后插入节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>节点对象</li>
+          <li><span class="parameter">config</span>-<span class="parameterType">Object</span>节点的配置</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>replaceNode(
+          <span class="parameter">treeNode</span>,
+          <span class="parameter">newNode</span>
+          ) - 替换指定的节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>被替换节点</li>
+          <li><span class="parameter">newNode</span>-<span class="parameterType">TreeNode</span>新节点对象</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>replaceNodeByConfig(
+          <span class="parameter">treeNode</span>,
+          <span class="parameter">config</span>
+          ) - 根据配置替换指定节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>被替换节点</li>
+          <li><span class="parameter">config</span>-<span class="parameterType">Object</span>节点的配置</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>removeChildren(<span class="parameter">treeNode</span>) - 删除孩子节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">treeNode</span>-<span class="parameterType">TreeNode</span>要删除的节点</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>childrens - 返回孩子节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">childrens</span>-<span class="parameterType">Array</span>返回的数据</li>
+        </ul>
+      </div>
 
 
- <!--createSurnames();-->
-
- <!--const tree = SurnamesFactory.create(el, { position: 'right' });-->
-<!--</code>-->
-<!--</pre>-->
-
-  <!--<table class="events-table" cellpadding="0" cellspacing="0">-->
-    <!--<thead>-->
-    <!--<tr>-->
-      <!--<th>名称</th>-->
-      <!--<th>说明</th>-->
-    <!--</tr>-->
-    <!--</thead>-->
-    <!--<tbody>-->
-    <!--<tr>-->
-      <!--<td>{HtmlElement} - el</td>-->
-      <!--<td>整体元素</td>-->
-    <!--</tr>-->
-    <!--<tr>-->
-      <!--<td>{object} - config</td>-->
-      <!--<td>-->
-        <!--<p>配置</p>-->
-        <!--<div class="method-wrap">-->
-          <!--<p>position {String} - 索引位置 [left | right | top | bottom] 默认是right</p>-->
-        <!--</div>-->
-      <!--</td>-->
-    <!--</tr>-->
-    <!--</tbody>-->
-  <!--</table>-->
-
-  <!--&lt;!&ndash;例子&ndash;&gt;-->
-  <!--<h2 id="tree-demo">例子</h2>-->
-  <!--<div class="with-device">-->
-    <!--&lt;!&ndash;demo code&ndash;&gt;-->
-    <!--<div class="with-device-code">-->
-      <!--<dl>-->
-        <!--<dt><h4>html</h4></dt>-->
-        <!--<dd>-->
-<!--<pre>-->
-<!--<code class="html">-->
-<!--<div class="ct-tree" id="normal">-->
-  <!--<div class="ct-tree-highlighted"></div>-->
-  <!--<div class="ct-tree-content"></div>-->
-  <!--<div class="ct-tree-index"></div>-->
-<!--</div>-->
-<!--</code>-->
-<!--</pre>-->
-        <!--</dd>-->
-      <!--</dl>-->
-
-      <!--<dl>-->
-        <!--<dt><h4>js</h4></dt>-->
-        <!--<dd>-->
-<!--<pre>-->
-<!--<code class="javascript">-->
- <!--import { Dom6 } from '@ctmobile/ui-util';-->
- <!--import SurnamesFactory from '@ctmobile/ui-tree/tree';-->
- <!--import '@ctmobile/ui-tree/tree.less';-->
- <!--import '@ctmobile/ui-tree/themes/default/tree.less';-->
-
- <!--const el = document.getElementById('tree');-->
-
- <!--function createSurnames() {-->
-   <!--const contentEl = el.querySelector('.ct-tree-content');-->
-   <!--const indexNames = [-->
-     <!--'A',-->
-     <!--'B',-->
-     <!--'C',-->
-     <!--'D',-->
-     <!--'E',-->
-     <!--'F',-->
-     <!--'G',-->
-     <!--'H',-->
-     <!--'I',-->
-     <!--'J',-->
-     <!--'K',-->
-     <!--'L',-->
-     <!--'M',-->
-     <!--'N',-->
-     <!--'O',-->
-     <!--'P',-->
-     <!--'Q',-->
-     <!--'R',-->
-     <!--'S',-->
-     <!--'T',-->
-     <!--'U',-->
-     <!--'V',-->
-     <!--'W',-->
-     <!--'X',-->
-     <!--'Y',-->
-     <!--'Z',-->
-     <!--'#',-->
-   <!--];-->
-   <!--const df = document.createDocumentFragment();-->
-   <!--for (let i = 0; i &lt; indexNames.length; i++) {-->
-     <!--const index = indexNames[i];-->
-     <!--let str = `-->
-         <!--&lt;div class="ct-tree-group"&gt;-->
-           <!--&lt;a class="ct-tree-group-title" data-name="${index}"&gt;${index}&lt;/a&gt;-->
-           <!--&lt;div class="ct-tree-group-inner"&gt;-->
-             <!--&lt;ul&gt;`;-->
-
-     <!--for (let j = 0; j &lt; 10; j++) {-->
-       <!--str += `&lt;li&gt;${index}${j + 1}&lt;/li&gt;`;-->
-     <!--}-->
-
-     <!--str += `    &lt;/ul&gt;-->
-           <!--&lt;/div&gt;-->
-         <!--&lt;/div&gt;`;-->
-
-     <!--const groupEl = Dom6.createElement(str);-->
-     <!--df.appendChild(groupEl);-->
-   <!--}-->
-   <!--contentEl.appendChild(df);-->
- <!--}-->
+      <div class="method-wrap">
+        <p>expand - 展开或闭合节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">expand</span>-<span class="parameterType">boolean</span>展开或闭合</li>
+        </ul>
+      </div>
 
 
- <!--createSurnames();-->
+      <div class="method-wrap">
+        <p>resetRemoteNode - 重置loadType === 'remote' 的节点使其能够重新载入数据，并且先闭合节点</p>
+      </div>
 
- <!--const tree = SurnamesFactory.create(el, { position: 'right' });-->
-<!--</code>-->
-<!--</pre>-->
-        <!--</dd>-->
-      <!--</dl>-->
-    <!--</div>-->
+      <div class="method-wrap">
+        <p>isExpand - 节点是否展开</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">expand</span>-<span class="parameterType">boolean</span>节点是否展开</li>
+        </ul>
+      </div>
 
-    <!--&lt;!&ndash;demo view&ndash;&gt;-->
-    <!--<div class="with-device-view">-->
-      <!--<div class="ctmobile-ui-doc-demo-device">-->
-        <!--<div class="ctmobile-ui-doc-demo-device-inner" id="ctmobile-ui-doc-demo-device">-->
-          <!--<div class="demo-inner">-->
-            <!--<div class="ct-tree" id="normal">-->
-              <!--<div class="ct-tree-highlighted"></div>-->
-              <!--<div class="ct-tree-content"></div>-->
-              <!--<div class="ct-tree-index"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
+      <div class="method-wrap">
+        <p>getAttr(<span class="parameter">attr</span>) - 获取属性值</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">attr</span>-<span class="parameterType">String</span>属性</li>
+        </ul>
+      </div>
 
-  <!--&lt;!&ndash;方法&ndash;&gt;-->
-  <!--<h2 id="tree-methods">方法</h2>-->
-  <!--<div class="method-wrap">-->
-    <!--<p>scrollToAnimation(-->
-      <!--<span class="parameter">indexName</span>-->
-      <!--) - 动画滚动到指定索引位置</p>-->
-    <!--<ul class="method-parameters">-->
-      <!--<li>-->
-        <!--<span class="parameter">indexName</span>-<span class="parameterType">string</span>-->
-        <!--索引名称-->
-      <!--</li>-->
-    <!--</ul>-->
-  <!--</div>-->
+      <div class="method-wrap">
+        <p>setAttr(
+          <span class="parameter">key</span>,
+          <span class="parameter">value</span>
+          ) - 设置属性值</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">key</span>-<span class="parameterType">String</span>属性</li>
+          <li><span class="parameter">value</span>-<span class="parameterType">String</span>值</li>
+        </ul>
+      </div>
 
-  <!--<div class="method-wrap">-->
-    <!--<p>scrollTo(-->
-      <!--<span class="parameter">indexName</span>-->
-      <!--) - 滚动到指定索引位置</p>-->
-    <!--<ul class="method-parameters">-->
-      <!--<li>-->
-        <!--<span class="parameter">indexName</span>-<span class="parameterType">string</span>-->
-        <!--索引名称-->
-      <!--</li>-->
-    <!--</ul>-->
-  <!--</div>-->
+      <div class="method-wrap">
+        <p>hasAttr(
+          <span class="parameter">key</span>,
+          <span class="parameter">value</span>
+          ) - 是否有属性为key且值为value的属性</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">key</span>-<span class="parameterType">String</span>属性</li>
+          <li><span class="parameter">value</span>-<span class="parameterType">String</span>值</li>
+        </ul>
+      </div>
 
-  <!--<div class="method-wrap">-->
-    <!--<p>update - 更新</p>-->
-  <!--</div>-->
+      <div class="method-wrap">
+        <p>getLabel - 获取节点label</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">label</span>-<span class="parameterType">String</span>获取节点label</li>
+        </ul>
+      </div>
 
-  <!--<div class="method-wrap">-->
-    <!--<p>on(-->
-      <!--<span class="parameter">type</span>,-->
-      <!--<span class="parameter">handler</span>,-->
-      <!--) - 注册事件</p>-->
-    <!--<ul class="method-parameters">-->
-      <!--<li>-->
-        <!--<span class="parameter">type</span>-<span class="parameterType">string</span>-->
-        <!--事件类型-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<span class="parameter">handler</span>-<span class="parameterType">Function</span>-->
-        <!--事件句柄-->
-      <!--</li>-->
-    <!--</ul>-->
-  <!--</div>-->
+      <div class="method-wrap">
+        <p>setLabel(
+          <span class="parameter">label</span>) - 设置节点的label</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">label</span>-<span class="parameterType">String</span>节点的label</li>
+        </ul>
+      </div>
 
-  <!--<div class="method-wrap">-->
-    <!--<p>off(-->
-      <!--<span class="parameter">type</span>,-->
-      <!--<span class="parameter">handler</span>,-->
-      <!--) - 注销事件</p>-->
-    <!--<ul class="method-parameters">-->
-      <!--<li>-->
-        <!--<span class="parameter">type</span>-<span class="parameterType">string</span>-->
-        <!--事件类型-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<span class="parameter">handler</span>-<span class="parameterType">Function</span>-->
-        <!--事件句柄-->
-      <!--</li>-->
-    <!--</ul>-->
-  <!--</div>-->
 
-  <!--&lt;!&ndash;事件&ndash;&gt;-->
-  <!--<h2 id="tree-events">事件</h2>-->
-  <!--<table class="events-table" cellpadding="0" cellspacing="0">-->
-    <!--<thead>-->
-    <!--<tr>-->
-      <!--<th>名称</th>-->
-      <!--<th>说明</th>-->
-    <!--</tr>-->
-    <!--</thead>-->
-    <!--<tbody>-->
-    <!--<tr id="tree-events-scrollbefore">-->
-      <!--<td>scrollBefore</td>-->
-      <!--<td>滚动到指定索引之前</td>-->
-    <!--</tr>-->
-    <!--<tr id="tree-events-scroll">-->
-      <!--<td>scroll</td>-->
-      <!--<td>滚动到指定索引</td>-->
-    <!--</tr>-->
-    <!--</tbody>-->
-  <!--</table>-->
-  <!--<pre>-->
-<!--<code class="javascript">-->
+      <div class="method-wrap">
+        <p>getIcon - 获取节点icon</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">icon</span>-<span class="parameterType">String</span>节点的icon</li>
+        </ul>
+      </div>
 
-<!--</code>-->
-<!--</pre>-->
-<!--</div>-->
+      <div class="method-wrap">
+        <p>setIcon(
+          <span class="parameter">icon</span>) - 设置节点的icon</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">icon</span>-<span class="parameterType">String</span>节点的icon(font-awesome)</li>
+        </ul>
+      </div>
 
-<div class="ct-tree" id="tree"></div>
+      <div class="method-wrap">
+        <p>getIconColor - 获取节点iconColor</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">iconColor</span>-<span class="parameterType">String</span>节点的iconColor</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>setIconColor(<span class="parameter">iconColor</span>) - 设置节点的iconColor</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">iconColor</span>-<span class="parameterType">String</span>节点的icon的颜色</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>isLeaf - 是否是叶子节点</p>
+      </div>
+
+      <div class="method-wrap">
+        <p>isRoot - 是否是根节点</p>
+      </div>
+
+
+      <div class="method-wrap">
+        <p>getEl - 获取节点el</p>
+      </div>
+
+      <div class="method-wrap">
+        <p>isChecked - 如果节点类型为checkbox时是否选中</p>
+      </div>
+
+      <div class="method-wrap">
+        <p>getType - 获取节点类型</p>
+      </div>
+
+      <div class="method-wrap">
+        <p>getParentNode - 获取父节点</p>
+      </div>
+
+      <div class="method-wrap">
+        <p>isCheckboxType - 是否是类型为checkbox的节点</p>
+      </div>
+
+      <div class="method-wrap">
+        <p>checked(<span class="parameter">check</span>) - 如果类型是checkbox时选中或反选此节点</p>
+        <ul class="method-parameters">
+          <li><span class="parameter">check</span>-<span class="parameterType">boolean</span>选中或反选</li>
+        </ul>
+      </div>
+
+      <div class="method-wrap">
+        <p>refresh - 刷新节点</p>
+      </div>
+
+      <div class="method-wrap">
+        <p>checkboxDrillUp - 向上刷新</p>
+      </div>
+
+      <div class="method-wrap">
+        <p>detailItemInputsRecursive - 向下刷新</p>
+      </div>
+    </dd>
+  </dl>
+
+  <!--事件-->
+  <h2 id="tree-events">事件</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="tree-events-click">
+      <td>click</td>
+      <td>节点点击</td>
+    </tr>
+    <tr id="tree-events-expand">
+      <td>expand</td>
+      <td>节点展开或闭合</td>
+    </tr>
+    <tr id="tree-events-checked">
+      <td>checked</td>
+      <td>节点选中或反选</td>
+    </tr>
+    <tr id="tree-events-loadremote">
+      <td>loadRemote</td>
+      <td>异步节点加载</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
 </body>
 </html>

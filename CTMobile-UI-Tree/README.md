@@ -25,12 +25,15 @@ el
       expand: boolean [true | false] true 展开, false 关闭 默认展开, 如果loadType为remote 则此值为false
     },
     data: [{
+      label: {String} - 节点文本
       // 有config中的所有配置，会覆盖全局配置
       icon: {String} - 节点的icon 使用font-awesome
       iconColor: {String} - 节点icon的颜色
       attr: {Object} - 节点自定义属性
-      label: {String} - 节点文本
       leaf: {Boolean} - [true | false] 是否是叶子节点
+      loadType: [local | remote] 节点的数据类型 local本地数据，remote远程数据
+      expand: {Boolean} [true | false] true 展开, false 关闭 默认展开, 如果loadType为remote 则此值为false
+      type: {String} [normal | checkbox | radio] 节点的input类型
       checked: {Boolean} - [true | false] 如果type是checkbox 是否选中
       children: {Array} - 子节点
     }]
@@ -99,3 +102,20 @@ checkbox
  
  叶子节点才renderInput,如果节点是check
  向上追溯,判断类型是checkbox类型 
+ 
+demo
+  .normal(普通)
+  .icon
+  .iconColor
+  .remoteLoad
+  .checkbox
+  
+  .event
+   .append
+   .prepend
+   .insert
+   .remove
+   
+   .expand
+   .click
+ 
