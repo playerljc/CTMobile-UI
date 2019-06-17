@@ -1,0 +1,62 @@
+//@import "../node_modules/@ctmobile/ui-demo-util/lib/index.less";
+//@import '../node_modules/@ctmobile/ui-tree/lib/themes/default/tree.less';
+//@import '../node_modules/@ctmobile/ui-tree/lib/tree.less';
+//
+//#ctmobile-ui-doc-demo-device {
+//  position: relative;
+//  overflow: hidden;
+//  padding: 0;
+//  margin: 0;
+//}
+//
+//.demo-inner {
+//  padding: 12px;
+//  height: 100%;
+//  box-sizing: border-box;
+//  overflow: auto;
+//}
+
+@import "../node_modules/@ctmobile/ui-listview/lib/listview.less";
+@import '../node_modules/@ctmobile/ui-listview/lib/themes/default/listview.less';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+//.ct-list {
+//  > ul {
+//    > li {
+//      transition: max-height 5s linear;
+//      transform: translateZ(0);
+//      max-height: 30000px;
+//      overflow: hidden;
+//    }
+//  }
+//}
+.ct-swipeout {
+  padding-left: 0 !important;
+  .swipeoutBtn {
+    width: 150px !important;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #007aff;
+  }
+
+  .swipeoutBtn.del {
+    background-color:red;
+  }
+
+  .swipeoutBtn.edit {
+    background-color:green;
+  }
+}
+
+#list {
+  visibility: hidden;
+}
