@@ -28,11 +28,12 @@ module.exports = {
       //     },
       //   ]),
       // ],
-      resolve: {
-        alias: {
-          '@ctmobile/ui-swipeout': path.resolve(__dirname, 'src/ctmobile-ui-swipeout'),
-        },
-      },
+
+      // resolve: {
+      //   alias: {
+      //     '@ctmobile/ui-swipeout': path.resolve(__dirname, 'src/ctmobile-ui-swipeout'),
+      //   },
+      // },
     };
   },
 };

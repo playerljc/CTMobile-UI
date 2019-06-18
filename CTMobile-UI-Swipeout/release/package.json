@@ -1,0 +1,45 @@
+{
+  "name": "@ctmobile/ui-swipeout",
+  "version": "1.0.0",
+  "description": "支持移动端的UI组件-Swipeout",
+  "main": "lib/swipeoutlist.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "jsdoc src README.md -d doc -u doc/tutorials",
+    "buildpackage": "ctcopy ../src src && ctbuild --type buildpackage",
+    "buildumd": "ctcopy ../src src && ctbuild --type buildumd --packagename swipeout",
+    "link": "npm link @ct/build && npm link @ctmobile/ui-util"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/playerljc/CTMobile-UI.git"
+  },
+  "keywords": [
+    "swipeout",
+    "CtMobile",
+    "CTMibole-UI",
+    "mobile",
+    "webapp",
+    "SPA",
+    "Hybrid",
+    "Cordova",
+    "Android",
+    "iOS",
+    "Material",
+    "playerljc",
+    "WebFramework"
+  ],
+  "author": "playerljc <playerljc@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/playerljc/CTMobile-UI/issues"
+  },
+  "homepage": "https://github.com/playerljc/CTMobile-UI#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.2.0",
+    "swiper": "^4.5.0"
+  },
+  "devDependencies": {
+    "@ct/build": "^1.0.0"
+  }
+}
