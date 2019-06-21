@@ -12,7 +12,7 @@ function initEvents() {
   const { isDragSourceDisplay = true, isDragSourceExist = true } = self.config;
 
   // document.body mousemove
-  document.body.addEventListener('mousemove', (ev) => {
+  self.el.addEventListener('mousemove', (ev) => {
     if (!self.isdown) return false;
 
     if (!self.ismove) {
@@ -25,9 +25,10 @@ function initEvents() {
     const curX = ev.pageX;
     const curY = ev.pageY;
 
+    console.log(curX, curY);
+
     // 不是看curX和curY的值在不在targetEl里，而是看
     const moveInTargetEls = getMoveInTargetEls.call(self);
-    console.log('完全进入', moveInTargetEls.complete.length, '部分进入：', moveInTargetEls.section.length);
     if (moveInTargetEls.complete.length > 0) {
       // 可以放置
       self.cloneEl.style.cursor = 'pointer';
@@ -44,7 +45,7 @@ function initEvents() {
   });
 
   // document.body mouseleave
-  document.body.addEventListener('mouseleave', () => {
+  self.el.addEventListener('mouseleave', () => {
     if (!self.isdown) return false;
     reset.call(self);
   });
@@ -171,7 +172,7 @@ function initDragSourceEvent() {
         });
 
         // append CloneNode
-        document.body.appendChild(self.cloneEl);
+        self.el.appendChild(self.cloneEl);
       };
       handlerEntry.mousedown = handler;
       return handler;
@@ -181,7 +182,6 @@ function initDragSourceEvent() {
     sourceEl.addEventListener('mouseenter', (() => {
       const handler = () => {
         sourceEl.style.cursor = 'move';
-        console.log('move');
         if (onSourceEnter) {
           onSourceEnter(sourceEl);
         }
@@ -194,7 +194,6 @@ function initDragSourceEvent() {
     sourceEl.addEventListener('mouseleave', (() => {
       const handler = () => {
         sourceEl.style.cursor = 'default';
-        console.log('default');
         if (onSourceLeave) {
           onSourceLeave(sourceEl);
         }
@@ -329,7 +328,7 @@ function reset(targetEls) {
   const self = this;
   const { dragTargetExtendClasses = [] } = this.config;
   if (self.cloneEl) {
-    document.body.removeChild(self.cloneEl);
+    self.el.removeChild(self.cloneEl);
   }
 
   // 删除targets的样式

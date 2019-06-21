@@ -26,7 +26,6 @@ const drag1 = DrafFactory.create(document.getElementById('demo1'), {
     return true;
   },
   onSourceEnter(sourceEl) {
-    console.log('enter');
     sourceHoverEl1 = Dom6.createElement(
       '<div class="sourceMask"></div>'
     );
@@ -35,7 +34,6 @@ const drag1 = DrafFactory.create(document.getElementById('demo1'), {
     sourceEl.parentElement.appendChild(sourceHoverEl1);
   },
   onSourceLeave(sourceEl) {
-    console.log('leave');
     if (sourceHoverEl1) {
       sourceHoverEl1.parentElement.removeChild(sourceHoverEl1);
       sourceHoverEl1 = null;
@@ -70,7 +68,6 @@ const drag2 = DrafFactory.create(document.getElementById('demo2'), {
     return true;
   },
   onSourceEnter(sourceEl) {
-    console.log('enter');
     sourceHoverEl2 = Dom6.createElement(
       '<div class="sourceMask"></div>'
     );
@@ -79,7 +76,6 @@ const drag2 = DrafFactory.create(document.getElementById('demo2'), {
     sourceEl.parentElement.appendChild(sourceHoverEl2);
   },
   onSourceLeave(sourceEl) {
-    console.log('leave');
     if (sourceHoverEl2) {
       sourceHoverEl2.parentElement.removeChild(sourceHoverEl2);
       sourceHoverEl2 = null;
@@ -122,7 +118,6 @@ const drag3 = DrafFactory.create(document.getElementById('demo3'), {
     }
   },
   onSourceEnter(sourceEl) {
-    console.log('enter');
     sourceHoverEl3 = Dom6.createElement(
       '<div class="sourceMask"></div>'
     );
@@ -131,7 +126,6 @@ const drag3 = DrafFactory.create(document.getElementById('demo3'), {
     sourceEl.parentElement.appendChild(sourceHoverEl3);
   },
   onSourceLeave(sourceEl) {
-    console.log('leave');
     if (sourceHoverEl3) {
       sourceHoverEl3.parentElement.removeChild(sourceHoverEl3);
       sourceHoverEl3 = null;
