@@ -3,6 +3,7 @@ sliderscale
 surnames
 tree
 swipeout
+drag
 togglecontent
 
 
@@ -19,8 +20,9 @@ sortable
 upload
 
 // 独立
-flowdesign,chat
+flowdesign,webaxure
 epub
 wechat(websocket)
 webvr
 webrtc(服务器推送)
+在线客服

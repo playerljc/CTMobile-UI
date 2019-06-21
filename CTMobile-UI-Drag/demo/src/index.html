@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-drag-demo</title>
+
+
+  <style>
+    .source,
+    .target {
+      margin-bottom: 20px;
+    }
+
+    .source {
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      background-color: red;
+    }
+
+    .target {
+      width: 200px;
+      height: 100px;
+      line-height: 100px;
+      background-color: green;
+    }
+
+    .sourceActive {
+      border: 2px dashed #000000 !important;
+    }
+
+    .targetActive {
+      border: 2px dashed #46ca3b !important;
+    }
+  </style>
+</head>
+
+<body>
+
+<!--<div class="ctmobile-ui-doc">-->
+
+  <!--&lt;!&ndash; Drag &ndash;&gt;-->
+
+  <!--&lt;!&ndash;菜单&ndash;&gt;-->
+  <!--<h1>Accordion</h1>-->
+  <!--<ul>-->
+    <!--<li><a href="#drag-layout">基本布局</a></li>-->
+    <!--<li>-->
+      <!--<a href="#drag-type">类型</a>-->
+      <!--<ul>-->
+        <!--<li><a href="#drag-type-radius">圆角灰边</a></li>-->
+        <!--<li><a href="#drag-type-base">极简无边框</a></li>-->
+        <!--<li><a href="#drag-type-classic">经典</a></li>-->
+        <!--<li><a href="#drag-type-arrow">箭头</a></li>-->
+      <!--</ul>-->
+    <!--</li>-->
+    <!--<li><a href="#drag-collapse">可折叠</a></li>-->
+    <!--<li><a href="#drag-initial">初始化</a></li>-->
+    <!--<li><a href="#drag-demo">例子</a></li>-->
+    <!--<li><a href="#drag-methods">方法</a></li>-->
+    <!--<li>-->
+      <!--<a href="#drag-events">事件</a>-->
+      <!--<ul>-->
+        <!--<li><a href="#drag-events-beforeshow">beforeshow</a></li>-->
+        <!--<li><a href="#drag-events-aftershow">aftershow</a></li>-->
+        <!--<li><a href="#drag-events-beforehide">beforehide</a></li>-->
+        <!--<li><a href="#drag-events-afterhide">afterhide</a></li>-->
+      <!--</ul>-->
+    <!--</li>-->
+  <!--</ul>-->
+
+  <!--&lt;!&ndash;基本布局&ndash;&gt;-->
+  <!--<h2 id="drag-layout">基本布局</h2>-->
+  <!--<p>常见的布局如下：</p>-->
+  <!--<pre>-->
+  <!--<code class="html">-->
+    <!--<div class="ct-drag-radius">-->
+      <!--<div>-->
+        <!--<dl>-->
+          <!--<dt>title...</dt>-->
+          <!--<dd>-->
+            <!--content...-->
+          <!--</dd>-->
+        <!--</dl>-->
+        <!--<dl>-->
+          <!--<dt>title...</dt>-->
+          <!--<dd>-->
+            <!--content...-->
+          <!--</dd>-->
+        <!--</dl>-->
+        <!--<dl>-->
+          <!--<dt>title...</dt>-->
+          <!--<dd>-->
+            <!--content...-->
+          <!--</dd>-->
+        <!--</dl>-->
+        <!--...-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</code>-->
+  <!--</pre>-->
+  <!--<ul>-->
+    <!--<li>-->
+      <!--ct-drag-... - 代表是一个drag组件-->
+      <!--<ul>-->
+        <!--dl - 代表一组-->
+        <!--<ul>-->
+          <!--<li>dt - 头</li>-->
+          <!--<li>dd - 体</li>-->
+        <!--</ul>-->
+      <!--</ul>-->
+    <!--</li>-->
+  <!--</ul>-->
+
+  <!--&lt;!&ndash;类型&ndash;&gt;-->
+  <!--<h2 id="drag-type">类型</h2>-->
+  <!--一共有四中类型：-->
+  <!--<ul>-->
+    <!--<li id="drag-type-radius">-->
+      <!--<dl>-->
+        <!--<dt>圆角灰边</dt>-->
+        <!--<dd>-->
+          <!--<pre>-->
+        <!--<code class="html">-->
+        <!--<div class="ct-drag-radius">-->
+          <!--<div>-->
+            <!--<dl>-->
+              <!--<dt>item1-title</dt>-->
+              <!--<dd>-->
+                <!--第1项内容-->
+              <!--</dd>-->
+            <!--</dl>-->
+            <!--<dl>-->
+              <!--<dt>item2-title</dt>-->
+              <!--<dd>-->
+                <!--第二项内容-->
+              <!--</dd>-->
+            <!--</dl>-->
+            <!--<dl>-->
+              <!--<dt>item3-title</dt>-->
+              <!--<dd>-->
+                <!--第三项内容-->
+              <!--</dd>-->
+            <!--</dl>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--</code>-->
+      <!--</pre>-->
+        <!--</dd>-->
+      <!--</dl>-->
+    <!--</li>-->
+    <!--<li id="drag-type-base">-->
+      <!--<dl>-->
+        <!--<dt>极简无边框</dt>-->
+        <!--<dd>-->
+          <!--<pre>-->
+        <!--<code class="html">-->
+        <!--<div class="ct-drag-base">-->
+          <!--<div>-->
+            <!--<dl>-->
+              <!--<dt>item1-title</dt>-->
+              <!--<dd>-->
+                <!--第1项内容-->
+              <!--</dd>-->
+            <!--</dl>-->
+            <!--<dl>-->
+              <!--<dt>item2-title</dt>-->
+              <!--<dd>-->
+                <!--第二项内容-->
+              <!--</dd>-->
+            <!--</dl>-->
+            <!--<dl>-->
+              <!--<dt>item3-title</dt>-->
+              <!--<dd>-->
+                <!--第三项内容-->
+              <!--</dd>-->
+            <!--</dl>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--</code>-->
+          <!--</pre>-->
+        <!--</dd>-->
+      <!--</dl>-->
+    <!--</li>-->
+    <!--<li id="drag-type-classic">-->
+      <!--<dl>-->
+        <!--<dt>经典</dt>-->
+        <!--<dd>-->
+          <!--<pre>-->
+        <!--<code class="html">-->
+        <!--<div class="ct-drag-classic">-->
+          <!--<div>-->
+            <!--<dl>-->
+              <!--<dt>item1-title</dt>-->
+              <!--<dd>-->
+                <!--第1项内容-->
+              <!--</dd>-->
+            <!--</dl>-->
+            <!--<dl>-->
+              <!--<dt>item2-title</dt>-->
+              <!--<dd>-->
+                <!--第二项内容-->
+              <!--</dd>-->
+            <!--</dl>-->
+            <!--<dl>-->
+              <!--<dt>item3-title</dt>-->
+              <!--<dd>-->
+                <!--第三项内容-->
+              <!--</dd>-->
+            <!--</dl>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--</code>-->
+          <!--</pre>-->
+        <!--</dd>-->
+      <!--</dl>-->
+    <!--</li>-->
+    <!--<li id="drag-type-arrow">-->
+      <!--<dl>-->
+        <!--<dt>箭头</dt>-->
+        <!--<dd>-->
+          <!--<pre>-->
+        <!--<code class="html">-->
+        <!--<div class="drag-type-arrow">-->
+          <!--<div>-->
+            <!--<dl>-->
+              <!--<dt>item1-title</dt>-->
+              <!--<dd>-->
+                <!--第1项内容-->
+              <!--</dd>-->
+            <!--</dl>-->
+            <!--<dl>-->
+              <!--<dt>item2-title</dt>-->
+              <!--<dd>-->
+                <!--第二项内容-->
+              <!--</dd>-->
+            <!--</dl>-->
+            <!--<dl>-->
+              <!--<dt>item3-title</dt>-->
+              <!--<dd>-->
+                <!--第三项内容-->
+              <!--</dd>-->
+            <!--</dl>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--</code>-->
+          <!--</pre>-->
+        <!--</dd>-->
+      <!--</dl>-->
+    <!--</li>-->
+  <!--</ul>-->
+
+  <!--&lt;!&ndash;可折叠&ndash;&gt;-->
+  <!--<h2 id="drag-collapse">可折叠</h2>-->
+  <!--<pre>-->
+  <!--<code class="html">-->
+  <!--<div class="ct-drag-radius">-->
+    <!--<div>-->
+      <!--<dl>-->
+        <!--<dt data-collapse="collapse">item1-title</dt>-->
+        <!--<dd>-->
+          <!--第1项内容-->
+        <!--</dd>-->
+      <!--</dl>-->
+      <!--<dl>-->
+        <!--<dt>item2-title</dt>-->
+        <!--<dd>-->
+          <!--第二项内容-->
+        <!--</dd>-->
+      <!--</dl>-->
+      <!--<dl>-->
+        <!--<dt>item3-title</dt>-->
+        <!--<dd>-->
+          <!--第三项内容-->
+        <!--</dd>-->
+      <!--</dl>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--</code>-->
+  <!--</pre>-->
+  <!--<ul>-->
+    <!--<li>-->
+      <!--data-collapse="collapse"为默认打开-->
+    <!--</li>-->
+  <!--</ul>-->
+
+  <!--&lt;!&ndash;初始化&ndash;&gt;-->
+  <!--<h2 id="drag-initial">初始化</h2>-->
+  <!--<pre>-->
+  <!--<code class="javascript">-->
+  <!--import Accordion from @ctmobile/ui-drag;-->
+  <!--const drag = Accordion(el);-->
+  <!--</code>-->
+  <!--</pre>-->
+
+  <!--&lt;!&ndash;例子&ndash;&gt;-->
+  <!--<h2 id="drag-demo">例子</h2>-->
+  <!--<div class="with-device">-->
+    <!--&lt;!&ndash;demo code&ndash;&gt;-->
+    <!--<div class="with-device-code">-->
+      <!--<dl>-->
+        <!--<dt><h4>html</h4></dt>-->
+        <!--<dd>-->
+        <!--<pre>-->
+      <!--<code class="html">-->
+      <!--<p>圆角灰边</p>-->
+      <!--<div class="ct-drag-radius">-->
+        <!--<div>-->
+          <!--<dl>-->
+            <!--<dt>item1-title</dt>-->
+            <!--<dd>-->
+              <!--第1项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+          <!--<dl>-->
+            <!--<dt>item2-title</dt>-->
+            <!--<dd>-->
+              <!--第二项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+          <!--<dl>-->
+            <!--<dt>item3-title</dt>-->
+            <!--<dd>-->
+              <!--第三项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<p>极简无边框</p>-->
+      <!--<div class="ct-drag-base">-->
+        <!--<div>-->
+          <!--<dl>-->
+            <!--<dt>item1-title</dt>-->
+            <!--<dd>-->
+              <!--第1项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+          <!--<dl>-->
+            <!--<dt>item2-title</dt>-->
+            <!--<dd>-->
+              <!--第二项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+          <!--<dl>-->
+            <!--<dt>item3-title</dt>-->
+            <!--<dd>-->
+              <!--第三项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<p>经典</p>-->
+      <!--<div class="ct-drag-classic">-->
+        <!--<div>-->
+          <!--<dl>-->
+            <!--<dt>item1-title</dt>-->
+            <!--<dd>-->
+              <!--第1项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+          <!--<dl>-->
+            <!--<dt>item2-title</dt>-->
+            <!--<dd>-->
+              <!--第二项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+          <!--<dl>-->
+            <!--<dt>item3-title</dt>-->
+            <!--<dd>-->
+              <!--第三项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<p>箭头</p>-->
+      <!--<div class="drag-type-arrow">-->
+        <!--<div>-->
+          <!--<dl>-->
+            <!--<dt>item1-title</dt>-->
+            <!--<dd>-->
+              <!--第1项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+          <!--<dl>-->
+            <!--<dt>item2-title</dt>-->
+            <!--<dd>-->
+              <!--第二项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+          <!--<dl>-->
+            <!--<dt>item3-title</dt>-->
+            <!--<dd>-->
+              <!--第三项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<p>默认展开</p>-->
+      <!--<div class="ct-drag-radius">-->
+        <!--<div>-->
+          <!--<dl>-->
+            <!--<dt data-collapse="collapse">item1-title</dt>-->
+            <!--<dd>-->
+              <!--第1项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+          <!--<dl>-->
+            <!--<dt>item2-title</dt>-->
+            <!--<dd>-->
+              <!--第二项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+          <!--<dl>-->
+            <!--<dt>item3-title</dt>-->
+            <!--<dd>-->
+              <!--第三项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<p>展开/(关闭)所有</p>-->
+      <!--<div class="ct-drag-radius">-->
+        <!--<div>-->
+          <!--<dl>-->
+            <!--<dt>item1-title</dt>-->
+            <!--<dd>-->
+              <!--第1项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+          <!--<dl>-->
+            <!--<dt>item2-title</dt>-->
+            <!--<dd>-->
+              <!--第二项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+          <!--<dl>-->
+            <!--<dt>item3-title</dt>-->
+            <!--<dd>-->
+              <!--第三项内容-->
+            <!--</dd>-->
+          <!--</dl>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--</code>-->
+        <!--</pre>-->
+        <!--</dd>-->
+      <!--</dl>-->
+      <!--<dl>-->
+        <!--<dt><h4>js</h4></dt>-->
+        <!--<dd>-->
+        <!--<pre>-->
+        <!--<code class="javascript">-->
+        <!--import $ from 'jquery';-->
+        <!--import Accordion from '@ctmobile/ui-drag';-->
+
+        <!--Accordion($('#cuddd-ct-drag-radius')[0]);-->
+        <!--Accordion($('#cuddd-ct-drag-base')[0]);-->
+        <!--Accordion($('#cuddd-ct-drag-classic')[0]);-->
+        <!--Accordion($('#cuddd-ct-drag-arrow')[0]);-->
+        <!--Accordion($('#cuddd-collapse')[0]);-->
+        <!--const collapseAll = Accordion($('#cuddd-collapse-all')[0]);-->
+        <!--const collapseRefresh = Accordion($('#cuaddd-refresh')[0]);-->
+        <!--const collapseMethods = Accordion($('#cuaddd-collapse-methods')[0]);-->
+
+        <!--// 展开全部-->
+        <!--$('#cuddd-collapse-openall').on('click', () => {-->
+          <!--collapseAll.showAll();-->
+        <!--});-->
+
+        <!--// 关闭全部-->
+        <!--$('#cuddd-collapse-closeall').on('click', () => {-->
+          <!--collapseAll.closeAll();-->
+        <!--});-->
+
+
+        <!--// 动态修改样式-->
+        <!--$('#cuaddd-refresh-dynamicclass').on('click', () => {-->
+          <!--$('#cuaddd-refresh').find('[data-collapse="collapse"]').attr('data-collapse', '');-->
+        <!--});-->
+
+        <!--// 刷新-->
+        <!--$('#cuaddd-refresh-dynamicrefresh').on('click', () => {-->
+          <!--collapseRefresh.refresh();-->
+        <!--});-->
+
+
+        <!--const $dt = $('#cuaddd-collapse-methods-dt');-->
+
+        <!--// 通过属性打开-->
+        <!--$('#cuaddd-collpase-methods-modiprops-open').on('click', () => {-->
+          <!--$dt[0].dataset.collapse = 'collapse';-->
+          <!--collapseMethods.refresh();-->
+        <!--});-->
+        <!--// 通过属性关闭-->
+        <!--$('#cuaddd-collpase-methods-modiprops-close').on('click', () => {-->
+          <!--$dt[0].dataset.collapse = '';-->
+          <!--collapseMethods.refresh();-->
+        <!--});-->
+        <!--// 通过api打开-->
+        <!--$('#cuaddd-collpase-methods-api-open').on('click', () => {-->
+          <!--collapseMethods.show($dt[0]);-->
+        <!--});-->
+        <!--// 通过api关闭-->
+        <!--$('#cuaddd-collpase-methods-api-close').on('click', () => {-->
+          <!--collapseMethods.close($dt[0]);-->
+        <!--});-->
+        <!--</code>-->
+        <!--</pre>-->
+        <!--</dd>-->
+      <!--</dl>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;demo view&ndash;&gt;-->
+    <!--<div class="with-device-view">-->
+      <!--<div class="ctmobile-ui-doc-demo-device">-->
+        <!--<div class="ctmobile-ui-doc-demo-device-inner">-->
+          <!--<h3>圆角灰边</h3>-->
+          <!--<div id="cuddd-ct-drag-radius" class="ct-drag-radius">-->
+            <!--<div>-->
+              <!--<dl>-->
+                <!--<dt>item1-title</dt>-->
+                <!--<dd>-->
+                  <!--第1项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+              <!--<dl>-->
+                <!--<dt>item2-title</dt>-->
+                <!--<dd>-->
+                  <!--第二项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+              <!--<dl>-->
+                <!--<dt>item3-title</dt>-->
+                <!--<dd>-->
+                  <!--第三项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <!--<h3>极简无边框</h3>-->
+          <!--<div id="cuddd-ct-drag-base" class="ct-drag-base">-->
+            <!--<div>-->
+              <!--<dl>-->
+                <!--<dt>item1-title</dt>-->
+                <!--<dd>-->
+                  <!--第1项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+              <!--<dl>-->
+                <!--<dt>item2-title</dt>-->
+                <!--<dd>-->
+                  <!--第二项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+              <!--<dl>-->
+                <!--<dt>item3-title</dt>-->
+                <!--<dd>-->
+                  <!--第三项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <!--<h3>经典</h3>-->
+          <!--<div id="cuddd-ct-drag-classic" class="ct-drag-classic">-->
+            <!--<div>-->
+              <!--<dl>-->
+                <!--<dt>item1-title</dt>-->
+                <!--<dd>-->
+                  <!--第1项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+              <!--<dl>-->
+                <!--<dt>item2-title</dt>-->
+                <!--<dd>-->
+                  <!--第二项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+              <!--<dl>-->
+                <!--<dt>item3-title</dt>-->
+                <!--<dd>-->
+                  <!--第三项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <!--<h3>箭头</h3>-->
+          <!--<div id="cuddd-ct-drag-arrow" class="ct-drag-arrow">-->
+            <!--<div>-->
+              <!--<dl>-->
+                <!--<dt>item1-title</dt>-->
+                <!--<dd>-->
+                  <!--第1项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+              <!--<dl>-->
+                <!--<dt>item2-title</dt>-->
+                <!--<dd>-->
+                  <!--第二项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+              <!--<dl>-->
+                <!--<dt>item3-title</dt>-->
+                <!--<dd>-->
+                  <!--第三项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <!--<h3>默认展开</h3>-->
+          <!--<div id="cuddd-collapse" class="ct-drag-radius">-->
+            <!--<div>-->
+              <!--<dl>-->
+                <!--<dt data-collapse="collapse">item1-title</dt>-->
+                <!--<dd>-->
+                  <!--第1项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+              <!--<dl>-->
+                <!--<dt>item2-title</dt>-->
+                <!--<dd>-->
+                  <!--第二项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+              <!--<dl>-->
+                <!--<dt>item3-title</dt>-->
+                <!--<dd>-->
+                  <!--第三项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <!--<h3>展开/(关闭)所有</h3>-->
+          <!--<button id="cuddd-collapse-openall">全部展开</button>-->
+          <!--<button id="cuddd-collapse-closeall">全部关闭</button>-->
+          <!--<div id="cuddd-collapse-all" class="ct-drag-radius">-->
+            <!--<div>-->
+              <!--<dl>-->
+                <!--<dt>item1-title</dt>-->
+                <!--<dd>-->
+                  <!--第1项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+              <!--<dl>-->
+                <!--<dt>item2-title</dt>-->
+                <!--<dd>-->
+                  <!--第二项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+              <!--<dl>-->
+                <!--<dt>item3-title</dt>-->
+                <!--<dd>-->
+                  <!--第三项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <!--<h3>调用刷新方法</h3>-->
+          <!--<button id="cuaddd-refresh-dynamicclass">动态修改样式</button>-->
+          <!--<button id="cuaddd-refresh-dynamicrefresh">刷新</button>-->
+          <!--<div id="cuaddd-refresh" class="ct-drag-radius">-->
+            <!--<div>-->
+              <!--<dl>-->
+                <!--<dt data-collapse="collapse">item1-title</dt>-->
+                <!--<dd>-->
+                  <!--第1项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+              <!--<dl>-->
+                <!--<dt data-collapse="collapse">item2-title</dt>-->
+                <!--<dd>-->
+                  <!--第二项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+              <!--<dl>-->
+                <!--<dt data-collapse="collapse">item3-title</dt>-->
+                <!--<dd>-->
+                  <!--第三项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <!--<h3>展开或关闭某一项</h3>-->
+          <!--<button id="cuaddd-collpase-methods-modiprops-open">直接修改属性(打开)</button>-->
+          <!--<button id="cuaddd-collpase-methods-modiprops-close">直接修改属性(关闭)</button>-->
+          <!--<button id="cuaddd-collpase-methods-api-open">调用api(打开)</button>-->
+          <!--<button id="cuaddd-collpase-methods-api-close">调用api(关闭)</button>-->
+          <!--<div id="cuaddd-collapse-methods" class="ct-drag-radius">-->
+            <!--<div>-->
+              <!--<dl>-->
+                <!--<dt id="cuaddd-collapse-methods-dt">item1-title</dt>-->
+                <!--<dd>-->
+                  <!--第1项内容-->
+                <!--</dd>-->
+              <!--</dl>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--&lt;!&ndash;方法&ndash;&gt;-->
+  <!--<h2 id="drag-methods">方法</h2>-->
+  <!--<div class="method-wrap">-->
+    <!--<p>show(<span class="parameter">dtDom</span>) - 打开某一项</p>-->
+    <!--<ul class="method-parameters">-->
+      <!--<li>-->
+        <!--<span class="parameter">dtDom</span>-<span class="parameterType">HtmlElement</span> 要展开行dt元素的dom对象-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+  <!--<div class="method-wrap">-->
+    <!--<p>close(<span class="parameter">dtDom</span>) - 关闭某一项</p>-->
+    <!--<ul class="method-parameters">-->
+      <!--<li>-->
+        <!--<span class="parameter">dtDom</span>-<span class="parameterType">HtmlElement</span> 要关闭行dt元素的dom对象-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+  <!--<div class="method-wrap">-->
+    <!--<p>showAll() - 打开所有项</p>-->
+  <!--</div>-->
+  <!--<div class="method-wrap">-->
+    <!--<p>closeAll() - 关闭所有项</p>-->
+  <!--</div>-->
+  <!--<div class="method-wrap">-->
+    <!--<p>refresh() - 刷新整个Accordion</p>-->
+  <!--</div>-->
+  <!--<div class="method-wrap">-->
+    <!--<p>on(<span class="parameter">type</span>, <span class="parameter">handler</span>) - 注册事件</p>-->
+    <!--<ul class="method-parameters">-->
+      <!--<li>-->
+        <!--<span class="parameter">type</span>-<span class="parameterType">string</span> 注册事件的类型,包括[beforeshow,aftershow,beforehide,afterhide]-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<span class="parameter">handler</span>-<span class="parameterType">Function</span> 注册事件的回调函数-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+
+  <!--&lt;!&ndash;事件&ndash;&gt;-->
+  <!--<h2 id="drag-events">事件</h2>-->
+  <!--<table class="events-table" cellpadding="0" cellspacing="0">-->
+    <!--<thead>-->
+      <!--<tr>-->
+        <!--<th>名称</th>-->
+        <!--<th>说明</th>-->
+      <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+      <!--<tr id="drag-events-beforeshow">-->
+        <!--<td>beforeshow</td>-->
+        <!--<td>一项展开之前触发</td>-->
+      <!--</tr>-->
+      <!--<tr id="drag-events-aftershow">-->
+        <!--<td>aftershow</td>-->
+        <!--<td>一项展开之后触发</td>-->
+      <!--</tr>-->
+      <!--<tr id="drag-events-beforehide">-->
+        <!--<td>beforehide</td>-->
+        <!--<td>一项关闭之前触发</td>-->
+      <!--</tr>-->
+      <!--<tr id="drag-events-afterhide">-->
+        <!--<td>afterhide</td>-->
+        <!--<td>一项关闭之后触发</td>-->
+      <!--</tr>-->
+    <!--</tbody>-->
+  <!--</table>-->
+  <!--<pre>-->
+  <!--<code class="javascript">-->
+  <!--import $ from 'jquery'-->
+  <!--import Accordion from '@ctmobile/ui-drag';-->
+
+  <!--const drag = Accordion($('#cuddd-ct-drag-radius')[0]);-->
+  <!--drag.on('beforeshow', (dtDom) => {-->
+    <!--console.log('beforeshow');-->
+  <!--});-->
+  <!--drag.on('aftershow', (dtDom) => {-->
+    <!--console.log('aftershow');-->
+  <!--});-->
+  <!--drag.on('beforehide', (dtDom) => {-->
+    <!--console.log('beforehide');-->
+  <!--});-->
+  <!--drag.on('afterhide', (dtDom) => {-->
+    <!--console.log('afterhide');-->
+  <!--});-->
+  <!--</code>-->
+  <!--</pre>-->
+<!--</div>-->
+
+<div id="container">
+  <div class="source ct-drag-source">source1</div>
+
+  <div class="source ct-drag-source">source2</div>
+
+  <div class="target ct-drag-target">target1</div>
+
+  <div class="target ct-drag-target">target2</div>
+</div>
+
+</body>
+</html>
