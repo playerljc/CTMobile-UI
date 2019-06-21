@@ -92,7 +92,7 @@ function initDragSourceEvent() {
       const curY = ev.touches[0].pageY;
 
       // 不是看curX和curY的值在不在targetEl里，而是看
-      getMoveInTargetEls.call(self).complete;
+      getMoveInTargetEls.call(self);
 
       const incrementX = curX - self.firstX;
       const incrementY = curY - self.firstY;
@@ -114,11 +114,12 @@ function initDragSourceEvent() {
         if (onPutSuccess) {
           // 返给用的是原始节点克隆后的节点
           const rect = self.cloneEl.getBoundingClientRect();
-          const cloneEl = self.sourceEl.cloneNode(true);
-          cloneEl.style.visibility = 'visible';
-          cloneEl.style.cursor = 'default';
+          const cloneSourceEl = self.sourceEl.cloneNode(true);
+          cloneSourceEl.style.visibility = 'visible';
+          cloneSourceEl.style.cursor = 'default';
           const isPut = onPutSuccess({
-            sourceEl: cloneEl,
+            cloneSourceEl,
+            sourceEl,
             targetEls: moveInTargetEls.complete,
             rect: {
               left: rect.left,
@@ -137,7 +138,7 @@ function initDragSourceEvent() {
             if (!self.config.isDragSourceExist) {
               if (self.sourceEl) {
                 self.sourceEl.parentElement.removeChild(self.sourceEl);
-                cloneEl.sourceEl = null;
+                self.sourceEl = null;
               }
             }
 
@@ -158,18 +159,18 @@ function initDragSourceEvent() {
   }
 }
 
-/**
- * createTargetsIndex
- * @access private
- */
-function createTargetsIndex() {
-  this.targetEls = document.querySelectorAll(`.${selectorPrefix}target`);
-  this.targetsIndex = new WeakMap();
-  for (let i = 0; i < this.targetEls.length; i++) {
-    const targetEl = this.targetEls[i];
-    this.targetsIndex.set(targetEl, targetEl.getBoundingClientRect());
-  }
-}
+// /**
+//  * createTargetsIndex
+//  * @access private
+//  */
+// function createTargetsIndex() {
+//   this.targetEls = document.querySelectorAll(`.${selectorPrefix}target`);
+//   this.targetsIndex = new WeakMap();
+//   for (let i = 0; i < this.targetEls.length; i++) {
+//     const targetEl = this.targetEls[i];
+//     this.targetsIndex.set(targetEl, targetEl.getBoundingClientRect());
+//   }
+// }
 
 /**
  * getMoveInTargetEls
@@ -323,6 +324,7 @@ class DragTouch {
     this.config = Object.assign({}, config);
 
     this.sourceEls = this.el.querySelectorAll(`.${selectorPrefix}source`);
+    this.targetEls = this.el.querySelectorAll(`.${selectorPrefix}target`);
     this.config = Object.assign({}, config);
     this.isdown = false; // 是否按下了
     this.ismove = false; // 是否move了
@@ -334,7 +336,7 @@ class DragTouch {
     this.sourceEl = null;
 
     initEvents.call(this);
-    createTargetsIndex.call(this);
+    // createTargetsIndex.call(this);
   }
 
   /**
@@ -349,8 +351,9 @@ class DragTouch {
       }
     }
     this.sourceEls = document.querySelectorAll(`.${selectorPrefix}source`);
+    this.targetEls = this.el.querySelectorAll(`.${selectorPrefix}target`);
     initDragSourceEvent.call(this);
-    createTargetsIndex.call(this);
+    // createTargetsIndex.call(this);
   }
 }
 

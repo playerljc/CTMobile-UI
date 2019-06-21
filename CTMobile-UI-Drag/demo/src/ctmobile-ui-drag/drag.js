@@ -26,8 +26,9 @@ function initEvents() {
     const curY = ev.pageY;
 
     // 不是看curX和curY的值在不在targetEl里，而是看
-    const moveInTargetEls = getMoveInTargetEls.call(self).complete;
-    if (moveInTargetEls.length > 0) {
+    const moveInTargetEls = getMoveInTargetEls.call(self);
+    console.log('完全进入', moveInTargetEls.complete.length, '部分进入：', moveInTargetEls.section.length);
+    if (moveInTargetEls.complete.length > 0) {
       // 可以放置
       self.cloneEl.style.cursor = 'pointer';
     } else {
@@ -49,9 +50,9 @@ function initEvents() {
   });
 
   // window resize
-  window.addEventListener('resize', () => {
-    createTargetsIndex.call(self);
-  });
+  // window.addEventListener('resize', () => {
+  //   createTargetsIndex.call(self);
+  // });
 }
 
 /**
@@ -65,6 +66,8 @@ function initDragSourceEvent() {
     dragSourceExtendClasses = [],
     onDragClone,
     onPutSuccess,
+    onSourceEnter,
+    onSourceLeave,
     isDragSourceExist = true,
   } = self.config;
 
@@ -131,7 +134,8 @@ function initDragSourceEvent() {
               cloneSourceEl.style.visibility = 'visible';
               cloneSourceEl.style.cursor = 'default';
               const isPut = onPutSuccess({
-                sourceEl: cloneSourceEl,
+                cloneSourceEl,
+                sourceEl,
                 targetEls: moveInTargetEls.complete,
                 rect: {
                   left: cloneRect.left,
@@ -150,14 +154,14 @@ function initDragSourceEvent() {
                 if (!isDragSourceExist) {
                   if (self.sourceEl) {
                     self.sourceEl.parentElement.removeChild(self.sourceEl);
-                    cloneSourceEl.sourceEl = null;
+                    self.sourceEl = null;
                   }
                 }
 
                 reset.call(self, moveInTargetEls.complete);
               } else {
                 // 没放
-                goBack.call(self, cloneSourceEl, moveInTargetEls.complete);
+                goBack.call(self, sourceEl, moveInTargetEls.complete);
               }
             }
           } else {
@@ -177,15 +181,23 @@ function initDragSourceEvent() {
     sourceEl.addEventListener('mouseenter', (() => {
       const handler = () => {
         sourceEl.style.cursor = 'move';
+        console.log('move');
+        if (onSourceEnter) {
+          onSourceEnter(sourceEl);
+        }
       };
       handlerEntry.mouseenter = handler;
       return handler;
     })());
 
-    // 移出 mouseover
-    sourceEl.addEventListener('mouseover', (() => {
+    // 移出 mouseleave
+    sourceEl.addEventListener('mouseleave', (() => {
       const handler = () => {
         sourceEl.style.cursor = 'default';
+        console.log('default');
+        if (onSourceLeave) {
+          onSourceLeave(sourceEl);
+        }
       };
       handlerEntry.mouseover = handler;
       return handler;
@@ -196,18 +208,18 @@ function initDragSourceEvent() {
   }
 }
 
-/**
- * createTargetsIndex
- * @access private
- */
-function createTargetsIndex() {
-  this.targetEls = this.el.querySelectorAll(`.${selectorPrefix}target`);
-  this.targetsIndex = new WeakMap();
-  for (let i = 0; i < this.targetEls.length; i++) {
-    const targetEl = this.targetEls[i];
-    this.targetsIndex.set(targetEl, targetEl.getBoundingClientRect());
-  }
-}
+// /**
+//  * createTargetsIndex
+//  * @access private
+//  */
+// function createTargetsIndex() {
+//   this.targetEls = this.el.querySelectorAll(`.${selectorPrefix}target`);
+//   this.targetsIndex = new WeakMap();
+//   for (let i = 0; i < this.targetEls.length; i++) {
+//     const targetEl = this.targetEls[i];
+//     this.targetsIndex.set(targetEl, targetEl.getBoundingClientRect());
+//   }
+// }
 
 /**
  * getMoveInTargetEls
@@ -222,7 +234,7 @@ function getMoveInTargetEls() {
 
   for (let i = 0; i < this.targetEls.length; i++) {
     const targetEl = this.targetEls[i];
-    const rect = this.targetsIndex.get(targetEl);
+    const rect = targetEl.getBoundingClientRect();// this.targetsIndex.get();
     if (
       (
         (elRect.left >= rect.left && elRect.left <= rect.right) ||
@@ -361,6 +373,7 @@ class Drag {
     this.config = Object.assign({}, config);
 
     this.sourceEls = this.el.querySelectorAll(`.${selectorPrefix}source`);
+    this.targetEls = this.el.querySelectorAll(`.${selectorPrefix}target`);
     this.isdown = false; // 是否按下了
     this.ismove = false; // 是否move了
     this.baseX = null;
@@ -371,7 +384,7 @@ class Drag {
     this.sourceEl = null;
 
     initEvents.call(this);
-    createTargetsIndex.call(this);
+    // createTargetsIndex.call(this);
   }
 
   /**
@@ -386,8 +399,9 @@ class Drag {
       }
     }
     this.sourceEls = document.querySelectorAll(`.${selectorPrefix}source`);
+    this.targetEls = this.el.querySelectorAll(`.${selectorPrefix}target`);
     initDragSourceEvent.call(this);
-    createTargetsIndex.call(this);
+    // createTargetsIndex.call(this);
   }
 }
 
