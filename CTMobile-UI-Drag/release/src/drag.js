@@ -22,8 +22,8 @@ function initEvents() {
       }
     }
 
-    const curX = ev.pageX;
-    const curY = ev.pageY;
+    const curX = ev.clientX;
+    const curY = ev.clientY;
 
     console.log(curX, curY);
 
@@ -98,8 +98,8 @@ function initDragSourceEvent() {
         self.baseX = rect.left;
         self.baseY = rect.top;
 
-        self.firstX = ev.pageX;
-        self.firstY = ev.pageY;
+        self.firstX = ev.clientX;
+        self.firstY = ev.clientY;
 
         // create CloneNode
         if (onDragClone) {

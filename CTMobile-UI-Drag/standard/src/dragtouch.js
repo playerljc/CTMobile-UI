@@ -49,8 +49,8 @@ function initDragSourceEvent() {
         self.baseX = rect.left;
         self.baseY = rect.top;
 
-        self.firstX = ev.touches[0].pageX;
-        self.firstY = ev.touches[0].pageY;
+        self.firstX = ev.touches[0].clientX;
+        self.firstY = ev.touches[0].clientY;
 
         // create CloneNode
         if (onDragClone) {
@@ -88,8 +88,8 @@ function initDragSourceEvent() {
         }
       }
 
-      const curX = ev.touches[0].pageX;
-      const curY = ev.touches[0].pageY;
+      const curX = ev.touches[0].clientX;
+      const curY = ev.touches[0].clientY;
 
       // 不是看curX和curY的值在不在targetEl里，而是看
       getMoveInTargetEls.call(self);
