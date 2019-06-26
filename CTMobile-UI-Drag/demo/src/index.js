@@ -1,5 +1,5 @@
-import DrafFactory from '@ctmobile/ui-drag/drag';
-import '@ctmobile/ui-drag/drag.less';
+import DrafFactory from '@ctmobile/ui-drag';
+
 import DemoUtil from '@ctmobile/ui-demo-util';
 import { Dom6 } from '@ctmobile/ui-util';
 import 'normalize.less';
