@@ -1,3 +1,4 @@
+// import { Dom6 } from '@ctmobile/ui-util';
 const selectorPrefix = 'ct-drag-';
 
 /**
@@ -9,7 +10,12 @@ function initEvents() {
 
   initDragSourceEvent.call(self);
 
-  const { isDragSourceDisplay = true, isDragSourceExist = true } = self.config;
+  const {
+    isDragSourceDisplay = true,
+    isDragSourceExist = true,
+    onBoundaryDetection,
+    infinite = false,
+  } = self.config;
 
   // document.body mousemove
   self.el.addEventListener('mousemove', (ev) => {
@@ -22,38 +28,79 @@ function initEvents() {
       }
     }
 
-    const curX = ev.clientX;
-    const curY = ev.clientY;
-
-    console.log(curX, curY);
-
-    // 不是看curX和curY的值在不在targetEl里，而是看
-    const moveInTargetEls = getMoveInTargetEls.call(self);
-    if (moveInTargetEls.complete.length > 0) {
-      // 可以放置
-      self.cloneEl.style.cursor = 'pointer';
-    } else {
-      // 不可以放置
-      self.cloneEl.style.cursor = 'not-allowed';
-    }
+    const curX = ev.pageX;
+    const curY = ev.pageY;
 
     const incrementX = curX - self.firstX;
     const incrementY = curY - self.firstY;
 
-    self.cloneEl.style.left = `${self.baseX + incrementX}px`;
-    self.cloneEl.style.top = `${self.baseY + incrementY}px`;
+    // 不是看curX和curY的值在不在targetEl里，而是看
+    const moveInTargetEls = getMoveInTargetEls.call(self);
+
+    // 不是无限画布
+    if (!infinite) {
+      if (moveInTargetEls.complete.length > 0) {
+        // 可以放置
+        self.cloneEl.style.cursor = 'pointer';
+      } else {
+        // 不可以放
+        self.cloneEl.style.cursor = 'not-allowed';
+      }
+
+      self.cloneEl.style.left = `${self.baseX + incrementX}px`;
+      self.cloneEl.style.top = `${self.baseY + incrementY}px`;
+    }
+    // 是无限画布
+    else if (self.ismovecanput) {
+      const boundaryDetection = moveInTargetEls.boundaryDetection;
+      const { condition, rect, el } = boundaryDetection[0];
+
+      if (condition.top) {
+        self.cloneEl.style.top = `${rect.top}px`;
+      }
+
+      if (condition.left) {
+        self.cloneEl.style.left = `${rect.left}px`;
+      }
+
+      if (condition.bottom) {
+        self.cloneEl.style.top = `${rect.bottom - self.cloneEl.offsetHeight}px`;
+      }
+
+      if (condition.right) {
+        self.cloneEl.style.left = `${rect.right - self.cloneEl.offsetWidth}px`;
+      }
+
+      if (!condition.top && !condition.bottom && !condition.left && !condition.right) {
+        self.cloneEl.style.left = `${self.baseX + incrementX}px`;
+        self.cloneEl.style.top = `${self.baseY + incrementY}px`;
+      } else {
+        self.ismovecanput = false;
+        if (onBoundaryDetection) {
+          console.log('回调用户函数');
+          onBoundaryDetection(condition);
+        }
+      }
+    } else {
+      if (moveInTargetEls.complete.length > 0) {
+        // 可以放置
+        self.ismovecanput = true;
+        self.cloneEl.style.cursor = 'pointer';
+      } else {
+        // 不可以放
+        self.cloneEl.style.cursor = 'not-allowed';
+      }
+
+      self.cloneEl.style.left = `${self.baseX + incrementX}px`;
+      self.cloneEl.style.top = `${self.baseY + incrementY}px`;
+    }
   });
 
   // document.body mouseleave
   self.el.addEventListener('mouseleave', () => {
     if (!self.isdown) return false;
-    reset.call(self);
+    goBack.call(self, this.sourceEl, this.targetEls);
   });
-
-  // window resize
-  // window.addEventListener('resize', () => {
-  //   createTargetsIndex.call(self);
-  // });
 }
 
 /**
@@ -66,10 +113,9 @@ function initDragSourceEvent() {
   const {
     dragSourceExtendClasses = [],
     onDragClone,
-    onPutSuccess,
     onSourceEnter,
     onSourceLeave,
-    isDragSourceExist = true,
+    inclusionRelation = true,
   } = self.config;
 
   self.sourceEventHanlder = new WeakMap();
@@ -98,8 +144,8 @@ function initDragSourceEvent() {
         self.baseX = rect.left;
         self.baseY = rect.top;
 
-        self.firstX = ev.clientX;
-        self.firstY = ev.clientY;
+        self.firstX = ev.pageX;
+        self.firstY = ev.pageY;
 
         // create CloneNode
         if (onDragClone) {
@@ -126,48 +172,39 @@ function initDragSourceEvent() {
           }
 
           const moveInTargetEls = getMoveInTargetEls.call(self);
+          const targetEls = [].concat(moveInTargetEls.section, moveInTargetEls.complete);
           if (moveInTargetEls.complete.length > 0) {
             // 可以放
-            if (onPutSuccess) {
-              // 返给用的是原始节点克隆后的节点
-              const cloneRect = self.cloneEl.getBoundingClientRect();
-              const cloneSourceEl = sourceEl.cloneNode(true);
-              cloneSourceEl.style.visibility = 'visible';
-              cloneSourceEl.style.cursor = 'default';
-              const isPut = onPutSuccess({
-                cloneSourceEl,
-                sourceEl,
-                targetEls: moveInTargetEls.complete,
-                rect: {
-                  left: cloneRect.left,
-                  right: cloneRect.right,
-                  top: cloneRect.top,
-                  bottom: cloneRect.bottom,
-                  width: cloneRect.width,
-                  height: cloneRect.height,
-                  x: cloneRect.x,
-                  y: cloneRect.y,
-                },
-              });
+            // target和source可能是包含关系，target包含source
+            // 如果是包含关系可以放
+            if (inclusionRelation) {
+              Put.call(self, sourceEl, moveInTargetEls);
+            } else {
+              const completeTargetEls = moveInTargetEls.complete;
+              let flag = false;
+              for (let i = 0; i < completeTargetEls.length; i++) {
+                const index = Array.from(completeTargetEls[i].querySelectorAll(`.${selectorPrefix}source`)).findIndex((el) => {
+                  return el === sourceEl;
+                });
 
-              // 放了
-              if (isPut) {
-                if (!isDragSourceExist) {
-                  if (self.sourceEl) {
-                    self.sourceEl.parentElement.removeChild(self.sourceEl);
-                    self.sourceEl = null;
-                  }
+                // 是兄弟的关系
+                if (index === -1) {
+                  flag = true;
+                  break;
                 }
+              }
 
-                reset.call(self, moveInTargetEls.complete);
+              // 有兄弟
+              if (flag) {
+                Put.call(self, sourceEl, moveInTargetEls);
               } else {
-                // 没放
-                goBack.call(self, sourceEl, moveInTargetEls.complete);
+                // 全是爸爸
+                goBack.call(self, sourceEl, targetEls);
               }
             }
           } else {
             // 不可以放
-            goBack.call(self, sourceEl, moveInTargetEls.section);
+            goBack.call(self, sourceEl, targetEls);
           }
         });
 
@@ -207,18 +244,55 @@ function initDragSourceEvent() {
   }
 }
 
-// /**
-//  * createTargetsIndex
-//  * @access private
-//  */
-// function createTargetsIndex() {
-//   this.targetEls = this.el.querySelectorAll(`.${selectorPrefix}target`);
-//   this.targetsIndex = new WeakMap();
-//   for (let i = 0; i < this.targetEls.length; i++) {
-//     const targetEl = this.targetEls[i];
-//     this.targetsIndex.set(targetEl, targetEl.getBoundingClientRect());
-//   }
-// }
+/**
+ * Put
+ * @param {HTMLElement} sourceEl
+ * @param {Array<HTMLElement>} moveInTargetEls
+ * @access private
+ */
+function Put(sourceEl, moveInTargetEls) {
+  const self = this;
+  const targetEls = [].concat(moveInTargetEls.section, moveInTargetEls.complete);
+  const { onPutSuccess, isDragSourceExist = true } = self.config;
+  if (onPutSuccess) {
+    // 返给用的是原始节点克隆后的节点
+    const cloneRect = self.cloneEl.getBoundingClientRect();
+    const cloneSourceEl = sourceEl.cloneNode(true);
+    cloneSourceEl.style.visibility = 'visible';
+    cloneSourceEl.style.cursor = 'default';
+    const isPut = onPutSuccess({
+      cloneSourceEl,
+      sourceEl,
+      targetEls: moveInTargetEls.complete,
+      rect: {
+        left: cloneRect.left,
+        right: cloneRect.right,
+        top: cloneRect.top,
+        bottom: cloneRect.bottom,
+        width: cloneRect.width,
+        height: cloneRect.height,
+        x: cloneRect.x,
+        y: cloneRect.y,
+      },
+    });
+
+
+    if (isPut) {
+      // 放了
+      if (!isDragSourceExist) {
+        if (self.sourceEl) {
+          self.sourceEl.parentElement.removeChild(self.sourceEl);
+          self.sourceEl = null;
+        }
+      }
+
+      reset.call(self, targetEls);
+    } else {
+      // 没放
+      goBack.call(self, sourceEl, targetEls);
+    }
+  }
+}
 
 /**
  * getMoveInTargetEls
@@ -227,21 +301,26 @@ function initDragSourceEvent() {
 function getMoveInTargetEls() {
   const completeResult = [];
   const sectionResult = [];
-  const elRect = this.cloneEl.getBoundingClientRect();
+  const boundaryDetection = [];
+
+  const cloneElRect = this.cloneEl.getBoundingClientRect();
 
   const { dragTargetExtendClasses = [] } = this.config;
 
-  for (let i = 0; i < this.targetEls.length; i++) {
-    const targetEl = this.targetEls[i];
+  const targetEls = this.targetEls;
+  for (let i = 0; i < targetEls.length; i++) {
+    const targetEl = targetEls[i];
     const rect = targetEl.getBoundingClientRect();// this.targetsIndex.get();
+
+    // 进入了target
     if (
       (
-        (elRect.left >= rect.left && elRect.left <= rect.right) ||
-        (elRect.right >= rect.left && elRect.right <= rect.right)
+        (cloneElRect.left >= rect.left && cloneElRect.left <= rect.right) ||
+        (cloneElRect.right >= rect.left && cloneElRect.right <= rect.right)
       ) &&
       (
-        (elRect.top >= rect.top && elRect.top <= rect.bottom) ||
-        (elRect.bottom >= rect.top && elRect.bottom <= rect.bottom)
+        (cloneElRect.top >= rect.top && cloneElRect.top <= rect.bottom) ||
+        (cloneElRect.bottom >= rect.top && cloneElRect.bottom <= rect.bottom)
       )
     ) {
       if (dragTargetExtendClasses) {
@@ -255,17 +334,17 @@ function getMoveInTargetEls() {
         targetEl.style.border = '2px dashed black';
       }
 
-      // 完全进入
       if (
         (
-          (elRect.left >= rect.left && elRect.left <= rect.right) &&
-          (elRect.right >= rect.left && elRect.right <= rect.right)
+          (cloneElRect.left >= rect.left && cloneElRect.left <= rect.right) &&
+          (cloneElRect.right >= rect.left && cloneElRect.right <= rect.right)
         ) &&
         (
-          (elRect.top >= rect.top && elRect.top <= rect.bottom) &&
-          (elRect.bottom >= rect.top && elRect.bottom <= rect.bottom)
+          (cloneElRect.top >= rect.top && cloneElRect.top <= rect.bottom) &&
+          (cloneElRect.bottom >= rect.top && cloneElRect.bottom <= rect.bottom)
         )
       ) {
+        // 完全进入
         completeResult.push(targetEl);
       } else {
         // 部分进入
@@ -280,10 +359,43 @@ function getMoveInTargetEls() {
     } else {
       targetEl.style.border = '0';
     }
+
+
+    // 不管进步进入target都去走边缘检查
+    // 只有完全进入的才进行边缘检测
+    // (上 | 下 | 左 | 右) 看那些条件符合
+    const condition = {
+      top: false,
+      bottom: false,
+      left: false,
+      right: false,
+    };
+    if (cloneElRect.top <= rect.top) {
+      condition.top = true;
+    }
+    if (cloneElRect.bottom >= rect.bottom) {
+      condition.bottom = true;
+    }
+    if (cloneElRect.left <= rect.left) {
+      condition.left = true;
+    }
+    if (cloneElRect.right >= rect.right) {
+      condition.right = true;
+    }
+
+    // console.log(cloneElRect, rect);
+
+    boundaryDetection.push({
+      el: targetEl,
+      condition,
+      rect,
+    });
   }
+
   return {
     complete: completeResult,
     section: sectionResult,
+    boundaryDetection,
   };
 }
 
@@ -345,14 +457,17 @@ function reset(targetEls) {
       }
     }
   }
-  self.isdown = false; // 是否按下了
-  self.ismove = false; // 是否移动了
+  self.isdown = false;
+  self.ismove = false;
   self.baseX = null;
-  self.baseY = null; // 节点原始距离page的坐标
+  self.baseY = null;
+  self.preX = null;
+  self.preY = null;
   self.firstX = null;
-  self.firstY = null; // 第一次点击时page的坐标
+  self.firstY = null;
   self.cloneEl = null;
   self.sourceEl = null;
+  self.ismovecanput = false;
 }
 
 /**
@@ -377,13 +492,15 @@ class Drag {
     this.ismove = false; // 是否move了
     this.baseX = null;
     this.baseY = null; // 节点原始距离page的坐标
+    this.preX = null;
+    this.preY = null;
     this.firstX = null;
     this.firstY = null; // 第一次点击时page的坐标
     this.cloneEl = null;
     this.sourceEl = null;
+    this.ismovecanput = false; // 是否成功移动到target内部
 
     initEvents.call(this);
-    // createTargetsIndex.call(this);
   }
 
   /**
@@ -397,10 +514,9 @@ class Drag {
         sourceEl.removeEventListener(p, sourceHandlerEntry[p]);
       }
     }
-    this.sourceEls = document.querySelectorAll(`.${selectorPrefix}source`);
+    this.sourceEls = this.el.querySelectorAll(`.${selectorPrefix}source`);
     this.targetEls = this.el.querySelectorAll(`.${selectorPrefix}target`);
     initDragSourceEvent.call(this);
-    // createTargetsIndex.call(this);
   }
 }
 

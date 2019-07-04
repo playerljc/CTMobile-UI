@@ -30,6 +30,7 @@ el
    onSourceEnter: Function
    // source节点离开(只有drag) 
    onSourceLeave: Function
+   onBoundaryDetection: Function 边缘检查 top | bottom | left | right 只要有一个触发则会被调用
    // 拖动对象的附加样式，拖动移动起来后触发
    dragSourceExtendClasses: Array,
    // 可放置对象的附加样式，当拖动到可以放置的区域时触发
@@ -40,9 +41,14 @@ el
    isDragSourceExist: boolean,
    // 不可放置的时候松开是否有动画返回效果
    noDragReturnAnimate: boolean,
+   inclusionRelation: boolean 加入如果source和target为包含关系，则不能放入
+   isFree: boolean 是否是自由模式，自由模式只能拖动, 移动 (未实现)
+   infinite : boolean 是否无限扩展(不能拖出target)
 }
 
 布局:
+  <div class="ct-drag-source"></div>
+  <div class="ct-drag-target"></div>
 
 功能:
  .从哪拖到哪,怎么放置(谁能拖，谁能放，怎么放)
@@ -51,7 +57,10 @@ el
 
 log:
  .在el范围内拖动，而不是全局拖动
- .只想移动，根本不想放入
+ .加入如果source和target为包含关系，则不能放入
+ .只想移动，根本不想放入(在el范围内自由的移动)
+ .无限拖动，画布跟着滚动 (在父容器里拖动的时候，拖动到目标容器(ct-drag-target)的时候)
+ 
  
 demo:
  

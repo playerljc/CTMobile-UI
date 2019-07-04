@@ -162,42 +162,90 @@ const drag = DrafFactory.create(document.getElementById('container'), {
       <div class="ctmobile-ui-doc-demo-device">
         <div class="ctmobile-ui-doc-demo-device-inner" id="ctmobile-ui-doc-demo-device">
 
-          <div class="drag-container" id="demo1">
-            <ul class="drag-source-block" id="demo1Inner">
-              <li><span class="ct-drag-source fa fa-qq"/></li>
-              <li><span class="ct-drag-source fa fa-git"/></li>
-              <li><span class="ct-drag-source fa fa-google"/></li>
-              <li><span class="ct-drag-source fa fa-android"/></li>
-              <li><span class="ct-drag-source fa fa-amazon"/></li>
-              <li><span class="ct-drag-source fa fa-linux"/></li>
-            </ul>
-            <ul class="drag-target-block ct-drag-target"></ul>
-          </div>
+          <dl>
+            <dt><h3>A-B</h3></dt>
+            <dd>
+              <div class="drag-container" id="demo1">
+                <ul class="drag-source-block" id="demo1Inner">
+                  <li><span class="ct-drag-source fa fa-qq"/></li>
+                  <li><span class="ct-drag-source fa fa-git"/></li>
+                  <li><span class="ct-drag-source fa fa-google"/></li>
+                  <li><span class="ct-drag-source fa fa-android"/></li>
+                  <li><span class="ct-drag-source fa fa-amazon"/></li>
+                  <li><span class="ct-drag-source fa fa-linux"/></li>
+                </ul>
+                <ul class="drag-target-block ct-drag-target"></ul>
+              </div>
+            </dd>
+          </dl>
 
-          <div class="drag-container" id="demo2">
-            <ul class="drag-source-block">
-              <li><span class="ct-drag-source fa fa-qq"/></li>
-              <li><span class="ct-drag-source fa fa-git"/></li>
-              <li><span class="ct-drag-source fa fa-google"/></li>
-              <li><span class="ct-drag-source fa fa-android"/></li>
-              <li><span class="ct-drag-source fa fa-amazon"/></li>
-              <li><span class="ct-drag-source fa fa-linux"/></li>
-            </ul>
-            <ul class="drag-target-block ct-drag-target"></ul>
-          </div>
+          <dl>
+            <dt><h3>A-B 节点移走</h3></dt>
+            <dd>
+              <div class="drag-container" id="demo2">
+                <ul class="drag-source-block">
+                  <li><span class="ct-drag-source fa fa-qq"/></li>
+                  <li><span class="ct-drag-source fa fa-git"/></li>
+                  <li><span class="ct-drag-source fa fa-google"/></li>
+                  <li><span class="ct-drag-source fa fa-android"/></li>
+                  <li><span class="ct-drag-source fa fa-amazon"/></li>
+                  <li><span class="ct-drag-source fa fa-linux"/></li>
+                </ul>
+                <ul class="drag-target-block ct-drag-target"></ul>
+              </div>
+            </dd>
+          </dl>
 
-          <div class="drag-container" id="demo3">
-            <ul class="drag-source-block ct-drag-target">
-              <li><span class="ct-drag-source fa fa-qq"/></li>
-              <li><span class="ct-drag-source fa fa-git"/></li>
-              <li><span class="ct-drag-source fa fa-google"/></li>
-              <li><span class="ct-drag-source fa fa-android"/></li>
-              <li><span class="ct-drag-source fa fa-amazon"/></li>
-              <li><span class="ct-drag-source fa fa-linux"/></li>
-            </ul>
-            <ul class="drag-target-block ct-drag-target"></ul>
-          </div>
+          <dl>
+            <dt><h3>A-B B-A A!=A B!=B</h3></dt>
+            <dd>
+              <div class="drag-container" id="demo3">
+                <ul class="drag-source-block ct-drag-target">
+                  <li><span class="ct-drag-source fa fa-qq"/></li>
+                  <li><span class="ct-drag-source fa fa-git"/></li>
+                  <li><span class="ct-drag-source fa fa-google"/></li>
+                  <li><span class="ct-drag-source fa fa-android"/></li>
+                  <li><span class="ct-drag-source fa fa-amazon"/></li>
+                  <li><span class="ct-drag-source fa fa-linux"/></li>
+                </ul>
+                <ul class="drag-target-block ct-drag-target"></ul>
+              </div>
+            </dd>
+          </dl>
 
+          <dl>
+            <dt><h3>含有包含关系的用inclusionRelation属性控制</h3></dt>
+            <dd>
+              <div class="drag-container" id="demo4">
+                <ul class="drag-source-block ct-drag-target">
+                  <li><span class="ct-drag-source fa fa-qq"/></li>
+                  <li><span class="ct-drag-source fa fa-git"/></li>
+                  <li><span class="ct-drag-source fa fa-google"/></li>
+                  <li><span class="ct-drag-source fa fa-android"/></li>
+                  <li><span class="ct-drag-source fa fa-amazon"/></li>
+                  <li><span class="ct-drag-source fa fa-linux"/></li>
+                </ul>
+                <ul class="drag-target-block ct-drag-target">
+                  <div class="ct-drag-target"
+                       style="margin: 5px;border: 1px solid #ccc;height: 100%;box-sizing: border-box;"></div>
+                </ul>
+              </div>
+            </dd>
+          </dl>
+
+          <dl>
+            <dt><h3>无限滚动</h3></dt>
+            <dd>
+              <div class="drag-container" id="demo5" style="height: 200px;">
+                <ul class="drag-source-block">
+                  <li><span class="ct-drag-source fa fa-qq"/></li>
+                </ul>
+                <ul class="drag-target-block ct-drag-target" id="demo5Scroll" style="overflow: auto;">
+                  <div style="width: 900px;height: 900px;position: relative" id="demo5Inner"></div>
+                </ul>
+              </div>
+            </dd>
+          </dl>
         </div>
       </div>
     </div>

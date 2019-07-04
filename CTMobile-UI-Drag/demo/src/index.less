@@ -1,6 +1,6 @@
 @import "../node_modules/font-awesome/less/font-awesome.less";
 @import "../node_modules/@ctmobile/ui-demo-util/lib/index.less";
-@import '../node_modules/@ctmobile/ui-drag/lib/drag.less';
+//@import '../node_modules/@ctmobile/ui-drag/lib/drag.less';
 
 .ctmobile-ui-doc-demo-device-inner {
   > h3 {
@@ -72,4 +72,13 @@
   border: 1px solid #007aff;
   border-radius: 5px;
   text-align: center;
+}
+
+#demo5Inner {
+  li {
+    &:before,
+    &:after {
+      width: 0 !important;
+    }
+  }
 }

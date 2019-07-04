@@ -264,4 +264,48 @@ export default {
     }
     return obj;
   },
+  /**
+   * getPageLeft
+   * @param {HTMLElement} - el
+   * @return {Number}
+   */
+  getPageLeft(el) {
+    let left = el.offsetLeft;
+    let offsetParent = null;
+    while (offsetParent = el.offsetParent) {
+      left += offsetParent.offsetLeft;
+    }
+    return left;
+  },
+  /**
+   * getPageTop
+   * @param {HTMLElement} - el
+   * @return {Number}
+   */
+  getPageTop(el) {
+    let top = el.offsetTop;
+    let offsetParent = null;
+    while (offsetParent = el.offsetParent) {
+      top += offsetParent.offsetTop;
+    }
+    return top;
+  },
+  /**
+   * getPageRect
+   * @param {HTMLElement} - el
+   * @return {{top: number, left: number}}
+   */
+  getPageRect(el) {
+    let top = el.offsetTop;
+    let left = el.offsetLeft;
+    let offsetParent = null;
+    while (offsetParent = el.offsetParent) {
+      top += offsetParent.offsetTop;
+      left += offsetParent.offsetLeft;
+    }
+    return {
+      top,
+      left,
+    };
+  },
 };

@@ -1,7 +1,8 @@
-import DrafFactory from '@ctmobile/ui-drag';
-
+import DrafFactory from '@ctmobile/ui-drag/drag';
 import DemoUtil from '@ctmobile/ui-demo-util';
 import { Dom6 } from '@ctmobile/ui-util';
+
+import '@ctmobile/ui-drag/drag.less';
 import 'normalize.less';
 import './index.less';
 
@@ -56,6 +57,7 @@ const drag1 = DrafFactory.create(document.getElementById('demo1'), {
 const drag2 = DrafFactory.create(document.getElementById('demo2'), {
   // 可以放置
   onPutSuccess(params) {
+    params.sourceEl.parentElement.parentElement.removeChild(params.sourceEl.parentElement);
     const cloneEl = params.cloneSourceEl;
     cloneEl.classList.remove('ct-drag-source');
 
@@ -143,4 +145,127 @@ const drag3 = DrafFactory.create(document.getElementById('demo3'), {
   isDragSourceExist: false,
   // 不可放置的时候松开是否有动画返回效果
   noDragReturnAnimate: true,
+});
+
+const drag4 = DrafFactory.create(document.getElementById('demo4'), {
+  // 可以放置,已经在ct-drag-target中的ct-drag-source不能拖放
+  onPutSuccess(params) {
+    const targetEls = params.targetEls;
+    const sourceEl = params.sourceEl;
+    const targetEl = targetEls[targetEls.length - 1];
+
+    sourceEl.parentElement.parentElement.removeChild(sourceEl.parentElement);
+    const cloneEl = params.cloneSourceEl;
+    const parentEl = Dom6.createElement('<li></li>');
+    parentEl.appendChild(cloneEl);
+    targetEl.appendChild(parentEl);
+    drag4.refresh();
+    return true;
+  },
+  onSourceEnter(sourceEl) {
+    sourceHoverEl3 = Dom6.createElement(
+      '<div class="sourceMask"></div>'
+    );
+    const cloneNode = sourceEl.cloneNode(true);
+    sourceHoverEl3.appendChild(cloneNode);
+    sourceEl.parentElement.appendChild(sourceHoverEl3);
+  },
+  onSourceLeave(sourceEl) {
+    if (sourceHoverEl3) {
+      sourceHoverEl3.parentElement.removeChild(sourceHoverEl3);
+      sourceHoverEl3 = null;
+    }
+  },
+
+  // 拖动对象的附加样式，拖动移动起来后触发
+  dragSourceExtendClasses: ['sourceActive'],
+  // 可放置对象的附加样式，当拖动到可以放置的区域时触发
+  dragTargetExtendClasses: ['targetActive'],
+
+  // 拖动后原始节点是否显示
+  isDragSourceDisplay: true,
+  // 拖动之后原始节点是否存在
+  isDragSourceExist: false,
+  // 不可放置的时候松开是否有动画返回效果
+  noDragReturnAnimate: true,
+  inclusionRelation: false,
+});
+
+const drag5 = DrafFactory.create(document.getElementById('demo5'), {
+  // 可以放置,已经在ct-drag-target中的ct-drag-source不能拖放
+  onPutSuccess(params) {
+    // left: cloneEl的视口left-父亲视口left
+    // top: cloneEl的视口top-父亲视口top
+
+    const cleft = params.rect.left;
+    const ctop = params.rect.top;
+
+    const demo5InnerEl = document.getElementById('demo5Inner');
+    const rect = demo5InnerEl.getBoundingClientRect();
+
+    const left = cleft - rect.left;
+    const top = ctop - rect.top;
+
+    const cloneEl = params.cloneSourceEl;
+    const parentEl = Dom6.createElement(`<li style="position: absolute;left: ${left}px;top: ${top}px;"></li>`);
+    parentEl.appendChild(cloneEl);
+
+    demo5InnerEl.appendChild(parentEl);
+
+    return true;
+  },
+  onSourceEnter(sourceEl) {
+    sourceHoverEl3 = Dom6.createElement(
+      '<div class="sourceMask"></div>'
+    );
+    const cloneNode = sourceEl.cloneNode(true);
+    sourceHoverEl3.appendChild(cloneNode);
+    sourceEl.parentElement.appendChild(sourceHoverEl3);
+  },
+  onSourceLeave(sourceEl) {
+    if (sourceHoverEl3) {
+      sourceHoverEl3.parentElement.removeChild(sourceHoverEl3);
+      sourceHoverEl3 = null;
+    }
+  },
+  onBoundaryDetection({ top, bottom, left, right }) {
+    const demo5ScrollEl = document.getElementById('demo5Scroll');
+    if (top) {
+      if (demo5ScrollEl.scrollTop !== 0) {
+        demo5ScrollEl.scrollTop -= 1;
+      }
+    }
+
+    if (bottom) {
+      if (demo5ScrollEl.scrollTop !== demo5ScrollEl.scrollHeight) {
+        demo5ScrollEl.scrollTop += 1;
+      }
+    }
+
+    if (left) {
+      if (demo5ScrollEl.scrollLeft !== 0) {
+        demo5ScrollEl.scrollLeft -= 1;
+      }
+    }
+
+    if (right) {
+      console.log(demo5ScrollEl.scrollLeft);
+      if (demo5ScrollEl.scrollLeft !== demo5ScrollEl.scrollWidth) {
+        demo5ScrollEl.scrollLeft += 1;
+      }
+    }
+  },
+  // 拖动对象的附加样式，拖动移动起来后触发
+  dragSourceExtendClasses: ['sourceActive'],
+  // 可放置对象的附加样式，当拖动到可以放置的区域时触发
+  dragTargetExtendClasses: ['targetActive'],
+
+  // 拖动后原始节点是否显示
+  isDragSourceDisplay: true,
+  // 拖动之后原始节点是否存在
+  isDragSourceExist: true,
+  // 不可放置的时候松开是否有动画返回效果
+  noDragReturnAnimate: true,
+  inclusionRelation: false,
+  infinite: true,
 });
