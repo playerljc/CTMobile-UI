@@ -191,27 +191,16 @@ const drag4 = DrafFactory.create(document.getElementById('demo4'), {
   inclusionRelation: false,
 });
 
+
 const drag5 = DrafFactory.create(document.getElementById('demo5'), {
-  // 可以放置,已经在ct-drag-target中的ct-drag-source不能拖放
+  /**
+   * 放置在可滚动的元素内
+   * @param params
+   * @return {boolean}
+   */
   onPutSuccess(params) {
-    // left: cloneEl的视口left-父亲视口left
-    // top: cloneEl的视口top-父亲视口top
-
-    const cleft = params.rect.left;
-    const ctop = params.rect.top;
-
     const demo5InnerEl = document.getElementById('demo5Inner');
-    const rect = demo5InnerEl.getBoundingClientRect();
-
-    const left = cleft - rect.left;
-    const top = ctop - rect.top;
-
-    const cloneEl = params.cloneSourceEl;
-    const parentEl = Dom6.createElement(`<li style="position: absolute;left: ${left}px;top: ${top}px;"></li>`);
-    parentEl.appendChild(cloneEl);
-
-    demo5InnerEl.appendChild(parentEl);
-
+    params.naturalRelease.fn.call(params.naturalRelease.context, demo5InnerEl, params.cloneSourceEl);
     return true;
   },
   onSourceEnter(sourceEl) {
@@ -228,32 +217,16 @@ const drag5 = DrafFactory.create(document.getElementById('demo5'), {
       sourceHoverEl3 = null;
     }
   },
-  onBoundaryDetection({ top, bottom, left, right }) {
+  /**
+   * 触碰边缘的时候触发,并且滚动
+   * @param top
+   * @param bottom
+   * @param left
+   * @param right
+   */
+  onBoundaryDetection(condition, scroll) {
     const demo5ScrollEl = document.getElementById('demo5Scroll');
-    if (top) {
-      if (demo5ScrollEl.scrollTop !== 0) {
-        demo5ScrollEl.scrollTop -= 1;
-      }
-    }
-
-    if (bottom) {
-      if (demo5ScrollEl.scrollTop !== demo5ScrollEl.scrollHeight) {
-        demo5ScrollEl.scrollTop += 1;
-      }
-    }
-
-    if (left) {
-      if (demo5ScrollEl.scrollLeft !== 0) {
-        demo5ScrollEl.scrollLeft -= 1;
-      }
-    }
-
-    if (right) {
-      console.log(demo5ScrollEl.scrollLeft);
-      if (demo5ScrollEl.scrollLeft !== demo5ScrollEl.scrollWidth) {
-        demo5ScrollEl.scrollLeft += 1;
-      }
-    }
+    scroll(condition, demo5ScrollEl);
   },
   // 拖动对象的附加样式，拖动移动起来后触发
   dragSourceExtendClasses: ['sourceActive'],

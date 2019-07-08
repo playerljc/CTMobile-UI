@@ -1,5 +1,6 @@
 // import { Dom6 } from '@ctmobile/ui-util';
 const selectorPrefix = 'ct-drag-';
+const scrollStep = 5;
 
 /**
  * initEvents
@@ -53,38 +54,85 @@ function initEvents() {
     // 是无限画布
     else if (self.ismovecanput) {
       const boundaryDetection = moveInTargetEls.boundaryDetection;
-      const { condition, rect, el } = boundaryDetection[0];
+      const { /* condition, */rect/* , el */ } = boundaryDetection[0];
 
-      if (condition.top) {
-        self.cloneEl.style.top = `${rect.top}px`;
-      }
+      // if (condition.top) {
+      //   self.cloneEl.style.top = `${rect.top}px`;
+      // }
+      //
+      // if (condition.left) {
+      //   self.cloneEl.style.left = `${rect.left}px`;
+      // }
+      //
+      // if (condition.bottom) {
+      //   self.cloneEl.style.top = `${rect.bottom - self.cloneEl.offsetHeight}px`;
+      // }
+      //
+      // if (condition.right) {
+      //   self.cloneEl.style.left = `${rect.right - self.cloneEl.offsetWidth}px`;
+      // }
 
-      if (condition.left) {
-        self.cloneEl.style.left = `${rect.left}px`;
-      }
+      // if (!condition.top && !condition.bottom && !condition.left && !condition.right) {
+      const condition = {
+        left: false,
+        right: false,
+        top: false,
+        bottom: false,
+      };
 
-      if (condition.bottom) {
-        self.cloneEl.style.top = `${rect.bottom - self.cloneEl.offsetHeight}px`;
-      }
-
-      if (condition.right) {
-        self.cloneEl.style.left = `${rect.right - self.cloneEl.offsetWidth}px`;
-      }
-
-      if (!condition.top && !condition.bottom && !condition.left && !condition.right) {
-        self.cloneEl.style.left = `${self.baseX + incrementX}px`;
-        self.cloneEl.style.top = `${self.baseY + incrementY}px`;
-      } else {
-        self.ismovecanput = false;
-        if (onBoundaryDetection) {
-          console.log('回调用户函数');
-          onBoundaryDetection(condition);
+      if (self.baseX + incrementX < rect.left ||
+           self.baseX + incrementX + self.cloneEl.offsetWidth > rect.right
+      ) {
+        if (self.baseX + incrementX < rect.left) {
+          self.cloneEl.style.left = `${rect.left}px`;
+          condition.left = true;
         }
+
+        if (self.baseX + incrementX + self.cloneEl.offsetWidth > rect.right) {
+          self.cloneEl.style.top = `${rect.right - self.cloneEl.offsetWidth}px`;
+          condition.right = true;
+        }
+      } else {
+        self.cloneEl.style.left = `${self.baseX + incrementX}px`;
       }
+
+
+      if (self.baseY + incrementY < rect.top ||
+          self.baseY + incrementY + self.cloneEl.offsetHeight > rect.bottom
+      ) {
+        if (self.baseY + incrementY < rect.top) {
+          self.cloneEl.style.top = `${rect.top}px`;
+          condition.top = true;
+        }
+
+        if (self.baseY + incrementY + self.cloneEl.offsetHeight > rect.bottom) {
+          self.cloneEl.style.top = `${rect.bottom - self.cloneEl.offsetHeight}px`;
+          condition.bottom = true;
+        }
+      } else {
+        self.cloneEl.style.top = `${self.baseY + incrementY}px`;
+      }
+
+      if (condition.left || condition.right || condition.top || condition.bottom) {
+        if (onBoundaryDetection) {
+          onBoundaryDetection(condition, boundaryDetectionScroll.bind(self));
+        }
+      } else if (self.boundaryDetectionHandler) {
+        cancelAnimationFrame(self.boundaryDetectionHandler);
+        self.boundaryDetectionHandler = null;
+      }
+
+      // } else {
+      //   // self.ismovecanput = false;
+      //   if (onBoundaryDetection) {
+      //     onBoundaryDetection(condition, boundaryDetectionScroll);
+      //   }
+      // }
     } else {
       if (moveInTargetEls.complete.length > 0) {
         // 可以放置
         self.ismovecanput = true;
+        console.log('ismovecanput = true');
         self.cloneEl.style.cursor = 'pointer';
       } else {
         // 不可以放
@@ -93,6 +141,7 @@ function initEvents() {
 
       self.cloneEl.style.left = `${self.baseX + incrementX}px`;
       self.cloneEl.style.top = `${self.baseY + incrementY}px`;
+      console.log('222');
     }
   });
 
@@ -274,6 +323,10 @@ function Put(sourceEl, moveInTargetEls) {
         x: cloneRect.x,
         y: cloneRect.y,
       },
+      naturalRelease: {
+        fn: naturalRelease,
+        context: self,
+      },
     });
 
 
@@ -310,7 +363,7 @@ function getMoveInTargetEls() {
   const targetEls = this.targetEls;
   for (let i = 0; i < targetEls.length; i++) {
     const targetEl = targetEls[i];
-    const rect = targetEl.getBoundingClientRect();// this.targetsIndex.get();
+    const rect = targetEl.getBoundingClientRect();
 
     // 进入了target
     if (
@@ -370,16 +423,16 @@ function getMoveInTargetEls() {
       left: false,
       right: false,
     };
-    if (cloneElRect.top <= rect.top) {
+    if (cloneElRect.top < rect.top) {
       condition.top = true;
     }
-    if (cloneElRect.bottom >= rect.bottom) {
+    if (cloneElRect.bottom > rect.bottom) {
       condition.bottom = true;
     }
-    if (cloneElRect.left <= rect.left) {
+    if (cloneElRect.left < rect.left) {
       condition.left = true;
     }
-    if (cloneElRect.right >= rect.right) {
+    if (cloneElRect.right > rect.right) {
       condition.right = true;
     }
 
@@ -468,6 +521,123 @@ function reset(targetEls) {
   self.cloneEl = null;
   self.sourceEl = null;
   self.ismovecanput = false;
+  if (self.boundaryDetectionHandler) {
+    cancelAnimationFrame(self.boundaryDetectionHandler);
+    self.boundaryDetectionHandler = null;
+  }
+}
+
+/**
+ * 自然的放
+ * @param {HTMLElement} - targetEl 放哪
+ * @param {HTMLElement} - sourceEl 谁放
+ * @access private
+ */
+function naturalRelease(targetEl, sourceEl) {
+  const self = this;
+  const cloneRect = self.cloneEl.getBoundingClientRect();
+
+  // cloneEl的getBoundingClientRect的left,top
+  const cleft = cloneRect.left;
+  const ctop = cloneRect.top;
+
+  // 很大的那个元素
+  const rect = targetEl.getBoundingClientRect();
+
+  // 真正元素的left和right
+  // left: cloneEl的视口left-父亲视口left
+  // top: cloneEl的视口top-父亲视口top
+  const left = cleft - rect.left;
+  const top = ctop - rect.top;
+
+  // 落户的节点
+  // left和top的赋值
+  sourceEl.style.position = 'absolute';
+  sourceEl.style.left = `${left}px`;
+  sourceEl.style.top = `${top}px`;
+  // const parentEl = Dom6.createElement(`<li style="position: absolute;left: ${left}px;top: ${top}px;"></li>`);
+  // parentEl.appendChild(cloneEl);
+
+  // 放入很大的节点
+  targetEl.appendChild(sourceEl);
+}
+
+/**
+ * 到达边缘的无限滚动
+ * boundaryDetectionScroll
+ * @param {Object} - condition
+ * @param {HTMLElement} - targetEl
+ * @access private
+ */
+function boundaryDetectionScroll({ top, bottom, left, right }, targetEl) {
+  const self = this;
+  if (top) {
+    if (targetEl.scrollTop !== 0) {
+      if (targetEl.scrollTop - scrollStep < 0) {
+        targetEl.scrollTop = 0;
+        // if (self.boundaryDetectionHandler) {
+        //   cancelAnimationFrame(self.boundaryDetectionHandler);
+        //   self.boundaryDetectionHandler = null;
+        // }
+      } else {
+        targetEl.scrollTop -= scrollStep;
+        // self.boundaryDetectionHandler = requestAnimationFrame(() => {
+        //   boundaryDetectionScroll.call(self, { top, bottom, left, right }, targetEl);
+        // });
+      }
+    }
+  }
+
+  if (bottom) {
+    if (targetEl.scrollTop !== targetEl.scrollHeight) {
+      if (targetEl.scrollTop + scrollStep > targetEl.scrollHeight) {
+        targetEl.scrollTop = targetEl.scrollerHeight;
+        // if (self.boundaryDetectionHandler) {
+        //   cancelAnimationFrame(self.boundaryDetectionHandler);
+        //   self.boundaryDetectionHandler = null;
+        // }
+      } else {
+        targetEl.scrollTop += scrollStep;
+        // self.boundaryDetectionHandler = requestAnimationFrame(() => {
+        //   boundaryDetectionScroll.call(self, { top, bottom, left, right }, targetEl);
+        // });
+      }
+    }
+  }
+
+  if (left) {
+    if (targetEl.scrollLeft !== 0) {
+      if (targetEl.scrollLeft - scrollStep < 0) {
+        targetEl.scrollLeft = 0;
+        // if (self.boundaryDetectionHandler) {
+        //   cancelAnimationFrame(self.boundaryDetectionHandler);
+        //   self.boundaryDetectionHandler = null;
+        // }
+      } else {
+        targetEl.scrollLeft -= scrollStep;
+        // self.boundaryDetectionHandler = requestAnimationFrame(() => {
+        //   boundaryDetectionScroll.call(self, { top, bottom, left, right }, targetEl);
+        // });
+      }
+    }
+  }
+
+  if (right) {
+    if (targetEl.scrollLeft !== targetEl.scrollWidth) {
+      if (targetEl.scrollLeft + scrollStep > targetEl.scrollWidth) {
+        targetEl.scrollLeft = targetEl.scrollWidth;
+        // if (self.boundaryDetectionHandler) {
+        //   cancelAnimationFrame(self.boundaryDetectionHandler);
+        //   self.boundaryDetectionHandler = null;
+        // }
+      } else {
+        targetEl.scrollLeft += scrollStep;
+        // self.boundaryDetectionHandler = requestAnimationFrame(() => {
+        //   boundaryDetectionScroll.call(self, { top, bottom, left, right }, targetEl);
+        // });
+      }
+    }
+  }
 }
 
 /**
@@ -499,6 +669,7 @@ class Drag {
     this.cloneEl = null;
     this.sourceEl = null;
     this.ismovecanput = false; // 是否成功移动到target内部
+    this.boundaryDetectionHandler = null;
 
     initEvents.call(this);
   }
