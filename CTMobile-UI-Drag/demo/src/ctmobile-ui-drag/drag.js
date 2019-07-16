@@ -214,12 +214,18 @@ function initDragSourceEvent() {
         self.cloneEl.style.left = `${self.baseX}px`;
         self.cloneEl.style.top = `${self.baseY}px`;
         self.cloneEl.style.margin = '0';
+
+        /**
+         * 抬起的操作
+         */
         self.cloneEl.addEventListener('mouseup', () => {
+          debugger
           if (!self.ismove) {
             reset.call(self);
             return false;
           }
 
+          // 非自由模式
           const moveInTargetEls = getMoveInTargetEls.call(self);
           const targetEls = [].concat(moveInTargetEls.section, moveInTargetEls.complete);
           if (moveInTargetEls.complete.length > 0) {

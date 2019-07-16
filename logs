@@ -4,6 +4,8 @@ surnames
 tree
 swipeout
 drag
+selectable
+resizeable
 togglecontent
 
 
@@ -26,3 +28,15 @@ wechat(websocket)
 webvr
 webrtc(服务器推送)
 在线客服
+
+
+
+
+.各个组件的发布npm
+.CTMobile-UI组件的编写
+ .各个组件中公共组件的整理
+ .编写整个代码
+ .发布到npm
+  .各个component的发布
+  .CTMobile-UI的发布
+ .portal的制作

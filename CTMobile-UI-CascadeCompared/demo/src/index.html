@@ -177,7 +177,7 @@
   <code class="javascript">
   import CascadeCompared from '@ctmobile/ui-cascadecompared';
   import '@ctmobile/ui-cascadecompared/cascadecompared.less';
-  const cascadecompared = CascadeCompared(el,config = {columnsWidth = [], rowsHeight = []});
+  const cascadecompared = CascadeCompared.create(el,config = {columnsWidth = [], rowsHeight = []});
   </code>
   </pre>
 
@@ -479,11 +479,11 @@
 
         // 基本的
         initListView($('#cascadecompared-demo-base .ct-stickuplayout-inner')[0]);
-        CascadeCompared($('#cascadecompared-demo-base')[0]);
+        CascadeCompared.create($('#cascadecompared-demo-base')[0]);
 
         // 动态的插入
         initListView($('#cascadecompared-demo-dynamic .ct-stickuplayout-inner')[0]);
-        const cascadeComparedDynamic = CascadeCompared($('#cascadecompared-demo-dynamic')[0]);
+        const cascadeComparedDynamic = CascadeCompared.create($('#cascadecompared-demo-dynamic')[0]);
         $('#cascadecompared-demo-dynamic-append').on('click', () => {
           const $dynamicItemJO = $(getDynamicTemplate(`动态增加${++dynamicIndex}`));
           $('#cascadecompared-demo-dynamic .ct-stickuplayout-inner').append($dynamicItemJO);
@@ -493,7 +493,7 @@
 
         // 滚动到指定位置(通过索引)
         initListView($('#cascadecompared-demo-scrollbyindex .ct-stickuplayout-inner')[0]);
-        const cascadeComparedScrollbyindex = CascadeCompared($('#cascadecompared-demo-scrollbyindex')[0]);
+        const cascadeComparedScrollbyindex = CascadeCompared.create($('#cascadecompared-demo-scrollbyindex')[0]);
         const $cascadeComparedScrollbyIndexItemJO = $('#cascadecompared-demo-scrollbyindex .ct-stickuplayout-inner .ct-stickuplayout-item');
         $('#cascadecompared-demo-scrollbyindex-noanimation-btn').on('click', () => {
           cascadeComparedScrollbyindex.scrollToByIndex($cascadeComparedScrollbyIndexItemJO.length - 2, 0);
@@ -507,7 +507,7 @@
 
         // 滚动到指定位置(通过dom)
         initListView($('#cascadecompared-demo-scrollbyel .ct-stickuplayout-inner')[0]);
-        const cascadeComparedScrollbyel = CascadeCompared($('#cascadecompared-demo-scrollbyel')[0]);
+        const cascadeComparedScrollbyel = CascadeCompared.create($('#cascadecompared-demo-scrollbyel')[0]);
         const $cascadeComparedScrollbyelItemJO = $('#cascadecompared-demo-scrollbyel .ct-stickuplayout-inner .ct-stickuplayout-item');
         $('#cascadecompared-demo-scrollbyel-noanimation-btn').on('click', () => {
           cascadeComparedScrollbyel.scrollToByHeaderEl($cascadeComparedScrollbyelItemJO[$cascadeComparedScrollbyelItemJO.length - 2].querySelector('.ct-stickuplayout-item-header'), 0);
@@ -815,7 +815,7 @@
   import '@ctmobile/ui-cascadecompared/cascadecompared.less';
 
   // 基本的
-  const cascadeCompared = CascadeCompared($('#cascadecompared-demo-base')[0]);
+  const cascadeCompared = CascadeCompared.create($('#cascadecompared-demo-base')[0]);
   cascadeCompared.on('change', (dom, index) => {
     console.log(dom);
     console.log(index);

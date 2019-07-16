@@ -1,21 +1,20 @@
 {
-  "name": "ctmobile-ui-cascadecompared-demo",
+  "name": "ctmobile-ui-demo",
   "version": "1.0.0",
-  "description": "ctmobile-ui-cascadecompared的Demo",
+  "description": "ctmobile-ui的Demo",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
     "startapp": "ctbuild --type startapp",
     "buildapp": "ctbuild --type buildapp",
-    "link": "npm link @ct/build && npm link @ctmobile/ui-demo-util && npm link @ctmobile/ui-cascadecompared && npm link @ctmobile/ui-stickuplayout"
+    "link": "npm link @ct/build && npm link @ctmobile/ui"
   },
   "author": "playerljc <playerljc@163.com>",
   "license": "MIT",
   "keywords": [
     "ctmobile-UI",
     "CtMobile",
-    "CTMobile-UI-CascadeCompared",
     "mobile",
     "webapp",
     "SPA",
@@ -28,12 +27,6 @@
     "WebFramework"
   ],
   "devDependencies": {
-    "jquery": "^3.3.1",
-    "lodash": "^4.17.11",
-    "normalize.less": "^1.0.0",
-    "font-awesome": "^4.7.0",
-    "@ct/build": "^1.0.0",
-    "@ctmobile/ui-demo-util": "^1.0.0",
-    "@ctmobile/ui-cascadecompared":"^1.0.0"
+    "jquery": "^3.4.1"
   }
 }

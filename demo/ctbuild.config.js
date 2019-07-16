@@ -5,9 +5,9 @@ module.exports = {
     return {
       // resolve: {
       //   alias: {
-      //     '@ctmobile/ui-cascadecompared': path.resolve(__dirname, 'src/ctmobile-ui-cascadecompared'),
-      //   },
-      // },
+      //     '@ctmobile/ui': path.resolve(__dirname, 'src/ctmobile-ui'),
+      //   }
+      // }
     };
   },
 };

@@ -201,6 +201,7 @@ const drag5 = DrafFactory.create(document.getElementById('demo5'), {
   onPutSuccess(params) {
     const demo5InnerEl = document.getElementById('demo5Inner');
     params.naturalRelease.fn.call(params.naturalRelease.context, demo5InnerEl, params.cloneSourceEl);
+    drag5.refresh();
     return true;
   },
   onSourceEnter(sourceEl) {

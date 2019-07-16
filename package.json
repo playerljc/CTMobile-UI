@@ -2,9 +2,39 @@
   "name": "@ctmobile/ui",
   "version": "1.0.0",
   "description": "支持移动端的组件库",
-  "main": "lib/index.js",
+  "main": "lib/ctmobile-ui.js",
+  "links": [
+    "@ctmobile/ui-accordion-sd",
+    "@ctmobile/ui-backtopanimation-sd",
+    "@ctmobile/ui-cascadecompared-sd",
+    "@ctmobile/ui-draglayout-sd",
+    "@ctmobile/ui-fontsizesetting-sd",
+    "@ctmobile/ui-form-sd",
+    "@ctmobile/ui-imageviewer-sd",
+    "@ctmobile/ui-jdcategorytab-sd",
+    "@ctmobile/ui-kwlist-sd",
+    "@ctmobile/ui-listview-sd",
+    "@ctmobile/ui-messagedialog-sd",
+    "@ctmobile/ui-notification-sd",
+    "@ctmobile/ui-popup-sd",
+    "@ctmobile/ui-pullrefresh-sd",
+    "@ctmobile/ui-revolving-sd",
+    "@ctmobile/ui-scrollload-sd",
+    "@ctmobile/ui-sidepanel-sd",
+    "@ctmobile/ui-sliderscale-sd",
+    "@ctmobile/ui-stickuplayout-sd",
+    "@ctmobile/ui-surnames-sd",
+    "@ctmobile/ui-swipeout-sd",
+    "@ctmobile/ui-tab-sd",
+    "@ctmobile/ui-tree-sd",
+    "@ctmobile/ui-util",
+    "@ct/build"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buildpackage": "ctbuild --type buildpackage",
+    "buildumd": "ctbuild --type buildumd --packagename ctmobile-ui",
+    "link": "node script/link.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +56,16 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-markdown": "^1.0.0-beta.6",
     "eslint-plugin-react": "^7.0.1"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.2.0",
+    "font-awesome": "^4.7.0",
+    "iscroll": "^5.2.0",
+    "jquery": "^3.3.1",
+    "load-awesome": "^1.1.0",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "photoswipe": "^4.1.2",
+    "swiper": "^4.4.6"
   }
 }

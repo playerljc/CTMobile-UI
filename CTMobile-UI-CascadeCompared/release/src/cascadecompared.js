@@ -222,10 +222,40 @@ class CascadeCompared {
 
 /**
  * CascadeComparedFactory
- * @param {HtmlElement} el
- * @param {Object} config
- * @return {CascadeCompared}
  */
-export default function (el, config = {}) {
-  return new CascadeCompared(el, config);
-}
+const CascadeComparedFactory = {
+  /**
+   * initTouch
+   */
+  initTouch() {
+    function isPassive() {
+      let supportsPassiveOption = false;
+      try {
+        addEventListener('test', null, Object.defineProperty({}, 'passive', {
+          get() {
+            supportsPassiveOption = true;
+          },
+        }));
+      } catch (e) {}
+      return supportsPassiveOption;
+    }
+
+    document.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+    }, isPassive() ? {
+      capture: false,
+      passive: false,
+    } : false);
+  },
+  /**
+   * 创建一个CascadeCompared
+   * @param {HtmlElement} - el
+   * @param {Object} - config
+   * @return {CascadeCompared} - CascadeCompared
+   */
+  create(el, config = {}) {
+    return new CascadeCompared(el, config);
+  },
+};
+
+export default CascadeComparedFactory;
