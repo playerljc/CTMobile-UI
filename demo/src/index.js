@@ -118,6 +118,78 @@ window.onload = function () {
     $(el).append(str);
   }
   initListView($('#cascadecompared-demo-base .ct-stickuplayout-inner')[0]);
-  CascadeCompared(document.getElementById('cascadecompared-demo-base'));
+  CascadeCompared.initTouch();
+  CascadeCompared.create(document.getElementById('cascadecompared-demo-base'));
 };
+
+DragLayout($('#ct-draglayout-demo')[0], {
+  showCallback() {
+
+  },
+  hideCallback() {
+
+  },
+});
+
+
+const fontDom = $('#font')[0];
+const curValueDom = $('#setCurValue')[0];
+const baseRem = 0.7,
+  baseValue = 33.3;
+
+curValueDom.addEventListener('input', () => {
+  fontSizeSetting.setValue(curValueDom.value);
+});
+
+const fontSizeSetting = FontSizeSetting($('#ct-fontsizesetting-demo')[0], {
+  min: '0',
+  max: '100',
+  setp: '1',
+  value: '33.3',
+});
+fontSizeSetting.on('change', (value) => {
+  let val = parseInt(value);
+  if (val === 0) {
+    val = 1;
+  }
+  fontDom.style.fontSize = `${(value * baseRem / baseValue)}rem`;
+  $('#curValue')[0].innerText = fontSizeSetting.getValue();
+});
+
+
+const validatePropagationDom = document.getElementById('validatePropagation');
+const validateStopPropagationDom = document.getElementById('validateStopPropagation');
+const submitDom = document.getElementById('submit');
+
+validatePropagationDom.addEventListener('click', () => {
+  const flag = form.validatePropagation();
+  console.log(flag);
+  return false;
+});
+
+validateStopPropagationDom.addEventListener('click', () => {
+  const flag = form.validateStopPropagation();
+  console.log(flag);
+  return false;
+});
+
+submitDom.addEventListener('click', () => {
+  const entry = form.getEntrys();
+  alert(JSON.stringify(entry));
+  return false;
+});
+
+const form = Form(document.getElementById('containerdemo'), [
+  'autoheighttextarea',
+  'clearinput',
+  'pwdtoggle',
+  'select',
+  'slider',
+  'radio',
+  'checkbox',
+  'switch',
+  'spinner',
+  'radiogroup',
+  'checkboxgroup',
+]);
 
