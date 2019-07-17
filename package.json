@@ -28,7 +28,7 @@
     "@ctmobile/ui-tab-sd",
     "@ctmobile/ui-tree-sd",
     "@ctmobile/ui-util",
-    "@ct/build"
+    "@ctsj/build"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

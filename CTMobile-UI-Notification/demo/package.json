@@ -8,7 +8,7 @@
     "watch": "webpack --watch",
     "startapp": "ctbuild --type startapp",
     "buildapp": "ctbuild --type buildapp",
-    "link": "npm link @ct/build && npm link @ctmobile/ui-util && npm link @ctmobile/ui-demo-util && npm link @ctmobile/ui-notification"
+    "link": "npm link @ctsj/build && npm link @ctmobile/ui-util && npm link @ctmobile/ui-demo-util && npm link @ctmobile/ui-notification"
   },
   "author": "playerljc <playerljc@163.com>",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "jquery": "^3.3.1",
     "lodash": "^4.17.11",
     "normalize.less": "^1.0.0",
-    "@ct/build": "^1.0.0",
+    "@ctsj/build": "^1.0.0",
     "@ctmobile/ui-util": "^1.0.0",
     "@ctmobile/ui-demo-util": "^1.0.0",
     "@ctmobile/ui-notification": "^1.0.0"

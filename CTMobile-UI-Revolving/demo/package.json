@@ -8,7 +8,7 @@
     "watch": "webpack --watch",
     "startapp": "ctbuild --type startapp",
     "buildapp": "ctbuild --type buildapp",
-    "link": "npm link @ct/build && npm link @ctmobile/ui-demo-util && npm link @ctmobile/ui-revolving"
+    "link": "npm link @ctsj/build && npm link @ctmobile/ui-demo-util && npm link @ctmobile/ui-revolving"
   },
   "author": "playerljc <playerljc@163.com>",
   "license": "MIT",
@@ -33,6 +33,6 @@
     "normalize.less": "^1.0.0",
     "@ctmobile/ui-revolving": "^1.0.0",
     "@ctmobile/ui-demo-util": "^1.0.0",
-    "@ct/build": "^1.0.0"
+    "@ctsj/build": "^1.0.0"
   }
 }

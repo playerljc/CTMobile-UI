@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "buildpackage": "ctbuild --type buildpackage",
-    "link": "npm link @ct/build && npm link @ctmobile/ui-util"
+    "link": "npm link @ctsj/build && npm link @ctmobile/ui-util"
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/playerljc/CTMobile-UI#readme",
   "devDependencies": {
-    "@ct/build": "^1.0.0"
+    "@ctsj/build": "^1.0.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.2.0",

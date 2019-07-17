@@ -8,7 +8,7 @@
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
     "buildpackage": "ctcopy ../src src && ctbuild --type buildpackage",
     "buildumd": "ctcopy ../src src && ctbuild --type buildumd --packagename tree",
-    "link": "npm link @ct/build && npm link @ctmobile/ui-util"
+    "link": "npm link @ctsj/build && npm link @ctmobile/ui-util"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,6 @@
     "font-awesome": "^4.7.0"
   },
   "devDependencies": {
-    "@ct/build": "^1.0.0"
+    "@ctsj/build": "^1.0.0"
   }
 }

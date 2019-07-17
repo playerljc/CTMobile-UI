@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
     "buildpackage": "ctcopy ../src src && ctbuild --type buildpackage",
-    "link": "npm link @ct/build && npm link @ctmobile/ui-util"
+    "link": "npm link @ctsj/build && npm link @ctmobile/ui-util"
   },
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "@babel/runtime": "^7.2.0"
   },
   "devDependencies": {
-    "@ct/build": "^1.0.0",
+    "@ctsj/build": "^1.0.0",
     "swiper": "^4.5.0",
     "@ctmobile/ui-util": "^1.0.0"
   }
