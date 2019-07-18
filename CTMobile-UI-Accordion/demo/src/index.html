@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>ctmobile-ui-accordion-demo</title>
+</head>
+
+<body>
+
+<div class="ctmobile-ui-doc">
+
+  <!-- Accordion -->
+
+  <!--菜单-->
+  <h1>Accordion</h1>
+  <ul>
+    <li><a href="#accordion-layout">基本布局</a></li>
+    <li>
+      <a href="#accordion-type">类型</a>
+      <ul>
+        <li><a href="#accordion-type-radius">圆角灰边</a></li>
+        <li><a href="#accordion-type-base">极简无边框</a></li>
+        <li><a href="#accordion-type-classic">经典</a></li>
+        <li><a href="#accordion-type-arrow">箭头</a></li>
+      </ul>
+    </li>
+    <li><a href="#accordion-collapse">可折叠</a></li>
+    <li><a href="#accordion-initial">初始化</a></li>
+    <li><a href="#accordion-demo">例子</a></li>
+    <li><a href="#accordion-methods">方法</a></li>
+    <li>
+      <a href="#accordion-events">事件</a>
+      <ul>
+        <li><a href="#accordion-events-beforeshow">beforeshow</a></li>
+        <li><a href="#accordion-events-aftershow">aftershow</a></li>
+        <li><a href="#accordion-events-beforehide">beforehide</a></li>
+        <li><a href="#accordion-events-afterhide">afterhide</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--基本布局-->
+  <h2 id="accordion-layout">基本布局</h2>
+  <p>常见的布局如下：</p>
+  <pre>
+  <code class="html">
+    <div class="ct-accordion-radius">
+      <div>
+        <dl>
+          <dt>title...</dt>
+          <dd>
+            content...
+          </dd>
+        </dl>
+        <dl>
+          <dt>title...</dt>
+          <dd>
+            content...
+          </dd>
+        </dl>
+        <dl>
+          <dt>title...</dt>
+          <dd>
+            content...
+          </dd>
+        </dl>
+        ...
+      </div>
+    </div>
+  </code>
+  </pre>
+  <ul>
+    <li>
+      ct-accordion-... - 代表是一个accordion组件
+      <ul>
+        dl - 代表一组
+        <ul>
+          <li>dt - 头</li>
+          <li>dd - 体</li>
+        </ul>
+      </ul>
+    </li>
+  </ul>
+
+  <!--类型-->
+  <h2 id="accordion-type">类型</h2>
+  一共有四中类型：
+  <ul>
+    <li id="accordion-type-radius">
+      <dl>
+        <dt>圆角灰边</dt>
+        <dd>
+          <pre>
+        <code class="html">
+        <div class="ct-accordion-radius">
+          <div>
+            <dl>
+              <dt>item1-title</dt>
+              <dd>
+                第1项内容
+              </dd>
+            </dl>
+            <dl>
+              <dt>item2-title</dt>
+              <dd>
+                第二项内容
+              </dd>
+            </dl>
+            <dl>
+              <dt>item3-title</dt>
+              <dd>
+                第三项内容
+              </dd>
+            </dl>
+          </div>
+        </div>
+        </code>
+      </pre>
+        </dd>
+      </dl>
+    </li>
+    <li id="accordion-type-base">
+      <dl>
+        <dt>极简无边框</dt>
+        <dd>
+          <pre>
+        <code class="html">
+        <div class="ct-accordion-base">
+          <div>
+            <dl>
+              <dt>item1-title</dt>
+              <dd>
+                第1项内容
+              </dd>
+            </dl>
+            <dl>
+              <dt>item2-title</dt>
+              <dd>
+                第二项内容
+              </dd>
+            </dl>
+            <dl>
+              <dt>item3-title</dt>
+              <dd>
+                第三项内容
+              </dd>
+            </dl>
+          </div>
+        </div>
+        </code>
+          </pre>
+        </dd>
+      </dl>
+    </li>
+    <li id="accordion-type-classic">
+      <dl>
+        <dt>经典</dt>
+        <dd>
+          <pre>
+        <code class="html">
+        <div class="ct-accordion-classic">
+          <div>
+            <dl>
+              <dt>item1-title</dt>
+              <dd>
+                第1项内容
+              </dd>
+            </dl>
+            <dl>
+              <dt>item2-title</dt>
+              <dd>
+                第二项内容
+              </dd>
+            </dl>
+            <dl>
+              <dt>item3-title</dt>
+              <dd>
+                第三项内容
+              </dd>
+            </dl>
+          </div>
+        </div>
+        </code>
+          </pre>
+        </dd>
+      </dl>
+    </li>
+    <li id="accordion-type-arrow">
+      <dl>
+        <dt>箭头</dt>
+        <dd>
+          <pre>
+        <code class="html">
+        <div class="accordion-type-arrow">
+          <div>
+            <dl>
+              <dt>item1-title</dt>
+              <dd>
+                第1项内容
+              </dd>
+            </dl>
+            <dl>
+              <dt>item2-title</dt>
+              <dd>
+                第二项内容
+              </dd>
+            </dl>
+            <dl>
+              <dt>item3-title</dt>
+              <dd>
+                第三项内容
+              </dd>
+            </dl>
+          </div>
+        </div>
+        </code>
+          </pre>
+        </dd>
+      </dl>
+    </li>
+  </ul>
+
+  <!--可折叠-->
+  <h2 id="accordion-collapse">可折叠</h2>
+  <pre>
+  <code class="html">
+  <div class="ct-accordion-radius">
+    <div>
+      <dl>
+        <dt data-collapse="collapse">item1-title</dt>
+        <dd>
+          第1项内容
+        </dd>
+      </dl>
+      <dl>
+        <dt>item2-title</dt>
+        <dd>
+          第二项内容
+        </dd>
+      </dl>
+      <dl>
+        <dt>item3-title</dt>
+        <dd>
+          第三项内容
+        </dd>
+      </dl>
+    </div>
+  </div>
+  </code>
+  </pre>
+  <ul>
+    <li>
+      data-collapse="collapse"为默认打开
+    </li>
+  </ul>
+
+  <!--初始化-->
+  <h2 id="accordion-initial">初始化</h2>
+  <pre>
+  <code class="javascript">
+  import Accordion from @ctmobile/ui-accordion;
+  const accordion = Accordion(el);
+  </code>
+  </pre>
+
+  <!--例子-->
+  <h2 id="accordion-demo">例子</h2>
+  <div class="with-device">
+    <!--demo code-->
+    <div class="with-device-code">
+      <dl>
+        <dt><h4>html</h4></dt>
+        <dd>
+        <pre>
+      <code class="html">
+      <p>圆角灰边</p>
+      <div class="ct-accordion-radius">
+        <div>
+          <dl>
+            <dt>item1-title</dt>
+            <dd>
+              第1项内容
+            </dd>
+          </dl>
+          <dl>
+            <dt>item2-title</dt>
+            <dd>
+              第二项内容
+            </dd>
+          </dl>
+          <dl>
+            <dt>item3-title</dt>
+            <dd>
+              第三项内容
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <p>极简无边框</p>
+      <div class="ct-accordion-base">
+        <div>
+          <dl>
+            <dt>item1-title</dt>
+            <dd>
+              第1项内容
+            </dd>
+          </dl>
+          <dl>
+            <dt>item2-title</dt>
+            <dd>
+              第二项内容
+            </dd>
+          </dl>
+          <dl>
+            <dt>item3-title</dt>
+            <dd>
+              第三项内容
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <p>经典</p>
+      <div class="ct-accordion-classic">
+        <div>
+          <dl>
+            <dt>item1-title</dt>
+            <dd>
+              第1项内容
+            </dd>
+          </dl>
+          <dl>
+            <dt>item2-title</dt>
+            <dd>
+              第二项内容
+            </dd>
+          </dl>
+          <dl>
+            <dt>item3-title</dt>
+            <dd>
+              第三项内容
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <p>箭头</p>
+      <div class="accordion-type-arrow">
+        <div>
+          <dl>
+            <dt>item1-title</dt>
+            <dd>
+              第1项内容
+            </dd>
+          </dl>
+          <dl>
+            <dt>item2-title</dt>
+            <dd>
+              第二项内容
+            </dd>
+          </dl>
+          <dl>
+            <dt>item3-title</dt>
+            <dd>
+              第三项内容
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <p>默认展开</p>
+      <div class="ct-accordion-radius">
+        <div>
+          <dl>
+            <dt data-collapse="collapse">item1-title</dt>
+            <dd>
+              第1项内容
+            </dd>
+          </dl>
+          <dl>
+            <dt>item2-title</dt>
+            <dd>
+              第二项内容
+            </dd>
+          </dl>
+          <dl>
+            <dt>item3-title</dt>
+            <dd>
+              第三项内容
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <p>展开/(关闭)所有</p>
+      <div class="ct-accordion-radius">
+        <div>
+          <dl>
+            <dt>item1-title</dt>
+            <dd>
+              第1项内容
+            </dd>
+          </dl>
+          <dl>
+            <dt>item2-title</dt>
+            <dd>
+              第二项内容
+            </dd>
+          </dl>
+          <dl>
+            <dt>item3-title</dt>
+            <dd>
+              第三项内容
+            </dd>
+          </dl>
+        </div>
+      </div>
+      </code>
+        </pre>
+        </dd>
+      </dl>
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+        <pre>
+        <code class="javascript">
+        import $ from 'jquery';
+        import Accordion from '@ctmobile/ui-accordion';
+
+        Accordion($('#cuddd-ct-accordion-radius')[0]);
+        Accordion($('#cuddd-ct-accordion-base')[0]);
+        Accordion($('#cuddd-ct-accordion-classic')[0]);
+        Accordion($('#cuddd-ct-accordion-arrow')[0]);
+        Accordion($('#cuddd-collapse')[0]);
+        const collapseAll = Accordion($('#cuddd-collapse-all')[0]);
+        const collapseRefresh = Accordion($('#cuaddd-refresh')[0]);
+        const collapseMethods = Accordion($('#cuaddd-collapse-methods')[0]);
+
+        // 展开全部
+        $('#cuddd-collapse-openall').on('click', () => {
+          collapseAll.showAll();
+        });
+
+        // 关闭全部
+        $('#cuddd-collapse-closeall').on('click', () => {
+          collapseAll.closeAll();
+        });
+
+
+        // 动态修改样式
+        $('#cuaddd-refresh-dynamicclass').on('click', () => {
+          $('#cuaddd-refresh').find('[data-collapse="collapse"]').attr('data-collapse', '');
+        });
+
+        // 刷新
+        $('#cuaddd-refresh-dynamicrefresh').on('click', () => {
+          collapseRefresh.refresh();
+        });
+
+
+        const $dt = $('#cuaddd-collapse-methods-dt');
+
+        // 通过属性打开
+        $('#cuaddd-collpase-methods-modiprops-open').on('click', () => {
+          $dt[0].dataset.collapse = 'collapse';
+          collapseMethods.refresh();
+        });
+        // 通过属性关闭
+        $('#cuaddd-collpase-methods-modiprops-close').on('click', () => {
+          $dt[0].dataset.collapse = '';
+          collapseMethods.refresh();
+        });
+        // 通过api打开
+        $('#cuaddd-collpase-methods-api-open').on('click', () => {
+          collapseMethods.show($dt[0]);
+        });
+        // 通过api关闭
+        $('#cuaddd-collpase-methods-api-close').on('click', () => {
+          collapseMethods.close($dt[0]);
+        });
+        </code>
+        </pre>
+        </dd>
+      </dl>
+    </div>
+    <!--demo view-->
+    <div class="with-device-view">
+      <div class="ctmobile-ui-doc-demo-device">
+        <div class="ctmobile-ui-doc-demo-device-inner">
+          <h3>圆角灰边</h3>
+          <div id="cuddd-ct-accordion-radius" class="ct-accordion-radius">
+            <div>
+              <dl>
+                <dt>item1-title</dt>
+                <dd>
+                  第1项内容
+                </dd>
+              </dl>
+              <dl>
+                <dt>item2-title</dt>
+                <dd>
+                  第二项内容
+                </dd>
+              </dl>
+              <dl>
+                <dt>item3-title</dt>
+                <dd>
+                  第三项内容
+                </dd>
+              </dl>
+            </div>
+          </div>
+
+          <h3>极简无边框</h3>
+          <div id="cuddd-ct-accordion-base" class="ct-accordion-base">
+            <div>
+              <dl>
+                <dt>item1-title</dt>
+                <dd>
+                  第1项内容
+                </dd>
+              </dl>
+              <dl>
+                <dt>item2-title</dt>
+                <dd>
+                  第二项内容
+                </dd>
+              </dl>
+              <dl>
+                <dt>item3-title</dt>
+                <dd>
+                  第三项内容
+                </dd>
+              </dl>
+            </div>
+          </div>
+
+          <h3>经典</h3>
+          <div id="cuddd-ct-accordion-classic" class="ct-accordion-classic">
+            <div>
+              <dl>
+                <dt>item1-title</dt>
+                <dd>
+                  第1项内容
+                </dd>
+              </dl>
+              <dl>
+                <dt>item2-title</dt>
+                <dd>
+                  第二项内容
+                </dd>
+              </dl>
+              <dl>
+                <dt>item3-title</dt>
+                <dd>
+                  第三项内容
+                </dd>
+              </dl>
+            </div>
+          </div>
+
+          <h3>箭头</h3>
+          <div id="cuddd-ct-accordion-arrow" class="ct-accordion-arrow">
+            <div>
+              <dl>
+                <dt>item1-title</dt>
+                <dd>
+                  第1项内容
+                </dd>
+              </dl>
+              <dl>
+                <dt>item2-title</dt>
+                <dd>
+                  第二项内容
+                </dd>
+              </dl>
+              <dl>
+                <dt>item3-title</dt>
+                <dd>
+                  第三项内容
+                </dd>
+              </dl>
+            </div>
+          </div>
+
+          <h3>默认展开</h3>
+          <div id="cuddd-collapse" class="ct-accordion-radius">
+            <div>
+              <dl>
+                <dt data-collapse="collapse">item1-title</dt>
+                <dd>
+                  第1项内容
+                </dd>
+              </dl>
+              <dl>
+                <dt>item2-title</dt>
+                <dd>
+                  第二项内容
+                </dd>
+              </dl>
+              <dl>
+                <dt>item3-title</dt>
+                <dd>
+                  第三项内容
+                </dd>
+              </dl>
+            </div>
+          </div>
+
+          <h3>展开/(关闭)所有</h3>
+          <button id="cuddd-collapse-openall">全部展开</button>
+          <button id="cuddd-collapse-closeall">全部关闭</button>
+          <div id="cuddd-collapse-all" class="ct-accordion-radius">
+            <div>
+              <dl>
+                <dt>item1-title</dt>
+                <dd>
+                  第1项内容
+                </dd>
+              </dl>
+              <dl>
+                <dt>item2-title</dt>
+                <dd>
+                  第二项内容
+                </dd>
+              </dl>
+              <dl>
+                <dt>item3-title</dt>
+                <dd>
+                  第三项内容
+                </dd>
+              </dl>
+            </div>
+          </div>
+
+          <h3>调用刷新方法</h3>
+          <button id="cuaddd-refresh-dynamicclass">动态修改样式</button>
+          <button id="cuaddd-refresh-dynamicrefresh">刷新</button>
+          <div id="cuaddd-refresh" class="ct-accordion-radius">
+            <div>
+              <dl>
+                <dt data-collapse="collapse">item1-title</dt>
+                <dd>
+                  第1项内容
+                </dd>
+              </dl>
+              <dl>
+                <dt data-collapse="collapse">item2-title</dt>
+                <dd>
+                  第二项内容
+                </dd>
+              </dl>
+              <dl>
+                <dt data-collapse="collapse">item3-title</dt>
+                <dd>
+                  第三项内容
+                </dd>
+              </dl>
+            </div>
+          </div>
+
+          <h3>展开或关闭某一项</h3>
+          <button id="cuaddd-collpase-methods-modiprops-open">直接修改属性(打开)</button>
+          <button id="cuaddd-collpase-methods-modiprops-close">直接修改属性(关闭)</button>
+          <button id="cuaddd-collpase-methods-api-open">调用api(打开)</button>
+          <button id="cuaddd-collpase-methods-api-close">调用api(关闭)</button>
+          <div id="cuaddd-collapse-methods" class="ct-accordion-radius">
+            <div>
+              <dl>
+                <dt id="cuaddd-collapse-methods-dt">item1-title</dt>
+                <dd>
+                  第1项内容
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--方法-->
+  <h2 id="accordion-methods">方法</h2>
+  <div class="method-wrap">
+    <p>show(<span class="parameter">dtDom</span>) - 打开某一项</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">dtDom</span>-<span class="parameterType">HtmlElement</span> 要展开行dt元素的dom对象
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>close(<span class="parameter">dtDom</span>) - 关闭某一项</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">dtDom</span>-<span class="parameterType">HtmlElement</span> 要关闭行dt元素的dom对象
+      </li>
+    </ul>
+  </div>
+  <div class="method-wrap">
+    <p>showAll() - 打开所有项</p>
+  </div>
+  <div class="method-wrap">
+    <p>closeAll() - 关闭所有项</p>
+  </div>
+  <div class="method-wrap">
+    <p>refresh() - 刷新整个Accordion</p>
+  </div>
+  <div class="method-wrap">
+    <p>on(<span class="parameter">type</span>, <span class="parameter">handler</span>) - 注册事件</p>
+    <ul class="method-parameters">
+      <li>
+        <span class="parameter">type</span>-<span class="parameterType">string</span> 注册事件的类型,包括[beforeshow,aftershow,beforehide,afterhide]
+      </li>
+      <li>
+        <span class="parameter">handler</span>-<span class="parameterType">Function</span> 注册事件的回调函数
+      </li>
+    </ul>
+  </div>
+
+  <!--事件-->
+  <h2 id="accordion-events">事件</h2>
+  <table class="events-table" cellpadding="0" cellspacing="0">
+    <thead>
+      <tr>
+        <th>名称</th>
+        <th>说明</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="accordion-events-beforeshow">
+        <td>beforeshow</td>
+        <td>一项展开之前触发</td>
+      </tr>
+      <tr id="accordion-events-aftershow">
+        <td>aftershow</td>
+        <td>一项展开之后触发</td>
+      </tr>
+      <tr id="accordion-events-beforehide">
+        <td>beforehide</td>
+        <td>一项关闭之前触发</td>
+      </tr>
+      <tr id="accordion-events-afterhide">
+        <td>afterhide</td>
+        <td>一项关闭之后触发</td>
+      </tr>
+    </tbody>
+  </table>
+  <pre>
+  <code class="javascript">
+  import $ from 'jquery'
+  import Accordion from '@ctmobile/ui-accordion';
+
+  const accordion = Accordion($('#cuddd-ct-accordion-radius')[0]);
+  accordion.on('beforeshow', (dtDom) => {
+    console.log('beforeshow');
+  });
+  accordion.on('aftershow', (dtDom) => {
+    console.log('aftershow');
+  });
+  accordion.on('beforehide', (dtDom) => {
+    console.log('beforehide');
+  });
+  accordion.on('afterhide', (dtDom) => {
+    console.log('afterhide');
+  });
+  </code>
+  </pre>
+</div>
+
+
+</body>
+</html>
