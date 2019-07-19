@@ -10,6 +10,10 @@
     "buildumd": "ctcopy ../src src && ctbuild --type buildumd --packagename pullrefresh",
     "link": "npm link @ctsj/build && npm link @ctmobile/ui-util"
   },
+  "files": [
+    "lib",
+    "umd"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/playerljc/CTMobile-UI.git"

@@ -36,6 +36,10 @@
     "buildumd": "ctbuild --type buildumd --packagename ctmobile-ui",
     "link": "node script/link.js"
   },
+  "files": [
+    "lib",
+    "umd"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/playerljc/CTMobile-UI.git"

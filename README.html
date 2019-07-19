@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport
+        content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+  <title></title>
+  <script>
+
+  </script>
+</head>
+
+<body>
+  <div>
+    <span>English</span>|
+    <a href="https://github.com/playerljc/CTMobile-UI/README_zh-CN.md">中文</a>
+  </div>
+  <h1>CTMobile-UI</h1>
+  <p>Support for the UI component library on the mobile side</p>
+
+  <h2>install</h2>
+  <pre>
+    <code>
+      npm install @ctmobile/ui --save-dev
+    </code>
+  </pre>
+
+  <h2>use</h2>
+  <h3>import js</h3>
+  <pre><code>
+    import {Accordion} from '@ctmobile/ui';
+  </code></pre>
+
+  <h3>Introduced on demand js</h3>
+  <ul><li>use babel-plugin-import</li></ul>
+  <pre><code>
+    {
+      "plugins": [
+        ["import", { libraryName: "@ctmobile/ui"}]
+      ]
+    }
+  </code></pre>
+
+  <h3>import less</h3>
+  <pre><code>@import "../node_modules/@ctmobile/ui/lib/ctmobile-ui.less"</code></pre>
+
+  <h3><a href="https://playerljc.github.io/ctmobile-ui/index.html">doc</a></h3>
+</body>
+
+</html>

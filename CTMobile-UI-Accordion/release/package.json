@@ -1,6 +1,6 @@
 {
   "name": "@ctmobile/ui-accordion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "支持移动端的UI组件-手风琴",
   "main": "lib/accordion.js",
   "scripts": {
