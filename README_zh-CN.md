@@ -1,5 +1,5 @@
 中文 |
-[English](https://github.com/playerljc/CTMobile-UI/README.md)
+[English](https://github.com/playerljc/CTMobile-UI/blob/master/README.md)
 
 # CTMobile-UI
 
