@@ -59,7 +59,8 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-markdown": "^1.0.0-beta.6",
-    "eslint-plugin-react": "^7.0.1"
+    "eslint-plugin-react": "^7.0.1",
+    "@ctsj/build": "^1.0.2"
   },
   "dependencies": {
     "@babel/runtime": "^7.2.0",
@@ -70,6 +71,30 @@
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "photoswipe": "^4.1.2",
-    "swiper": "^4.4.6"
+    "swiper": "^4.4.6",
+    "@ctmobile/ui-accordion-sd": "^1.0.1",
+    "@ctmobile/ui-backtopanimation-sd": "^1.0.0",
+    "@ctmobile/ui-cascadecompared-sd": "^1.0.0",
+    "@ctmobile/ui-draglayout-sd": "^1.0.0",
+    "@ctmobile/ui-fontsizesetting-sd": "^1.0.0",
+    "@ctmobile/ui-form-sd": "^1.0.0",
+    "@ctmobile/ui-imageviewer-sd": "^1.0.0",
+    "@ctmobile/ui-jdcategorytab-sd": "^1.0.0",
+    "@ctmobile/ui-kwlist-sd": "^1.0.0",
+    "@ctmobile/ui-listview-sd": "^1.0.0",
+    "@ctmobile/ui-messagedialog-sd": "^1.0.0",
+    "@ctmobile/ui-notification-sd": "^1.0.0",
+    "@ctmobile/ui-popup-sd": "^1.0.0",
+    "@ctmobile/ui-pullrefresh-sd": "^1.0.0",
+    "@ctmobile/ui-revolving-sd": "^1.0.0",
+    "@ctmobile/ui-scrollload-sd": "^1.0.0",
+    "@ctmobile/ui-sidepanel-sd": "^1.0.0",
+    "@ctmobile/ui-sliderscale-sd": "^1.0.0",
+    "@ctmobile/ui-stickuplayout-sd": "^1.0.0",
+    "@ctmobile/ui-surnames-sd": "^1.0.0",
+    "@ctmobile/ui-swipeout-sd": "^1.0.0",
+    "@ctmobile/ui-tab-sd": "^1.0.0",
+    "@ctmobile/ui-tree-sd": "^1.0.0",
+    "@ctmobile/ui-util": "^1.0.0"
   }
 }
