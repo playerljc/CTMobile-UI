@@ -6,14 +6,11 @@ const runtimePath = process.cwd();
 // 命令的路径
 // const codePath = __dirname;
 
-// console.log('runtimePath',runtimePath);
-// console.log('codePath',codePath);
-
 let index = 0;
 
 function task(componentName) {
   return new Promise((resolve, reject) => {
-    const babelProcess = spawn(process.platform === 'win32' ? 'npm.cmd' : 'npm',
+    const taskProcess = spawn(process.platform === 'win32' ? 'npm.cmd' : 'npm',
       [
         'link',
         componentName,
@@ -23,15 +20,15 @@ function task(componentName) {
         encoding: 'utf-8',
       });
 
-    babelProcess.stdout.on('data', (data) => {
+    taskProcess.stdout.on('data', (data) => {
       console.log(`stdout: ${data}`);
     });
 
-    babelProcess.stderr.on('data', (data) => {
+    taskProcess.stderr.on('data', (data) => {
       console.log(`stderr: ${data}`);
     });
 
-    babelProcess.on('close', (code) => {
+    taskProcess.on('close', (code) => {
       console.log(`link：${code}`);
       resolve();
     });

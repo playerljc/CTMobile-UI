@@ -1,13 +1,21 @@
 const path = require('path');
 
 module.exports = {
-  getConfig(config) {
-    return {
-      // resolve: {
-      //   alias: {
-      //     '@ctmobile/ui-messagedialog': path.resolve(__dirname, 'src/ctmobile-ui-messagedialog'),
-      //   },
-      // },
-    };
+  getConfig({ curModule }) {
+    if (curModule.mode === 'production') {
+      return {
+        output: {
+          publicPath: '/playerljc.github.io/ctmobile-ui/html/MessageDialog/',
+        },
+      };
+    } else {
+      return {
+        // resolve: {
+        //   alias: {
+        //     '@ctmobile/ui-messagedialog': path.resolve(__dirname, 'src/ctmobile-ui-messagedialog'),
+        //   },
+        // },
+      };
+    }
   },
 };

@@ -1,36 +1,43 @@
-export default {
-  dynamic: {
-    url: '/static/html/dynamic.html',
-    component: import(/* webpackChunkName: "page" */ './pages/dynamic'),
-  },
+export default function () {
+  let context = '/';
+  if (process.env.NODE_ENV === 'production') {
+    context = '/playerljc.github.io/ctmobile-ui/html/Tab/';
+  }
 
-  average: {
-    url: '/static/html/average.html',
-    component: import(/* webpackChunkName: "page" */ './pages/average'),
-  },
+  return {
+    dynamic: {
+      url: `${context}static/html/dynamic.html`,
+      component: import(/* webpackChunkName: "page" */ './pages/dynamic'),
+    },
 
-  tabBar: {
-    url: '/static/html/tabBar.html',
-    component: import(/* webpackChunkName: "page" */ './pages/tabBar'),
-  },
+    average: {
+      url: `${context}static/html/average.html`,
+      component: import(/* webpackChunkName: "page" */ './pages/average'),
+    },
 
-  left: {
-    url: '/static/html/left.html',
-    component: import(/* webpackChunkName: "page" */ './pages/left'),
-  },
+    tabBar: {
+      url: `${context}static/html/tabBar.html`,
+      component: import(/* webpackChunkName: "page" */ './pages/tabBar'),
+    },
 
-  cascadeTopBottom: {
-    url: '/static/html/cascadeTopBottom.html',
-    component: import(/* webpackChunkName: "page" */ './pages/cascadeTopBottom'),
-  },
+    left: {
+      url: `${context}static/html/left.html`,
+      component: import(/* webpackChunkName: "page" */ './pages/left'),
+    },
 
-  cascadeLeftRight: {
-    url: '/static/html/cascadeLeftRight.html',
-    component: import(/* webpackChunkName: "page" */ './pages/cascadeLeftRight'),
-  },
-  update: {
-    url: '/static/html/update.html',
-    component: import(/* webpackChunkName: "page" */ './pages/update'),
-  },
+    cascadeTopBottom: {
+      url: `${context}static/html/cascadeTopBottom.html`,
+      component: import(/* webpackChunkName: "page" */ './pages/cascadeTopBottom'),
+    },
 
-};
+    cascadeLeftRight: {
+      url: `${context}static/html/cascadeLeftRight.html`,
+      component: import(/* webpackChunkName: "page" */ './pages/cascadeLeftRight'),
+    },
+    update: {
+      url: `${context}static/html/update.html`,
+      component: import(/* webpackChunkName: "page" */ './pages/update'),
+    },
+
+  };
+}

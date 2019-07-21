@@ -30,11 +30,37 @@
     "@ctmobile/ui-util",
     "@ctsj/build"
   ],
+  "components": [
+    "Accordion",
+    "BackTopAnimation",
+    "CascadeCompared",
+    "DragLayout",
+    "FontSizeSetting",
+    "Form",
+    "ImageViewer",
+    "JdCategoryTab",
+    "KwList",
+    "ListView",
+    "MessageDialog",
+    "Notification",
+    "Popup",
+    "PullRefresh",
+    "Revolving",
+    "ScrollLoad",
+    "SidePanel",
+    "SliderScale",
+    "StickupLayout",
+    "Surnames",
+    "Swipeout",
+    "Tab",
+    "Tree"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "buildpackage": "ctbuild --type buildpackage",
     "buildumd": "ctbuild --type buildumd --packagename ctmobile-ui",
-    "link": "node script/link.js"
+    "link": "node script/link.js",
+    "builddemo": "node script/builddemo.js"
   },
   "files": [
     "lib",

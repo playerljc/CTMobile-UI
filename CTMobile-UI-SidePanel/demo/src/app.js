@@ -12,7 +12,7 @@ class App {
     this.ctmobile = CtMobile.CtMobileFactory.create({
       supportCordova: false,
       linkCaptureReload: false,
-      router: Router,
+      router: Router(),
     });
   }
 

@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const runtimePath = 'D:\\frameworker\\frameworks\\ctmobile\\CTMobile-UI\\CTMobile-UI-SidePanel\\demo\\';
 
 module.exports = {
-  getConfig({plugins}) {
+  getConfig({ curModule, plugins }) {
     return {
       /**
        * 入口
@@ -13,7 +13,9 @@ module.exports = {
       entry: {
         mobile: `${runtimePath}src\\mobile.js`,
       },
-
+      output: {
+        publicPath: curModule.mode === 'production' ? '/playerljc.github.io/ctmobile-ui/html/SidePanel/' : '/',
+      },
       plugins: [
         new plugins.HtmlWebpackPlugin({
           title: 'CtMobile Demo',
