@@ -1,10 +1,9 @@
+const path = require('path');
 const { spawn } = require('child_process');
 const links = require('../package.json').links;
 
-// 运行命令的路径
-const runtimePath = process.cwd();
-// 命令的路径
-// const codePath = __dirname;
+
+const runtimePath = path.dirname(__dirname);
 
 let index = 0;
 

@@ -2,11 +2,8 @@ const path = require('path');
 const { spawn } = require('child_process');
 const components = require('../package.json').components;
 
-// 运行命令的路径
-const runtimePath = process.cwd();
+const runtimePath = path.dirname(__dirname);
 const binPath = path.join(runtimePath, 'node_modules', '.bin');
-// 命令的路径
-// const codePath = __dirname;
 
 let index = 0;
 
