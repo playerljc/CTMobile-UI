@@ -178,7 +178,11 @@ function expand(expaned) {
  */
 function onLoadRemoteSuccess(children) {
   const { nodeGlobalConfig, nodeConfig } = this;
-  if (children.length <= 0) return false;
+  // if (children.length <= 0) return false;
+  if (children.length <= 0) {
+    nodeConfig.leaf = true;
+    this.itemTriggerEl.classList.add('invisible');
+  }
 
   // 清空之前的
   this.childrenNodes = [];
@@ -295,6 +299,7 @@ function renderInput() {
 function renderCheckboxCheckAll() {
   Dom6.removeClass(this.itemInputEl, `fa-${checkboxIcon.uncheckall} fa-${checkboxIcon.unchecked}`);
   Dom6.addClass(this.itemInputEl, `fa-${checkboxIcon.checkall}`);
+  this.events.trigger('checked', this, true);
 }
 
 /**
@@ -304,6 +309,7 @@ function renderCheckboxCheckAll() {
 function renderCheckboxUncheckall() {
   Dom6.removeClass(this.itemInputEl, `fa-${checkboxIcon.checkall} fa-${checkboxIcon.unchecked}`);
   Dom6.addClass(this.itemInputEl, `fa-${checkboxIcon.uncheckall}`);
+  this.events.trigger('checked', this, false);
 }
 
 /**
@@ -313,6 +319,7 @@ function renderCheckboxUncheckall() {
 function renderCheckboxUnchecked() {
   Dom6.removeClass(this.itemInputEl, `fa-${checkboxIcon.checkall} fa-${checkboxIcon.uncheckall}`);
   Dom6.addClass(this.itemInputEl, `fa-${checkboxIcon.unchecked}`);
+  this.events.trigger('checked', this, false);
 }
 
 /**
@@ -828,6 +835,7 @@ class TreeNode {
     if (checkeds.length === checkboxNodes.length) {
       this.itemInputFieldEl.checked = true;
       renderCheckboxCheckAll.call(this);
+      this.events.trigger('checked', this, true);
       if (this.parentNode) {
         this.parentNode.checkboxDrillUp();
       }
@@ -840,6 +848,8 @@ class TreeNode {
       } else {
         renderCheckboxUnchecked.call(this);
       }
+
+      this.events.trigger('checked', this, false);
 
       if (this.parentNode) {
         this.parentNode.checkboxDrillUp();
@@ -877,8 +887,10 @@ class TreeNode {
    */
   checked(check) {
     checked.call(this, check);
-    this.detailItemInputsRecursive();
-    this.events.trigger('checked', this, check);
+    if (this.isLeaf()) {
+      this.detailItemInputsRecursive();
+      this.events.trigger('checked', this, check);
+    }
   }
 
   /**
