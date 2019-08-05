@@ -25,7 +25,11 @@ export default {
     }
 
     if (parentDom) {
-      return parentDom;
+      if (parentDom === document.body) {
+        return null;
+      } else {
+        return parentDom;
+      }
     } else {
       return null;
     }
@@ -147,11 +151,11 @@ export default {
    * @return {HtmlElement}
    */
   prevSibling(dom) {
-    let result,
-      index = -1;
+    let result;
+    let index = -1;
     if (!dom || !dom.parentNode) return result;
 
-    const children = dom.parentNode.children;
+    const { children } = dom.parentNode;
     for (let i = 0; i < children.length; i++) {
       if (dom === children[i]) {
         index = i;
@@ -174,11 +178,11 @@ export default {
    * @return {HtmlElement}
    */
   nextSibling(dom) {
-    let result,
-      index = -1;
+    let result;
+    let index = -1;
     if (!dom || !dom.parentNode) return result;
 
-    const children = dom.parentNode.children;
+    const { children } = dom.parentNode;
     for (let i = 0; i < children.length; i++) {
       if (dom === children[i]) {
         index = i;

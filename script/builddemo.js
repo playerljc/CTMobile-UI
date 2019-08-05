@@ -1,3 +1,7 @@
+/**
+ * 将所有组件build后的dist同步到playerljc.github.io工程的ctmobile-ui/html/${componentName}中
+ */
+
 const path = require('path');
 const { spawn } = require('child_process');
 const components = require('../package.json').components;

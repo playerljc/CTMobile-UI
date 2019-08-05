@@ -1,5 +1,9 @@
 import DemoUtil from '@ctmobile/ui-demo-util';
-import TreeFactory from '@ctmobile/ui-tree';
+import TreeFactory from '@ctmobile/ui-tree/tree';
+
+import '@ctmobile/ui-tree/themes/default/tree.less';
+import '@ctmobile/ui-tree/tree.less';
+
 import './index.less';
 
 DemoUtil.initial();
@@ -167,6 +171,158 @@ TreeFactory.create(document.getElementById('tree-checkbox'), {
       type: 'checkbox',
       checked: false,
       leaf: true,
+    }],
+  },
+});
+
+(function () {
+  const checkedNodes = [];
+  TreeFactory.create(document.getElementById('tree-beforechecked'), {
+    listeners: {
+      beforeChecked: (n, checked) => {
+        console.log('beforechecked:', n.nodeConfig.label);
+        if (checked) {
+          const flag = checkedNodes.length < 5;
+          if (!flag) {
+            alert('最多选择5个节点');
+          }
+          return flag;
+        } else {
+          return true;
+        }
+      },
+      checked: (n, checked) => {
+        console.log('checked:', n.nodeConfig.label, checked);
+        if (checked) {
+          if (checkedNodes.indexOf(n) === -1) {
+            checkedNodes.push(n);
+          }
+        } else {
+          const index = checkedNodes.indexOf(n);
+          if (index !== -1) {
+            checkedNodes.splice(index, 1);
+          }
+        }
+      },
+    },
+    nodeConfig: {
+      config: Object.assign({}, Object.assign({}, globalConfig, {
+        checkedCascade: false,
+      })),
+      data: [{
+        label: '节点1',
+        icon: 'folder',
+        iconColor: '#ccc',
+        type: 'checkbox',
+        expand: true,
+        leaf: false,
+        children: [{
+          label: '节点1.1',
+          icon: 'folder',
+          iconColor: '#ccc',
+          type: 'checkbox',
+          checked: false,
+          leaf: false,
+          children: [{
+            label: '节点1.1.1',
+            icon: 'folder',
+            iconColor: '#ccc',
+            type: 'checkbox',
+            checked: false,
+            leaf: true,
+          }, {
+            label: '节点1.1.2',
+            icon: 'folder',
+            iconColor: '#ccc',
+            type: 'checkbox',
+            checked: false,
+            leaf: true,
+          }],
+        }, {
+          label: '节点1.2',
+          icon: 'folder',
+          iconColor: '#ccc',
+          type: 'checkbox',
+          checked: false,
+          leaf: false,
+          children: [{
+            label: '节点1.2.1',
+            icon: 'folder',
+            iconColor: '#ccc',
+            type: 'checkbox',
+            checked: false,
+            leaf: true,
+          }, {
+            label: '节点1.2.2',
+            icon: 'folder',
+            iconColor: '#ccc',
+            type: 'checkbox',
+            checked: false,
+            leaf: true,
+          }],
+        }],
+      }],
+    },
+  });
+}());
+
+TreeFactory.create(document.getElementById('tree-checkedCascade'), {
+  nodeConfig: {
+    config: Object.assign({}, Object.assign({}, globalConfig, {
+      checkedCascade: false,
+    })),
+    data: [{
+      label: '节点1',
+      icon: 'folder',
+      iconColor: '#ccc',
+      type: 'checkbox',
+      expand: true,
+      leaf: false,
+      children: [{
+        label: '节点1.1',
+        icon: 'folder',
+        iconColor: '#ccc',
+        type: 'checkbox',
+        checked: false,
+        leaf: false,
+        children: [{
+          label: '节点1.1.1',
+          icon: 'folder',
+          iconColor: '#ccc',
+          type: 'checkbox',
+          checked: false,
+          leaf: true,
+        }, {
+          label: '节点1.1.2',
+          icon: 'folder',
+          iconColor: '#ccc',
+          type: 'checkbox',
+          checked: false,
+          leaf: true,
+        }],
+      }, {
+        label: '节点1.2',
+        icon: 'folder',
+        iconColor: '#ccc',
+        type: 'checkbox',
+        checked: false,
+        leaf: false,
+        children: [{
+          label: '节点1.2.1',
+          icon: 'folder',
+          iconColor: '#ccc',
+          type: 'checkbox',
+          checked: false,
+          leaf: true,
+        }, {
+          label: '节点1.2.2',
+          icon: 'folder',
+          iconColor: '#ccc',
+          type: 'checkbox',
+          checked: false,
+          leaf: true,
+        }],
+      }],
     }],
   },
 });

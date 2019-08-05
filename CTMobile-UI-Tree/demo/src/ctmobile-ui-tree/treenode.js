@@ -94,13 +94,33 @@ function checked(checked) {
   if (this.isCheckboxType()) {
     if (this.getType() === 'checkbox') {
       this.itemInputFieldEl.checked = checked;
-      if (!this.isLeaf()) {
+      const { checkedCascade = true } = this.config;
+      if (checkedCascade && !this.isLeaf()) {
         for (let i = 0; i < this.childrenNodes.length; i++) {
           const treeNode = this.childrenNodes[i];
           treeNode.checked(checked);
         }
       }
     }
+  }
+}
+
+/**
+ * checkedDetail
+ * @param {boolean} - check
+ * @access private
+ */
+function checkedDetail(check) {
+  const { checkedCascade = true } = this.config;
+  checked.call(this, check);
+  if (checkedCascade) {
+    if (this.isLeaf()) {
+      this.events.trigger('checked', this, check);
+      this.detailItemInputsRecursive();
+    }
+  } else {
+    this.detailItemInputsRecursive();
+    this.events.trigger('checked', this, check);
   }
 }
 
@@ -299,7 +319,6 @@ function renderInput() {
 function renderCheckboxCheckAll() {
   Dom6.removeClass(this.itemInputEl, `fa-${checkboxIcon.uncheckall} fa-${checkboxIcon.unchecked}`);
   Dom6.addClass(this.itemInputEl, `fa-${checkboxIcon.checkall}`);
-  this.events.trigger('checked', this, true);
 }
 
 /**
@@ -309,7 +328,6 @@ function renderCheckboxCheckAll() {
 function renderCheckboxUncheckall() {
   Dom6.removeClass(this.itemInputEl, `fa-${checkboxIcon.checkall} fa-${checkboxIcon.unchecked}`);
   Dom6.addClass(this.itemInputEl, `fa-${checkboxIcon.uncheckall}`);
-  this.events.trigger('checked', this, false);
 }
 
 /**
@@ -319,7 +337,6 @@ function renderCheckboxUncheckall() {
 function renderCheckboxUnchecked() {
   Dom6.removeClass(this.itemInputEl, `fa-${checkboxIcon.checkall} fa-${checkboxIcon.uncheckall}`);
   Dom6.addClass(this.itemInputEl, `fa-${checkboxIcon.unchecked}`);
-  this.events.trigger('checked', this, false);
 }
 
 /**
@@ -786,6 +803,22 @@ class TreeNode {
   }
 
   /**
+   * isSubChecked
+   * @return {boolean}
+   */
+  isSubChecked() {
+    if (this.isCheckboxType()) {
+      if (this.itemInputEl) {
+        return this.itemInputEl.classList.contains(`fa-${checkboxIcon.uncheckall}`);
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  /**
    * getType
    * @return {string}
    */
@@ -846,7 +879,14 @@ class TreeNode {
         // 子节点有选中的
         renderCheckboxUncheckall.call(this);
       } else {
-        renderCheckboxUnchecked.call(this);
+        const subCheckeds = checkboxNodes.filter((node) => {
+          return node.isSubChecked();
+        });
+        if (subCheckeds.length !== 0) {
+          renderCheckboxUncheckall.call(this);
+        } else {
+          renderCheckboxUnchecked.call(this);
+        }
       }
 
       this.events.trigger('checked', this, false);
@@ -861,23 +901,30 @@ class TreeNode {
    * detailItemInputsRecursive
    */
   detailItemInputsRecursive() {
-    if (this.isLeaf()) {
-      if (this.getType() === 'checkbox') {
-        if (this.isChecked()) {
-          renderCheckboxCheckAll.call(this);
-        } else {
-          renderCheckboxUnchecked.call(this);
+    const { checkedCascade = true } = this.config;
+    if (checkedCascade) {
+      if (this.isLeaf()) {
+        if (this.getType() === 'checkbox') {
+          if (this.isChecked()) {
+            renderCheckboxCheckAll.call(this);
+          } else {
+            renderCheckboxUnchecked.call(this);
+          }
+          const parentNode = this.getParentNode();
+          if (parentNode) {
+            parentNode.checkboxDrillUp();
+          }
         }
-        const parentNode = this.getParentNode();
-        if (parentNode) {
-          parentNode.checkboxDrillUp();
+      } else {
+        const children = this.childrens();
+        for (let i = 0; i < children.length; i++) {
+          children[i].detailItemInputsRecursive();
         }
       }
+    } else if (this.isChecked()) {
+      renderCheckboxCheckAll.call(this);
     } else {
-      const children = this.childrens();
-      for (let i = 0; i < children.length; i++) {
-        children[i].detailItemInputsRecursive();
-      }
+      renderCheckboxUnchecked.call(this);
     }
   }
 
@@ -886,10 +933,18 @@ class TreeNode {
    * @param {boolean} - check
    */
   checked(check) {
-    checked.call(this, check);
-    if (this.isLeaf()) {
-      this.detailItemInputsRecursive();
-      this.events.trigger('checked', this, check);
+    const { checkedCascade = true } = this.config;
+    if (!checkedCascade) {
+      if (this.events.hasType('beforeChecked')) {
+        const flag = this.events.trigger('beforeChecked', this, check);
+        if (flag) {
+          checkedDetail.call(this, check);
+        }
+      } else {
+        checkedDetail.call(this, check);
+      }
+    } else {
+      checkedDetail.call(this, check);
     }
   }
 

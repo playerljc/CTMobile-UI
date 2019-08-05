@@ -24,6 +24,7 @@
         <li><a href="#tree-events-click">click</a></li>
         <li><a href="#tree-events-expand">expand</a></li>
         <li><a href="#tree-events-checked">checked</a></li>
+        <li><a href="#tree-events-beforeChecked">beforeChecked</a></li>
         <li><a href="#tree-events-loadremote">loadRemote</a></li>
       </ul>
     </li>
@@ -139,6 +140,12 @@ TreeFactory.create(document.getElementById('tree'),{
                 </div>
                 <div class="method-wrap">
                   <p>checked {boolean} - [true | false] 如果type是checkbox 是否选中</p>
+                </div>
+                <div class="method-wrap">
+                  <p>checked {boolean} - [true | false] 如果type是checkbox 是否选中</p>
+                </div>
+                <div class="method-wrap">
+                  <p>checkedCascade {boolean} - [true | false] 默认是true 如果type是checkbox 是否支持级联操作</p>
                 </div>
                 <div class="method-wrap">
                   <p>children {Array} - 子节点</p>
@@ -349,6 +356,168 @@ TreeFactory.create(document.getElementById('tree-checkbox'), {
   },
 });
 </code>
+</pre>
+
+          <h2>beforeChecked控制最多check的节点数</h2>
+<pre>
+  <code class="javascript">
+(function () {
+  const checkedNodes = [];
+  TreeFactory.create(document.getElementById('tree-beforechecked'), {
+    listeners: {
+      beforeChecked: (n, checked) =&gt; {
+        console.log('beforechecked:', n.nodeConfig.label);
+        if (checked) {
+          const flag = checkedNodes.length &lt; 5;
+          if (!flag) {
+            alert('最多选择5个节点');
+          }
+          return flag;
+        } else {
+          return true;
+        }
+      },
+      checked: (n, checked) =&gt; {
+        console.log('checked:', n.nodeConfig.label, checked);
+        if (checked) {
+          if (checkedNodes.indexOf(n) === -1) {
+            checkedNodes.push(n);
+          }
+        } else {
+          const index = checkedNodes.indexOf(n);
+          if (index !== -1) {
+            checkedNodes.splice(index, 1);
+          }
+        }
+      },
+    },
+    nodeConfig: {
+      config: Object.assign({}, Object.assign({}, globalConfig, {
+        checkedCascade: false,
+      })),
+      data: [{
+        label: '节点1',
+        icon: 'folder',
+        iconColor: '#ccc',
+        type: 'checkbox',
+        expand: true,
+        leaf: false,
+        children: [{
+          label: '节点1.1',
+          icon: 'folder',
+          iconColor: '#ccc',
+          type: 'checkbox',
+          checked: false,
+          leaf: false,
+          children: [{
+            label: '节点1.1.1',
+            icon: 'folder',
+            iconColor: '#ccc',
+            type: 'checkbox',
+            checked: false,
+            leaf: true,
+          }, {
+            label: '节点1.1.2',
+            icon: 'folder',
+            iconColor: '#ccc',
+            type: 'checkbox',
+            checked: false,
+            leaf: true,
+          }],
+        }, {
+          label: '节点1.2',
+          icon: 'folder',
+          iconColor: '#ccc',
+          type: 'checkbox',
+          checked: false,
+          leaf: false,
+          children: [{
+            label: '节点1.2.1',
+            icon: 'folder',
+            iconColor: '#ccc',
+            type: 'checkbox',
+            checked: false,
+            leaf: true,
+          }, {
+            label: '节点1.2.2',
+            icon: 'folder',
+            iconColor: '#ccc',
+            type: 'checkbox',
+            checked: false,
+            leaf: true,
+          }],
+        }],
+      }],
+    },
+  });
+}());
+  </code>
+</pre>
+
+          <h2>checked不受控</h2>
+<pre>
+  <code class="javascript">
+TreeFactory.create(document.getElementById('tree-checkedCascade'), {
+  nodeConfig: {
+    config: Object.assign({}, Object.assign({}, globalConfig, {
+      checkedCascade: false,
+    })),
+    data: [{
+      label: '节点1',
+      icon: 'folder',
+      iconColor: '#ccc',
+      type: 'checkbox',
+      expand: true,
+      leaf: false,
+      children: [{
+        label: '节点1.1',
+        icon: 'folder',
+        iconColor: '#ccc',
+        type: 'checkbox',
+        checked: false,
+        leaf: false,
+        children: [{
+          label: '节点1.1.1',
+          icon: 'folder',
+          iconColor: '#ccc',
+          type: 'checkbox',
+          checked: false,
+          leaf: true,
+        }, {
+          label: '节点1.1.2',
+          icon: 'folder',
+          iconColor: '#ccc',
+          type: 'checkbox',
+          checked: false,
+          leaf: true,
+        }],
+      }, {
+        label: '节点1.2',
+        icon: 'folder',
+        iconColor: '#ccc',
+        type: 'checkbox',
+        checked: false,
+        leaf: false,
+        children: [{
+          label: '节点1.2.1',
+          icon: 'folder',
+          iconColor: '#ccc',
+          type: 'checkbox',
+          checked: false,
+          leaf: true,
+        }, {
+          label: '节点1.2.2',
+          icon: 'folder',
+          iconColor: '#ccc',
+          type: 'checkbox',
+          checked: false,
+          leaf: true,
+        }],
+      }],
+    }],
+  },
+});
+  </code>
 </pre>
 
           <h2>checkbox-remote</h2>
@@ -716,11 +885,26 @@ TreeFactory.create(document.getElementById('tree-click'), {
             </dl>
 
             <dl>
+              <dt><h3>beforeChecked控制最多check的节点数</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-beforechecked"></div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt><h3>checked不受控</h3></dt>
+              <dd>
+                <div class="ct-tree" id="tree-checkedCascade"></div>
+              </dd>
+            </dl>
+
+            <dl>
               <dt><h3>checkbox</h3></dt>
               <dd>
                 <div class="ct-tree" id="tree-checkbox"></div>
               </dd>
             </dl>
+
 
             <dl>
               <dt><h3>checkbox-remote</h3></dt>
@@ -1181,6 +1365,10 @@ TreeFactory.create(document.getElementById('tree-click'), {
       </div>
 
       <div class="method-wrap">
+        <p>isSubChecked - 是否是部分选中</p>
+      </div>
+
+      <div class="method-wrap">
         <p>getType - 获取节点类型</p>
       </div>
 
@@ -1234,6 +1422,10 @@ TreeFactory.create(document.getElementById('tree-click'), {
     <tr id="tree-events-checked">
       <td>checked</td>
       <td>节点选中或反选</td>
+    </tr>
+    <tr id="tree-events-beforeChecked">
+      <td>beforeChecked</td>
+      <td>节点选中或反选之前</td>
     </tr>
     <tr id="tree-events-loadremote">
       <td>loadRemote</td>
