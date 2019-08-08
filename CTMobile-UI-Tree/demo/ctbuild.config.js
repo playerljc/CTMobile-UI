@@ -35,11 +35,11 @@ module.exports = {
         //     },
         //   ]),
         // ],
-        resolve: {
-          alias: {
-            '@ctmobile/ui-tree': path.resolve(__dirname, 'src/ctmobile-ui-tree'),
-          },
-        },
+        // resolve: {
+        //   alias: {
+        //     '@ctmobile/ui-tree': path.resolve(__dirname, 'src/ctmobile-ui-tree'),
+        //   },
+        // },
       };
     }
   },

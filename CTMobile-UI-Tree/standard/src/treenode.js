@@ -111,9 +111,17 @@ function checked(checked) {
  * @access private
  */
 function checkedDetail(check) {
+  const { checkedCascade = true } = this.config;
   checked.call(this, check);
-  this.detailItemInputsRecursive();
-  this.events.trigger('checked', this, check);
+  if (checkedCascade) {
+    if (this.isLeaf()) {
+      this.events.trigger('checked', this, check);
+      this.detailItemInputsRecursive();
+    }
+  } else {
+    this.detailItemInputsRecursive();
+    this.events.trigger('checked', this, check);
+  }
 }
 
 /**
@@ -311,7 +319,6 @@ function renderInput() {
 function renderCheckboxCheckAll() {
   Dom6.removeClass(this.itemInputEl, `fa-${checkboxIcon.uncheckall} fa-${checkboxIcon.unchecked}`);
   Dom6.addClass(this.itemInputEl, `fa-${checkboxIcon.checkall}`);
-  this.events.trigger('checked', this, true);
 }
 
 /**
@@ -321,7 +328,6 @@ function renderCheckboxCheckAll() {
 function renderCheckboxUncheckall() {
   Dom6.removeClass(this.itemInputEl, `fa-${checkboxIcon.checkall} fa-${checkboxIcon.unchecked}`);
   Dom6.addClass(this.itemInputEl, `fa-${checkboxIcon.uncheckall}`);
-  this.events.trigger('checked', this, false);
 }
 
 /**
@@ -331,7 +337,6 @@ function renderCheckboxUncheckall() {
 function renderCheckboxUnchecked() {
   Dom6.removeClass(this.itemInputEl, `fa-${checkboxIcon.checkall} fa-${checkboxIcon.uncheckall}`);
   Dom6.addClass(this.itemInputEl, `fa-${checkboxIcon.unchecked}`);
-  this.events.trigger('checked', this, false);
 }
 
 /**
@@ -798,6 +803,22 @@ class TreeNode {
   }
 
   /**
+   * isSubChecked
+   * @return {boolean}
+   */
+  isSubChecked() {
+    if (this.isCheckboxType()) {
+      if (this.itemInputEl) {
+        return this.itemInputEl.classList.contains(`fa-${checkboxIcon.uncheckall}`);
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  /**
    * getType
    * @return {string}
    */
@@ -858,7 +879,14 @@ class TreeNode {
         // 子节点有选中的
         renderCheckboxUncheckall.call(this);
       } else {
-        renderCheckboxUnchecked.call(this);
+        const subCheckeds = checkboxNodes.filter((node) => {
+          return node.isSubChecked();
+        });
+        if (subCheckeds.length !== 0) {
+          renderCheckboxUncheckall.call(this);
+        } else {
+          renderCheckboxUnchecked.call(this);
+        }
       }
 
       this.events.trigger('checked', this, false);
@@ -905,9 +933,14 @@ class TreeNode {
    * @param {boolean} - check
    */
   checked(check) {
-    if (this.events.hasType('beforeChecked')) {
-      const flag = this.events.trigger('beforeChecked', this, check);
-      if (flag) {
+    const { checkedCascade = true } = this.config;
+    if (!checkedCascade) {
+      if (this.events.hasType('beforeChecked')) {
+        const flag = this.events.trigger('beforeChecked', this, check);
+        if (flag) {
+          checkedDetail.call(this, check);
+        }
+      } else {
         checkedDetail.call(this, check);
       }
     } else {

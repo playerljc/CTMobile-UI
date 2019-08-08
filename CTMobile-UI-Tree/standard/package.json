@@ -1,6 +1,6 @@
 {
   "name": "@ctmobile/ui-tree-sd",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "支持移动端的UI组件-Tree",
   "main": "lib/tree.js",
   "scripts": {
