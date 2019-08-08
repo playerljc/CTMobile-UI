@@ -74,11 +74,13 @@ class Events {
    * @param {Object} params
    */
   trigger(type, ...params) {
+    let result;
     if (this.events[type]) {
       this.events[type].handlers.forEach((handler) => {
-        handler(...params);
+        result = handler(...params);
       });
     }
+    return result;
   }
 
   /**

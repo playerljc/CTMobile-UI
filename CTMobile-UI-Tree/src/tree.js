@@ -6,6 +6,7 @@
     click: Function(n) -- 节点的点击(不是点击展开和关闭按钮)
     expand: Function(n, expand) -- 节点的张开和关闭
     checked: Function(n, checked) -- 节点的check的正选或反选，带级联的触发
+    beforeChecked: Function(n, checked) --节点的check正选或反选之前触发，如果返回false则阻止操作,只有在checkedCascade为false的时候才生效
     loadRemote: Function(n, success,error,complete) -- loadType是remote时加载远程数据，调用callback传回数据
   }
   nodeConfig: {
@@ -24,6 +25,7 @@
       expand: {Boolean} [true | false] true 展开, false 关闭 默认展开, 如果loadType为remote 则此值为false
       type: {String} [normal | checkbox | radio] 节点的input类型
       checked: {Boolean} - [true | false] 如果type是checkbox 是否选中
+      checkedCascade: {Boolean} - [true | false] 如果节点是checkbox 是否级联操作 默认是true
       children: {Array} - 子节点
     }]
   }
