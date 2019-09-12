@@ -4,7 +4,7 @@
   "description": "ctmobile中demo的工具类",
   "main": "lib/index.js",
   "scripts": {
-    "buildpackage": "ctbuild --type buildpackage",
+    "buildpackage": "ctbuild buildpackage",
     "link": "npm link @ctsj/build && npm link @ctmobile/ui-util"
   },
   "repository": {

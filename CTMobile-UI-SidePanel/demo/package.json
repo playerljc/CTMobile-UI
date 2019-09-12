@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
-    "startapp": "ctbuild --type startapp",
-    "buildapp": "ctbuild --type buildapp",
+    "startapp": "ctbuild startapp",
+    "buildapp": "ctbuild buildapp",
     "link": "npm link @ctsj/build && npm link @ctmobile/ui-demo-util && npm link @ctmobile/ui-util && npm link @ctmobile/ui-sidepanel"
   },
   "author": "playerljc <playerljc@163.com>",
