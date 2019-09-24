@@ -1,14 +1,13 @@
 {
   "name": "@ctmobile/ui-pullrefresh",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "支持移动端的UI组件-PullRefresh",
   "main": "lib/pullrefresh.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
     "buildpackage": "ctcopy ../src src && ctbuild buildpackage",
-    "buildumd": "ctcopy ../src src && ctbuild buildumd -p pullrefresh",
-    "link": "npm link @ctsj/build && npm link @ctmobile/ui-util"
+    "buildumd": "ctcopy ../src src && ctbuild buildumd -p pullrefresh"
   },
   "files": [
     "lib",
@@ -47,6 +46,6 @@
     "moment": "^2.24.0"
   },
   "devDependencies": {
-    "@ctsj/build": "^1.0.0"
+    "@ctsj/build": "^1.0.11"
   }
 }

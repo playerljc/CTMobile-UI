@@ -1,5 +1,5 @@
 import DemoUtil from '@ctmobile/ui-demo-util';
-import TreeFactory from '@ctmobile/ui-tree';
+import TreeFactory from '@ctmobile/ui-tree-sd';
 
 // import '@ctmobile/ui-tree/themes/default/tree.less';
 // import '@ctmobile/ui-tree/tree.less';

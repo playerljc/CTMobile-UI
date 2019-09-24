@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import JdCategoryTab from '@ctmobile/ui-jdcategorytab';
+import JdCategoryTab from '@ctmobile/ui-jdcategorytab-sd';
 import DemoUtil from '@ctmobile/ui-demo-util';
 import 'normalize.less';
 import './index.less';

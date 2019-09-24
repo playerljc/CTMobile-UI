@@ -1,4 +1,4 @@
-import Revolving from '@ctmobile/ui-revolving';
+import Revolving from '@ctmobile/ui-revolving-sd';
 import DemoUtil from '@ctmobile/ui-demo-util';
 import './index.less';
 

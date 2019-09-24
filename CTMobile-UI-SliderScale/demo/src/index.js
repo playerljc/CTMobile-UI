@@ -27,7 +27,7 @@
 // });
 
 import DemoUtil from '@ctmobile/ui-demo-util';
-import SliderScaleFactory from '@ctmobile/ui-sliderscale';
+import SliderScaleFactory from '@ctmobile/ui-sliderscale-sd';
 
 import './index.less';
 

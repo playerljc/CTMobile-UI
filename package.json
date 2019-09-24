@@ -1,6 +1,6 @@
 {
   "name": "@ctmobile/ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "支持移动端的组件库",
   "main": "lib/ctmobile-ui.js",
   "links": [
@@ -101,7 +101,7 @@
     "swiper": "^4.4.6",
     "@ctmobile/ui-accordion-sd": "^1.0.1",
     "@ctmobile/ui-backtopanimation-sd": "^1.0.0",
-    "@ctmobile/ui-cascadecompared-sd": "^1.0.0",
+    "@ctmobile/ui-cascadecompared-sd": "^1.0.1",
     "@ctmobile/ui-draglayout-sd": "^1.0.0",
     "@ctmobile/ui-fontsizesetting-sd": "^1.0.0",
     "@ctmobile/ui-form-sd": "^1.0.0",

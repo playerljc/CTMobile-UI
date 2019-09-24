@@ -1,14 +1,13 @@
 {
   "name": "@ctmobile/ui-jdcategorytab",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "支持移动端的UI组件-京东分类列表",
   "main": "lib/jdcategorytab.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
     "buildpackage": "ctcopy ../src src && ctbuild buildpackage",
-    "buildumd": "ctcopy ../src src && ctbuild buildumd -p jdcategorytab",
-    "link":"npm link @ctsj/build"
+    "buildumd": "ctcopy ../src src && ctbuild buildumd -p jdcategorytab"
   },
   "files": [
     "lib",
@@ -44,6 +43,6 @@
     "iscroll": "^5.2.0"
   },
   "devDependencies": {
-    "@ctsj/build": "^1.0.0"
+    "@ctsj/build": "^1.0.11"
   }
 }

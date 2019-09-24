@@ -1,13 +1,12 @@
 {
   "name": "@ctmobile/ui-stickuplayout-sd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "支持移动端的UI组件-StickupLayout",
   "main": "lib/stickuplayout.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
-    "buildpackage": "ctcopy ../src src && ctbuild buildpackage",
-    "link":"npm link @ctsj/build"
+    "buildpackage": "ctcopy ../src src && ctbuild buildpackage"
   },
   "files": [
     "lib"
@@ -41,6 +40,6 @@
     "@babel/runtime": "^7.2.0"
   },
   "devDependencies": {
-    "@ctsj/build": "^1.0.0"
+    "@ctsj/build": "^1.0.11"
   }
 }

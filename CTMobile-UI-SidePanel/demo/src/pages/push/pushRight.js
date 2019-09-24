@@ -1,5 +1,5 @@
 import CtMobile from 'ctmobile';
-import SidePanel from '@ctmobile/ui-sidepanel';
+import SidePanel from '@ctmobile/ui-sidepanel-sd';
 // import '@ctmobile/ui-sidepanel/sidepanel.less';
 
 export default class extends CtMobile.Page {

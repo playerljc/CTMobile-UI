@@ -1,4 +1,4 @@
-import PullRefresh from '@ctmobile/ui-pullrefresh';
+import PullRefresh from '@ctmobile/ui-pullrefresh-sd';
 import DemoUtil from '@ctmobile/ui-demo-util';
 import './index.less';
 

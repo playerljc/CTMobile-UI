@@ -8,7 +8,7 @@
     "watch": "webpack --watch",
     "startapp": "ctbuild startapp",
     "buildapp": "ctbuild buildapp",
-    "link": "npm link @ctsj/build && npm link @ctmobile/ui-demo-util && npm link @ctmobile/ui-draglayout"
+    "link": "npm link @ctmobile/ui-demo-util"
   },
   "author": "playerljc <playerljc@163.com>",
   "license": "MIT",
@@ -32,8 +32,7 @@
     "lodash": "^4.17.11",
     "normalize.less": "^1.0.0",
     "font-awesome": "^4.7.0",
-    "@ctsj/build": "^1.0.0",
-    "@ctmobile/ui-demo-util": "^1.0.0",
-    "@ctmobile/ui-draglayout": "^1.0.0"
+    "@ctsj/build": "^1.0.11",
+    "@ctmobile/ui-draglayout-sd": "^1.0.1"
   }
 }

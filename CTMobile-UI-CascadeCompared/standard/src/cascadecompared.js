@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import IScroll from 'iscroll/build/iscroll-probe';
-import StickupLayout from '@ctmobile/ui-stickuplayout';
+import StickupLayout from '@ctmobile/ui-stickuplayout-sd';
 
 /** *
  * 选择器

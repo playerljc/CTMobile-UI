@@ -1,0 +1,62 @@
+.ct-sidepanel-overlay,
+.ct-sidepanel-reveal-master,
+.ct-sidepanel-reveal,
+.ct-sidepanel-push,
+.ct-sidepanel-push-master,
+.ct-sidepanel-push-slave {
+  position: absolute;
+  background-color: #fff;
+}
+.ct-sidepanel-overlay,
+.ct-sidepanel-reveal-master,
+.ct-sidepanel-reveal,
+.ct-sidepanel-push {
+  top: 0;
+  bottom: 0;
+}
+.ct-sidepanel-overlay {
+  z-index: 9999;
+}
+.ct-sidepanel-overlay,
+.ct-sidepanel-reveal,
+.ct-sidepanel-push {
+  padding: 15px;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  overflow-scrolling: touch;
+}
+.ct-sidepanel-overlay {
+  left: 0;
+}
+.ct-sidepanel-reveal {
+  z-index: 1;
+}
+.ct-sidepanel-reveal-master {
+  left: 0;
+  right: 0;
+  z-index: 9998;
+}
+.ct-sidepanel-push-master,
+.ct-sidepanel-push-slav,
+.ct-sidepanel-push {
+  z-index: 9998;
+}
+.ct-sidepanel-push-master,
+.ct-sidepanel-push-slave {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+.ct-sidepanel-mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 9997;
+  display: none;
+  overflow: hidden;
+  background-color: transparent;
+}
+

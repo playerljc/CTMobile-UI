@@ -1,0 +1,1513 @@
+/**
+  -------------------------------------------ct-form-control-----------------------------------------
+ */
+/**
+---------------------------------------------ct-form-control----------------------------------------------
+ */
+.ct-form-control > .ct-form-control-inner > .label > .require:before {
+  color: rgba(255, 23, 68, 0.87);
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label > .require:before,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label > .require:before,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label > .require:before,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label > .require:before,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label > .require:before,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label > .require:before,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label > .require:before,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label > .require:before {
+  color: rgba(255, 23, 68, 0.87);
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input + .border,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input + .border,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner select + .border,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner .ct-form-expandingarea-inner + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner select + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner .ct-form-expandingarea-inner + .border {
+  border: 1px solid #ced4da;
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input:focus + .border,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input:focus + .border,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner select:focus + .border,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner .ct-form-expandingarea-inner.focus + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input:focus + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input:focus + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner select:focus + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner .ct-form-expandingarea-inner.focus + .border {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label {
+  color: #C8C6CB;
+}
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label > .require:before,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label > .require:before,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label > .require:before,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label > .require:before {
+  color: rgba(255, 23, 68, 0.87);
+}
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input + .label.animate,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input + .label.animate,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner textarea + .label.animate {
+  color: #2196f3;
+}
+.ct-form-control > .tooltipwrap > .tooltipfixed > .tooltip {
+  color: rgba(0, 0, 0, 0.54);
+}
+.ct-form-control > .tooltipwrap > .tooltipfixed > .rangetip {
+  color: rgba(0, 0, 0, 0.54);
+}
+/**
+  error
+ */
+.ct-form-control.validerror .label {
+  color: rgba(255, 23, 68, 0.87) !important;
+}
+.ct-form-control.validerror .errormessage {
+  color: rgba(255, 23, 68, 0.87);
+}
+/**
+  error,success,info
+ */
+.ct-form-control.default.labelleft.validerror .ct-form-clearinput.default > .inner > input,
+.ct-form-control.default.labeltop.validerror .ct-form-clearinput.default > .inner > input,
+.ct-form-control.default.labelleft.labelinset.validerror .ct-form-clearinput.default > .inner > input + .border,
+.ct-form-control.default.labelleft.validerror .ct-form-select.default > .inner > select,
+.ct-form-control.default.labeltop.validerror .ct-form-select.default > .inner > select,
+.ct-form-control.default.labelleft.labelinset.validerror .ct-form-select.default > .inner > select + .border,
+.ct-form-control.default.labelleft.validerror .ct-form-expandingarea.default > .inner textarea,
+.ct-form-control.default.labeltop.validerror .ct-form-expandingarea.default > .inner textarea,
+.ct-form-control.default.labelleft.labelinset.validerror .ct-form-expandingarea.default > .inner .ct-form-expandingarea-inner + .border {
+  border-color: rgba(255, 23, 68, 0.87);
+}
+.ct-form-control.validerror .ct-form-select > .inner > select {
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiINCiAgICAgICAgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHQ9IjE1NDUzODUxMjgzMjIiIGNsYXNzPSJpY29uIiBzdHlsZT0iIiB2aWV3Qm94PSIwIDAgMTAyNiAxMDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyINCiAgICAgcC1pZD0iMjEzNyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI2NC4xMjUiIGhlaWdodD0iNjQiPg0KICAgIDxkZWZzPg0KICAgICAgICA8c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwvc3R5bGU+DQogICAgPC9kZWZzPg0KICAgIDxwYXRoIGQ9Ik01MDUuNiA3MDguOGwtNDQwLTQ0MGMtOC04LTE5LjItOC0yNy4yIDB2MGMtOCA4LTggMTkuMiAwIDI3LjJsNDYwLjggNDYwLjhjOCA4IDE5LjIgOCAyNy4yIDB2MGMwIDAgMS42LTEuNiAxLjYtMS42bDQ1OS4yLTQ1OS4yYzgtOCA4LTE5LjIgMC0yNy4ydjBjLTgtOC0xOS4yLTgtMjcuMiAwbC00NDEuNiA0NDBjLTMuMiAzLjItOS42IDMuMi0xMi44IDB6Ig0KICAgICAgICAgIHAtaWQ9IjIxMzgiIGZpbGw9InJnYmEoMjU1LCAyMywgNjgsIC44NykiPjwvcGF0aD4NCjwvc3ZnPg==) no-repeat scroll 95% center transparent;
+  background-size: 15px 15px;
+}
+.ct-form-control.default.labelleft.validerror .ct-form-clearinput.default > .inner > input:focus,
+.ct-form-control.default.labeltop.validerror .ct-form-clearinput.default > .inner > input:focus,
+.ct-form-control.default.labelleft.labelinset.validerror .ct-form-clearinput.default > .inner > input:focus + .border,
+.ct-form-control.default.labelleft.validerror .ct-form-select.default > .inner > select:focus,
+.ct-form-control.default.labeltop.validerror .ct-form-select.default > .inner > select:focus,
+.ct-form-control.default.labelleft.labelinset.validerror .ct-form-select.default > .inner > select:focus + .border,
+.ct-form-control.default.labelleft.validerror .ct-form-expandingarea.default > .inner textarea:focus,
+.ct-form-control.default.labeltop.validerror .ct-form-expandingarea.default > .inner textarea:focus,
+.ct-form-control.default.labelleft.labelinset.validerror .ct-form-expandingarea.default > .inner .ct-form-expandingarea-inner.focus + .border {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+.ct-form-control.ios.validerror .ct-form-clearinput.ios > .inner > input,
+.ct-form-control.material.validerror .ct-form-clearinput.material > .inner > input,
+.ct-form-control.ios.validerror .ct-form-select.ios > .inner > select,
+.ct-form-control.material.validerror .ct-form-select.material > .inner > select,
+.ct-form-control.ios.validerror .ct-form-expandingarea.ios > .inner textarea,
+.ct-form-control.material.validerror .ct-form-expandingarea.material > .inner textarea {
+  border-bottom-color: rgba(255, 23, 68, 0.87);
+}
+/**
+  success
+ */
+.ct-form-control.validsuccess .label {
+  color: #28a745 !important;
+}
+.ct-form-control.validsuccess .errormessage {
+  color: #28a745;
+}
+.ct-form-control.default.labelleft.validsuccess .ct-form-clearinput.default > .inner > input,
+.ct-form-control.default.labeltop.validsuccess .ct-form-clearinput.default > .inner > input,
+.ct-form-control.default.labelleft.labelinset.validsuccess .ct-form-clearinput.default > .inner > input + .border,
+.ct-form-control.default.labelleft.validsuccess .ct-form-select.default > .inner > select,
+.ct-form-control.default.labeltop.validsuccess .ct-form-select.default > .inner > select,
+.ct-form-control.default.labelleft.labelinset.validsuccess .ct-form-select.default > .inner > select + .border,
+.ct-form-control.default.labelleft.validsuccess .ct-form-expandingarea.default > .inner textarea,
+.ct-form-control.default.labeltop.validsuccess .ct-form-expandingarea.default > .inner textarea,
+.ct-form-control.default.labelleft.labelinset.validsuccess .ct-form-expandingarea.default > .inner .ct-form-expandingarea-inner + .border {
+  border-color: #28a745;
+}
+.ct-form-control.validsuccess .ct-form-select > .inner > select {
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiINCiAgICAgICAgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHQ9IjE1NDUzODUxMjgzMjIiIGNsYXNzPSJpY29uIiBzdHlsZT0iIiB2aWV3Qm94PSIwIDAgMTAyNiAxMDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyINCiAgICAgcC1pZD0iMjEzNyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI2NC4xMjUiIGhlaWdodD0iNjQiPg0KICAgIDxkZWZzPg0KICAgICAgICA8c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwvc3R5bGU+DQogICAgPC9kZWZzPg0KICAgIDxwYXRoIGQ9Ik01MDUuNiA3MDguOGwtNDQwLTQ0MGMtOC04LTE5LjItOC0yNy4yIDB2MGMtOCA4LTggMTkuMiAwIDI3LjJsNDYwLjggNDYwLjhjOCA4IDE5LjIgOCAyNy4yIDB2MGMwIDAgMS42LTEuNiAxLjYtMS42bDQ1OS4yLTQ1OS4yYzgtOCA4LTE5LjIgMC0yNy4ydjBjLTgtOC0xOS4yLTgtMjcuMiAwbC00NDEuNiA0NDBjLTMuMiAzLjItOS42IDMuMi0xMi44IDB6Ig0KICAgICAgICAgIHAtaWQ9IjIxMzgiIGZpbGw9IiMyOGE3NDUiPjwvcGF0aD4NCjwvc3ZnPg==) no-repeat scroll 95% center transparent;
+  background-size: 15px 15px;
+}
+.ct-form-control.default.labelleft.validsuccess .ct-form-clearinput.default > .inner > input:focus,
+.ct-form-control.default.labeltop.validsuccess .ct-form-clearinput.default > .inner > input:focus,
+.ct-form-control.default.labelleft.labelinset.validsuccess .ct-form-clearinput.default > .inner > input:focus + .border,
+.ct-form-control.default.labelleft.validsuccess .ct-form-select.default > .inner > select:focus,
+.ct-form-control.default.labeltop.validsuccess .ct-form-select.default > .inner > select:focus,
+.ct-form-control.default.labelleft.labelinset.validsuccess .ct-form-select.default > .inner > select:focus + .border,
+.ct-form-control.default.labelleft.validsuccess .ct-form-expandingarea.default > .inner textarea:focus,
+.ct-form-control.default.labeltop.validsuccess .ct-form-expandingarea.default > .inner textarea:focus,
+.ct-form-control.default.labelleft.labelinset.validsuccess .ct-form-expandingarea.default > .inner .ct-form-expandingarea-inner.focus + .border {
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+.ct-form-control.ios.validsuccess .ct-form-clearinput.ios > .inner > input,
+.ct-form-control.material.validsuccess .ct-form-clearinput.material > .inner > input,
+.ct-form-control.ios.validsuccess .ct-form-select.ios > .inner > select,
+.ct-form-control.material.validsuccess .ct-form-select.material > .inner > select,
+.ct-form-control.ios.validsuccess .ct-form-expandingarea.ios > .inner textarea,
+.ct-form-control.material.validsuccess .ct-form-expandingarea.material > .inner textarea {
+  border-bottom-color: #28a745;
+}
+.ct-form-clearinput > .inner input::-webkit-input-placeholder,
+.ct-form-pwdtoggle > .inner input::-webkit-input-placeholder,
+.ct-form-expandingarea > .inner textarea::-webkit-input-placeholder {
+  color: #c8c7cc;
+}
+/**
+  -------------------------------------------ct-form-clearinput-----------------------------------------
+  -------------------------------------------ct-form-pwdtoggle------------------------------------------
+  -------------------------------------------ct-form-expandingarea--------------------------------------
+ */
+.ct-form-clearinput.default > .inner input,
+.ct-form-pwdtoggle.default > .inner input,
+.ct-form-expandingarea.default > .inner textarea {
+  border: 1px solid #ced4da;
+}
+.ct-form-clearinput.default > .inner input:focus,
+.ct-form-pwdtoggle.default > .inner input:focus,
+.ct-form-expandingarea.default > .inner textarea:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.ct-form-clearinput.ios > .inner input,
+.ct-form-clearinput.material > .inner input,
+.ct-form-pwdtoggle.ios > .inner input,
+.ct-form-pwdtoggle.material > .inner input,
+.ct-form-expandingarea.ios > .inner textarea,
+.ct-form-expandingarea.material > .inner textarea,
+.ct-form-clearinput.ios > .inner input:not(:focus),
+.ct-form-clearinput.material > .inner input:not(:focus),
+.ct-form-pwdtoggle.ios > .inner input:not(:focus),
+.ct-form-pwdtoggle.material > .inner input:not(:focus),
+.ct-form-expandingarea.ios > .inner textarea:not(:focus),
+.ct-form-expandingarea.material > .inner textarea:not(:focus) {
+  border-bottom: 1px solid #c8c7cc;
+}
+.ct-form-clearinput.ios > .inner input:-webkit-autofill,
+.ct-form-clearinput.material > .inner input:-webkit-autofill,
+.ct-form-pwdtoggle.ios > .inner input:-webkit-autofill,
+.ct-form-pwdtoggle.material > .inner input:-webkit-autofill,
+.ct-form-expandingarea.ios > .inner textarea:-webkit-autofill,
+.ct-form-expandingarea.material > .inner textarea:-webkit-autofill {
+  box-shadow: 0 0 0 1000px white inset;
+}
+.ct-form-clearinput.material > .inner input:focus,
+.ct-form-pwdtoggle.material > .inner input:focus,
+.ct-form-expandingarea.material > .inner textarea:focus {
+  border-bottom-color: #2196f3;
+}
+.ct-form-clearinput > .ct-form-tool > .clear {
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsNCkBmb250LWZhY2UgeyBmb250LWZhbWlseTogaWZvbnQ7IHNyYzogdXJsKCIvL2F0LmFsaWNkbi5jb20vdC9mb250XzE0NDIzNzM4OTZfNDc1NDQ1NS5lb3Q/I2llZml4IikgZm9ybWF0KCJlbWJlZGRlZC1vcGVudHlwZSIpLCB1cmwoIi8vYXQuYWxpY2RuLmNvbS90L2ZvbnRfMTQ0MjM3Mzg5Nl80NzU0NDU1LndvZmYiKSBmb3JtYXQoIndvZmYiKSwgdXJsKCIvL2F0LmFsaWNkbi5jb20vdC9mb250XzE0NDIzNzM4OTZfNDc1NDQ1NS50dGYiKSBmb3JtYXQoInRydWV0eXBlIiksIHVybCgiLy9hdC5hbGljZG4uY29tL3QvZm9udF8xNDQyMzczODk2XzQ3NTQ0NTUuc3ZnI2lmb250IikgZm9ybWF0KCJzdmciKTsgfQ0KDQpdXT48L3N0eWxlPjwvZGVmcz48ZyBjbGFzcz0idHJhbnNmb3JtLWdyb3VwIj48ZyB0cmFuc2Zvcm09InNjYWxlKDAuMTk1MzEyNSwgMC4xOTUzMTI1KSI+PHBhdGggZD0iTTU1Ni41MDc2OCA1MTEuOTkxODE0bDM5NC40MjkyODEgMzk0LjQxOTA0OGMxMi4yOTcwNzEgMTIuMzA4MzI3IDEyLjI5NzA3MSAzMi4yNDAyODUgMCA0NC41MTc5MTMtMTIuMjk5MTE3IDEyLjMwODMyNy0zMi4yMjA4NDIgMTIuMzA4MzI3LTQ0LjUxNzkxMyAwTDUxMiA1NTYuNTEwNzUgMTE3LjU4Mjk5OSA5NTAuOTI4Nzc0Yy0xMi4yOTkxMTcgMTIuMzA4MzI3LTMyLjIzMjA5OSAxMi4zMDgzMjctNDQuNTE3OTEzIDAtMTIuMjk5MTE3LTEyLjI3NzYyOC0xMi4yOTkxMTctMzIuMjEwNjA5IDAtNDQuNTE3OTEzTDQ2Ny40ODEwNjQgNTExLjk5MTgxNCA3My4wNjUwODYgMTE3LjU5NDI1NWMtMTIuMjk5MTE3LTEyLjI3NzYyOC0xMi4yOTkxMTctMzIuMjQwMjg1IDAtNDQuNTA3NjggMTIuMjg2ODM4LTEyLjMyODc5MyAzMi4yMTg3OTYtMTIuMzI4NzkzIDQ0LjUxNzkxMyAwbDM5NC40MTcwMDEgMzk0LjQwNzc5Mkw5MDYuNDE4MDI1IDczLjA4NjU3NWMxMi4yOTcwNzEtMTIuMzI4NzkzIDMyLjIxODc5Ni0xMi4zMjg3OTMgNDQuNTE3OTEzIDAgMTIuMjk3MDcxIDEyLjI2NzM5NSAxMi4yOTcwNzEgMzIuMjMwMDUyIDAgNDQuNTA3NjhMNTU2LjUwNzY4IDUxMS45OTE4MTR6IiBmaWxsPSIjY2NjIj48L3BhdGg+PC9nPjwvZz48L3N2Zz4=) center no-repeat;
+  background-size: 100% 100%;
+}
+.ct-form-clearinput.ios > .ct-form-tool > .clear,
+.ct-form-pwdtoggle.ios > .ct-form-tool > .clear {
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyOCAyOCc+DQogICAgPGNpcmNsZSBjeD0nMTQnIGN5PScxNCcgcj0nMTQnIGZpbGw9JyM4ZThlOTMnLz4NCiAgICA8bGluZSBzdHJva2U9JyNmZmZmZmYnIHN0cm9rZS13aWR0aD0nMycgc3Ryb2tlLW1pdGVybGltaXQ9JzEwJyB4MT0nOCcgeTE9JzgnIHgyPScyMCcgeTI9JzIwJy8+DQogICAgPGxpbmUgZmlsbD0nbm9uZScgc3Ryb2tlPScjZmZmZmZmJyBzdHJva2Utd2lkdGg9JzMnIHN0cm9rZS1taXRlcmxpbWl0PScxMCcgeDE9JzIwJyB5MT0nOCcgeDI9JzgnIHkyPScyMCcvPg0KPC9zdmc+) center no-repeat;
+  background-size: 100% 100%;
+}
+.ct-form-clearinput.material > .ct-form-tool > .clear,
+.ct-form-pwdtoggle.material > .ct-form-tool > .clear {
+  background: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPScjMDAwJyBoZWlnaHQ9JzI0JyB2aWV3Qm94PScwIDAgMjQgMjQnIHdpZHRoPScyNCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz4NCiAgICA8cGF0aCBkPSdNMTkgNi40MUwxNy41OSA1IDEyIDEwLjU5IDYuNDEgNSA1IDYuNDEgMTAuNTkgMTIgNSAxNy41OSA2LjQxIDE5IDEyIDEzLjQxIDE3LjU5IDE5IDE5IDE3LjU5IDEzLjQxIDEyeicvPg0KICAgIDxwYXRoIGQ9J00wIDBoMjR2MjRIMHonIGZpbGw9J25vbmUnLz4NCjwvc3ZnPg==) no-repeat center rgba(0, 0, 0, 0.12);
+  background-size: 70% 70%;
+}
+.ct-form-pwdtoggle > .ct-form-tool > .toggle {
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsNCg0KXV0+PC9zdHlsZT48L2RlZnM+PGcgY2xhc3M9InRyYW5zZm9ybS1ncm91cCI+PGcgdHJhbnNmb3JtPSJzY2FsZSgwLjE5NTMxMjUsIDAuMTk1MzEyNSkiPjxwYXRoIGQ9Ik01MTIgODE2YzI0OCAwIDQ1Mi44LTI4My4yIDQ2MC44LTI5NC40IDMuMi00LjggMy4yLTEyLjggMC0xOS4yQzk2NC44IDQ5MS4yIDc2MS42IDIwOCA1MTIgMjA4IDI2MC44IDIwOCA1OS4yIDQ5MS4yIDUxLjIgNTAyLjRjLTMuMiA0LjgtMy4yIDEyLjggMCAxNy42QzU5LjIgNTMyLjggMjYyLjQgODE2IDUxMiA4MTZ6IG0wLTU3NmMyMDkuNiAwIDM5MC40IDIyNCA0MjguOCAyNzJDOTAyLjQgNTYwIDcyMCA3ODQgNTEyIDc4NCAzMDIuNCA3ODQgMTIxLjYgNTYwIDgzLjIgNTEyIDEyMCA0NjQgMzAwLjggMjQwIDUxMiAyNDB6TTUxMiA2ODhjOTcuNiAwIDE3Ni03OC40IDE3Ni0xNzZzLTc4LjQtMTc2LTE3Ni0xNzYtMTc2IDc4LjQtMTc2IDE3NiA3OC40IDE3NiAxNzYgMTc2eiBtMC0zMjBjODAgMCAxNDQgNjQgMTQ0IDE0NHMtNjQgMTQ0LTE0NCAxNDQtMTQ0LTY0LTE0NC0xNDQgNjQtMTQ0IDE0NC0xNDR6IiBmaWxsPSIjYTliN2I3Ij48L3BhdGg+PC9nPjwvZz48L3N2Zz4=) center no-repeat;
+  background-size: 100% 100%;
+}
+.ct-form-pwdtoggle > .ct-form-tool > .toggle.close {
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsNCg0KXV0+PC9zdHlsZT48L2RlZnM+PGcgY2xhc3M9InRyYW5zZm9ybS1ncm91cCI+PGcgdHJhbnNmb3JtPSJzY2FsZSgwLjE5NTMxMjUsIDAuMTk1MzEyNSkiPjxwYXRoIGQ9Ik05NjIuNDEwMjcgNTExLjc5MjI2OSA5MDUuMDU4MDUxIDQ0My40MzIzNDVjMzAuMTA4NzM4LTM2LjI1NTczOSA1NS4yMDczNjktNzcuMzAzNjIgNzQuMTQwNTgxLTEyMi42MjY4NzUgNi43NzczNTctMTYuMjI3NTktMC44NzA4MzQtMzQuODU5OTQ5LTE3LjA5ODQyMy00MS42MzczMDYtMTYuMjkwMDExLTYuNzk3ODIzLTM0Ljg1OTk0OSAwLjg5MTMtNDEuNjM3MzA2IDE3LjA5ODQyM0M4NTMuMjQ5MDgxIDQ1Ny4xODA0NjQgNjk2Ljc5MTcwMyA1NTcuMTM5MDYgNTEyLjE0ODM3OSA1NTcuMTM5MDZjLTE4Ni4xNTY3OTQgMC0zNDIuNjc1NTctMTAwLjE4Njc5My00MDguNDk5NzQxLTI2MS40NTI2ODctNi42MzIwNDctMTYuMjkwMDExLTI1LjE4MTUxOS0yNC4xMjQ0NDQtNDEuNDkxOTk2LTE3LjQ1MDQ0MS0xNi4yOTAwMTEgNi42MzIwNDctMjQuMTAzOTc4IDI1LjIyMjQ1MS0xNy40NTA0NDEgNDEuNDkzMDIgMTkuMzQ3NjUgNDcuNDAzNjM2IDQ2LjEzNDczNyA5MC4zNDM2MTEgNzguNjU4NDc4IDEyOC4xMjEwMDZsLTUzLjY2MzIgNjMuOTQyMzExYy0xMS4yOTUyNTQgMTMuNDUxMzYtOS41MzQxNDQgMzMuNTMzNzQ0IDMuOTM3NjgyIDQ0Ljg1MDQ4NyA1Ljk0ODQ3OSA0Ljk5NDc1OCAxMy4yMjMxNjMgNy40NDA0NTkgMjAuNDM1NDI1IDcuNDQwNDU5IDkuMDc3NzQ5IDAgMTguMTE0NTY2LTMuODc1MjYxIDI0LjQxNTA2My0xMS4zNzgxNDJsNDkuNzIwNDAyLTU5LjI0NDMxMmMzNC40ODc0NjUgMzAuNjA4MTEyIDczLjUyODY0NCA1Ni4yMjA0NDMgMTE1Ljg1NTY1OCA3Ni4zNzQ0NThsLTMwLjM4NDAwOCA4My40NzEwODdjLTYuMDMxMzY3IDE2LjUxODIwOSAyLjQ4NjYzNCAzNC43NzcwNjEgMTkuMDI2MzMyIDQwLjc4Nzk2MiAzLjU4NTY2NSAxLjMwNTczOSA3LjI1NDIxOCAxLjkyNzkwOSAxMC44ODA4MTUgMS45Mjc5MDkgMTIuOTk0OTY1IDAgMjUuMjAxOTg1LTguMDIwNjc0IDI5LjkwNzE0Ny0yMC45NTMyMThsMjkuNjk0Mjk5LTgxLjU3Mjg1NGM0My40NTY3NDQgMTQuNDE3MzYxIDg5LjQ0MTA1NSAyMy40MzI2ODkgMTM3LjEyNTA3NyAyNi4xOTE1MjJsMCA5Ni42MjQ2NjRjMCAxNy41NzUyODQgMTQuMjU4NzQ5IDMxLjgzNDAzMyAzMS44MzQwMzMgMzEuODM0MDMzIDE3LjU3NTI4NCAwIDMxLjgzNDAzMy0xNC4yNTg3NDkgMzEuODM0MDMzLTMxLjgzNDAzM2wwLTk2LjU4OTg3MmM1MC41NzA3NjktMi44MjIyNzggOTguOTc1MTk5LTEyLjM4NzEyMiAxNDQuMzI3MTA2LTI3Ljk2MDgxOWwzMC4zMjY3MDIgODMuMzA3MzU4YzQuNzA1MTYyIDEyLjkzMjU0NCAxNi45MTIxODIgMjAuOTUzMjE4IDI5LjkwNzE0NyAyMC45NTMyMTggMy42MjY1OTcgMCA3LjI5NTE1LTAuNjIyMTcgMTAuODgwODE1LTEuOTI3OTA5IDE2LjUzODY3NS02LjAwOTg3NyAyNS4wNTY2NzYtMjQuMjY5NzUzIDE5LjAyNjMzMi00MC43ODc5NjJsLTMxLjMyMTM1Ni04Ni4wNDE2MzJjNDEuNjYzOTEyLTIwLjUwOTEwMyA3OS44NTU3NDYtNDYuNTE1NDA3IDExMy42NDgzODYtNzcuNTQ3MTY3bDUyLjg0NDU1NSA2Mi45ODc1NjZjNi4zMDA0OTYgNy41MDI4ODEgMTUuMzE1ODI0IDExLjM3ODE0MiAyNC40MTUwNjMgMTEuMzc4MTQyIDcuMjEyMjYyIDAgMTQuNDY2NDgtMi40NDU3MDIgMjAuNDM1NDI1LTcuNDQwNDU5Qzk3MS45NDQ0MTQgNTQ1LjMyNjAxMyA5NzMuNzA1NTI0IDUyNS4yNjMwNzIgOTYyLjQxMDI3IDUxMS43OTIyNjl6IiBmaWxsPSIjYTliN2I3Ij48L3BhdGg+PC9nPjwvZz48L3N2Zz4=) no-repeat;
+  background-size: 100% 100%;
+}
+/**
+  --------------------------------------------ct-form-checkbox--------------------------------------
+ */
+.ct-form-checkbox .checkbox {
+  border: 2px solid #6d6d6d;
+}
+@keyframes ct-form-checkbox-nochecked {
+  0% {
+    border: 0;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsNCkBmb250LWZhY2UgeyBmb250LWZhbWlseTogaWZvbnQ7IHNyYzogdXJsKCIvL2F0LmFsaWNkbi5jb20vdC9mb250XzE0NDIzNzM4OTZfNDc1NDQ1NS5lb3Q/I2llZml4IikgZm9ybWF0KCJlbWJlZGRlZC1vcGVudHlwZSIpLCB1cmwoIi8vYXQuYWxpY2RuLmNvbS90L2ZvbnRfMTQ0MjM3Mzg5Nl80NzU0NDU1LndvZmYiKSBmb3JtYXQoIndvZmYiKSwgdXJsKCIvL2F0LmFsaWNkbi5jb20vdC9mb250XzE0NDIzNzM4OTZfNDc1NDQ1NS50dGYiKSBmb3JtYXQoInRydWV0eXBlIiksIHVybCgiLy9hdC5hbGljZG4uY29tL3QvZm9udF8xNDQyMzczODk2XzQ3NTQ0NTUuc3ZnI2lmb250IikgZm9ybWF0KCJzdmciKTsgfQ0KDQpdXT48L3N0eWxlPjwvZGVmcz48ZyBjbGFzcz0idHJhbnNmb3JtLWdyb3VwIj48ZyB0cmFuc2Zvcm09InNjYWxlKDAuMTk1MzEyNSwgMC4xOTUzMTI1KSI+PHBhdGggZD0iTTM3OC42MjcxNiA4NTUuMTk5NTNjLTEwLjY4NTQ3OSAwLTIxLjM3MDk1OC00LjA2MzQ5Mi0yOS40Njc4NDItMTIuMjIwNTc2bC0yODIuMDY2NTQ5LTI4Mi4wMDYzNDljLTE2LjMxNDE2OC0xNi4zNDQyNjgtMTYuMzE0MTY4LTQyLjYyMTUxNyAwLTU4Ljk2NTc4NSAxNi4yNTM5NjgtMTYuMjIzODY4IDQyLjY1MTYxNy0xNi4yMjM4NjggNTguODc1NDg1IDBsMjUyLjY4OTAwNiAyNTIuNjI4ODA3TDkwMC41OTAyNDEgMjMyLjczMjc0NWMxNi4xOTM3NjgtMTYuMzQ0MjY4IDQyLjYyMTUxNy0xNi4zNDQyNjggNTguODQ1Mzg1IDAgMTYuMzE0MTY4IDE2LjI4NDA2OCAxNi4zMTQxNjggNDIuNjIxNTE3IDAgNTguOTA1NTg1TDQwOC4wOTUwMDMgODQzLjAzOTE1M0MzOTkuOTM3OTE5IDg1MS4xMzYwMzggMzg5LjMxMjY0IDg1NS4xOTk1MyAzNzguNjI3MTYgODU1LjE5OTUzTDM3OC42MjcxNiA4NTUuMTk5NTN6TTM3OC42MjcxNiA4NTUuMTk5NTMiIGZpbGw9IiNmZmZmZmYiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==) #2196f3 no-repeat;
+    background-size: 100% 100%;
+  }
+  100% {
+    border: 2px solid #6d6d6d;
+    background: transparent;
+  }
+}
+@keyframes ct-form-checkbox-checked {
+  0% {
+    border: 2px solid #6d6d6d;
+    background: transparent;
+  }
+  100% {
+    border: 0;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsNCkBmb250LWZhY2UgeyBmb250LWZhbWlseTogaWZvbnQ7IHNyYzogdXJsKCIvL2F0LmFsaWNkbi5jb20vdC9mb250XzE0NDIzNzM4OTZfNDc1NDQ1NS5lb3Q/I2llZml4IikgZm9ybWF0KCJlbWJlZGRlZC1vcGVudHlwZSIpLCB1cmwoIi8vYXQuYWxpY2RuLmNvbS90L2ZvbnRfMTQ0MjM3Mzg5Nl80NzU0NDU1LndvZmYiKSBmb3JtYXQoIndvZmYiKSwgdXJsKCIvL2F0LmFsaWNkbi5jb20vdC9mb250XzE0NDIzNzM4OTZfNDc1NDQ1NS50dGYiKSBmb3JtYXQoInRydWV0eXBlIiksIHVybCgiLy9hdC5hbGljZG4uY29tL3QvZm9udF8xNDQyMzczODk2XzQ3NTQ0NTUuc3ZnI2lmb250IikgZm9ybWF0KCJzdmciKTsgfQ0KDQpdXT48L3N0eWxlPjwvZGVmcz48ZyBjbGFzcz0idHJhbnNmb3JtLWdyb3VwIj48ZyB0cmFuc2Zvcm09InNjYWxlKDAuMTk1MzEyNSwgMC4xOTUzMTI1KSI+PHBhdGggZD0iTTM3OC42MjcxNiA4NTUuMTk5NTNjLTEwLjY4NTQ3OSAwLTIxLjM3MDk1OC00LjA2MzQ5Mi0yOS40Njc4NDItMTIuMjIwNTc2bC0yODIuMDY2NTQ5LTI4Mi4wMDYzNDljLTE2LjMxNDE2OC0xNi4zNDQyNjgtMTYuMzE0MTY4LTQyLjYyMTUxNyAwLTU4Ljk2NTc4NSAxNi4yNTM5NjgtMTYuMjIzODY4IDQyLjY1MTYxNy0xNi4yMjM4NjggNTguODc1NDg1IDBsMjUyLjY4OTAwNiAyNTIuNjI4ODA3TDkwMC41OTAyNDEgMjMyLjczMjc0NWMxNi4xOTM3NjgtMTYuMzQ0MjY4IDQyLjYyMTUxNy0xNi4zNDQyNjggNTguODQ1Mzg1IDAgMTYuMzE0MTY4IDE2LjI4NDA2OCAxNi4zMTQxNjggNDIuNjIxNTE3IDAgNTguOTA1NTg1TDQwOC4wOTUwMDMgODQzLjAzOTE1M0MzOTkuOTM3OTE5IDg1MS4xMzYwMzggMzg5LjMxMjY0IDg1NS4xOTk1MyAzNzguNjI3MTYgODU1LjE5OTUzTDM3OC42MjcxNiA4NTUuMTk5NTN6TTM3OC42MjcxNiA4NTUuMTk5NTMiIGZpbGw9IiNmZmZmZmYiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==) #2196f3 no-repeat;
+    background-size: 100% 100%;
+    background-origin: content-box;
+    padding: 2px;
+  }
+}
+@keyframes ct-form-checkbox-disabled-nochecked {
+  0% {
+    border: 0;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTQ1MzA2MTQ5MjU4IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjE3OTUiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTM5Mi41MzMzMzMgODA2LjRMODUuMzMzMzMzIDUwMy40NjY2NjdsNTkuNzMzMzM0LTU5LjczMzMzNCAyNDcuNDY2NjY2IDI0Ny40NjY2NjdMODY2LjEzMzMzMyAyMTMuMzMzMzMzbDU5LjczMzMzNCA1OS43MzMzMzRMMzkyLjUzMzMzMyA4MDYuNHoiIGZpbGw9InJnYigxMDksIDEwOSwgMTA5KSIgcC1pZD0iMTc5NiI+PC9wYXRoPjwvc3ZnPg==) no-repeat;
+    background-size: 100% 100%;
+  }
+  100% {
+    border: 2px solid #6d6d6d;
+    background: transparent;
+  }
+}
+@keyframes ct-form-checkbox-disabled-checked {
+  0% {
+    background: transparent;
+  }
+  100% {
+    border: 0;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsNCkBmb250LWZhY2UgeyBmb250LWZhbWlseTogaWZvbnQ7IHNyYzogdXJsKCIvL2F0LmFsaWNkbi5jb20vdC9mb250XzE0NDIzNzM4OTZfNDc1NDQ1NS5lb3Q/I2llZml4IikgZm9ybWF0KCJlbWJlZGRlZC1vcGVudHlwZSIpLCB1cmwoIi8vYXQuYWxpY2RuLmNvbS90L2ZvbnRfMTQ0MjM3Mzg5Nl80NzU0NDU1LndvZmYiKSBmb3JtYXQoIndvZmYiKSwgdXJsKCIvL2F0LmFsaWNkbi5jb20vdC9mb250XzE0NDIzNzM4OTZfNDc1NDQ1NS50dGYiKSBmb3JtYXQoInRydWV0eXBlIiksIHVybCgiLy9hdC5hbGljZG4uY29tL3QvZm9udF8xNDQyMzczODk2XzQ3NTQ0NTUuc3ZnI2lmb250IikgZm9ybWF0KCJzdmciKTsgfQ0KDQpdXT48L3N0eWxlPjwvZGVmcz48ZyBjbGFzcz0idHJhbnNmb3JtLWdyb3VwIj48ZyB0cmFuc2Zvcm09InNjYWxlKDAuMTk1MzEyNSwgMC4xOTUzMTI1KSI+PHBhdGggZD0iTTM3OC42MjcxNiA4NTUuMTk5NTNjLTEwLjY4NTQ3OSAwLTIxLjM3MDk1OC00LjA2MzQ5Mi0yOS40Njc4NDItMTIuMjIwNTc2bC0yODIuMDY2NTQ5LTI4Mi4wMDYzNDljLTE2LjMxNDE2OC0xNi4zNDQyNjgtMTYuMzE0MTY4LTQyLjYyMTUxNyAwLTU4Ljk2NTc4NSAxNi4yNTM5NjgtMTYuMjIzODY4IDQyLjY1MTYxNy0xNi4yMjM4NjggNTguODc1NDg1IDBsMjUyLjY4OTAwNiAyNTIuNjI4ODA3TDkwMC41OTAyNDEgMjMyLjczMjc0NWMxNi4xOTM3NjgtMTYuMzQ0MjY4IDQyLjYyMTUxNy0xNi4zNDQyNjggNTguODQ1Mzg1IDAgMTYuMzE0MTY4IDE2LjI4NDA2OCAxNi4zMTQxNjggNDIuNjIxNTE3IDAgNTguOTA1NTg1TDQwOC4wOTUwMDMgODQzLjAzOTE1M0MzOTkuOTM3OTE5IDg1MS4xMzYwMzggMzg5LjMxMjY0IDg1NS4xOTk1MyAzNzguNjI3MTYgODU1LjE5OTUzTDM3OC42MjcxNiA4NTUuMTk5NTN6TTM3OC42MjcxNiA4NTUuMTk5NTMiIGZpbGw9IiNmZmZmZmYiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==) rgba(0, 0, 0, 0.26) no-repeat;
+    background-size: 100% 100%;
+    background-origin: content-box;
+    padding: 2px;
+  }
+}
+/**
+  -----------------------------------------------ct-form-radio----------------------------------------------
+ */
+.ct-form-radio .radio {
+  border: 2px solid #6d6d6d;
+}
+.ct-form-radio > input[type="radio"]:checked + .radio {
+  border-color: #2196f3;
+}
+.ct-form-radio.material > input[type="radio"]:disabled + .radio {
+  border-color: #6d6d6d;
+}
+.ct-form-radio.ios > input[type="radio"]:disabled + .radio {
+  border: 0;
+}
+.ct-form-radio.ios > input[type="radio"]:disabled:not(:checked) + .radio {
+  border: 2px solid #6d6d6d;
+}
+.ct-form-radio.material > input[type="radio"]:disabled + .radio > .inner {
+  background-color: #6d6d6d;
+}
+.ct-form-radio.ios > input[type="radio"]:disabled:checked + .radio {
+  background-color: rgba(0, 0, 0, 0.26);
+}
+.ct-form-radio.ios > input[type="radio"]:disabled + .radio > .inner {
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsNCkBmb250LWZhY2UgeyBmb250LWZhbWlseTogaWZvbnQ7IHNyYzogdXJsKCIvL2F0LmFsaWNkbi5jb20vdC9mb250XzE0NDIzNzM4OTZfNDc1NDQ1NS5lb3Q/I2llZml4IikgZm9ybWF0KCJlbWJlZGRlZC1vcGVudHlwZSIpLCB1cmwoIi8vYXQuYWxpY2RuLmNvbS90L2ZvbnRfMTQ0MjM3Mzg5Nl80NzU0NDU1LndvZmYiKSBmb3JtYXQoIndvZmYiKSwgdXJsKCIvL2F0LmFsaWNkbi5jb20vdC9mb250XzE0NDIzNzM4OTZfNDc1NDQ1NS50dGYiKSBmb3JtYXQoInRydWV0eXBlIiksIHVybCgiLy9hdC5hbGljZG4uY29tL3QvZm9udF8xNDQyMzczODk2XzQ3NTQ0NTUuc3ZnI2lmb250IikgZm9ybWF0KCJzdmciKTsgfQ0KDQpdXT48L3N0eWxlPjwvZGVmcz48ZyBjbGFzcz0idHJhbnNmb3JtLWdyb3VwIj48ZyB0cmFuc2Zvcm09InNjYWxlKDAuMTk1MzEyNSwgMC4xOTUzMTI1KSI+PHBhdGggZD0iTTM3OC42MjcxNiA4NTUuMTk5NTNjLTEwLjY4NTQ3OSAwLTIxLjM3MDk1OC00LjA2MzQ5Mi0yOS40Njc4NDItMTIuMjIwNTc2bC0yODIuMDY2NTQ5LTI4Mi4wMDYzNDljLTE2LjMxNDE2OC0xNi4zNDQyNjgtMTYuMzE0MTY4LTQyLjYyMTUxNyAwLTU4Ljk2NTc4NSAxNi4yNTM5NjgtMTYuMjIzODY4IDQyLjY1MTYxNy0xNi4yMjM4NjggNTguODc1NDg1IDBsMjUyLjY4OTAwNiAyNTIuNjI4ODA3TDkwMC41OTAyNDEgMjMyLjczMjc0NWMxNi4xOTM3NjgtMTYuMzQ0MjY4IDQyLjYyMTUxNy0xNi4zNDQyNjggNTguODQ1Mzg1IDAgMTYuMzE0MTY4IDE2LjI4NDA2OCAxNi4zMTQxNjggNDIuNjIxNTE3IDAgNTguOTA1NTg1TDQwOC4wOTUwMDMgODQzLjAzOTE1M0MzOTkuOTM3OTE5IDg1MS4xMzYwMzggMzg5LjMxMjY0IDg1NS4xOTk1MyAzNzguNjI3MTYgODU1LjE5OTUzTDM3OC42MjcxNiA4NTUuMTk5NTN6TTM3OC42MjcxNiA4NTUuMTk5NTMiIGZpbGw9IiNmZmZmZmYiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==) no-repeat center;
+  background-size: 100% 100%;
+}
+.ct-form-radio.material .inner {
+  background-color: #2196f3;
+}
+.ct-form-radio.ios .inner {
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTQ1MzA2MTQ5MjU4IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjE3OTUiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTM5Mi41MzMzMzMgODA2LjRMODUuMzMzMzMzIDUwMy40NjY2NjdsNTkuNzMzMzM0LTU5LjczMzMzNCAyNDcuNDY2NjY2IDI0Ny40NjY2NjdMODY2LjEzMzMzMyAyMTMuMzMzMzMzbDU5LjczMzMzNCA1OS43MzMzMzRMMzkyLjUzMzMzMyA4MDYuNHoiIGZpbGw9IiMyMTk2ZjMiIHAtaWQ9IjE3OTYiPjwvcGF0aD48L3N2Zz4=) no-repeat center;
+  background-size: 100% 100%;
+}
+/**
+  ----------------------------------------------------ct-form-switch----------------------------------------------
+ */
+.ct-form-switch > .checkbox {
+  background: #e5e5e5;
+}
+.ct-form-switch.ios > .checkbox:before {
+  background-color: #fff;
+}
+.ct-form-switch > .checkbox:after {
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+.ct-form-switch.ios > input[type="checkbox"]:checked + .checkbox {
+  background: #4cd964;
+}
+.ct-form-switch.ios > input[type="checkbox"]:disabled + .checkbox {
+  background: #e5e5e5;
+}
+.ct-form-switch.material > input[type="checkbox"]:checked + .checkbox {
+  background: rgba(33, 150, 243, 0.5);
+}
+.ct-form-switch.material > input[type="checkbox"]:disabled + .checkbox {
+  background: #e5e5e5;
+}
+.ct-form-switch.material > input[type="checkbox"]:checked + .checkbox:after {
+  background: #2196f3;
+}
+.ct-form-switch.material > input[type="checkbox"]:disabled + .checkbox:after {
+  background: #fff;
+}
+/**
+  ---------------------------------------------------ct-form-slider---------------------------------------------------
+ */
+.ct-form-slider.ios input[type="range"] {
+  background: -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0, #b7b8b7), color-stop(100%, #b7b8b7));
+  background: linear-gradient(to right, #b7b8b7 0, #b7b8b7 100%);
+  background-position: center;
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+}
+.ct-form-slider.material input[type="range"] {
+  background: -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0, #b9b9b9), color-stop(100%, #b9b9b9));
+  background: linear-gradient(to right, #b9b9b9 0, #b9b9b9 100%);
+  background-position: center;
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+}
+.ct-form-slider input[type="range"]::-moz-range-track {
+  background: #b7b8b7;
+}
+.ct-form-slider.material input[type="range"]::-moz-range-thumb {
+  background: #2196f3;
+}
+.ct-form-slider.material input[type="range"]::-ms-thumb {
+  background: #2196f3;
+}
+.ct-form-slider.ios input[type="range"]::-ms-thumb {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+.ct-form-slider.material input[type="range"]::-webkit-slider-thumb {
+  background: #2196f3;
+}
+.ct-form-slider input[type="range"]:disabled::-webkit-slider-thumb {
+  background: #e5e5e5;
+}
+.ct-form-slider input[type="range"]:disabled::-webkit-slider-thumb:before {
+  background: #e5e5e5;
+}
+.ct-form-slider.ios input[type="range"]::-webkit-slider-thumb:before {
+  background: #007aff;
+}
+.ct-form-slider.material input[type="range"]::-webkit-slider-thumb:before {
+  background: #2196f3;
+}
+.ct-form-slider.ios input[type="range"]::-ms-fill-lower {
+  background: #007aff;
+}
+.ct-form-slider.ios input[type="range"]::-ms-fill-upper {
+  background: #b7b8b7;
+}
+.ct-form-slider.material input[type="range"]::-ms-fill-lower {
+  background: #2196f3;
+}
+.ct-form-slider.material input[type="range"]::-ms-fill-upper {
+  background: #b7b8b7;
+}
+/**
+  -----------------------------------------------------ct-form-spinner--------------------------------------------------
+ */
+.ct-form-spinner > input[type='number'] {
+  color: #007aff;
+  border-top: 1px solid #007aff;
+  border-bottom: 1px solid #007aff;
+}
+.ct-form-spinner > input[type='number']:disabled {
+  color: #6d6d6d;
+  border-top: 1px solid #6d6d6d;
+  border-bottom: 1px solid #6d6d6d;
+}
+.ct-form-spinner > .plus,
+.ct-form-spinner > .minus {
+  border-top: 1px solid #007aff;
+  border-bottom: 1px solid #007aff;
+}
+.ct-form-spinner > input[type='number']:disabled ~ a {
+  border-top: 1px solid #6d6d6d;
+  border-bottom: 1px solid #6d6d6d;
+}
+.ct-form-spinner > input[type='number']:disabled ~ a.minus {
+  border: 1px solid #6d6d6d;
+}
+.ct-form-spinner > input[type='number']:disabled ~ a.plus {
+  border: 1px solid #6d6d6d;
+}
+.ct-form-spinner > .plus {
+  border-right: 1px solid #007aff;
+}
+.ct-form-spinner > .minus {
+  border-left: 1px solid #007aff;
+}
+.ct-form-spinner.fill > .plus,
+.ct-form-spinner.fill > .minus {
+  background-color: #007aff;
+}
+.ct-form-spinner.fill > input[type='number']:disabled ~ a {
+  background-color: #6d6d6d;
+}
+.ct-form-spinner > input[type='number']:not(:disabled) ~ a.plus:active,
+.ct-form-spinner > input[type='number']:not(:disabled) ~ a.minus:active {
+  background-color: rgba(0, 122, 255, 0.2);
+}
+.ct-form-spinner > .plus:before,
+.ct-form-spinner > .plus:after,
+.ct-form-spinner > .minus:before,
+.ct-form-spinner > .minus:after {
+  background: #007aff;
+}
+.ct-form-spinner.fill > .plus:before,
+.ct-form-spinner.fill > .plus:after,
+.ct-form-spinner.fill > .minus:before,
+.ct-form-spinner.fill > .minus:after {
+  background: #fff;
+}
+.ct-form-spinner:not(.fill) > input[type='number']:disabled ~ a.plus:before,
+.ct-form-spinner:not(.fill) > input[type='number']:disabled ~ a.plus:after,
+.ct-form-spinner:not(.fill) > input[type='number']:disabled ~ a.minus:before,
+.ct-form-spinner:not(.fill) > input[type='number']:disabled ~ a.minus:after {
+  background: #6d6d6d;
+}
+.ct-form-spinner > .plus {
+  border-left: 1px solid #007aff;
+}
+.ct-form-spinner > .minus {
+  border-right: 1px solid #007aff;
+}
+/**
+ ----------------------------------------------ct-form-select--------------------------------------------------
+ */
+.ct-form-select > .inner > select {
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiINCiAgICAgICAgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHQ9IjE1NDUzODUxMjgzMjIiIGNsYXNzPSJpY29uIiBzdHlsZT0iIiB2aWV3Qm94PSIwIDAgMTAyNiAxMDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyINCiAgICAgcC1pZD0iMjEzNyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI2NC4xMjUiIGhlaWdodD0iNjQiPg0KICAgIDxkZWZzPg0KICAgICAgICA8c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwvc3R5bGU+DQogICAgPC9kZWZzPg0KICAgIDxwYXRoIGQ9Ik01MDUuNiA3MDguOGwtNDQwLTQ0MGMtOC04LTE5LjItOC0yNy4yIDB2MGMtOCA4LTggMTkuMiAwIDI3LjJsNDYwLjggNDYwLjhjOCA4IDE5LjIgOCAyNy4yIDB2MGMwIDAgMS42LTEuNiAxLjYtMS42bDQ1OS4yLTQ1OS4yYzgtOCA4LTE5LjIgMC0yNy4ydjBjLTgtOC0xOS4yLTgtMjcuMiAwbC00NDEuNiA0NDBjLTMuMiAzLjItOS42IDMuMi0xMi44IDB6Ig0KICAgICAgICAgIHAtaWQ9IjIxMzgiIGZpbGw9IiM3MDcwNzAiPjwvcGF0aD4NCjwvc3ZnPg==) no-repeat scroll 95% center transparent;
+  background-size: 15px 15px;
+}
+.ct-form-select.default > .inner > select {
+  border: 1px solid #ced4da;
+}
+.ct-form-select.default > .inner > select:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.ct-form-select.ios > .inner > select,
+.ct-form-select.material > .inner > select {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.ct-form-select.material > .inner > select::selection {
+  border-bottom: 2px solid #2196f3;
+}
+/*
+ ct-form
+ */
+/**
+ ---------------------------------------------ct-form-control----------------------------------------------
+ data-ctform-config-name 标识字段 获取数据的时候已此为键
+ data-ctform-config-type 类型 [default | ios | material]
+ data-ctform-config-label 文本
+ data-ctform-config-labelposition [labelleft | labelright | labeltop | labelbottom]
+ data-ctform-config-labelalign [aligncenter | aligntop]
+ data-ctform-config-full [full]
+ data-ctform-config-inset [inset] 是否是inset模式
+ data-ctform-config-tooltip 始终有的提示信息
+ data-ctform-config-groupname 如果是radio或checkbox组中的名字
+
+ ---------------------必填验证-------------------
+ data-ctform-config-require [require] 是否是必填项
+ data-ctform-config-requiremessage 必填项没填的提示信息
+
+ ---------------------长度验证-------------------
+ 只有输入项才进行长度验证
+ data-ctform-config-maxlength 最大字符数
+ data-ctform-config-minlength 最小字符数
+ data-ctform-config-lengthmessage 超出range是的提示信息
+
+ ---------------------有效性验证------------------
+ data-ctform-config-pattern 正则
+ data-ctform-config-patternmessage 不符合正则的提示
+
+
+
+
+
+ label top && outset
+     default 在上方 require在input前面
+     ios 在上方 require在input前面
+     material 在上方 require在input前面
+ label top && inset
+     default 没有inset还是在上方 require在input前面
+     ios 没有inset还是在上方 require在input前面
+     material 在里面点击后浮上去 require在input前面
+ label left && outset
+     default 在左侧但是不包在里面 require在字前面
+     ios 在左侧但是不在里面 require在字前面
+     material 没有在左侧的 require在input前面
+ label left && inset
+     default 在左侧但是包在里面 require在字前面
+     ios 在左侧不包在里面 require在字前面
+     material 在里面点击后浮上去 require在input前面
+
+ maxlength和minlength在右下方
+ lengthmessage 在左下方
+ requiremessage 在左下方
+ patternmessage 在左下方
+ tooltip 在左下方 如果和length | require | patter冲突，则先显示三种，取消后在显示
+
+
+ 结构:
+ ct-form-control
+   // top || left&&outset
+   ct-form-control-inner
+     .label
+     .controlWrap
+     .tooltipwrap
+      .tooltip
+      .errormessage
+      .rangetip
+     // left&&inset
+
+ */
+/*表单控件的最上层*/
+.ct-form-control {
+  position: relative;
+}
+.ct-form-control > .ct-form-control-inner {
+  padding: 0.25rem;
+}
+/*表单控件的label*/
+.ct-form-control > .ct-form-control-inner > .label {
+  font-size: 16px;
+  word-break: break-all;
+}
+.ct-form-control > .ct-form-control-inner > .label > .require {
+  line-height: normal;
+  margin-right: 0.5rem;
+}
+.ct-form-control > .ct-form-control-inner > .label > .require:before {
+  content: '*';
+  font-size: 16px;
+  vertical-align: middle;
+}
+.ct-form-control > .ct-form-control-inner > .controlWrap {
+  word-break: break-all;
+}
+/*------------------控件是基本类型(default)---------------------*/
+/*---------------------top---------------------*/
+/*label在上方 label*/
+.ct-form-control.labeltop > .ct-form-control-inner > .label {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.ct-form-control.labelbottom > .ct-form-control-inner > .label {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+/*---------------------let common----------------------*/
+/*label在左侧且是outset*/
+.ct-form-control.labeltop > .ct-form-control-inner,
+.ct-form-control.labelleft > .ct-form-control-inner,
+.ct-form-control.labelright > .ct-form-control-inner,
+.ct-form-control.labelbottom > .ct-form-control-inner {
+  display: flex;
+}
+.ct-form-control.labelleft > .ct-form-control-inner,
+.ct-form-control.labelright > .ct-form-control-inner {
+  flex-direction: row;
+}
+.ct-form-control.labeltop > .ct-form-control-inner,
+.ct-form-control.labelbottom > .ct-form-control-inner {
+  flex-direction: column;
+}
+.ct-form-control.labelright > .ct-form-control-inner > .label,
+.ct-form-control.labelbottom > .ct-form-control-inner > .label {
+  order: 1;
+}
+/*label在左侧 label*/
+.ct-form-control.labelleft > .ct-form-control-inner > .label,
+.ct-form-control.labelright > .ct-form-control-inner > .label {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.5rem;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-line-clamp: 2;
+  line-height: 1.2;
+}
+/*label在左侧且是outset 文本居上*/
+.ct-form-control.labelleft.aligntop > .ct-form-control-inner,
+.ct-form-control.labelright.aligntop > .ct-form-control-inner {
+  align-items: flex-start;
+  -webkit-box-pack: start;
+}
+/*label在左侧且是outset 文本居中*/
+.ct-form-control.labelleft.aligncenter > .ct-form-control-inner,
+.ct-form-control.labelright.aligncenter > .ct-form-control-inner {
+  align-items: center;
+  -webkit-box-pack: center;
+}
+/*默认是自动宽度*/
+.ct-form-control.labelleft .ct-form-control-inner > .controlWrap,
+.ct-form-control.labelright .ct-form-control-inner > .controlWrap {
+  flex-grow: inherit;
+}
+/*label在左侧且是outset control 宽度自动充满*/
+.ct-form-control.labelleft > .ct-form-control-inner > .controlWrap.full,
+.ct-form-control.labelright > .ct-form-control-inner > .controlWrap.full {
+  flex-grow: 1;
+  word-break: break-all;
+}
+.ct-form-control.labelleft > .ct-form-control-inner > .controlWrap.full > .ct-form-select > .inner > select,
+.ct-form-control.labelright > .ct-form-control-inner > .controlWrap.full > .ct-form-select > .inner > select {
+  width: 100%;
+}
+.ct-form-control > .ct-form-control-inner .ct-form-expandingarea > .inner {
+  display: flex;
+}
+/*---------------------left inset---------------------*/
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 44px;
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner {
+  padding: 0.375rem 1.5rem 0.375rem 0.75rem;
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner {
+  padding: 0.375rem 3.5rem 0.375rem 0.75rem;
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner {
+  padding: 0.375rem 0.75rem 0.375rem 0.75rem;
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-line-clamp: 2;
+  line-height: 1.2;
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner.aligntop > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner.aligntop > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner.aligntop > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner.aligntop > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner.aligntop > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner.aligntop > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner.aligntop > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner.aligntop > .label {
+  align-items: flex-start;
+  -webkit-box-pack: start;
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner.aligncenter > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner.aligncenter > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner.aligncenter > .label,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner.aligncenter > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner.aligncenter > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner.aligncenter > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner.aligncenter > .label,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner.aligncenter > .label {
+  align-items: center;
+  -webkit-box-pack: center;
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label > .require,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label > .require,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label > .require,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label > .require,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label > .require,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label > .require,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label > .require,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label > .require {
+  line-height: normal;
+  margin-right: 0.5rem;
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label > .require:before,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label > .require:before,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label > .require:before,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label > .require:before,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label > .require:before,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label > .require:before,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label > .require:before,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label > .require:before {
+  content: '*';
+  font-size: 16px;
+  vertical-align: middle;
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner select,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner textarea,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner select,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner textarea {
+  flex-grow: inherit;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  min-height: initial;
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input:focus,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input:focus,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner select:focus,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner textarea:focus,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input:focus,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input:focus,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner select:focus,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner textarea:focus {
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input + .border,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input + .border,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select > .inner select + .border,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner .ct-form-expandingarea-inner + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select > .inner select + .border,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner .ct-form-expandingarea-inner + .border {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  box-sizing: border-box;
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput.full,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle.full,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select.full,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea.full,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput.full,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle.full,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select.full,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea.full {
+  width: 100%;
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea {
+  z-index: 1;
+}
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-clearinput.full > .inner input,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle.full > .inner input,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-select.full > .inner select,
+.ct-form-control.default.labelleft.labelinset > .ct-form-control-inner > .ct-form-expandingarea.full > .inner > .ct-form-expandingarea-inner,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-clearinput.full > .inner input,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle.full > .inner input,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-select.full > .inner select,
+.ct-form-control.default.labelright.labelinset > .ct-form-control-inner > .ct-form-expandingarea.full > .inner > .ct-form-expandingarea-inner {
+  flex-grow: 1;
+  word-break: break-all;
+}
+/*-----------------------控件是material类型(material)---------------------*/
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-select > .inner,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner {
+  position: relative;
+}
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  transition: all 0.2s;
+  transform-origin: left;
+  pointer-events: none;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.2;
+}
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label > .require,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label > .require,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label > .require,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label > .require {
+  line-height: normal;
+  margin-right: 0.5rem;
+}
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner > .label > .require:before,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner > .label > .require:before,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-select > .inner > .label > .require:before,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner > .label > .require:before {
+  content: '*';
+  font-size: 16px;
+  vertical-align: middle;
+}
+/*.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input:focus + .label,*/
+/*.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input:focus + .label,*/
+/*.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner textarea:focus + .label {*/
+/*transform: scale(.75) translateY(-27px);*/
+/*top: 0;*/
+/*color: #2196f3;*/
+/*}*/
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-clearinput > .inner input + .label.animate,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-pwdtoggle > .inner input + .label.animate,
+.ct-form-control.material.labelinset > .ct-form-control-inner > .ct-form-expandingarea > .inner textarea + .label.animate {
+  transform: scale(0.75) translateY(-27px);
+  top: 0;
+}
+/*-----------------------.tooltipwrap---------------------*/
+/*-----------------------.tooltip---------------------*/
+/*-----------------------.errormessage---------------------*/
+/*-----------------------.rangetip---------------------*/
+.ct-form-control > .tooltipwrap {
+  margin: 0.5rem;
+  overflow: hidden;
+}
+.ct-form-control > .tooltipwrap > .errormessage {
+  display: none;
+}
+.ct-form-control > .tooltipwrap > .tooltipfixed {
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+.ct-form-control > .tooltipwrap > .tooltipfixed > .tooltip,
+.ct-form-control > .tooltipwrap > .tooltipfixed > .rangetip {
+  width: 50%;
+  font-size: 12px;
+  word-break: break-all;
+}
+.ct-form-control > .tooltipwrap > .errormessage {
+  font-size: 12px;
+  word-break: break-all;
+}
+.ct-form-control > .tooltipwrap > .tooltipfixed > .tooltip {
+  float: left;
+}
+.ct-form-control > .tooltipwrap > .tooltipfixed > .rangetip {
+  float: right;
+  text-align: right;
+}
+.ct-form-control.labeltop > .ct-form-control-inner > .controlWrap > .ct-form-select > .inner select {
+  min-width: 100%;
+}
+/**--------------------alert-----------------------**/
+.ct-form-control.default.labelleft.labelinset.validerror .ct-form-clearinput.default > .inner > input:focus,
+.ct-form-control.default.labelleft.labelinset.validerror .ct-form-select.default > .inner > select:focus,
+.ct-form-control.default.labelleft.labelinset.validerror .ct-form-expandingarea.default > .inner textarea:focus,
+.ct-form-control.default.labelright.labelinset.validerror .ct-form-clearinput.default > .inner > input:focus,
+.ct-form-control.default.labelright.labelinset.validerror .ct-form-select.default > .inner > select:focus,
+.ct-form-control.default.labelright.labelinset.validerror .ct-form-expandingarea.default > .inner textarea:focus {
+  box-shadow: none;
+}
+.ct-form-control.default.labelleft.labelinset.validsuccess .ct-form-clearinput.default > .inner > input:focus,
+.ct-form-control.default.labelleft.labelinset.validsuccess .ct-form-select.default > .inner > select:focus,
+.ct-form-control.default.labelleft.labelinset.validsuccess .ct-form-expandingarea.default > .inner textarea:focus,
+.ct-form-control.default.labelright.labelinset.validsuccess .ct-form-clearinput.default > .inner > input:focus,
+.ct-form-control.default.labelright.labelinset.validsuccess .ct-form-select.default > .inner > select:focus,
+.ct-form-control.default.labelright.labelinset.validsuccess .ct-form-expandingarea.default > .inner textarea:focus {
+  box-shadow: none;
+}
+/*
+  ----------------------------------------expandingarea----------------------------------------
+*/
+.ct-form-expandingarea {
+  position: relative;
+}
+.ct-form-expandingarea > .inner > .ct-form-expandingarea-inner {
+  position: relative;
+  width: 100%;
+}
+.ct-form-expandingarea textarea,
+.ct-form-expandingarea pre {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+}
+.ct-form-expandingarea > .inner textarea,
+.ct-form-expandingarea > .inner pre {
+  padding: 5px;
+  background: transparent;
+  font: 400 13px/16px helvetica, arial, sans-serif;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.ct-form-expandingarea > .inner textarea {
+  box-sizing: border-box;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  resize: none;
+}
+.ct-form-expandingarea.active > .inner textarea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 1.2rem;
+  resize: none;
+  outline-width: 0;
+  background: transparent;
+  min-width: 100%;
+}
+.ct-form-expandingarea > .inner pre {
+  display: none;
+  /*font-size: 0;*/
+  padding: 0;
+}
+.ct-form-expandingarea.active > .inner pre {
+  display: block;
+  visibility: hidden;
+}
+/**
+  -----------------------------------------ct-form-clearinput------------------------------------------
+  ------------------------------------------ct-form-pwdtoggle-------------------------------------------
+ */
+.ct-form-clearinput,
+.ct-form-pwdtoggle,
+.ct-form-expandingarea {
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+}
+.ct-form-clearinput.default > .inner input,
+.ct-form-pwdtoggle.default > .inner input,
+.ct-form-expandingarea.default > .inner textarea {
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  min-height: 44px;
+}
+.ct-form-expandingarea.default > .inner pre {
+  min-height: 44px;
+}
+.ct-form-clearinput.default > .inner input {
+  padding: 0.375rem 1.5rem 0.375rem 0.75rem;
+}
+.ct-form-pwdtoggle.default > .inner input {
+  padding: 0.375rem 3.5rem 0.375rem 0.75rem;
+}
+.ct-form-expandingarea.default > .inner textarea {
+  padding: 0.375rem 0.75rem 0.375rem 0.75rem;
+}
+.ct-form-clearinput.ios,
+.ct-form-clearinput.material,
+.ct-form-pwdtoggle.ios,
+.ct-form-pwdtoggle.material,
+.ct-form-expandingarea.ios,
+.ct-form-expandingarea.material {
+  border: 0;
+  min-height: 44px;
+}
+.ct-form-clearinput.ios > .inner,
+.ct-form-pwdtoggle.ios > .inner,
+.ct-form-expandingarea.ios > .inner,
+.ct-form-clearinput.material > .inner,
+.ct-form-pwdtoggle.material > .inner,
+.ct-form-expandingarea.material > .inner {
+  min-height: 44px;
+}
+.ct-form-clearinput > .inner input,
+.ct-form-pwdtoggle > .inner input,
+.ct-form-expandingarea > .inner textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  outline-width: 0;
+}
+.ct-form-clearinput.ios > .inner input,
+.ct-form-clearinput.material > .inner input,
+.ct-form-pwdtoggle.ios > .inner input,
+.ct-form-pwdtoggle.material > .inner input {
+  min-height: 44px;
+  transition: all 0.3s;
+}
+.ct-form-clearinput.ios > .inner input,
+.ct-form-clearinput.material > .inner input {
+  padding-right: 1.5rem;
+}
+.ct-form-pwdtoggle.ios > .inner input,
+.ct-form-pwdtoggle.material > .inner input {
+  padding-right: 3.5rem;
+}
+.ct-form-expandingarea.ios > .inner textarea,
+.ct-form-expandingarea.ios > .inner pre,
+.ct-form-expandingarea.material > .inner textarea,
+.ct-form-expandingarea.material > .inner pre {
+  min-height: 44px;
+  transition: all 0.3s;
+}
+.ct-form-clearinput > .inner input::-webkit-input-placeholder,
+.ct-form-pwdtoggle > .inner input::-webkit-input-placeholder,
+.ct-form-expandingarea > .inner textarea::-webkit-input-placeholder {
+  font-size: 16px;
+}
+.ct-form-clearinput.material > .inner input:focus,
+.ct-form-pwdtoggle.material > .inner input:focus,
+.ct-form-expandingarea.material > .inner textarea:focus {
+  border-bottom-width: 2px;
+}
+.ct-form-pwdtoggle > .ct-form-tool > .toggle {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.25rem;
+}
+.ct-form-clearinput > .ct-form-tool > .clear {
+  display: none;
+  width: 1rem;
+  height: 1rem;
+}
+.ct-form-clearinput.material > .ct-form-tool > .clear {
+  width: 0.7rem;
+  height: 0.7rem;
+}
+.ct-form-clearinput > .ct-form-tool {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0.25rem;
+  height: 100%;
+  z-index: 100;
+}
+.ct-form-clearinput.ios > .ct-form-tool {
+  right: 0.1rem;
+}
+.ct-form-clearinput.material > .ct-form-tool {
+  right: 0;
+}
+.ct-form-clearinput.material > .ct-form-tool > .clear {
+  border-radius: 50%;
+  padding: 5px;
+}
+/**
+  -------------------------------------------ct-form-checkbox--------------------------------------------
+ */
+.ct-form-checkbox,
+.ct-form-checkbox .checkbox {
+  position: relative;
+  background: transparent;
+  box-sizing: border-box;
+}
+.ct-form-checkbox.material,
+.ct-form-checkbox.material .checkbox {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 2px;
+}
+.ct-form-checkbox.ios,
+.ct-form-checkbox.ios .checkbox {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+}
+.ct-form-checkbox .checkbox {
+  animation: ct-form-checkbox-nochecked 100ms;
+  -webkit-animation: ct-form-checkbox-nochecked 100ms;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+.ct-form-checkbox > input[type="checkbox"]:checked + .checkbox {
+  animation: ct-form-checkbox-checked 100ms;
+  animation-fill-mode: forwards;
+  -webkit-animation: ct-form-checkbox-checked 100ms;
+  -webkit-animation-fill-mode: forwards;
+}
+.ct-form-checkbox > input[type="checkbox"]:disabled:not(:checked) + .checkbox {
+  animation: ct-form-checkbox-disabled-nochecked 100ms;
+  -webkit-animation: ct-form-checkbox-disabled-nochecked 100ms;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+.ct-form-checkbox > input[type="checkbox"]:disabled:checked + .checkbox {
+  animation: ct-form-checkbox-disabled-checked 100ms;
+  -webkit-animation: ct-form-checkbox-disabled-checked 100ms;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+.ct-form-checkbox > input[type="checkbox"] {
+  display: none;
+}
+/**
+  --------------------------------------------ct-form-radio----------------------------------------------
+ */
+.ct-form-radio,
+.ct-form-radio > .radio {
+  width: 1.3rem;
+  height: 1.3rem;
+  position: relative;
+  border-radius: 0.6rem;
+  background: transparent;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 100ms;
+}
+.ct-form-radio > input[type="radio"] {
+  display: none;
+}
+.ct-form-radio .inner {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 0.35rem;
+  box-sizing: border-box;
+  transition-duration: 100ms;
+  transform: scale(0);
+  transform-origin: center center;
+}
+.ct-form-radio > input[type="radio"]:checked + .radio > .inner {
+  transform: scale(1);
+}
+/**
+  ---------------------------------------------ct-form-switch------------------------------------------------
+ */
+.ct-form-switch,
+.ct-form-switch > .checkbox {
+  position: relative;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+.ct-form-switch.ios,
+.ct-form-switch.ios > .checkbox {
+  display: inline-block;
+  width: 52px;
+  height: 32px;
+  border-radius: 16px;
+}
+.ct-form-switch.material,
+.ct-form-switch.material > .checkbox {
+  width: 36px;
+  height: 14px;
+  border-radius: 36px;
+}
+.ct-form-switch.material {
+  display: inline-block;
+}
+.ct-form-switch.material > .checkbox {
+  display: block;
+}
+.ct-form-switch > input[type="checkbox"] {
+  display: none;
+  outline: 0;
+}
+.ct-form-switch > .checkbox {
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  border: none;
+  transition-duration: 0.3s;
+}
+.ct-form-switch.ios > .checkbox:before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  border-radius: 16px;
+  box-sizing: border-box;
+  transition-duration: 0.3s;
+  transform: scale(1);
+}
+.ct-form-switch > .checkbox:after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.ct-form-switch.ios > .checkbox:after {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  top: 2px;
+  left: 2px;
+}
+.ct-form-switch.material > .checkbox:after {
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  top: -3px;
+  left: 0;
+}
+.ct-form-switch.ios > input[type="checkbox"]:checked + .checkbox:before {
+  transform: scale(0);
+}
+.ct-form-switch.ios > input[type="checkbox"]:checked + .checkbox:after {
+  transform: translateX(20px);
+}
+.ct-form-switch.material > input[type="checkbox"]:checked + .checkbox:after {
+  transform: translateX(16px);
+}
+/**
+ -------------------------------------------------ct-form-slider--------------------------------------------------
+ */
+.ct-form-slider {
+  display: flex;
+  align-items: center;
+}
+/*ios*/
+.ct-form-slider input[type="range"] {
+  position: relative;
+  height: 28px;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  -ms-background-position-y: 500px;
+}
+.ct-form-slider.ios input[type="range"] {
+  margin: 4px 0 5px 0;
+  border: none;
+  box-sizing: content-box;
+}
+.ct-form-slider.material input[type="range"] {
+  margin: 0;
+}
+.ct-form-slider input[type="range"]:focus,
+.ct-form-slider input[type="range"]:active {
+  border: 0;
+  outline: 0;
+}
+.ct-form-slider.ios input[type="range"]:after {
+  height: 2px;
+  background: #fff;
+  content: ' ';
+  width: 5px;
+  top: 50%;
+  margin-top: -1px;
+  left: -5px;
+  z-index: 1;
+  position: absolute;
+}
+.ct-form-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border: none;
+  position: relative;
+}
+.ct-form-slider.material input[type="range"]::-webkit-slider-thumb {
+  outline: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+}
+.ct-form-slider.ios input[type="range"]::-webkit-slider-thumb {
+  height: 28px;
+  width: 28px;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  content: ' ';
+}
+.ct-form-slider input[type="range"]::-webkit-slider-thumb:before {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 2000px;
+  height: 2px;
+  margin-top: -1px;
+  z-index: 1;
+  content: ' ';
+}
+.ct-form-slider input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 2px;
+  border: none;
+  outline: 0;
+}
+.ct-form-slider.ios input[type="range"]::-moz-range-thumb {
+  height: 28px;
+  width: 28px;
+  border-radius: 28px;
+  background: #fff;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  border: 0;
+  outline: 0;
+  position: absolute;
+  box-sizing: border-box;
+  content: ' ';
+}
+.ct-form-slider.material input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border: none;
+  outline: 0;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  border-radius: 20px;
+}
+.ct-form-slider input[type="range"]::-ms-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.ct-form-slider.ios input[type="range"]::-ms-thumb {
+  height: 28px;
+  width: 28px;
+  border-radius: 28px;
+  background: #fff;
+  z-index: 10;
+  border: 0;
+  outline: 0;
+  position: absolute;
+  content: ' ';
+  box-shadow: none;
+  box-sizing: border-box;
+  margin-top: 0;
+  top: 50%;
+}
+.ct-form-slider.material input[type="range"]::-ms-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border: none;
+  outline: 0;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  border-radius: 20px;
+}
+/**
+  --------------------------------------------ct-form-spinner---------------------------------------------
+ */
+.ct-form-spinner {
+  max-width: 150px;
+  min-width: 130px;
+  position: relative;
+  height: 40px;
+  box-sizing: border-box;
+}
+.ct-form-spinner > input[type='number'] {
+  display: block;
+  border: 0;
+  outline: 0;
+  width: calc(100% - 80px);
+  margin: 0 auto;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.ct-form-spinner > .plus,
+.ct-form-spinner > .minus {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.ct-form-spinner > .plus {
+  right: 0;
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+.ct-form-spinner > .minus {
+  left: 0;
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+.ct-form-spinner.round > .plus {
+  border-radius: 0 29px 29px 0;
+}
+.ct-form-spinner.round > .minus {
+  border-radius: 29px 0 0 29px;
+}
+.ct-form-spinner > .plus:before,
+.ct-form-spinner > .plus:after,
+.ct-form-spinner > .minus:before,
+.ct-form-spinner > .minus:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.ct-form-spinner > .minus:after {
+  width: 15px;
+  height: 2px;
+}
+.ct-form-spinner > .plus:before {
+  height: 15px;
+  width: 2px;
+}
+.ct-form-spinner > .plus:after {
+  width: 15px;
+  height: 2px;
+}
+/**
+ ------------------------------------------------ct-form-select---------------------------------------------
+ */
+.ct-form-select {
+  position: relative;
+  box-sizing: border-box;
+}
+.ct-form-select > .inner > select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  min-height: 44px;
+  padding: 0.5rem;
+  outline: 0;
+}
+.ct-form-select.default > .inner > select {
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.ct-form-select.ios > .inner > select,
+.ct-form-select.material > .inner > select {
+  border: 0;
+}
+

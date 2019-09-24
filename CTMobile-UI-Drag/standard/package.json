@@ -9,6 +9,9 @@
     "buildpackage": "ctcopy ../src src && ctbuild buildpackage",
     "link": "npm link @ctsj/build"
   },
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/playerljc/CTMobile-UI.git"

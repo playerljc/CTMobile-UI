@@ -1,4 +1,4 @@
-import FontSizeSetting from '@ctmobile/ui-fontsizesetting';
+import FontSizeSetting from '@ctmobile/ui-fontsizesetting-sd';
 import DemoUtil from '@ctmobile/ui-demo-util';
 import 'normalize.less';
 import './index.less';

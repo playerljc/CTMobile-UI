@@ -1,15 +1,18 @@
 {
   "name": "@ctmobile/ui-form",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "支持移动端的UI组件-表单",
   "main": "lib/form.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
     "buildpackage": "ctcopy ../src src && ctbuild buildpackage",
-    "buildumd": "ctcopy ../src src && ctbuild buildumd -p form",
-    "link":"npm link @ctsj/build"
+    "buildumd": "ctcopy ../src src && ctbuild buildumd -p form"
   },
+  "files": [
+    "lib",
+    "umd"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/playerljc/CTMobile-UI.git"
@@ -41,6 +44,6 @@
     "lodash": "^4.17.11"
   },
   "devDependencies": {
-    "@ctsj/build": "^1.0.0"
+    "@ctsj/build": "^1.0.11"
   }
 }

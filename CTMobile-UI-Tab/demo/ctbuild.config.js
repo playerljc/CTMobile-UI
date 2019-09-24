@@ -12,37 +12,56 @@ module.exports = {
     //   };
     // } else
 
-    return {
-      /**
-       * 入口
-       */
-      entry: {
-        mobile: `${runtimePath}src\\mobile.js`,
+    const { HtmlWebpackPlugin, CopyWebpackPlugin } = plugins;
+
+    curModule.entry.mobile = `${runtimePath}src\\mobile.js`;
+    curModule.output.publicPath = curModule.mode === 'production' ? '/playerljc.github.io/ctmobile-ui/html/Tab/' : '/';
+    curModule.plugins.push(new HtmlWebpackPlugin({
+      title: 'CtMobile Demo',
+      filename: 'mobile.html',
+      template: `${runtimePath}src\\mobile.html`,
+      chunks: ['mobile'],
+    }));
+    curModule.plugins.push(new CopyWebpackPlugin([
+      {
+        from: 'src/static',
+        to: 'static/html',
+        toType: 'dir',
+        context: runtimePath,
       },
-      output: {
-        publicPath: curModule.mode === 'production' ? '/playerljc.github.io/ctmobile-ui/html/Tab/' : '/',
-      },
-      plugins: [
-        new plugins.HtmlWebpackPlugin({
-          title: 'CtMobile Demo',
-          filename: 'mobile.html',
-          template: `${runtimePath}src\\mobile.html`,
-          chunks: ['mobile'],
-        }),
-        new plugins.CopyWebpackPlugin([
-          {
-            from: 'src/static',
-            to: 'static/html',
-            toType: 'dir',
-            context: runtimePath,
-          },
-        ]),
-      ],
-      // resolve: {
-      //   alias: {
-      //     '@ctmobile/ui-tab': path.resolve(__dirname, 'src/ctmobile-ui-tab'),
-      //   },
-      // },
-    };
+    ]));
+
+    // return {
+    //   /**
+    //    * 入口
+    //    */
+    //   entry: {
+    //     mobile: `${runtimePath}src\\mobile.js`,
+    //   },
+    //   output: {
+    //     publicPath: curModule.mode === 'production' ? '/playerljc.github.io/ctmobile-ui/html/Tab/' : '/',
+    //   },
+    //   plugins: [
+    //     new plugins.HtmlWebpackPlugin({
+    //       title: 'CtMobile Demo',
+    //       filename: 'mobile.html',
+    //       template: `${runtimePath}src\\mobile.html`,
+    //       chunks: ['mobile'],
+    //     }),
+    //     new plugins.CopyWebpackPlugin([
+    //       {
+    //         from: 'src/static',
+    //         to: 'static/html',
+    //         toType: 'dir',
+    //         context: runtimePath,
+    //       },
+    //     ]),
+    //   ],
+    //   // resolve: {
+    //   //   alias: {
+    //   //     '@ctmobile/ui-tab': path.resolve(__dirname, 'src/ctmobile-ui-tab'),
+    //   //   },
+    //   // },
+    // };
   },
 };

@@ -1,4 +1,4 @@
-import DragLayout from '@ctmobile/ui-draglayout';
+import DragLayout from '@ctmobile/ui-draglayout-sd';
 import DemoUtil from '@ctmobile/ui-demo-util';
 import 'normalize.less';
 import './index.less';

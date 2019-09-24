@@ -1,4 +1,4 @@
-import Popup from '@ctmobile/ui-popup';
+import Popup from '@ctmobile/ui-popup-sd';
 import DemoUtil, { Bone } from '@ctmobile/ui-demo-util';
 
 import 'normalize.less';

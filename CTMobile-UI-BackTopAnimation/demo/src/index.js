@@ -1,5 +1,5 @@
 import DemoUtil from '@ctmobile/ui-demo-util';
-import BackTopAnimation from '@ctmobile/ui-backtopanimation';
+import BackTopAnimation from '@ctmobile/ui-backtopanimation-sd';
 import { Dom6 } from '@ctmobile/ui-util';
 import './index.less';
 

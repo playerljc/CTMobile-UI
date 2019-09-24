@@ -1,6 +1,6 @@
 import DemoUtil from '@ctmobile/ui-demo-util';
 import { Dom6 } from '@ctmobile/ui-util';
-import SwipeoutListFactory from '@ctmobile/ui-swipeout';
+import SwipeoutListFactory from '@ctmobile/ui-swipeout-sd';
 import './index.less';
 
 DemoUtil.initial();

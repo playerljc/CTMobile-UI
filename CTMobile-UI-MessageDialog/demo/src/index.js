@@ -1,4 +1,4 @@
-import MessageDialog from '@ctmobile/ui-messagedialog';
+import MessageDialog from '@ctmobile/ui-messagedialog-sd';
 import DemoUtil from '@ctmobile/ui-demo-util';
 import 'normalize.less';
 import './index.less';

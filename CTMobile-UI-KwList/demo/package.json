@@ -8,7 +8,7 @@
     "watch": "webpack --watch",
     "startapp": "ctbuild startapp",
     "buildapp": "ctbuild buildapp",
-    "link": "npm link @ctsj/build && npm link @ctmobile/ui-demo-util && npm link @ctmobile/ui-kwlist && npm link @ctmobile/ui-listview"
+    "link": "npm link @ctmobile/ui-demo-util"
   },
   "author": "playerljc <playerljc@163.com>",
   "license": "MIT",
@@ -33,9 +33,8 @@
     "jquery": "^3.3.1",
     "lodash": "^4.17.11",
     "normalize.less": "^1.0.0",
-    "@ctsj/build": "^1.0.0",
-    "@ctmobile/ui-demo-util": "^1.0.0",
-    "@ctmobile/ui-kwlist": "^1.0.0",
+    "@ctsj/build": "^1.0.11",
+    "@ctmobile/ui-kwlist-sd": "^1.0.1",
     "@ctmobile/ui-listview": "^1.0.0"
   }
 }

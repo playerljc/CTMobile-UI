@@ -1,4 +1,4 @@
-import Accordion from '@ctmobile/ui-accordion';
+import Accordion from '@ctmobile/ui-accordion-sd';
 import DemoUtil from '@ctmobile/ui-demo-util';
 import 'normalize.less';
 import './index.less';

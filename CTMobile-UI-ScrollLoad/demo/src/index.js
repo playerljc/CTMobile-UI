@@ -1,5 +1,5 @@
 import DemoUtil from '@ctmobile/ui-demo-util';
-import ScrollLoad, { CONSTANT } from '@ctmobile/ui-scrollload';
+import ScrollLoad, { CONSTANT } from '@ctmobile/ui-scrollload-sd';
 // import '@ctmobile/ui-scrollload/themes/default/scrollload.less';
 // import '@ctmobile/ui-scrollload/scrollload.less';
 

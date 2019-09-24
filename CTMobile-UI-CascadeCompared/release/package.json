@@ -7,9 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
     "buildpackage": "ctcopy ../src src && ctbuild buildpackage",
-    "buildumd": "ctcopy ../src src && ctbuild buildumd -p cascadecompared",
+    "buildumd": "ctbuild buildumd -p cascadecompared",
     "link":"npm link @ctmobile/ui-stickuplayout && npm link @ctsj/build"
   },
+  "files": [
+    "lib",
+    "umd"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/playerljc/CTMobile-UI.git"

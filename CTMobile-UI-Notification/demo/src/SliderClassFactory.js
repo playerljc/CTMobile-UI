@@ -1,4 +1,4 @@
-import Notification from '@ctmobile/ui-notification';
+import Notification from '@ctmobile/ui-notification-sd';
 
 const StandardNConfig = {
   headerLabel: 'NotificationTitle',

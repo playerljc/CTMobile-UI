@@ -1,6 +1,6 @@
 {
   "name": "@ctmobile/ui-tree",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "支持移动端的UI组件-Tree",
   "main": "lib/tree.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
     "buildpackage": "ctcopy ../src src && ctbuild buildpackage",
     "buildumd": "ctcopy ../src src && ctbuild buildumd -p tree",
-    "link": "npm link @ctsj/build && npm link @ctmobile/ui-util"
+    "link": "npm link @ctsj/build"
   },
   "files": [
     "lib",
@@ -41,9 +41,10 @@
   "homepage": "https://github.com/playerljc/CTMobile-UI#readme",
   "dependencies": {
     "@babel/runtime": "^7.2.0",
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "@ctmobile/ui-util": "^1.0.1"
   },
   "devDependencies": {
-    "@ctsj/build": "^1.0.0"
+    "@ctsj/build": "^1.0.11"
   }
 }

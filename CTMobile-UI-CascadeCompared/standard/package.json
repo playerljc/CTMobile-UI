@@ -1,14 +1,17 @@
 {
   "name": "@ctmobile/ui-cascadecompared-sd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "支持移动端的UI组件-CascadeCompared",
   "main": "lib/cascadecompared.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
-    "buildpackage": "ctcopy ../src src && ctbuild buildpackage",
-    "link":"npm link @ctmobile/ui-stickuplayout && npm link @ctsj/build"
+    "buildpackage": "ctbuild buildpackage",
+    "link":"npm link @ctmobile/ui-stickuplayout-sd && npm link @ctsj/build"
   },
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/playerljc/CTMobile-UI.git"
@@ -41,6 +44,6 @@
     "@ctsj/build": "^1.0.0",
     "jquery": "^3.3.1",
     "iscroll": "^5.2.0",
-    "@ctmobile/ui-stickuplayout": "^1.0.0"
+    "@ctmobile/ui-stickuplayout-sd": "^1.0.0"
   }
 }

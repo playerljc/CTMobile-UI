@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import StickupLayout from '@ctmobile/ui-stickuplayout';
+import StickupLayout from '@ctmobile/ui-stickuplayout-sd';
 import DemoUtil from '@ctmobile/ui-demo-util';
 import 'normalize.less';
 import './index.less';

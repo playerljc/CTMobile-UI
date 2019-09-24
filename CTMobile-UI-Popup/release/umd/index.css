@@ -1,0 +1,32 @@
+.ct-popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: none;
+  will-change: transform;
+  transition: transform 0.4s;
+  transform: translate3d(0, 100%, 0);
+  z-index: 11000;
+  overflow: hidden;
+}
+.ct-popup.modal-in {
+  transform: translate3d(0, 0, 0);
+}
+.ct-popup-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition-duration: 0.4s;
+  display: none;
+  z-index: 9500;
+}
+.ct-popup-mask.modal-in {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+

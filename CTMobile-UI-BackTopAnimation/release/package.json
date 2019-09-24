@@ -1,15 +1,18 @@
 {
   "name": "@ctmobile/ui-backtopanimation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "支持移动端的UI组件-回到顶部",
   "main": "lib/backtopanimation.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
     "buildpackage": "ctcopy ../src src && ctbuild buildpackage",
-    "buildumd": "ctcopy ../src src && ctbuild buildumd -p backtopanimation",
-    "link": "npm link @ctsj/build && npm link @ctmobile/ui-util"
+    "buildumd": "ctcopy ../src src && ctbuild buildumd -p backtopanimation"
   },
+  "files": [
+    "lib",
+    "umd"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/playerljc/CTMobile-UI.git"
@@ -40,6 +43,6 @@
     "@ctmobile/ui-util": "^1.0.0"
   },
   "devDependencies": {
-    "@ctsj/build": "^1.0.0"
+    "@ctsj/build": "^1.0.11"
   }
 }

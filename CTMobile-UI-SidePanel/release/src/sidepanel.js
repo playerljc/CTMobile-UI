@@ -11,6 +11,7 @@ import { Events, Dom6 } from '@ctmobile/ui-util';
  * direction: overlay : [left | right | top | bottom]
  *            reveal :  [left | right]
  *            push :    [left | right]
+ * listeners: Object
  *
  * 基本布局：
  *     overlay:<div class="ct-sidepanel-overlay"></div>

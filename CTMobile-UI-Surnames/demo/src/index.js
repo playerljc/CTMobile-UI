@@ -1,6 +1,6 @@
 import DemoUtil from '@ctmobile/ui-demo-util';
 import { Dom6 } from '@ctmobile/ui-util';
-import SurnamesFactory from '@ctmobile/ui-surnames';
+import SurnamesFactory from '@ctmobile/ui-surnames-sd';
 import './index.less';
 
 DemoUtil.initial();
