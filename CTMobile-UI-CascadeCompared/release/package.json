@@ -1,12 +1,12 @@
 {
   "name": "@ctmobile/ui-cascadecompared",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "支持移动端的UI组件-CascadeCompared",
   "main": "lib/cascadecompared.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc src README.md -d doc -u doc/tutorials",
-    "buildpackage": "ctcopy ../src src && ctbuild buildpackage",
+    "buildpackage": "ctbuild buildpackage",
     "buildumd": "ctbuild buildumd -p cascadecompared",
     "link":"npm link @ctmobile/ui-stickuplayout && npm link @ctsj/build"
   },
@@ -43,9 +43,9 @@
     "@babel/runtime": "^7.2.0",
     "jquery": "^3.3.1",
     "iscroll": "^5.2.0",
-    "@ctmobile/ui-stickuplayout": "^1.0.0"
+    "@ctmobile/ui-stickuplayout": "^1.0.1"
   },
   "devDependencies": {
-    "@ctsj/build": "^1.0.0"
+    "@ctsj/build": "^1.0.11"
   }
 }

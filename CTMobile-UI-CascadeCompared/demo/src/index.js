@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import CascadeCompared from '@ctmobile/ui-cascadecompared';
+import CascadeCompared from '@ctmobile/ui-cascadecompared-sd';
 import DemoUtil from '@ctmobile/ui-demo-util';
 import 'normalize.less';
 // import '@ctmobile/ui-cascadecompared/cascadecompared.less';

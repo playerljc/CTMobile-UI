@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  getConfig(config) {
+  getConfig() {
     return {
       // resolve: {
       //   alias: {
