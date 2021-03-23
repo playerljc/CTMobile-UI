@@ -284,6 +284,7 @@ class SidePanel {
     this.pSlaveEl = this.pMasterEl ? this.pMasterEl.querySelector(`.${selectorPrefix}push-slave`) : null; // 9998
 
     this.el.style.zIndex = this.config.zIndex;
+
     if (this.rMasterEl) this.rMasterEl.style.zIndex = this.config.zIndex + 1;
     if (this.pMasterEl) this.pMasterEl.style.zIndex = this.config.zIndex - 1;
     if (this.pSlaveEl) this.pSlaveEl.style.zIndex = this.config.zIndex - 2;

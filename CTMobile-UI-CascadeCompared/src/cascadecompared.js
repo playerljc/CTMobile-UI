@@ -71,18 +71,6 @@ function initScroll() {
 }
 
 /**
- * position 初始化
- * @access private
- */
-function initial() {
-  this.scrolls = [];
-  // 初始化stickup
-  initDimension.call(this);
-  this.stickup = StickupLayout(this.el);
-  initScroll.call(this);
-}
-
-/**
  * 计算尺寸
  * @access private
  */
@@ -149,6 +137,18 @@ function initDimension() {
       this.$el.find(SELECTORS.masterAutoWrapRow).eq(i - 1).css('height', `${value}px`);
     }
   }
+}
+
+/**
+ * position 初始化
+ * @access private
+ */
+function initial() {
+  this.scrolls = [];
+  // 初始化stickup
+  initDimension.call(this);
+  this.stickup = StickupLayout(this.el);
+  initScroll.call(this);
 }
 
 /**
